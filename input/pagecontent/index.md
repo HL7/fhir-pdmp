@@ -26,21 +26,22 @@ This implementation guide is intended be used in the United States. It reflects 
 #### Actors
 The following actors participate in the data exchange flows described in this guide:
 
-- **PDMP Requester:** A system that retrieves patient prescription data from a PDMP on behalf of a prescriber or pharmacist. This system can be thought of as the client in a client-server interaction.
-- **PDMP Responder:** A state-based PDMP, intermediary or partner system that acts as a source of prescription data by responding to PDMP data requests. This system can be thought of as the server in a client-server interaction.
+- **Prescriber and Pharmacy System (PDMP Requester):** A system that retrieves patient prescription data from a PDMP on behalf of a prescriber or pharmacist. This system can be thought of as the client in a client-server interaction.
+- **State PDMP or Partner System (PDMP Responder):** A state-based PDMP, intermediary or partner system that acts as a source of prescription data by responding to PDMP data requests. This system can be thought of as the server in a client-server interaction.
 
 
 ### Content and Organization
 
 The guide is organized into the following sections:
 
-- [FHIR Medication Resources](roles.html) briefly introduces how medication concepts are represented in FHIR.
-- [Use Cases and Roles](roles.html) gives an overview of the guide's goals and participants.
-- [Conformance Expectations](conformance.html) defines use of Must Support elements and also describes conventions for situations where information is not available.
+- [Use Case Details](use-case.html) defines the PDMP use case, participants and guidance.
 - [Mappings to Related Standards](mappings.html) describes how FHIR content relates to other standards use in the larger PDMP ecosystem.
-- [Deployment Architecture](deployment.html) provides guidance on system deployment options.
 - [Security](security.html) provides information for implementers related to security and privacy.
+- [Deployment Architecture](deployment.html) provides guidance on system deployment options.
+- [Conformance Expectations](conformance.html) defines use of Must Support elements and also describes conventions for situations where information is not available.
+- [FHIR Medication Resource Background](fhir-medication-background.html) refers to related medication concepts and guidance in FHIR.
 - [Applicable US Core Profiles](us-core-profiles.html) defines expectations for the use of US Core profiles in the guide's searches.
+- [Profiles, Terminology and Examples](artifacts.html) lists the FHIR profiles and other artifacts defined in this IG.
 - [Capability Statements](capability-statements.html) defines sets of guide functionality to be implemented by PDMP Requesters and PDMP Responders.
 
 ### FHIR Basics 
