@@ -8,9 +8,6 @@
     </a>
     <ul class="dropdown-menu">
       <li>
-        <a href="fhir-medication-background.html">FHIR Medication Resources</a>
-      </li>
-      <li>
         <a href="roles.html">Use Cases and Roles</a>
       </li>
      <li>
@@ -24,6 +21,9 @@
       </li>
    	  <li>
         <a href="conformance.html">Conformance Expectations</a>
+      </li>
+      <li>
+        <a href="fhir-medication-background.html">FHIR Medication Resource Background</a>
       </li>
 	</ul>
   </li>
@@ -43,6 +43,5 @@
       </li>
 	</ul>
   </li>
-  <li><a href="pdmp.html">PDMP</a></li>
   <li><a href="downloads.html">Downloads</a></li>
 </ul>      
