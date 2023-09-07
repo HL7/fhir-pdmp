@@ -3,12 +3,13 @@ Alias: $us-core-patient = http://hl7.org/fhir/us/core/StructureDefinition/us-cor
 Alias: $us-core-practitioner = http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner
 Alias: $us-core-organization = http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization
 Alias: $medicationdispense-status = http://hl7.org/fhir/ValueSet/medicationdispense-status
-Alias: $us-core-medication-codes = http://hl7.org/fhir/us/core/ValueSet/us-core-medication-codes
+Alias: $us-core-medication-clinical-drug = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1010.4
+Alias: $us-core-medicationdispense = http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationdispense
 
 Profile: MedicationDispenseProfile
-Parent: MedicationDispense
+Parent: $us-core-medicationdispense
 Id: pdmp-medicationdispense
-Description: "Defines constraints and extensions on the MedicationDispense resource for the minimal set of data to query and retrieve patients medication information."
+Description: "Defines constraints and extensions on the MedicationDispense resource when used by a Prescription Drug Monitoring Program (PDMP) to return an individual's medication dispense history."
 * ^version = "2.2.0"
 * ^status = #active
 * ^date = "2023-06-20"
@@ -30,7 +31,7 @@ Description: "Defines constraints and extensions on the MedicationDispense resou
 * status ^binding.description = "A set of codes indicating the current status of a MedicationDispense."
 * medication[x] only CodeableConcept or Reference($us-core-medication)
 * medication[x] MS
-* medication[x] from $us-core-medication-codes (extensible)
+* medication[x] from $us-core-medication-clinical-drug (extensible)
 * medication[x] ^isModifier = false
 * medication[x] ^binding.description = "Prescribable medications"
 * subject 1.. MS

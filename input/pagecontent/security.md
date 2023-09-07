@@ -1,6 +1,6 @@
 
 #### Security Considerations for  Transactions
-In each of the exchanges described in this guide, the PDMP Client SHALL provide proof of authorization. PDMP Requester and Responder systems SHOULD implement OAuth 2.0 access management in accordance with the [SMART Backend Services: Authorization Guide](http://hl7.org/fhir/uv/bulkdata/authorization/index.html), as the exchanges in this guide do not require user access authorization and may run autonomously.
+In each of the exchanges described in this guide, the PDMP Client SHALL provide proof of authorization. PDMP Requester and Responder systems SHOULD implement OAuth 2.0 access management in accordance with the [SMART Backend Services: Authorization Guide](https://hl7.org/fhir/uv/bulkdata/authorization), as the exchanges in this guide do not require user access authorization and may run autonomously.
 
 <div>
 <figure class="figure">

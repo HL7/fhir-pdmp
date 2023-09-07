@@ -133,21 +133,73 @@ In order to use FHIR to access  data the following FHIR profiles will be used
 * Message Header: Used to communicate information about the request headers.
 
 
-#### FHIR Search API 
+#### FHIR Search API
 
 _to be reviewed/revised_
 
-The FHIR standard provides a rich set of [search mechanisms](http://hl7.org/fhir/search.html) by which specific FHIR resources can be accessed from a FHIR server. Typically the search parameters are specified in the RESTful URL and accessed using the HTTP GET operation.
+The FHIR standard provides a set of [search mechanisms](http://hl7.org/fhir/search.html) by which specific FHIR resources can be accessed from a FHIR server. Typically the search parameters are specified in the RESTful URL and accessed using the HTTP GET operation. Searches may also be performed using HTTP POST, with parameters specified in the operation body.
 
-The following is the exact API that uses multiple search parameters to access  data from a PDMP Responder
+**Search Parameters**
+_to be determined which s/b mandatory, must support or optional_
 
-	`GET [base]/MedicationDispense?subject:Patient.name.given=sherlock&subject:Patient.name.family=holmes&subject:Patient.birthdate=eq1954-01-06&authorizingPrescription.dispenseRequest.validityPeriod=ge1954-01-06&authorizingPrescription.dispenseRequest.validityPeriod=le2019-12-01&_include=MedicationDispense:subject&_include:recurse=MedicationDispense:authorizingPrescription&_include=MedicationDispense:medication`
+Each FHIR resource in the FHIR specification has associated search parameters that enable filtering based on data within the resource. A parameter may relate to a single element (e.g., a resource status of active, inactive, etc.) or multiple (e.g., a combination of identifier system and value).
+For details, see these sections of the FHIR specification:
+- [Patient Search Parameters](https://build.fhir.org/patient.html#search)
+- [MedicationDispense Search Parameters](https://build.fhir.org/medicationdispense.html#search)
 
-The above API will fetch all MedicationDispense resources for Patient with a given name of "sherlock" and family name of "holmes" with a birthdate of "1954-01-06" with a prescription from January 6, 1954 to December 01, 2019. The bundle returned will include MedicationDispense, MedicationRequest, Practitioner, Organization, Patient and Medication.
+Below are important parameters used when retrieving a patient's medication dispense data from a PDMP Responder:
 
-The security considerations for using the API will be discussed as part of the security section.
+_Patient resource search parameters_
+- `family` - Family name
+- `given` - Given name
+- `name` - Full name
+- `birthdate` - Date of birth
+- `gender` - Administrative gender 
+- `identifier` - Combination of an identifier system (e.g., drivers license number or SSN) and value
+  - E.g., `identifier=http://hl7.org/fhir/sid/us-ssn|123456789`
+- Address parameters:
+  - `address-city`, `address-state`, `address-postalcode`, `address` (full address)
 
-The data elements that will be returned and how they map to NCPDP and PMIX/NIEM will be discussed in the  Data Elements and Mapping section.
+_MedicationDispense search parameters_
+- `patient` - reference to the FHIR Patient. Followed by additional parameters such as `patient.id` (FHIR id on the PDMP system), `patient.identifier` such as a drivers license number, `patient.birthdate`, etc.
+- `whenHandedOver` - date dispensed to the patient
+
+#### Search Workflow
+_added 20230907 per group discussion. To be discussed / refined_
+
+Searches may be performed in one or two steps:
+
+**One Step**
+-  A single FHIR search can include both MedicationDispense and Patient parameters--serving to both:
+  -  locate the intended patient
+  -  and filter the set of dispense information to be returned. 
+
+
+The following FHIR search uses both Patient and MedicationDispense parameters to retrieve a single patient's dispense data from a PDMP Responder.
+```
+GET [base]/MedicationDispense?patient.name.given=sherlock&patient.name.family=holmes&patient.birthdate=eq1954-01-06&whenHandedOver=ge2023-01-01&whenHandedOver=le2023-12-31&_include=MedicationDispense:subject&_include:recurse=MedicationDispense:authorizingPrescription&_include=MedicationDispense:medication
+```
+The above API call will fetch all MedicationDispense resources for 2023 dispenses to a patient with a given name of "sherlock", family name of "holmes" and birthdate of "1954-01-06" with a prescription from January 6, 1954 to December 01, 2019. The bundle returned will include MedicationDispense resources and referenced MedicationRequest, Practitioner, Organization, Patient and Medication resources.
+
+<br />
+
+**Two Step** 
+- A sequence of two FHIR searches may also be used, as follows:
+  - first, locate the patient for whom dispense information is desired
+  - second, retrieve only medication dispenses linked to that patient.
+
+This approach has the benefit of enabling the person requesting the information to first confirm the patient match before retrieving their clinical data, which limits the opportunity for other patients' medical information to be unnecessarily released.
+
+When using this approach...
+- A search on Patient is performed first, including parameters such as `name` and `birthdate`. The PDMP Responder returns all matching patients
+- The requester determines the correct patient record from those returned and notes its Patient.id value. This is the unique identifier for the patient within the PDMP Responder system
+- The requester submits a second search for MedicationRequests that includes 
+  - a `patient` parameter equaling the Patient.id located in the previous step
+  - additional parameters to further filter the results.
+
+
+
+Note: The data elements returned by these searches and how they map to NCPDP and PMIX/NIEM are discussed in the Data Elements and Mapping section of this guide.
 
 
 #### Security Considerations for  Transactions

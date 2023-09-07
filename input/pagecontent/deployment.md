@@ -2,7 +2,7 @@ The following are deployment options showing how the PDMP FHIR IG can be used to
 
 #### Deployment Option 1:
 
-In this deployment option, the EHRs, Apps and Clinical Systems act as the PDMP Requesters and interact with Intermediary Gateways such as Appriss, RxCheck which act as the PDMP Responders. The communication is performed using FHIR APIs. In this case the PDMP Requesters are isolated from the State  Systems and the protocols they support.
+In this deployment option, the EHRs, Apps and Clinical Systems act as the PDMP Requesters and interact with Intermediary Gateways that act as the PDMP Responders. The communication is performed using FHIR APIs. In this case the PDMP Requesters are isolated from the State  Systems and the protocols they support.
 
 The Intermediaries may translate the incoming FHIR request for data to a PMIX/NIEM request to comply with existing state interfaces or may use other methods to get the data from the State  systems. All of these interactions are isolated from the PDMP Requester. The Intermediaries may also retrieve data from multiple State  systems simultaneously.
 
@@ -17,7 +17,7 @@ The Intermediaries may translate the incoming FHIR request for data to a PMIX/NI
 
 #### Deployment Option 2:
 
-In this deployment option, the EHRs, Apps and Clinical Systems act as the PDMP Requesters and interact with Intermediary Gateways such as Appriss, RxCheck which act as the PDMP Responders. The communication is performed using FHIR APIs. In this case the PDMP Requesters are isolated from the State  Systems and the protocols they support.
+In this deployment option, the EHRs, Apps and Clinical Systems act as the PDMP Requesters and interact with Intermediary Gateways that act as the PDMP Responders. The communication is performed using FHIR APIs. In this case the PDMP Requesters are isolated from the State  Systems and the protocols they support.
 
 The Intermediaries in this case will use FHIR APIs to request data from one or more State  Systems. The advantage here it is the same standard end to end however an Intermediary can provide value added information such as analytics, ability to integrate data from multiple states.
 
