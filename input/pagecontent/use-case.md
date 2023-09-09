@@ -162,7 +162,7 @@ _Patient resource search parameters_
 
 _MedicationDispense search parameters_
 - `patient` - reference to the FHIR Patient. Followed by additional parameters such as `patient.id` (FHIR id on the PDMP system), `patient.identifier` such as a drivers license number, `patient.birthdate`, etc.
-- `whenHandedOver` - date dispensed to the patient
+- `whenhandedover` - date dispensed to the patient
 
 #### Search Workflow
 _added 20230907 per group discussion. To be discussed / refined_
@@ -176,10 +176,16 @@ Searches may be performed in one or two steps:
 
 
 The following FHIR search uses both Patient and MedicationDispense parameters to retrieve a single patient's dispense data from a PDMP Responder.
-```
-GET [base]/MedicationDispense?patient.name.given=sherlock&patient.name.family=holmes&patient.birthdate=eq1954-01-06&whenHandedOver=ge2023-01-01&whenHandedOver=le2023-12-31&_include=MedicationDispense:subject&_include:recurse=MedicationDispense:authorizingPrescription&_include=MedicationDispense:medication
-```
-The above API call will fetch all MedicationDispense resources for 2023 dispenses to a patient with a given name of "sherlock", family name of "holmes" and birthdate of "1954-01-06" with a prescription from January 6, 1954 to December 01, 2019. The bundle returned will include MedicationDispense resources and referenced MedicationRequest, Practitioner, Organization, Patient and Medication resources.
+
+`GET [base]/MedicationDispense` <br/>
+`?patient.given=karina&patient.family=doe&patient.birthdate=eq2008-08-22`<br/>
+`&whenhandedover=ge2023-01-01&whenhandedover=le2023-12-31`<br/>
+`&_include=MedicationDispense:subject`<br/>
+`&_include:recurse=MedicationDispense:prescription`<br/>
+`&_include:recurse=MedicationRequest:requester`<br/>
+`&_include:recurse=MedicationDispense:performer`<br/>
+
+The above API call will fetch all MedicationDispense all 2023 dispenses for a patient with a given name of "karina", family name of "doe" and birthdate of "2008-08-22". The bundle returned will include MedicationDispense resources and referenced MedicationRequest, Practitioner (prescriber), Organization (pharmacy) and Patient resources.
 
 <br />
 
@@ -197,7 +203,24 @@ When using this approach...
   - a `patient` parameter equaling the Patient.id located in the previous step
   - additional parameters to further filter the results.
 
+The following FHIR search uses both Patient parameters to retrieve a particular patient from a PDMP Responder.
 
+`GET [base]/Patient` <br/>
+`?given=karina&family=doe&birthdate=eq2008-08-22&gender=female`
+
+It returns the Patient resource representing the individual, including the Patient.id `0c55727c-9642-421c-a213-ee134d075930` - which is the PDMP Responder system's unique system identifier for the patient. 
+- If the response included multiple potential matches for the search criteria, an end-user would locate the intended patient among them.
+
+The second search uses the returned Patient.id to limit results to the selected patient and uses additional MedicationDispense parameters to specify which dispenses to include in the response...
+
+`GET [base]/MedicationDispense` <br />
+`&whenhandedover=ge2023-01-01&whenhandedover=le2023-12-31`<br/>
+`&_include=MedicationDispense:subject`<br/>
+`&_include:recurse=MedicationDispense:prescription`<br/>
+`&_include:recurse=MedicationRequest:requester`<br/>
+`&_include:recurse=MedicationDispense:performer`<br/>
+
+The above call will return all MedicationDispense all 2023 dispenses for the specified patient. The bundle returned will also include referenced MedicationRequest, Practitioner (prescriber), Organization (pharmacy) and Patient resources.
 
 Note: The data elements returned by these searches and how they map to NCPDP and PMIX/NIEM are discussed in the Data Elements and Mapping section of this guide.
 
