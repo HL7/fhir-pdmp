@@ -50,7 +50,11 @@ Description: "This profile constrains a Bundle resource for use as the response 
 * entry[bundle].resource 1..1 MS
 * entry[bundle].resource only Bundle
 
+Alias: $pdmp-event-type = http://hl7.org/fhir/us/pdmp/CodeSystem/pdmp-event-type
+Alias: $v2-0203 = http://terminology.hl7.org/CodeSystem/v2-0203
 Alias: $rxnorm = http://www.nlm.nih.gov/research/umls/rxnorm
+Alias: $ndc = http://hl7.org/fhir/sid/ndc
+Alias: $organization-type = http://terminology.hl7.org/CodeSystem/organization-type
 
 Instance: pdmp-bundle-response-1
 InstanceOf: pdmp-bundle-response
@@ -85,8 +89,6 @@ Usage: #inline
 * entry[=].resource.resourceType = "Patient"
 * entry[=].resource.id = "patient-res-1"
 * entry[=].resource.meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
-* entry[=].resource.text.status = #generated
-* entry[=].resource.text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative: Patient</b><a name=\"patient-req-1\"> </a></p><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Resource Patient &quot;patient-req-1&quot; </p><p style=\"margin-bottom: 0px\">Profile: <a href=\"http://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-patient.html\">US Core Patient Profile</a></p></div><p><b>identifier</b>: id:\\u00a0120-35-2435</p><p><b>name</b>: August Samuels </p><p><b>gender</b>: male</p><p><b>birthDate</b>: 1989-03-12</p><p><b>address</b>: MA 01059 </p></div>"
 * entry[=].resource.identifier.system = "http://hl7.org/fhir/sid/us-ssn"
 * entry[=].resource.identifier.value = "120-35-2435"
 * entry[=].resource.name.family = "Samuels"
@@ -96,23 +98,51 @@ Usage: #inline
 * entry[=].resource.address.state = "MA"
 * entry[=].resource.address.postalCode = "01059"
 * entry[=].search.mode = #match
-* entry[+].fullUrl = "http://example.org/pdmp-a/MedicationDispense/1"
+* entry[+].fullUrl = "http://example.org/pdmp-a/MedicationDispense/meddispense-res-1-1"
 * entry[=].resource.resourceType = "MedicationDispense"
-* entry[=].resource.id = "pdmp-meddispense-1"
-* entry[=].resource.meta.versionId = "1"
-* entry[=].resource.meta.lastUpdated = "2016-12-08T06:38:52Z"
+* entry[=].resource.id = "meddispense-res-1-1"
 * entry[=].resource.meta.profile = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-medicationdispense"
-* entry[=].resource.text.status = #extensions
-* entry[=].resource.text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p><b>Generated Narrative: MedicationDispense</b><a name=\"pdmp-meddispense-1\"> </a></p><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Resource MedicationDispense &quot;pdmp-meddispense-1&quot; Version &quot;1&quot; Updated &quot;2016-12-08 06:38:52+0000&quot; </p><p style=\"margin-bottom: 0px\">Profile: <a href=\"StructureDefinition-pdmp-medicationdispense.html\">MedicationDispenseProfile</a></p></div><p><b>Refill_Number_Extensionn</b>: 5</p><p><b>status</b>: in-progress</p><p><b>medication</b>: Lantus 100 UNT/ML Injectable Solution <span style=\"background: LightGoldenRodYellow; margin: 4px; border: 1px solid khaki\"> (<a href=\"http://terminology.hl7.org/5.0.0/CodeSystem-v3-rxNorm.html\">RxNorm</a>#285018)</span></p><p><b>subject</b>: <span>: Amy V. Shaw</span></p><h3>Performers</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Actor</b></td></tr><tr><td style=\"display: none\">*</td><td><span>: Ronald Bone, MD</span></td></tr></table><p><b>whenHandedOver</b>: 2016-12-08 06:38:52+0000</p><h3>DosageInstructions</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Sequence</b></td><td><b>Text</b></td></tr><tr><td style=\"display: none\">*</td><td>1</td><td>20 Units SC three times daily</td></tr></table></div>"
 * entry[=].resource.extension.url = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-refill-number-extension"
-* entry[=].resource.extension.valuePositiveInt = 5
-* entry[=].resource.status = #in-progress
-* entry[=].resource.medicationCodeableConcept = $rxnorm#285018 "Lantus 100 UNT/ML Injectable Solution"
-* entry[=].resource.medicationCodeableConcept.text = "Lantus 100 UNT/ML Injectable Solution"
+* entry[=].resource.extension.valuePositiveInt = 1
+* entry[=].resource.identifier.type = $v2-0203#FILL "Filler Identifier"
+* entry[=].resource.identifier.system = "http://ourpharmacy.com/fillnumber"
+* entry[=].resource.identifier.value = "2000353"
+* entry[=].resource.status = #completed
+* entry[=].resource.medicationCodeableConcept.coding[0] = $rxnorm#993781 "acetaminophen 300 MG / codeine phosphate 30 MG Oral Tablet"
+* entry[=].resource.medicationCodeableConcept.coding[+] = $ndc#93015001
+* entry[=].resource.medicationCodeableConcept.text = "Acetaminophen 300 mg / Codeine 30 mg oral tablet"
 * entry[=].resource.subject.reference = "Patient/patient-res-1"
 * entry[=].resource.subject.display = "August Samuels"
-* entry[=].resource.performer.actor.display = "Ronald Bone, MD"
-* entry[=].resource.whenHandedOver = "2016-12-08T06:38:52Z"
+* entry[=].resource.performer.actor.reference = "Organization/org-res-1-1"
+* entry[=].resource.performer.actor.identifier.system = "http://terminology.hl7.org/CodeSystem/NCPDPProviderIdentificationNumber"
+* entry[=].resource.performer.actor.identifier.value = "999017"
+* entry[=].resource.performer.actor.display = "Our Pharmacy"
+* entry[=].resource.authorizingPrescription.identifier.type = $v2-0203#PLAC "Placer Identifier"
+* entry[=].resource.authorizingPrescription.identifier.system = "http://myprescribingsystem.com/ordernumber"
+* entry[=].resource.authorizingPrescription.identifier.value = "605153"
+* entry[=].resource.quantity = 10 '{each}' "each"
+* entry[=].resource.whenHandedOver = "2023-06-05"
 * entry[=].resource.dosageInstruction.sequence = 1
-* entry[=].resource.dosageInstruction.text = "20 Units SC three times daily"
+* entry[=].resource.dosageInstruction.text = "1 tab tid prn pain"
+* entry[=].search.mode = #match
+* entry[+].fullUrl = "http://example.org/pdmp-a/Organization/org-res-1-1"
+* entry[=].resource.resourceType = "Organization"
+* entry[=].resource.id = "org-res-1-1"
+* entry[=].resource.meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization"
+* entry[=].resource.identifier[0].system = "http://hl7.org/fhir/sid/us-npi"
+* entry[=].resource.identifier[=].value = "1669512349"
+* entry[=].resource.identifier[+].system = "http://terminology.hl7.org/CodeSystem/NCPDPProviderIdentificationNumber"
+* entry[=].resource.identifier[=].value = "999017"
+* entry[=].resource.active = true
+* entry[=].resource.type = $organization-type#prov "Healthcare Provider"
+* entry[=].resource.name = "Our Pharmacy"
+* entry[=].resource.telecom[0].system = #phone
+* entry[=].resource.telecom[=].value = "952-555-5555"
+* entry[=].resource.telecom[+].system = #email
+* entry[=].resource.telecom[=].value = "contact-our-pharmacy@exampleemail.org"
+* entry[=].resource.address.line = "220 Oak St"
+* entry[=].resource.address.city = "Minneapolis"
+* entry[=].resource.address.state = "MN"
+* entry[=].resource.address.postalCode = "55008"
+* entry[=].resource.address.country = "USA"
 * entry[=].search.mode = #match
