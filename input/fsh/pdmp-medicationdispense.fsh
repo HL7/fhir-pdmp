@@ -10,11 +10,13 @@ Profile: MedicationDispenseProfile
 Parent: $us-core-medicationdispense
 Id: pdmp-medicationdispense
 Description: "Defines constraints and extensions on the MedicationDispense resource when used by a Prescription Drug Monitoring Program (PDMP) to return an individual's medication dispense history."
+* ^extension.url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg"
+* ^extension.valueCode = #phx
 * ^version = "2.2.0"
 * ^status = #active
 * ^date = "2023-06-20"
-* ^publisher = "HL7 International - Pharmacy"
-* ^contact[0].name = "HL7 International - Pharmacy"
+* ^publisher = "HL7 International / Pharmacy"
+* ^contact[0].name = "HL7 International / Pharmacy"
 * ^contact[=].telecom.system = #url
 * ^contact[=].telecom.value = "http://www.hl7.org/Special/committees/medication"
 * ^contact[+].name = "Frank McKinney"
@@ -52,6 +54,7 @@ Alias: $rxnorm = http://www.nlm.nih.gov/research/umls/rxnorm
 Instance: pdmp-meddispense-1
 InstanceOf: pdmp-medicationdispense
 Usage: #example
+Description: "Example of a PDMP medication dispense"
 * meta.versionId = "1"
 * meta.lastUpdated = "2016-12-08T06:38:52Z"
 * meta.profile = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-medicationdispense"

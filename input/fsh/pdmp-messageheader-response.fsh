@@ -1,14 +1,13 @@
-Alias: $pdmp-parameters-request = http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-parameters-request
-Alias: $us-core-practitionerrole = http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole
+Alias: $pdmp-parameters-response = http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-parameters-response
 
-Profile: PdmpMessageHeaderRequest
+Profile: PdmpMessageHeaderResponse
 Parent: MessageHeader
-Id: pdmp-messageheader-request
-Title: "PDMP MessageHeader - Request"
-Description: "This profile constrains a MessageHeader resource for use in a PDMP request data bundle. A Parameters resource is the focus."
+Id: pdmp-messageheader-response
+Title: "PDMP MessageHeader - Response"
+Description: "This profile constrains a MessageHeader resource for use in a PDMP response data bundle. A Bundle resource is the focus."
 * ^extension.url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg"
 * ^extension.valueCode = #phx
-* ^url = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-messageheader-request"
+* ^url = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-messageheader-response"
 * ^version = "1.0.0"
 * ^status = #active
 * ^experimental = false
@@ -28,8 +27,7 @@ Description: "This profile constrains a MessageHeader resource for use in a PDMP
 * eventCoding.system 1..1 MS
 * eventCoding.system = "http://hl7.org/fhir/us/pdmp/CodeSystem/pdmp-event-type" (exactly)
 * eventCoding.code 1..1 MS
-* eventCoding.code = #pdmp-patient-request (exactly)
-* sender only Reference($us-core-practitionerrole)
+* eventCoding.code = #pdmp-patient-response (exactly)
 * focus 1..1 MS
-* focus only Reference($pdmp-parameters-request)
+* focus only Reference(Bundle)
 * focus ^type.aggregation = #bundled

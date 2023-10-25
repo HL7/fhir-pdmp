@@ -4,14 +4,16 @@ ValueSet: PdmpValueSetEventType
 Id: pdmp-event-type
 Title: "PDMP Value Set - Event Type"
 Description: "This value set contains event types used in PDMP message headers."
+* ^extension.url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg"
+* ^extension.valueCode = #phx
 * ^meta.lastUpdated = "2023-10-01T00:00:00-05:00"
 * ^url = "http://hl7.org/fhir/us/pdmp/ValueSet/pdmp-event-type"
 * ^version = "1.0.0"
 * ^status = #active
 * ^experimental = false
 * ^date = "2023-10-01T00:00:00-05:00"
-* ^publisher = "HL7 International - Pharmacy"
-* ^contact[0].name = "HL7 International - Pharmacy"
+* ^publisher = "HL7 International / Pharmacy"
+* ^contact[0].name = "HL7 International / Pharmacy"
 * ^contact[=].telecom.system = #url
 * ^contact[=].telecom.value = "http://www.hl7.org/Special/committees/medication"
 * ^contact[+].name = "Frank McKinney"

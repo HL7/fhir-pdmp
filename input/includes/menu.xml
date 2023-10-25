@@ -10,8 +10,11 @@
       <li>
         <a href="use-case.html">Use Case Details</a>
       </li>
-     <li>
-        <a href="mappings.html">Mappings to Related Standards</a>
+      <li>
+        <a href="message-processing.html">Message Processing</a>
+      </li>
+   	  <li>
+        <a href="conformance.html">Conformance Expectations</a>
       </li>
 	  <li>
         <a href="security.html">Security</a>
@@ -19,11 +22,11 @@
 	  <li>
         <a href="deployment.html">Deployment Architecture</a>
       </li>
-   	  <li>
-        <a href="conformance.html">Conformance Expectations</a>
+     <li>
+        <a href="mappings.html">Mappings to Related Standards</a>
       </li>
       <li>
-        <a href="fhir-medication-background.html">FHIR Medication Resource Background</a>
+        <a href="search.html">Search</a>
       </li>
 	</ul>
   </li>

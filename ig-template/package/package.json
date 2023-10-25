@@ -1,0 +1,12 @@
+{
+  "name": "pdmp.template",
+  "type": "fhir.template",
+  "license": "CC0-1.0",
+  "description": "Adds CSS styles used when presenting example content and removes generated CapabilityStatment narrative",
+  "author": "http://pocp.dev/fhir",
+  "canonical": "http://fhir.org/templates/fhir.base.template",
+  "base": "fhir.base.template",
+    "dependencies": {
+    "fhir.base.template": "current"
+  }
+}

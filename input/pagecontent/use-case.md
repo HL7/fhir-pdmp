@@ -77,17 +77,18 @@ Providers may also currently use web portals to access PDMP data, as shown in th
 In this case, the provider has to interact with a separate web portal not integrated with the EHR to access the  data. These web portals typically have custom integrations with the associated state PDMP systems. 
 
 
-### Provider Data Access Using FHIR APIs
+### Provider Data Access Using FHIR
 
 _to be reviewed/revised_
 
-As discussed above, the current mechanisms to access data vary between the usage of multiple data transmission formats or proprietary mechanisms such as web portals. The  ecossystem can benefit from the usage of FHIR APIs for accessing  data in the following ways:
+As discussed above, the current mechanisms to access data vary between the usage of multiple data transmission formats or proprietary mechanisms such as web portals. The  ecossystem can benefit from the use of FHIR standards for accessing  data in the following ways:
 
-* Ability to easily integrate  data access in EHR work flows using SMART on FHIR Apps
+* Ability to easily integrate PDMP web application access into EHR work flows using SMART on FHIR Apps
+* Ability to integrate discrete PDMP data results using FHIR messaging
 * Ability to enhance security mechanisms outlined by FHIR and SMART on FHIR between the  actors
 * Ability to leverage the  FHIR APIs to build decision support services using CDS Hooks in the EHR work flows
 
-Figure 5a, 5b and 5c below shows the different options for using FHIR APIs to access  data in the EHR work flows including ability to leverage existing investments in intermediaries and PMIX/NIEM protocols.
+Figure 5a, 5b and 5c below shows the different options for using FHIR APIs to access  data in the EHR work flows.
 
 <div>
 <figure class="figure">
@@ -122,15 +123,15 @@ Figure 5a, 5b and 5c below shows the different options for using FHIR APIs to ac
 _to be reviewed/revised_
 
 
-In order to use FHIR to access  data the following FHIR profiles will be used
+In order to use FHIR to access PDMP data, the following FHIR resources are used:
 
-* MedicationDispense profile: Used to communicate dispense information.
-* MedicationRequest profile: Used to communicate prescription information.
-* Medication profile: Used to communicate actual drug information.
-* Organization profile: Used to communicate information about the dispensing organization.
-* Practitioner profile: Used to communicate information about the prescriber.
-* Patient profile: Used to communicate information about the patient.
-* Message Header: Used to communicate information about the request headers.
+* MedicationDispense: Used to communicate dispense information.
+* MedicationAdministration: Used to communicate administration information.
+* Organization: Used to communicate information about the requester, dispenser and administering party organization.
+* Practitioner and PractitionerRole: Used to communicate information about the requesting provider and the prescriber of a dispensed or administered product.
+* Patient: Used to communicate information about the patient.
+* Message Header: Used to communicate information supporting the request and response interactions.
+* Parameters: Used to enumerate input information in the PDMP request message.
 
 
 #### FHIR Search API

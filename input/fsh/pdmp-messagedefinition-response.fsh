@@ -1,14 +1,14 @@
 Alias: $pdmp-event-type = http://hl7.org/fhir/us/pdmp/CodeSystem/pdmp-event-type
 
-Instance: pdmp-request
+Instance: pdmp-response
 InstanceOf: MessageDefinition
 Usage: #definition
 * extension.url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg"
 * extension.valueCode = #phx
-* url = "http://hl7.org/fhir/us/pdmp/MessageDefinition/pdmp-request"
+* url = "http://hl7.org/fhir/us/pdmp/MessageDefinition/pdmp-response"
 * version = "1.0.0"
-* name = "PdmpMessageDefinitionRequest"
-* title = "PDMP Message Definition - Request"
+* name = "PdmpMessageDefinitionResponse"
+* title = "PDMP Message Definition - Response"
 * status = #active
 * experimental = false
 * date = "2023-10-08T00:00:00-00:00"
@@ -21,13 +21,11 @@ Usage: #definition
 * contact[=].telecom[=].value = "frank.mckinney@pocp.com"
 * contact[=].telecom[+].system = #email
 * contact[=].telecom[=].value = "fm@frankmckinney.com"
-* description = "Message requesting information from a PDMP facilitator system about medication dispensations and administrations"
+* description = "Response returning information from a PDMP facilitator system about medication dispensations and administrations"
 * jurisdiction = urn:iso:std:iso:3166#US "United States of America"
-* purpose = "Request information from a PDMP facilitator about medication dispensations and administrations"
-* eventCoding = $pdmp-event-type#pdmp-patient-request
+* purpose = "Return information from a PDMP facilitator about medication dispensations and administrations"
+* eventCoding = $pdmp-event-type#pdmp-patient-response
 * category = #currency
 * focus.code = #Parameters
 * focus.min = 1
 * focus.max = "1"
-* allowedResponse.message = "http://hl7.org/fhir/us/pdmp/MessageDefinition/pdmp-response"
-* allowedResponse.situation = "Returned when processing completes"
