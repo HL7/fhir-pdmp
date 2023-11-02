@@ -109,7 +109,7 @@ Usage: #inline
 * entry[=].resource.identifier.value = "2000353"
 * entry[=].resource.status = #completed
 * entry[=].resource.medicationCodeableConcept.coding[0] = $rxnorm#993781 "acetaminophen 300 MG / codeine phosphate 30 MG Oral Tablet"
-* entry[=].resource.medicationCodeableConcept.coding[+] = $ndc#93015001
+* entry[=].resource.medicationCodeableConcept.coding[+] = $ndc#00093015001
 * entry[=].resource.medicationCodeableConcept.text = "Acetaminophen 300 mg / Codeine 30 mg oral tablet"
 * entry[=].resource.subject.reference = "Patient/patient-res-1"
 * entry[=].resource.subject.display = "August Samuels"
