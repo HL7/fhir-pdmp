@@ -26,6 +26,8 @@ Description: "Defines constraints and extensions on the MedicationAdministration
 * ^jurisdiction = urn:iso:std:iso:3166#US "United States of America"
 * . ^definition = "Administration that a medication is/was actively taken by a patient."
 * . ^mustSupport = false
+* extension contains
+    pdmp-extension-rx-transmission-method named rx-transmission-method 0..1 MS
 * status 1..1 MS
 * status only code
 * status from $medication-admin-status (required)
@@ -51,20 +53,21 @@ Description: "Defines constraints and extensions on the MedicationAdministration
 * dosage ^isModifier = false
 
 Alias: $rxnorm = http://www.nlm.nih.gov/research/umls/rxnorm
+Alias: $ndc = http://hl7.org/fhir/sid/ndc
 
 Instance: pdmp-medadmin-1
 InstanceOf: pdmp-medicationadministration
 Usage: #example
 Description: "Example of a PDMP medication administration"
-* meta.versionId = "1"
-* meta.lastUpdated = "2016-12-08T06:38:52Z"
 * meta.profile = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-medicationadministration"
+* extension[0].url = $pdmp-extension-rx-transmission-method
+* extension[=].valueCoding = $ncpdp-prescription-origin-code#"2" "Telephone"
 * status = #completed
-* medicationCodeableConcept = $rxnorm#285018 "Lantus 100 UNT/ML Injectable Solution"
-* medicationCodeableConcept.text = "Lantus 100 UNT/ML Injectable Solution"
+* medicationCodeableConcept.coding[0] = $rxnorm#864706 "methadone hydrochloride 10 MG Oral Tablet"
+* medicationCodeableConcept.coding[+] = $ndc#00406577123 "METHADONE HYDROCHLORIDE, 1 TABLET in 1 BLISTER PACK (0406-5771-23) (package)"
+* medicationCodeableConcept.text = "methadone hydrochloride 10 MG Oral Tablet"
 * subject.display = "Amy V. Shaw"
-* effectivePeriod.start = "2015-01-15T04:30:00+01:00"
-* effectivePeriod.end = "2015-01-15T14:30:00+01:00"
+* effectivePeriod.start = "2023-01-15T04:30:00+01:00"
 * performer.actor.display = "Ronald Bone, MD"
-* dosage.text = "20 Units SC before breakfast"
-* dosage.dose = 20 'U' "U"
+* dosage.text = "Take 1 tablet daily"
+* dosage.dose = 1 '{each}' "each"

@@ -102,7 +102,7 @@ Usage: #inline
 * entry[=].resource.resourceType = "MedicationDispense"
 * entry[=].resource.id = "meddispense-res-1-1"
 * entry[=].resource.meta.profile = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-medicationdispense"
-* entry[=].resource.extension.url = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-refill-number-extension"
+* entry[=].resource.extension.url = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-extension-rx-refill-number"
 * entry[=].resource.extension.valuePositiveInt = 1
 * entry[=].resource.identifier.type = $v2-0203#FILL "Filler Identifier"
 * entry[=].resource.identifier.system = "http://ourpharmacy.com/fillnumber"

@@ -5,6 +5,10 @@ Alias: $us-core-organization = http://hl7.org/fhir/us/core/StructureDefinition/u
 Alias: $medicationdispense-status = http://hl7.org/fhir/ValueSet/medicationdispense-status
 Alias: $us-core-medication-clinical-drug = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1010.4
 Alias: $us-core-medicationdispense = http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationdispense
+Alias: $pdmp-extension-rx-refill-number = http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-extension-rx-refill-number
+Alias: $pdmp-extension-rx-transmission-method = http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-extension-rx-transmission-method
+Alias: $rx-transmission-method = http://hl7.org/fhir/us/pdmp/ValueSet/pdmp-rx-transmission-method
+Alias: $ncpdp-prescription-origin-code = http://terminology.hl7.org/CodeSystem/NCPDPPrescriptionOriginCode
 
 Profile: MedicationDispenseProfile
 Parent: $us-core-medicationdispense
@@ -25,9 +29,12 @@ Description: "Defines constraints and extensions on the MedicationDispense resou
 * ^contact[=].telecom[+].system = #email
 * ^contact[=].telecom[=].value = "fm@frankmckinney.com"
 * ^jurisdiction = urn:iso:std:iso:3166#US "United States of America"
-* . ^definition = "Dispense that a medication is/was actively taken by a patient."
+* . ^definition = "Dispense of a medication that was prescribed for a patient."
 * . ^mustSupport = false
 * . ^isModifier = false
+* extension contains
+    pdmp-extension-rx-refill-number named rx-refill-number 0..1 MS and
+    pdmp-extension-rx-transmission-method named rx-transmission-method 0..1 MS
 * status 1.. MS
 * status from $medicationdispense-status (required)
 * status ^binding.description = "A set of codes indicating the current status of a MedicationDispense."
@@ -58,13 +65,17 @@ Description: "Example of a PDMP medication dispense"
 * meta.versionId = "1"
 * meta.lastUpdated = "2016-12-08T06:38:52Z"
 * meta.profile = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-medicationdispense"
-* extension.url = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-refill-number-extension"
-* extension.valuePositiveInt = 5
+* extension[0].url = $pdmp-extension-rx-refill-number
+* extension[=].valuePositiveInt = 1
+* extension[+].url = $pdmp-extension-rx-transmission-method
+* extension[=].valueCoding = $ncpdp-prescription-origin-code#"3" "Electronic"
 * status = #in-progress
-* medicationCodeableConcept = $rxnorm#285018 "Lantus 100 UNT/ML Injectable Solution"
-* medicationCodeableConcept.text = "Lantus 100 UNT/ML Injectable Solution"
+* medicationCodeableConcept.coding[0] = $rxnorm#993781 "acetaminophen 300 MG / codeine phosphate 30 MG Oral Tablet"
+* medicationCodeableConcept.coding[+] = $ndc#00093015001
+* medicationCodeableConcept.text = "Acetaminophen 300 mg / Codeine 30 mg oral tablet"
 * subject.display = "Amy V. Shaw"
 * performer.actor.display = "Ronald Bone, MD"
-* whenHandedOver = "2016-12-08T06:38:52Z"
+* quantity = 15 '{each}' "each"
+* whenHandedOver = "2023-07-08T06:38:52Z"
 * dosageInstruction.sequence = 1
-* dosageInstruction.text = "20 Units SC three times daily"
+* dosageInstruction.text = "1 tablet every 6-8 hours as needed for pain"
