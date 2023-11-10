@@ -38,7 +38,7 @@ Title: "ASAP WebService v2.1A"
 * whenHandedOver -> $asap-meddispense-to-asap-ws"DispensingEvent/DateSold" 
 * authorizingPrescription.dispenseRequest.quantity -> $asap-meddispense-to-asap-ws"DispensingEvent/QuantityPrescribed" 
 * dosageInstruction.text -> $asap-meddispense-to-asap-ws"DispensingEvent/RxSIG" 
-/*
+/* 
 * -> $asap-meddispense-to-asap-ws"DispensingEvent/TreatmentTypeCode" 
 * -> $asap-meddispense-to-asap-ws"DispensingEvent/DiagnosisCode" 
 * -> $asap-meddispense-to-asap-ws"DispensingEvent/RxSerialNumber/IssuingState"
