@@ -1,0 +1,53 @@
+Alias: $asap-response-dispinfo = /AdHocPDMPRequestResponse/AdHocPDMPRequestResult/Details/PDMPDetailedResponse/PrescriptionDetails/PharmacyDispenseInfo/Prescriptions/DispensingEventInfo/
+
+Mapping: pdmp-meddispense-to-asap-ws
+Source: pdmp-medicationdispense
+Target: "http://www.asapnet.org/PDMPrequest"
+Id: pdmp-medication-asap-ws
+Title: "ASAP WebService v2.1A"
+
+// * -> $asap-meddispense-to-asap-ws"Prescriber/Name/GivenName"
+// * -> $asap-meddispense-to-asap-ws"Prescriber/Name/SurName"
+// * -> $asap-meddispense-to-asap-ws"Prescriber/DEANumber"
+// * -> $asap-meddispense-to-asap-ws"Prescriber/NPI"
+// * -> $asap-meddispense-to-asap-ws"Prescriber/StateLicenseNumber"
+// * -> $asap-meddispense-to-asap-ws"Prescriber/Location/Phone"
+// * -> $asap-meddispense-to-asap-ws"Prescriber/Location/StreetAddress"
+// * -> $asap-meddispense-to-asap-ws"Prescriber/Location/StreetAddress2"
+// * -> $asap-meddispense-to-asap-ws"Prescriber/Location/StateUsPostalServiceCode"
+// * -> $asap-meddispense-to-asap-ws"Prescriber/Location/LocationPostalCode"
+
+* whenPrepared -> $asap-meddispense-to-asap-ws"DispensingEvent/DispenseDate" 
+* authorizingPrescription.authoredOn -> $asap-meddispense-to-asap-ws"DispensingEvent/WrittenDate" 
+* identifier -> $asap-meddispense-to-asap-ws"DispensingEvent/PrescriptionNumber" 
+* medicationCodeableConcept[NDC].coding.system-> $asap-meddispense-to-asap-ws"DispensingEvent/ProductIDQualifier" 
+* medicationCodeableConcept[NDC].coding.code-> $asap-meddispense-to-asap-ws"DispensingEvent/ProductID" 
+* medicationCodeableConcept.text-> $asap-meddispense-to-asap-ws"DispensingEvent/DrugName" 
+// * -> $asap-meddispense-to-asap-ws"DispensingEvent/Strength" 
+// * -> $asap-meddispense-to-asap-ws"DispensingEvent/DosageForm" 
+* quantity -> $asap-meddispense-to-asap-ws"DispensingEvent/Quantity" 
+* daysSupply -> $asap-meddispense-to-asap-ws"DispensingEvent/DaysSupply" 
+* authorizingPrescription.dispenseRequest.numberOfRepeatsAllowed -> $asap-meddispense-to-asap-ws"DispensingEvent/RefillsAuthorizied" 
+* extension[pdmp-rx-fill-number]-> $asap-meddispense-to-asap-ws"DispensingEvent/FillNumber" 
+// * -> $asap-meddispense-to-asap-ws"DispensingEvent/RefillStatus" 
+// * -> $asap-meddispense-to-asap-ws"DispensingEvent/PartialFillIndicator" 
+// * -> $asap-meddispense-to-asap-ws"DispensingEvent/PaymentType" 
+* medicationCodeableConcept[rxNorm].coding.code-> $asap-meddispense-to-asap-ws"DispensingEvent/RxNormCode" 
+// * -> $asap-meddispense-to-asap-ws"DispensingEvent/ElectronicPrescriptionReferenceNumber" 
+// * -> $asap-meddispense-to-asap-ws"DispensingEvent/ElectronicPrescriptionOrderNumber" 
+* whenHandedOver -> $asap-meddispense-to-asap-ws"DispensingEvent/DateSold" 
+* authorizingPrescription.dispenseRequest.quantity -> $asap-meddispense-to-asap-ws"DispensingEvent/QuantityPrescribed" 
+* dosageInstruction.text -> $asap-meddispense-to-asap-ws"DispensingEvent/RxSIG" 
+/*
+* -> $asap-meddispense-to-asap-ws"DispensingEvent/TreatmentTypeCode" 
+* -> $asap-meddispense-to-asap-ws"DispensingEvent/DiagnosisCode" 
+* -> $asap-meddispense-to-asap-ws"DispensingEvent/RxSerialNumber/IssuingState"
+* -> $asap-meddispense-to-asap-ws"DispensingEvent/RxSerialNumber/SerialNumber" 
+* -> $asap-meddispense-to-asap-ws"DispensingEvent/PickupOrDropOffPerson/Name/GivenName"
+* -> $asap-meddispense-to-asap-ws"DispensingEvent/PickupOrDropOffPerson/Name/MiddleName"
+* -> $asap-meddispense-to-asap-ws"DispensingEvent/PickupOrDropOffPerson/Name/SurName"
+* -> $asap-meddispense-to-asap-ws"DispensingEvent/PickupOrDropOffPerson/Name/NameSuffix"
+* -> $asap-meddispense-to-asap-ws"DispensingEvent/PickupOrDropOffPerson/IDQualifer"
+* -> $asap-meddispense-to-asap-ws"DispensingEvent/PickupOrDropOffPerson/ID"
+* -> $asap-meddispense-to-asap-ws"DispensingEvent/PickupOrDropOffPerson/RelationshipCode"
+*/
