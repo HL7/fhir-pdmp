@@ -45,6 +45,9 @@ This section defines the abstract model which is used to identify the specific a
 </figure>
 </div>
 
+- _Examples of PDMP Requesters include EHRs, pharmacy systems, other clinical systems used by providers for care delivery_
+- _Examples of PDMP Responders include state PDMP systems and intermediaries_ 
+<p></p>
 
 ### Current Data Standards Supporting the PDMP Ecosystem
 
@@ -75,7 +78,7 @@ Providers may also currently use web portals to access PDMP data, as shown in th
 </div>
 
 In this case, the provider has to interact with a separate web portal not integrated with the EHR to access the  data. These web portals typically have custom integrations with the associated state PDMP systems. 
-
+<p></p>
 
 ### Provider Data Access Using FHIR
 

@@ -1,3 +1,16 @@
+The request to the PDMP Responder for patient information, and the response back to the requester are accomplished using FHIR Messaging. This page describes the overall workflow, message content and related considerations.
+
+### Message overview
+<div>
+<figure class="figure">
+<figcaption class="figure-caption"><strong>Figure: High-level PDMP Message Flow</strong></figcaption>
+  <p>
+  <img src="message-flow.png" style="float:none">  
+  </p>
+</figure>
+</div>
+
+<p></p>
 
 ### Request message content
 _additional narrative to be added_
@@ -5,6 +18,8 @@ _additional narrative to be added_
 The PDMP Request message includes the information needed to retrieve a single individual's information--including medication dispenses, administrations and related information--from a PDMP Responder. 
 
 Specification details and examples are at [PDMP Bundle - Request Message](StructureDefinition-pdmp-bundle-request.html) 
+
+<p></p>
 
 ### Response message content
  _additional narrative to be added_
@@ -19,6 +34,8 @@ Specification details and examples are at [PDMP Bundle - Response Message](Struc
 PDMP messages are exchanged using standard FHIR messaging features. 
 - PDMP-specific guidance is outlined below
 - See [Messaging Using FHIR Resources](https://www.hl7.org/fhir/messaging.html) for additional background from the FHIR specification.
+
+<p></p>
 
 #### Operation: $process-message
 PDMP messages are POSTed to their recipients using the $process-message operation...
@@ -38,9 +55,12 @@ The $process-message operation SHALL contain a single `content` parameter consis
 - The `async` and `response-url` Process Message parameters may be used when supported by the PDMP Responder.
 
 <p></p>
+
 ### Handling for processing exceptions
 
 The section below provides guidance for PDMP Responders for responding in situations where the request cannot be processed in part or in whole.
+
+<p></p>
 
 #### Non-fatal exceptions
 
@@ -95,6 +115,7 @@ The OperationOutcome:
 * SHOULD contain an `OperationOutcome.issue.details.coding.code` value.
 
 TO BE ADDED: [Example]()
+
 <p></p>
 
 ### Security considerations for messaging

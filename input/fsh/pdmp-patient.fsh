@@ -34,7 +34,7 @@ Description: "Defines constraints and extensions on the Patient resource when us
 * . ^isModifier = false
 * name.family 1.. 
 * name.given 1..
-* birthDate 1.. MS
+* birthDate 1..1 MS
 * birthDate obeys full-date-1
 * address.country MS  
 

@@ -104,7 +104,7 @@ Usage: #inline
 * parameter[0].name = "patient"
 * parameter[=].valueReference = Reference(http://example.org/MyEHR/Patient/patient-req-1)
 * parameter[+].name = "authorized-provider"
-* parameter[=].valueReference = Reference(http://example.org/MyEHR/Practitioner/practitionerrole-req-1)
+* parameter[=].valueReference = Reference(http://example.org/MyEHR/PractitionerRole/practitionerrole-req-1)
 * parameter[+].name = "organization"
 * parameter[=].valueReference = Reference(http://example.org/MyEHR/Organization/organization-req-1)
 * parameter[+].name = "prefetch-only"
@@ -131,7 +131,10 @@ Usage: #inline
 * organization.id = "#organization-req-1"
 * organization.display = "Highview Clinic"
 * specialty = $taxonomy#207R00000X "Internal Medicine Physician"
-* endpoint = Reference (http://www.example.org/directmail/aamster)
+* telecom[0].system = #phone
+* telecom[=].value = "951-555-5555"
+* telecom[+].system = #email
+* telecom[=].value = "aamster-highview-clinic@exampleemail.org"
 
 Instance: practitioner-req-1
 InstanceOf: Practitioner
@@ -211,9 +214,9 @@ Usage: #inline
 * parameter[0].name = "patient"
 * parameter[=].valueReference = Reference(http://example.org/MyEHR/Patient/patient-req-2)
 * parameter[+].name = "authorized-provider"
-* parameter[=].valueReference = Reference(http://example.org/MyEHR/Practitioner/practitionerrole-req-2)
+* parameter[=].valueReference = Reference(http://example.org/MyEHR/PractitionerRole/practitionerrole-req-2)
 * parameter[+].name = "provider-delegate"
-* parameter[=].valueReference = Reference(http://example.org/MyEHR/Practitioner/practitionerrole-req-2-del)
+* parameter[=].valueReference = Reference(http://example.org/MyEHR/PractitionerRole/practitionerrole-req-2-del)
 * parameter[+].name = "organization"
 * parameter[=].valueReference = Reference(http://example.org/MyEHR/Organization/organization-req-2)
 * parameter[+].name = "prefetch-only"
@@ -240,7 +243,11 @@ Usage: #inline
 * organization.id = "#organization-req-2"
 * organization.display = "Highview Clinic"
 * specialty = $taxonomy#207R00000X "Internal Medicine Physician"
-* endpoint = Reference (http://www.example.org/directmail/aamster)
+* telecom[0].system = #phone
+* telecom[=].value = "951-555-5555"
+* telecom[+].system = #email
+* telecom[=].value = "aamster-highview-clinic@exampleemail.org"
+
 
 Instance: practitioner-req-2
 InstanceOf: Practitioner
@@ -260,7 +267,10 @@ Usage: #inline
 * organization.id = "#organization-req-2"
 * organization.display = "Highview Clinic"
 * specialty = $taxonomy#163W00000X "Registered Nurse"
-* endpoint = Reference (http://www.example.org/directmail/bbartok)
+* telecom[0].system = #phone
+* telecom[=].value = "951-555-1234"
+* telecom[+].system = #email
+* telecom[=].value = "bbartok-highview-clinic@exampleemail.org"
 
 Instance: practitioner-req-2-del
 InstanceOf: Practitioner
