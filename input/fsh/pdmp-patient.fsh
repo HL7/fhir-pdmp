@@ -3,7 +3,6 @@ Alias: $us-core-patient = http://hl7.org/fhir/us/core/StructureDefinition/us-cor
 Alias: $us-core-practitioner = http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner
 Alias: $us-core-organization = http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization
 Alias: $patient-status = http://hl7.org/fhir/ValueSet/patient-status
-Alias: $us-core-patient = http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient
 
 Invariant: full-date-1
 Severity: #error
