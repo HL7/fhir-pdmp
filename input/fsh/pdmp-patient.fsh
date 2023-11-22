@@ -46,11 +46,11 @@ Description: "Defines constraints and extensions on the Patient resource when us
     medicalRecordNumber 0..0 and
     driversLicense 0..0 and
     socialSecurity 0..0 
-* identifier[medicalRecordNumber].type.coding.code = "MR"
+* identifier[medicalRecordNumber].type.coding.code = #MR
 * identifier[medicalRecordNumber].type.coding.system = "http://terminology.hl7.org/ValueSet/v2-0203"
-* identifier[driversLicense].type.coding.code = "DL"
+* identifier[driversLicense].type.coding.code = #DL
 * identifier[driversLicense].type.coding.system = "http://terminology.hl7.org/ValueSet/v2-0203"
-* identifier[socialSecurity].type.coding.code = "SS"
+* identifier[socialSecurity].type.coding.code = #SS
 * identifier[socialSecurity].type.coding.system = "http://terminology.hl7.org/ValueSet/v2-0203"
 
 
