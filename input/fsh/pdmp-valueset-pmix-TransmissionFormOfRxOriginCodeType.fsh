@@ -14,4 +14,4 @@ ValueSet: PMIXTransmissionFormOfRxOriginVS
 Id: pmix-rx-origin-code-vs
 Title: "PMIX Transmission Form Of Rx Origin Value Set"
 Description: "Code indicating how the pharmacy received the prescription"
-* include codes from pmix-rx-origin-code-system
+* include codes from system pmix-rx-origin-code-system
