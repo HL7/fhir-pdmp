@@ -51,10 +51,11 @@ Description: "Defines constraints and extensions on the Patient resource when us
 * identifier[driversLicense].type.coding.system = "http://terminology.hl7.org/ValueSet/v2-0203"
 * identifier[socialSecurity].type.coding.code = #SS
 * identifier[socialSecurity].type.coding.system = "http://terminology.hl7.org/ValueSet/v2-0203"
+* identifier[socialSecurity].system = "http://terminology.hl7.org/NamingSystem/ssn"
 
 
 
-Instance: patient-
+Instance: patient-1
 InstanceOf: pdmp-patient
 Usage: #inline
 * meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
@@ -70,6 +71,31 @@ Usage: #inline
 Mapping: PDMPonFHIRPatientToSCRIPT2017071
 Source: pdmp-patient
 Target: "http://ncpdp.org/SCRIPT/2017071"
-Id: script-2017071
-Title: "SCRIPT 2017071"
+Id: pdmp-patient-to-script-2017071
+Title: "PDMP-SCRIPT Patient map"
 Description: "Mapping PDMP Patient to SCRIPT 2017071 Patient structure"
+* identifier[medicalRecordNumber] -> "Patient/Identification/MedicalRecordIdentificationNumberEHR"
+* identifier[driversLicense] -> "" "no direct map, "
+* identifier[socialSecurity] -> "Patient/Identification/SocialSecurity"
+
+Mapping: PDMPonFHIRPatientToPMIX
+Source: pdmp-patient
+Target: "http://pmixpmp.org/niem/4.0/extension"
+Id: pdmp-patient-to-pmix
+Title: "PDMP-PMIX Patient map"
+Description: "Mapping PDMP Patient to PMIX 4.0 Patient structure"
+* name.family -> "pmp:Patient/nc:PersonName/nc:PersonSurName"
+* name.middle -> "pmp:Patient/nc:PersonName/nc:PersonMiddleNane"
+* name.given -> "pmp:Patient/nc:PersonName/nc:PersonGivenName"
+* name.suffix -> "pmp:Patient/nc:PersonName/nc:PersonNameSuffixText"
+* gender -> "pmp:Patient/j:PersonSexCode"
+* birthDate -> "pmp:Patient/nc:PersonBirthDate"
+* address -> "pmp:Patient/pmp:PersonPrimaryContactInformation/nc:ContactMailingAddress"
+* address.line -> "pmp:Patient/pmp:PersonPrimaryContactInformation/nc:ContactMailingAddress/nc:Location.Street"
+* address.city -> "pmp:Patient/pmp:PersonPrimaryContactInformation/nc:ContactMailingAddress/nc:LocationCityName"
+* address.state -> "pmp:Patient/pmp:PersonPrimaryContactInformation/nc:ContactMailingAddress/nc:LocationState"
+* address.postalCode -> "pmp:Patient/pmp:PersonPrimaryContactInformation/nc:ContactMailingAddress/nc:LocationPostalCode"
+* address.country -> "" "no equivalent in PMIX_NIEM_4"
+* identifier[medicalRecordNumber] -> "pmp:Patient/pmp:PersonOtherIdentifier"
+* identifier[driversLicense] -> "pmp:Patient/pmp:PersonDriverLicenseIdentifier"
+* identifier[socialSecurity] -> "pmp:Patient/nc:PersonSSNIdentification"
