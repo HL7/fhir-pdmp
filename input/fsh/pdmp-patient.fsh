@@ -54,6 +54,7 @@ Description: "Defines constraints and extensions on the Patient resource when us
 * identifier[socialSecurity].type.coding.system = "http://terminology.hl7.org/ValueSet/v2-0203"
 
 
+
 Instance: patient-
 InstanceOf: pdmp-patient
 Usage: #inline
