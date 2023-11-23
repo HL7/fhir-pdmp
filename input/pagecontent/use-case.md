@@ -1,10 +1,21 @@
 ### PDMP Ecosystem
 
-As shown in the Figure below, the overall PDMP ecosystem consists of prescriber systems, pharmacy systems and state-based PDMP systems.
+The following figure, provided by Prescription Drug Monitoring Program Training and Technical Assistance Center ([PDMP TTAC](https://www.pdmpassist.org)) shows a overview of the PDMP reporting ecosystem.  Simplistically, a `user` requests a PDMP report from a given State PDMP System, which responds with the report.  In reality, users work within their local system (e.g., EHR, Pharmacy System, eRx application), and possibly an associated intermediary (e.g., eRx switch) in creating a PDMP Request or receiving a PDMP Report.  Likewise, State PDMP systems are the ultimate source for the PDMP Report, but may work with various intermediaries (e.g., Integration Facilitator, PMP Hub) in receiving a PDMP Request or sending a PDMP Report.
 
 <div>
 <figure class="figure">
-<figcaption class="figure-caption"><strong>Figure: Simplified View of ecosystem interactions</strong></figcaption>
+<figcaption class="figure-caption"><strong>Figure: An overview of the PDMP ecosystem</strong></figcaption>
+  <p>
+  <img src="pdmp-ecosystem.png" style="float:none">  
+  </p>
+</figure>
+</div>
+
+For the purposes of this Implementation Guide, the ecosystem can be viewed as shown in the Figure below.  We are focused on the "Retrieve prescription data" interaction (`PDMP Request` and `PDMP Report`) between the "PDMP" (`PDMP Server`) and "Prescriber" or "Pharmacy" (both `PDMP Clients`).
+
+<div>
+<figure class="figure">
+<figcaption class="figure-caption"><strong>Figure: Simplified view of ecosystem interactions</strong></figcaption>
   <p>
   <img src="pdmp-overview-flows.png" style="float:none">  
   </p>
