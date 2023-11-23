@@ -75,7 +75,7 @@ Id: pdmp-patient-to-script-2017071
 Title: "PDMP-SCRIPT Patient map"
 Description: "Mapping PDMP Patient to SCRIPT 2017071 Patient structure"
 * identifier[medicalRecordNumber] -> "Patient/Identification/MedicalRecordIdentificationNumberEHR"
-* identifier[driversLicense] -> "" "no direct map, "
+* identifier[driversLicense] -> "" "no direct map"
 * identifier[socialSecurity] -> "Patient/Identification/SocialSecurity"
 
 Mapping: PDMPonFHIRPatientToPMIX
