@@ -57,7 +57,7 @@ Description: "Defines constraints and extensions on the Patient resource when us
 
 Instance: patient-1
 InstanceOf: pdmp-patient
-Usage: #inline
+Usage: #example
 * meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
 * identifier.system = "http://hl7.org/fhir/sid/us-ssn"
 * identifier.value = "120-35-2435"
