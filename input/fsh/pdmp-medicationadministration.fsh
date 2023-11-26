@@ -8,7 +8,7 @@ Alias: $us-core-medication-clinical-drug = http://cts.nlm.nih.gov/fhir/ValueSet/
 Profile: MedicationAdministrationProfile
 Parent: MedicationAdministration
 Id: pdmp-medicationadministration
-Description: "Defines constraints and extensions on the MedicationAdministration resource when used by a Prescription Drug Monitoring Program (PDMP) to return an individual's medication administration history. <br/><br/>*NOTE: Use of the MedicationAdministration resource in PDMP exchanges is to be determined by stakeholders.*"
+Description: "Defines constraints and extensions on the MedicationAdministration resource when used by a Prescription Drug Monitoring Program (PDMP) to return an individual's medication administration history."
 * ^extension.url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg"
 * ^extension.valueCode = #phx
 * ^version = "2.2.0"

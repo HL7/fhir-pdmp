@@ -95,7 +95,7 @@ Usage: #inline
 * eventCoding.display = "PDMP Patient Request"
 * sender = Reference(practitionerrole-req-1)
 * source.name = "MyPDMPServer"
-* source.endpoint = "http://StatePDMPServer/StatePDMP/api"
+* source.endpoint = "http://pdmpserver.example.org/api"
 * focus = Reference(parameters-req-1)
 
 Instance: parameters-req-1
@@ -205,7 +205,7 @@ Usage: #inline
 * eventCoding.display = "PDMP Patient Request"
 * sender = Reference(practitionerrole-req-2-del)
 * source.name = "MyPDMPServer"
-* source.endpoint = "http://StatePDMPServer/StatePDMP/api"
+* source.endpoint = "http://pdmpserver.example.org/api"
 * focus = Reference(parameters-req-2)
 
 Instance: parameters-req-2
