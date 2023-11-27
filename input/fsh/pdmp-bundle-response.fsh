@@ -115,6 +115,7 @@ Usage: #inline
 * authorizingPrescription.identifier.system = "http://myprescribingsystem.com/ordernumber"
 * authorizingPrescription.identifier.value = "605153"
 * quantity = 10 '{each}' "each"
+* daysSupply.value = 5
 * whenHandedOver = "2023-06-05"
 * dosageInstruction.sequence = 1
 * dosageInstruction.text = "1 tab tid prn pain"
@@ -247,6 +248,7 @@ Usage: #inline
 * authorizingPrescription.identifier.system = "http://myprescribingsystem.com/ordernumber"
 * authorizingPrescription.identifier.value = "605153"
 * quantity = 10 '{each}' "each"
+* daysSupply.value = 5
 * whenHandedOver = "2023-06-05"
 * dosageInstruction.sequence = 1
 * dosageInstruction.text = "1 tab tid prn pain"
@@ -357,6 +359,7 @@ Usage: #inline
 * authorizingPrescription.identifier.system = "http://myprescribingsystem.com/ordernumber"
 * authorizingPrescription.identifier.value = "605153"
 * quantity = 10 '{each}' "each"
+* daysSupply.value = 5
 * whenHandedOver = "2023-06-05"
 * dosageInstruction.sequence = 1
 * dosageInstruction.text = "1 tab tid prn pain"
@@ -467,6 +470,7 @@ Usage: #inline
 * authorizingPrescription.identifier.system = "http://myprescribingsystem.com/ordernumber"
 * authorizingPrescription.identifier.value = "605153"
 * quantity = 10 '{each}' "each"
+* daysSupply.value = 5
 * whenHandedOver = "2023-06-05"
 * dosageInstruction.sequence = 1
 * dosageInstruction.text = "1 tab tid prn pain"
@@ -474,7 +478,7 @@ Usage: #inline
 Instance: pharmacy-res-4-1
 InstanceOf: Organization
 Usage: #inline
-* meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization"
+* meta.profile = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-organization-pharmacy"
 * text.status = #generated
 * text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">The pharmacy that dispensed the reported medication: Our Pharmacy</div>"
 * identifier[0].system = "http://hl7.org/fhir/sid/us-npi"

@@ -6,12 +6,12 @@ Alias: $us-core-relatedperson = http://hl7.org/fhir/us/core/StructureDefinition/
 Alias: $patient-status = http://hl7.org/fhir/ValueSet/patient-status
 Alias: $patient-animal-extension = http://hl7.org/fhir/StructureDefinition/patient-animal
 
-Invariant: full-date-1
+Invariant: pdmp-full-birthdate
 Severity: #error
-Description: "Date SHALL include year, month and day"
+Description: "Date SHALL include year, month and day if present"
 Expression: "extension.exists() or toString().length()=10"
 
-Profile: PatientProfile
+Profile: PdmpPatient
 Parent: $us-core-patient
 Id: pdmp-patient
 Title: "PDMP Patient"
@@ -35,11 +35,11 @@ Description: "Defines constraints and extensions on the Patient resource when us
 * . ^mustSupport = false
 * . ^isModifier = false
 * extension contains
-	$patient-animal-extension named animal 0..1 MS
+	$patient-animal-extension named patient-animal 0..1 MS
 * name.family 1.. 
 * name.given 1..
 * birthDate 1..1 MS
-* birthDate obeys full-date-1
+* birthDate obeys pdmp-full-birthdate
 * address.country MS  
 * identifier ^slicing.discriminator.type = #value
 * identifier ^slicing.discriminator.path = "type.coding.code"
@@ -93,11 +93,11 @@ Description: "Mapping PDMP Patient to PMIX 4.0 Patient structure"
 
 
 
-Instance: patient-1
+Instance: pdmp-patient-1
 InstanceOf: pdmp-patient
 Usage: #example
 Description: "Example of a PDMP patient - as submitted in a request or returned in a response"
-* meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
+* meta.profile = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-patient"
 * identifier.type.coding.system = "http://terminology.hl7.org/CodeSystem/v2-0203"
 * identifier.type.coding.code = #SS
 * identifier.type.coding.display = "Social Security number"
@@ -118,7 +118,7 @@ Description: "Example of a PDMP patient - as submitted in a request or returned 
 
 
 
-Instance: patient-2-veterinary
+Instance: pdmp-patient-2-veterinary
 InstanceOf: pdmp-patient
 Usage: #example
 Description: "Example of a PDMP patient representing an animal"
@@ -149,6 +149,7 @@ Description: "Example of the owner of an animal patient"
 * identifier.type.coding.system = "http://terminology.hl7.org/CodeSystem/v2-0203"
 * identifier.type.coding.code = #DL
 * identifier.type.coding.display = "Driver's license number"
+* identifier.system = "urn:oid:2.16.840.1.113883.4.3.25"
 * identifier.value = "M231-64600-565-55"
 * active = true
 * name.family = "Samuels"
@@ -159,5 +160,5 @@ Description: "Example of the owner of an animal patient"
 * address.state = "Concord"
 * address.state = "MA"
 * address.postalCode = "01742"
-* patient.reference = "Patient/patient-2-veterinary"
+* patient.reference = "Patient/pdmp-patient-2-veterinary"
 * relationship.coding = http://hl7.org/fhir/us/pdmp/CodeSystem/temporary-pdmp-patient-relationship#animal-owner "Animal Owner"
