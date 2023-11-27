@@ -2,6 +2,7 @@ Alias: $us-core-patient = http://hl7.org/fhir/us/core/StructureDefinition/us-cor
 Alias: $us-core-practitioner = http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner
 Alias: $us-core-practitionerrole = http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole
 Alias: $us-core-organization = http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization
+Alias: $pdmp-patient = http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-patient
 
 Profile: PdmpParametersRequest
 Parent: Parameters
@@ -11,7 +12,6 @@ Description: "This profile tailors the Parameters resource to convey PDMP Reques
 * ^extension.url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg"
 * ^extension.valueCode = #phx
 * ^meta.lastUpdated = "2023-10-05T00:00:00-05:00"
-* ^url = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-parameters-request"
 * ^version = "1.0.0"
 * ^experimental = false
 * ^date = "2023-10-05T00:00:00-05:00"
@@ -32,6 +32,7 @@ Description: "This profile tailors the Parameters resource to convey PDMP Reques
 * parameter ^slicing.rules = #open
 * parameter contains
     patient 1..1 MS and
+    animal-owner 0..1 MS and
     authorized-provider 1..1 MS and
     provider-delegate 0..1 MS and
     organization 0..1 MS and
@@ -40,6 +41,10 @@ Description: "This profile tailors the Parameters resource to convey PDMP Reques
 * parameter[patient].name MS
 * parameter[patient].value[x] only Reference($us-core-patient)
 * parameter[patient].value[x] MS
+* parameter[animal-owner].name = "animal-owner" (exactly)
+* parameter[animal-owner].name MS
+* parameter[animal-owner].value[x] only Reference($us-core-relatedperson)
+* parameter[animal-owner].value[x] MS
 * parameter[authorized-provider].name = "authorized-provider" (exactly)
 * parameter[authorized-provider].name MS
 * parameter[authorized-provider].value[x] only Reference($us-core-practitionerrole)

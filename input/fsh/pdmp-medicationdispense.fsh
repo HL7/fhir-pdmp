@@ -7,12 +7,12 @@ Alias: $us-core-medication-clinical-drug = http://cts.nlm.nih.gov/fhir/ValueSet/
 Alias: $us-core-medicationdispense = http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationdispense
 Alias: $pdmp-extension-rx-refill-number = http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-extension-rx-refill-number
 Alias: $pdmp-extension-rx-transmission-method = http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-extension-rx-transmission-method
-Alias: $rx-transmission-method = http://hl7.org/fhir/us/pdmp/ValueSet/pdmp-rx-transmission-method
-Alias: $ncpdp-prescription-origin-code = http://terminology.hl7.org/CodeSystem/NCPDPPrescriptionOriginCode
+Alias: $pmix-transmission-code = http://hl7.org/fhir/us/pdmp/CodeSystem/temporary-pmix-transmission-form-of-rx-origin
 
 Profile: MedicationDispenseProfile
 Parent: $us-core-medicationdispense
 Id: pdmp-medicationdispense
+Title: "PDMP MedicationDispense"
 Description: "Defines constraints and extensions on the MedicationDispense resource when used by a Prescription Drug Monitoring Program (PDMP) to return an individual's medication dispense history."
 * ^extension.url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg"
 * ^extension.valueCode = #phx
@@ -68,7 +68,7 @@ Description: "Example of a PDMP medication dispense"
 * extension[0].url = $pdmp-extension-rx-refill-number
 * extension[=].valuePositiveInt = 1
 * extension[+].url = $pdmp-extension-rx-transmission-method
-* extension[=].valueCoding = $ncpdp-prescription-origin-code#"3" "Electronic"
+* extension[=].valueCoding = $pmix-transmission-code#"05" "Electronic Prescription"
 * status = #in-progress
 * medicationCodeableConcept.coding[0] = $rxnorm#993781 "acetaminophen 300 MG / codeine phosphate 30 MG Oral Tablet"
 * medicationCodeableConcept.coding[+] = $ndc#00093015001

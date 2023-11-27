@@ -18,8 +18,24 @@ Entry 'http://example.org/MyEHR/Practitioner/practitioner-req-1' isn't reachable
 Entry 'http://example.org/MyEHR/PractitionerRole/practitionerrole-req-2' isn't reachable by traversing links (forward or backward) from the MessageHeader, so its presence should be reviewed (is it needed to process the message?)
 Entry 'http://example.org/MyEHR/Practitioner/practitioner-req-2-del' isn't reachable by traversing links (forward or backward) from the MessageHeader, so its presence should be reviewed (is it needed to process the message?)
 Entry 'http://example.org/MyEHR/Practitioner/practitioner-req-2' isn't reachable by traversing links (forward or backward) from the MessageHeader, so its presence should be reviewed (is it needed to process the message?)
+Entry 'http://example.org/MyEHR/Practitioner/practitioner-req-3' isn't reachable by traversing links (forward or backward) from the MessageHeader, so its presence should be reviewed (is it needed to process the message?)
+Entry 'http://example.org/MyEHR/Practitioner/practitioner-req-3' isn't reachable by traversing links (forward or backward) from the MessageHeader, so its presence should be reviewed (is it needed to process the message?)
+Entry 'http://example.org/MyEHR/Patient/patient-req-3' isn't reachable by traversing links (forward or backward) from the MessageHeader, so its presence should be reviewed (is it needed to process the message?)
 
+# Including the patient-animal extension in a Patient example results in this informational message (because patient-animal isn't included in US Core Patient)
+This element does not match any known slice defined in the profile http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient|6.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)
 
-# ****** TEMPORARY - This warning is caused by moving the Patient resource in order to test reference resolution **********
+# MessageHeader and Parameters profiles do not have separate examples b/c they aren't used indepenently. Instead, profile pages contain links to full message examples for pdmp-messageheader-request, pdmp-messageheader-response, pdmp-parameters-request
+The Implementation Guide contains no explicitly linked examples for this profile
+
+# ****** TEMPORARY - Warnings / information alerts caused by moving the Patient resource in order to test reference resolution **********
 This element does not match any known slice defined in the profile http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-bundle-response|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)
 Entry 'https://pdmp1.testpdmp.org/Patient/patient-res-3-1' isn't reachable by traversing links (forward or backward) from the MessageHeader, so its presence should be reviewed (is it needed to process the message?)
+URN reference is not locally contained within the bundle urn:uuid:53a1e123-5b56-44ae-b7e8-36e0b9800f57
+
+# ******** TEMPORARY - Informational alerts caused by the validator not finding referenced resources within the same nested bundle as the referencing resource (response bundle within the message bundle)
+Can't find 'urn:uuid:53a1e123-5b56-44ae-b7e8-36e0b9800f57' in the bundle (Bundle.entry[1].resource.entry[0].resource.subject)
+Can't find 'urn:uuid:82ae67e4-f23a-4c17-b80a-9076a37f5d6e' in the bundle (Bundle.entry[1].resource.entry[0].resource.performer[0].actor)
+Can't find 'https://pdmp1.testpdmp.org/Organization/pharmacy-res-4-1' in the bundle (Bundle.entry[1].resource.entry[0].resource.performer[0].actor)
+Can't find 'Organization/pharmacy-res-3-1' in the bundle (Bundle.entry[1].resource.entry[0].resource.performer[0].actor)
+Can't find 'urn:uuid:82ae67e4-f23a-4c17-b80a-9076a37f5d6e' in the bundle (Bundle.entry[1].resource.entry[0].resource.performer[0].actor)

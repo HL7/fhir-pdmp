@@ -8,6 +8,7 @@ Alias: $us-core-medication-clinical-drug = http://cts.nlm.nih.gov/fhir/ValueSet/
 Profile: MedicationAdministrationProfile
 Parent: MedicationAdministration
 Id: pdmp-medicationadministration
+Title: "PDMP MedicationAdministration"
 Description: "Defines constraints and extensions on the MedicationAdministration resource when used by a Prescription Drug Monitoring Program (PDMP) to return an individual's medication administration history."
 * ^extension.url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg"
 * ^extension.valueCode = #phx
@@ -54,6 +55,7 @@ Description: "Defines constraints and extensions on the MedicationAdministration
 
 Alias: $rxnorm = http://www.nlm.nih.gov/research/umls/rxnorm
 Alias: $ndc = http://hl7.org/fhir/sid/ndc
+Alias: $pmix-transmission-code = http://hl7.org/fhir/us/pdmp/CodeSystem/temporary-pmix-transmission-form-of-rx-origin
 
 Instance: pdmp-medadmin-1
 InstanceOf: pdmp-medicationadministration
@@ -61,7 +63,7 @@ Usage: #example
 Description: "Example of a PDMP medication administration"
 * meta.profile = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-medicationadministration"
 * extension[0].url = $pdmp-extension-rx-transmission-method
-* extension[=].valueCoding = $ncpdp-prescription-origin-code#"2" "Telephone"
+* extension[=].valueCoding = $pmix-transmission-code#"02" "Telephone Prescription"
 * status = #completed
 * medicationCodeableConcept.coding[0] = $rxnorm#864706 "methadone hydrochloride 10 MG Oral Tablet"
 * medicationCodeableConcept.coding[+] = $ndc#00406577123 "METHADONE HYDROCHLORIDE, 1 TABLET in 1 BLISTER PACK (0406-5771-23) (package)"

@@ -1,6 +1,6 @@
 Extension: Prescription_Transmission_Method
 Id: pdmp-extension-rx-transmission-method
-Title: "Prescription_Transmission_Method"
+Title: "PDMP Extension - Prescription Transmission Method"
 Description: "The method by which the prescription was trasmitted to the dispensing or administering party."
 * ^extension.url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg"
 * ^extension.valueCode = #phx

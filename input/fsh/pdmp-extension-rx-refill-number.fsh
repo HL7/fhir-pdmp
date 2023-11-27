@@ -1,6 +1,6 @@
 Extension: Prescription_Refill_Number_Extension
 Id: pdmp-extension-rx-refill-number
-Title: "Prescription_Refill_Number_Extension"
+Title: "PDMP Extension - Prescription Refill Number"
 Description: "The refill number of the prescription dispensed."
 * ^extension.url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg"
 * ^extension.valueCode = #phx
