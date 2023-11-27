@@ -1,6 +1,6 @@
 Extension: PDMP_Activity_Period_Extension
 Id: pdmp-activity-period-extension
-Title: "PDMP_Activity_Period_Extension"
+Title: "PDMP Extension - Activity Period"
 Description: "The date period (start/end) of the responses returned by the PDMP."
 * ^extension.url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg"
 * ^extension.valueCode = #phx

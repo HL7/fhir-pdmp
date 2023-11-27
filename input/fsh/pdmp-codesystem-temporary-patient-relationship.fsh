@@ -1,12 +1,9 @@
-Alias: $pmix-transmission-code = http://hl7.org/fhir/us/pdmp/CodeSystem/temporary-pmix-transmission-form-of-rx-origin
-
-ValueSet: PdmpRxTransmissionMethod
-Id: pdmp-rx-transmission-method
-Title: "PDMP Value Set - Prescription Transmission Method"
-Description: "This value set contains codes for the methods by which a prescription was received by the dispensing or administering party."
+CodeSystem: TemporaryPdmpPatientRelationship
+Id: temporary-pdmp-patient-relationship
+Title: "PDMP Code System - Patient Relationship"
+Description: "This code system defines a relationship between a RelatedPerson and the patient"
 * ^extension.url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg"
 * ^extension.valueCode = #phx
-* ^url = "http://hl7.org/fhir/us/pdmp/ValueSet/pdmp-rx-transmission-method"
 * ^version = "1.0.0"
 * ^status = #active
 * ^experimental = false
@@ -21,4 +18,6 @@ Description: "This value set contains codes for the methods by which a prescript
 * ^contact[=].telecom[+].system = #email
 * ^contact[=].telecom[=].value = "fm@frankmckinney.com"
 * ^jurisdiction = urn:iso:std:iso:3166#US "United States of America"
-* include codes from system $pmix-transmission-code
+* ^caseSensitive = false
+* ^content = #complete
+* #animal-owner "Animal Owner" "Owner of the animal patient"

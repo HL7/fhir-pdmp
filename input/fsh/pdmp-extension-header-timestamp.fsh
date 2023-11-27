@@ -1,7 +1,7 @@
 Extension: PDMP_Header_Timestamp_Extension
 Id: pdmp-header-timestamp-extension
-Title: "PDMP_Header_Timestamp_Extension"
-Description: "The date the request was sent to the PDMP Resonder."
+Title: "PDMP Extension - Header Timestamp"
+Description: "The date the request was sent to the PDMP Responder."
 * ^extension.url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg"
 * ^extension.valueCode = #phx
 * ^meta.versionId = "1"
@@ -23,4 +23,4 @@ Description: "The date the request was sent to the PDMP Resonder."
 * value[x] 1..
 * value[x] only dateTime
 * value[x] ^short = "Message Timestamp"
-* value[x] ^definition = "Represents the date time when the message was sent"
+* value[x] ^definition = "Represents the date time the request was sent to the PDMP Responder"
