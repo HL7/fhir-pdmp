@@ -17,7 +17,7 @@ For this Implementaion Guide, we abstract the ecosystem in Figure 1 by focusing 
 
 This section defines the abstract model which is used to identify the specific actors and interactions that are in-scope for the project. The abstract model is as shown in Figure 2 below which consists of two actors: the PDMP Requester and the PDMP Responder.
 
-- **PDMP Requester:** A system (may include both a local system (e.g., EHR, Pharmacy System) and associated intermediaries (e.g., eRx switch)) that retrieves patient prescription data from a PDMP on behalf of a prescriber or pharmacist. This system can be thought of as the client in a client-server interaction.  
+- **PDMP Requester:** A system (may include both a local system (e.g., EHR, Pharmacy System) and associated intermediaries (e.g., eRx swithc)) that retrieves patient prescription data from a PDMP on behalf of a prescriber or pharmacist. This system can be thought of as the client in a client-server interaction.  
 
 - **PDMP Responder:** A state-based PDMP, including any intermediary or partner systems, that acts as a source of prescription data by responding to PDMP data requests. This system can be thought of as the server in a client-server interaction.
 
