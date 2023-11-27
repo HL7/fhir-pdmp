@@ -1,13 +1,10 @@
 Alias: $us-core-medication = http://hl7.org/fhir/us/core/StructureDefinition/us-core-medication
 Alias: $us-core-patient = http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient
 Alias: $us-core-practitioner = http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner
-Alias: $us-core-organization = http://hl7.org/fhir/us/core/StructureDefinition/us-core-organizationAlias: $us-core-relatedperson = http://hl7.org/fhir/us/core/StructureDefinition/us-core-relatedperson
+Alias: $us-core-organization = http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization
+Alias: $us-core-relatedperson = http://hl7.org/fhir/us/core/StructureDefinition/us-core-relatedperson
 Alias: $patient-status = http://hl7.org/fhir/ValueSet/patient-status
-<<<<<<< Updated upstream
-Alias: $us-core-patient = http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient
-=======
 Alias: $patient-animal-extension = http://hl7.org/fhir/StructureDefinition/patient-animal
->>>>>>> Stashed changes
 
 Invariant: full-date-1
 Severity: #error
@@ -44,13 +41,6 @@ Description: "Defines constraints and extensions on the Patient resource when us
 * birthDate 1..1 MS
 * birthDate obeys full-date-1
 * address.country MS  
-<<<<<<< Updated upstream
-
-Instance: patient-1
-InstanceOf: pdmp-patient
-Usage: #inline
-* meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
-=======
 * identifier ^slicing.discriminator.type = #value
 * identifier ^slicing.discriminator.path = "type.coding.code"
 * identifier ^slicing.rules = #open
@@ -111,17 +101,12 @@ Description: "Example of a PDMP patient - as submitted in a request or returned 
 * identifier.type.coding.system = "http://terminology.hl7.org/CodeSystem/v2-0203"
 * identifier.type.coding.code = #SS
 * identifier.type.coding.display = "Social Security number"
->>>>>>> Stashed changes
 * identifier.system = "http://hl7.org/fhir/sid/us-ssn"
 * identifier.value = "120-35-2435"
 * name.family = "Samuels"
 * name.given = "August"
 * gender = #male
 * birthDate = "1989-03-12"
-<<<<<<< Updated upstream
-* address.state = "MA"
-* address.postalCode = "01059"
-=======
 * address.line[0] = "10023 Oakways Ln"
 * address.state = "Concord"
 * address.state = "MA"
@@ -176,4 +161,3 @@ Description: "Example of the owner of an animal patient"
 * address.postalCode = "01742"
 * patient.reference = "Patient/patient-2-veterinary"
 * relationship.coding = http://hl7.org/fhir/us/pdmp/CodeSystem/temporary-pdmp-patient-relationship#animal-owner "Animal Owner"
->>>>>>> Stashed changes
