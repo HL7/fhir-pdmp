@@ -1,38 +1,25 @@
 ### PDMP Ecosystem
 
-As shown in the Figure below, the overall PDMP ecosystem consists of prescriber systems, pharmacy systems and state-based PDMP systems.
+The following figure, provided by Prescription Drug Monitoring Program Training and Technical Assistance Center ([PDMP TTAC](https://www.pdmpassist.org)) shows a overview of the PDMP reporting ecosystem.  Simplistically, a `user` requests a PDMP report from a given State PDMP System, which responds with the report.  In reality, users work within their local system (e.g., EHR, Pharmacy System, eRx application), and possibly an associated intermediary (e.g., eRx switch) in creating a PDMP Request or receiving a PDMP Report.  Likewise, State PDMP systems are the ultimate source for the PDMP Report, but may work with various intermediaries (e.g., Integration Facilitator, PMP Hub) in receiving a PDMP Request or sending a PDMP Report.
 
 <div>
 <figure class="figure">
-<figcaption class="figure-caption"><strong>Figure: Simplified View of ecosystem interactions</strong></figcaption>
+<figcaption class="figure-caption"><strong>Figure 1: An overview of the PDMP ecosystem</strong></figcaption>
   <p>
-  <img src="pdmp-overview-flows.png" style="float:none">  
+  <img src="pdmp-ecosystem-small.png" style="float:none">  
   </p>
 </figure>
 </div>
 
-### Use Case
-This guide centers around a single use case, in which a provider (prescriber or pharmacist) accesses a Patient’s controlled substance history
-
-<div>
-<figure class="figure">
-<figcaption class="figure-caption"><strong>Figure: IG Scope</strong></figcaption>
-  <p>
-  <img src="pdmp-overview-scope.png" style="float:none">  
-  </p>
-</figure>
-</div>
-
-All other interactions between the parties above--such as a prescription being sent from the prescriber to the dispensing pharmacy, or the pharmacy submitting dispense history data to the PDMP--are critical to the overall PDMP process but are not in-scope for this IG. 
+For this Implementaion Guide, we abstract the ecosystem in Figure 1 by focusing on the PDMP Request and PDMP Report messages being exchanges by the PDMP Requester and teh PDMP Responder
 
 ### Abstract Model, Actors and Definitions
 
-_to be reviewed/revised_
+This section defines the abstract model which is used to identify the specific actors and interactions that are in-scope for the project. The abstract model is as shown in Figure 2 below which consists of two actors: the PDMP Requester and the PDMP Responder.
 
-This section defines the abstract model which is used to identify the specific actors and interactions that are in-scope for the project. The abstract model is as shown in Figure _XX_ below which consists of two actors namely the PDMP Requester and the PDMP Responder.
+- **PDMP Requester:** A system (may include both a local system (e.g., EHR, Pharmacy System) and associated intermediaries (e.g., eRx switch)) that retrieves patient prescription data from a PDMP on behalf of a prescriber or pharmacist. This system can be thought of as the client in a client-server interaction.  
 
-- **PDMP Requester:** A system that retrieves patient prescription data from a PDMP on behalf of a prescriber or pharmacist. This system can be thought of as the client in a client-server interaction.
-- **PDMP Responder:** A state-based PDMP, intermediary or partner system that acts as a source of prescription data by responding to PDMP data requests. This system can be thought of as the server in a client-server interaction.
+- **PDMP Responder:** A state-based PDMP, including any intermediary or partner systems, that acts as a source of prescription data by responding to PDMP data requests. This system can be thought of as the server in a client-server interaction.
 
 **Note**: PDMP Responders may act as intermediaries, providing additional services such as the ability to query multiple state's systems on behalf of a requesting provider. The method for accessing PDMP prescription data is the same whether a PDMP Responder is an intermediary or an actual state system.
 
@@ -44,10 +31,23 @@ This section defines the abstract model which is used to identify the specific a
   </p>
 </figure>
 </div>
-
-- _Examples of PDMP Requesters include EHRs, pharmacy systems, other clinical systems used by providers for care delivery_
-- _Examples of PDMP Responders include state PDMP systems and intermediaries_ 
 <p></p>
+
+### Use Case
+This guide centers around a single use case, in which a provider (prescriber or pharmacist) accesses a Patient’s controlled substance history
+
+<div>
+<figure class="figure">
+<figcaption class="figure-caption"><strong>Figure 3: IG Scope</strong></figcaption>
+  <p>
+  <img src="pdmp-overview-scope.png" style="float:none">  
+  </p>
+</figure>
+</div>
+
+All other interactions between the parties above--such as a prescription being sent from the prescriber to the dispensing pharmacy, or the pharmacy submitting dispense history data to the PDMP--are critical to the overall PDMP process but are not in-scope for this IG. 
+
+
 
 ### Current Data Standards Supporting the PDMP Ecosystem
 
