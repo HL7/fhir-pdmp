@@ -11,10 +11,12 @@
 - **Patient.address and contact information**
   - The patient's address, telephone and other contact information is specified as Must Support: Implementers must support usage where directed by the jurisdiction
 
+<p></p>
+
 **Populating when the patient is an animal:**
 
 - **Patient.patient-animal extension**
-  - Populate this extension to indicate that the patient is an animal. Include the animal's species and other information as directed by the jurisdiction
+  - Populate this extension to indicate that the patient is an animal. Include the animal's species type (human vs veterinary patient) from the [PDMP Species Type ValueSet](ValueSet-pdmp-species-type.html) and other information as directed by the jurisdiction
 - **Patient.name**
   - Populate the animal's name in name.given, and the owner's family name in name.family
 - **Patient.birthDate**
@@ -22,8 +24,5 @@
 - **RelatedPerson representing the owner**
   - When the patient is an animal, the Patient resource SHOULD be accompanied by a RelatedPerson reflecting the animal's owner's information, which a RelatedPerson.relationship value of "animal-owner" from the [PDMP Patient Relationship ValueSet](ValueSet-pdmp-patient-relationship.html)
   
-  
-
-<p></p>
 
 <p></p>
