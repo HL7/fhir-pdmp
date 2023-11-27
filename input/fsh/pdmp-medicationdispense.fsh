@@ -8,6 +8,12 @@ Alias: $us-core-medicationdispense = http://hl7.org/fhir/us/core/StructureDefini
 Alias: $pdmp-extension-rx-refill-number = http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-extension-rx-refill-number
 Alias: $pdmp-extension-rx-transmission-method = http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-extension-rx-transmission-method
 Alias: $pmix-transmission-code = http://hl7.org/fhir/us/pdmp/CodeSystem/temporary-pmix-transmission-form-of-rx-origin
+Alias: $pdmp-pharmacy = http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-organization-pharmacy
+
+Invariant: pdmp-dispense-performer
+Severity: #error
+Description: "MedicationDispense SHALL include a performer actor reference or performer actor identifier"
+Expression: "reference.exists() or identifier.exists()"
 
 Profile: MedicationDispenseProfile
 Parent: $us-core-medicationdispense
@@ -46,11 +52,29 @@ Description: "Defines constraints and extensions on the MedicationDispense resou
 * subject 1.. MS
 * subject only Reference($us-core-patient)
 * subject ^isModifier = false
-* performer MS
+* performer 1..1 MS
 * performer ^isModifier = false
-* performer.actor only Reference($us-core-practitioner or $us-core-organization)
-* performer.actor MS
+* performer.actor 1..1 MS
+* performer.actor obeys pdmp-dispense-performer
 * performer.actor ^isModifier = false
+* performer.actor only Reference($us-core-practitioner or $pdmp-pharmacy)
+* performer.actor.reference MS
+* performer.actor.identifier MS
+* performer.actor.identifier ^comment = "NPI, DEA, NCPDP Provider ID or state license number preferred."
+* performer.actor.identifier.system 1..1 MS
+* performer.actor.identifier.system only uri
+* performer.actor.identifier.value 1..1 MS
+* performer.actor.identifier.value only string
+* performer.actor.display MS
+* performer.actor.display ^comment = "Performer's name"
+* authorizingPrescription 0..1
+* quantity 1..1
+* quantity.value 1..1
+* quantity.unit 1..1
+* quantity.system 1..1
+* quantity.code 1..1
+* daysSupply 1..1 MS
+* daysSupply.value 1..1 MS
 * whenHandedOver 1.. MS
 * whenHandedOver ^isModifier = false
 * dosageInstruction ..1 MS
@@ -74,8 +98,11 @@ Description: "Example of a PDMP medication dispense"
 * medicationCodeableConcept.coding[+] = $ndc#00093015001
 * medicationCodeableConcept.text = "Acetaminophen 300 mg / Codeine 30 mg oral tablet"
 * subject.display = "Amy V. Shaw"
-* performer.actor.display = "Ronald Bone, MD"
+* performer.actor.identifier[0].system = "http://terminology.hl7.org/CodeSystem/NCPDPProviderIdentificationNumber"
+* performer.actor.identifier[=].value = "999017"
+* performer.actor.display = "Our Pharmacy"
 * quantity = 15 '{each}' "each"
+* daysSupply.value = 5
 * whenHandedOver = "2023-07-08T06:38:52Z"
 * dosageInstruction.sequence = 1
 * dosageInstruction.text = "1 tablet every 6-8 hours as needed for pain"

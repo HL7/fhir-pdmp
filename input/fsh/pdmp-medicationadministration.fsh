@@ -1,9 +1,16 @@
 Alias: $us-core-medication = http://hl7.org/fhir/us/core/StructureDefinition/us-core-medication
+Alias: $us-core-medicationrequest = http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest
 Alias: $us-core-patient = http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient
 Alias: $us-core-encounter = http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter
 Alias: $us-core-practitioner = http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner
 Alias: $medication-admin-status = http://hl7.org/fhir/ValueSet/medication-admin-status
 Alias: $us-core-medication-clinical-drug = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1010.4
+
+Invariant: pdmp-administration-performer
+Severity: #error
+Description: "MedicationAdministration SHALL include a performer actor reference or performer actor identifier"
+Expression: "reference.exists() or identifier.exists()"
+
 
 Profile: MedicationAdministrationProfile
 Parent: MedicationAdministration
@@ -45,13 +52,31 @@ Description: "Defines constraints and extensions on the MedicationAdministration
 * context ^isModifier = false
 * effective[x] MS
 * effective[x] ^isModifier = false
-* performer MS
+* performer 1..1 MS
 * performer ^isModifier = false
-* performer.actor only Reference($us-core-practitioner or $us-core-patient or RelatedPerson)
-* performer.actor MS
+* performer.actor obeys pdmp-administration-performer
+* performer.actor 1..1 MS
 * performer.actor ^isModifier = false
-* dosage MS
+* performer.actor.reference MS
+* performer.actor.identifier MS
+* performer.actor.identifier ^comment = "NPI, DEA or state license number preferred."
+* performer.actor.identifier.system 1..1 MS
+* performer.actor.identifier.system only uri
+* performer.actor.identifier.value 1..1 MS
+* performer.actor.identifier.value only string
+* performer.actor.display MS
+* performer.actor.display ^comment = "Performer's name"
+* request MS
+* request only Reference($us-core-medicationrequest)
+* dosage 1..1 MS
 * dosage ^isModifier = false
+* dosage.text MS
+* dosage.text ^comment = "Textual administration directions (e.g., Give 1 tablet)"
+* dosage.dose 1..1 MS
+* dosage.dose.value 1..1 MS
+* dosage.dose.unit 1..1 MS
+* dosage.dose.system 1..1 MS
+* dosage.dose.code 1..1 MS
 
 Alias: $rxnorm = http://www.nlm.nih.gov/research/umls/rxnorm
 Alias: $ndc = http://hl7.org/fhir/sid/ndc
@@ -70,6 +95,8 @@ Description: "Example of a PDMP medication administration"
 * medicationCodeableConcept.text = "methadone hydrochloride 10 MG Oral Tablet"
 * subject.display = "Amy V. Shaw"
 * effectivePeriod.start = "2023-01-15T04:30:00+01:00"
+* performer.actor.identifier.system = "http://hl7.org/fhir/sid/us-npi"
+* performer.actor.identifier.value = "1669512349"
 * performer.actor.display = "Ronald Bone, MD"
-* dosage.text = "Take 1 tablet daily"
+* dosage.text = "Give 1 tablet"
 * dosage.dose = 1 '{each}' "each"
