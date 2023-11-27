@@ -1,6 +1,6 @@
 CodeSystem: TemporaryPmixSpeciesTypeCode
 Id: temporary-pmix-species-type-code
-Title: "PMIX Code System - Species Type Code"
+Title: "PMIX Code System - Species Type Code (Temporary)"
 Description: "This code system defines codes identifying the species type of a patient (human vs veterinary)"
 * ^extension.url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg"
 * ^extension.valueCode = #phx
