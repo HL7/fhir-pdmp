@@ -27,7 +27,6 @@ The Intermediary plays the role of PDMP Responder for Transactions 1 and 2 but p
 <figure class="figure">
 <figcaption class="figure-caption"><strong>Figure 4: Deployment Option using Intermediaries and only FHIR</strong></figcaption>
   <img src="dep-option-2.png" style="float:none">  
-    </p>
 </figure>
 </div>
 
@@ -42,7 +41,6 @@ There are no intermediaries being used in this deployment and State  Systems hav
 <figure class="figure">
 <figcaption class="figure-caption"><strong>Figure 5: Deployment Option using FHIR and no Intermediaries</strong></figcaption>
   <img src="dep-option-3.png" style="float:none">  
-    </p>
 </figure>
 </div>
 

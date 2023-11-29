@@ -1,10 +1,10 @@
 ### Data Elements and Mappings
 
-This section describes and identifies data elements that are used commonly in the  data requests and responses and provides mappings of these data elements to FHIR. Based on environmental scans and prior performed by ONC across a spectrum of  implementations the following data was collected:
+This section describes and identifies data elements that are used commonly in the  data requests and responses and provides mappings of these data elements to FHIR. Based on environmental scans and prior work performed by ONC across a spectrum of implementations the following data was collected:
 
-* Most of the existing EHR implementations use NCPDP script 10.6 or ASAP web services to request and receive  data from PDMP Responders (Intermediaries or State  systems).
-* Most of the State  systems are implemented using data elements specified by the NIEM standard and expose these data elements using PMIX APIs.
-* Most of the EHRs use intermediaries to request data from one or more State  systems and send NCPDP based requests and receive responses in NCPDP format.
+* Most of the existing EHR implementations use NCPDP SCRIPT 10.6 or ASAP web services to request and receive data from PDMP Responders (Intermediaries or State  systems).
+* Most of the State systems are implemented using data elements specified by the NIEM standard and expose these data elements using PMIX APIs.
+* Most of the EHRs use intermediaries to request data from one or more State systems and send NCPDP based requests and receive responses in NCPDP format.
 
 Based on the above findings, NCPDP Request and Response data elements have been used as a starting point to specify the FHIR APIs. Since the community understands these NCPDP data elements, a mapping of NCPDP Request and Response data elements to FHIR Resources has been created and specified below. This allows organizations already familiar with NCPDP to use the mapping provided to develop their FHIR Resources and APIs. Similarly mapping from PMIX/NIEM data elements to FHIR is also provided for systems using PMIX/NIEM to map their data to FHIR and expose them through appropriate APIs.
 
@@ -85,7 +85,7 @@ This section includes the minimal mapping for the  request from an EHR to a stat
         <td class="maptable17">Organization.identifier</td>
       </tr>
       <tr style='height:28px;'>
-        <td class="maptable16" rowspan="3">Requesting Faciltiy</td>
+        <td class="maptable16" rowspan="3">Requesting Facility</td>
         <td class="maptable17">Facility Name</td>
         <td class="maptable17">&lt;Store Name&gt; &lt;Clinic Name&gt;</td>
         <td class="maptable17">Organization.name</td>
@@ -504,7 +504,7 @@ This section includes the minimal mapping for the  request from an EHR to a stat
         <td class="maptable17">Organization.identifier</td>
       </tr>
       <tr style='height:28px;'>
-        <td class="maptable16" rowspan="3">Requesting Faciltiy</td>
+        <td class="maptable16" rowspan="3">Requesting Facility</td>
         <td class="maptable17">Facility Name</td>
         <td class="maptable17">&lt;nc:OrganizationDoingBusinessAsName&gt;</td>
         <td class="maptable17">Organization.name</td>
@@ -916,7 +916,7 @@ This section includes the minimal mapping for the  request from an EHR to a stat
         <td class="maptable17">Organization.identifier</td>
       </tr>
       <tr style='height:28px;'>
-        <td class="maptable16" rowspan="3">Requesting Faciltiy</td>
+        <td class="maptable16" rowspan="3">Requesting Facility</td>
         <td class="maptable17">Facility Name</td>
         <td class="maptable17">FacilityName</td>
         <td class="maptable17">Organization.name</td>

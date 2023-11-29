@@ -49,7 +49,7 @@ The PDMP Responder MAY:
 
 * The PDMP Responder **SHALL** support the SMART Backend Services Authorization Guide for verifying authentication and providing authorization to PDMP Requesters.
 
-* The PDMP Responder **SHALL** support the HTTP Header parameter X-Request-ID for request coorelation between the PDMP Requester and PDMP Responder.
+* The PDMP Responder **SHALL** support the HTTP Header parameter X-Request-ID for request correlation between the PDMP Requester and PDMP Responder.
 
 ##### Search:
 
@@ -119,7 +119,7 @@ The PDMP Requester **SHOULD**:
 
 * The PDMP Requester **SHALL** support the SMART Backend Services Authorization Guide applicable to clients.
 
-* The PDMP Requester **SHALL** add the HTTP Header parameter X-Request-ID as part of the Search request for request coorelation between the PDMP Requester and PDMP Responder.
+* The PDMP Requester **SHALL** add the HTTP Header parameter X-Request-ID as part of the Search request for request correlation between the PDMP Requester and PDMP Responder.
 
 ##### Search:
 

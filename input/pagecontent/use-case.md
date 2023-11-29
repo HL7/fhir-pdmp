@@ -11,7 +11,7 @@ The following figure, provided by Prescription Drug Monitoring Program Training 
 </figure>
 </div>
 
-For this Implementaion Guide, we abstract the ecosystem in Figure 1 by focusing on the PDMP Request and PDMP Report messages being exchanges by the PDMP Requester and teh PDMP Responder
+For this Implementaion Guide, we abstract the ecosystem in Figure 1 by focusing on the PDMP Request and PDMP Report messages being exchanges by the PDMP Requester and the PDMP Responder
 
 ### Abstract Model, Actors and Definitions
 
@@ -21,7 +21,7 @@ This section defines the abstract model which is used to identify the specific a
 
 - **PDMP Responder:** A state-based PDMP, including any intermediary or partner systems, that acts as a source of prescription data by responding to PDMP data requests. This system can be thought of as the server in a client-server interaction.
 
-**Note**: PDMP Responders may act as intermediaries, providing additional services such as the ability to query multiple state's systems on behalf of a requesting provider. The method for accessing PDMP prescription data is the same whether a PDMP Responder is an intermediary or an actual state system.
+**Note**: Intermediaries acting as PDMP Responders may provide additional services such as the ability to query multiple state's systems on behalf of a requesting provider. The method for accessing PDMP prescription data is the same whether a PDMP Responder is an intermediary or an actual state system.
 
 <div>
 <figure class="figure">
