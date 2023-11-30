@@ -39,7 +39,7 @@ Description: "This profile tailors the Parameters resource to convey PDMP Reques
     prefetch-only 0..* MS
 * parameter[patient].name = "patient" (exactly)
 * parameter[patient].name MS
-* parameter[patient].value[x] only Reference($us-core-patient)
+* parameter[patient].value[x] only Reference($pdmp-patient)
 * parameter[patient].value[x] MS
 * parameter[animal-owner].name = "animal-owner" (exactly)
 * parameter[animal-owner].name MS

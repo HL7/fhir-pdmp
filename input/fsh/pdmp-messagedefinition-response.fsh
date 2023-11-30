@@ -1,4 +1,5 @@
 Alias: $pdmp-event-type = http://hl7.org/fhir/us/pdmp/CodeSystem/pdmp-event-type
+Alias: $operation-event-type = urn:ietf:rfc:3986
 
 Instance: pdmp-response
 InstanceOf: MessageDefinition
@@ -11,7 +12,7 @@ Usage: #definition
 * title = "PDMP Message Definition - Response"
 * status = #active
 * experimental = false
-* date = "2023-10-08T00:00:00-00:00"
+* date = "2023-11-29T00:00:00-00:00"
 * publisher = "HL7 International / Pharmacy"
 * contact[0].name = "HL7 International / Pharmacy"
 * contact[=].telecom.system = #url
@@ -24,7 +25,7 @@ Usage: #definition
 * description = "Response returning information from a PDMP facilitator system about medication dispensations and administrations"
 * jurisdiction = urn:iso:std:iso:3166#US "United States of America"
 * purpose = "Return information from a PDMP facilitator about medication dispensations and administrations"
-* eventCoding = $pdmp-event-type#pdmp-patient-response
+* eventCoding = $operation-event-type#http://hl7.org/fhir/us/pdmp/OperationDefinition/get-pdmp-history
 * category = #currency
 * focus.code = #Parameters
 * focus.min = 1

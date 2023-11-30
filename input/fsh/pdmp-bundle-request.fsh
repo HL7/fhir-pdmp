@@ -1,6 +1,6 @@
 Alias: $pdmp-messageheader-request = http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-messageheader-request
 Alias: $pdmp-parameters-request = http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-parameters-request
-Alias: $us-core-patient = http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient
+Alias: $pdmp-patient = http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-patient
 Alias: $us-core-practitioner = http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner
 Alias: $us-core-practitionerrole = http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole
 Alias: $us-core-organization = http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization
@@ -57,7 +57,7 @@ Description: "This profile constrains a Bundle resource for use as the request m
 * entry[parameters].resource only $pdmp-parameters-request
 * entry[patient] ^comment = "Patient information as understood by the requesting system."
 * entry[patient].resource 1..1 MS
-* entry[patient].resource only $us-core-patient
+* entry[patient].resource only $pdmp-patient
 * entry[animal-owner] ^comment = "RelatedPerson reflecting an animal patient's owner"
 * entry[animal-owner].resource 1..1 MS
 * entry[animal-owner].resource only $us-core-relatedperson
@@ -121,7 +121,8 @@ Usage: #inline
 Instance: patient-req-1
 InstanceOf: Patient
 Usage: #inline
-* meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
+* meta.profile = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-patient"
+* identifier.type = $v2-0203#SS "Social Security number"
 * identifier.system = "http://hl7.org/fhir/sid/us-ssn"
 * identifier.value = "120-35-2435"
 * name.family = "Samuels"
@@ -134,9 +135,9 @@ Usage: #inline
 Instance: practitionerrole-req-1
 InstanceOf: PractitionerRole
 Usage: #inline
-* practitioner.id = "#practitioner-req-1"
+* practitioner.reference = "Practitioner/practitioner-req-1"
 * practitioner.display = "Adam Amster"
-* organization.id = "#organization-req-1"
+* organization.reference = "Organization/organization-req-1"
 * organization.display = "Highview Clinic"
 * specialty = $taxonomy#207R00000X "Internal Medicine Physician"
 * telecom[0].system = #phone
@@ -234,6 +235,7 @@ Instance: patient-req-2
 InstanceOf: Patient
 Usage: #inline
 * meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
+* identifier.type = $v2-0203#SS "Social Security number"
 * identifier.system = "http://hl7.org/fhir/sid/us-ssn"
 * identifier.value = "120-35-2435"
 * name.family = "Samuels"

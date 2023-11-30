@@ -1,0 +1,61 @@
+Alias: $taxonomy = http://nucc.org/provider-taxonomy
+Alias: $v2-0203 = http://terminology.hl7.org/CodeSystem/v2-0203
+
+Instance: get-pdmp-history-input-parameters-1
+InstanceOf: Parameters
+Usage: #example
+Description: "Example of a Parameters resource used to request a patient's PDMP history"
+* parameter[0].name = "patient"
+* parameter[=].resource.id = "patient-req-1"
+* parameter[=].resource.resourceType = "Patient"
+* parameter[=].resource.meta.profile = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-patient"
+* parameter[=].resource.text.status = #generated
+* parameter[=].resource.text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">August Samuels</div>"
+* parameter[=].resource.identifier.type = $v2-0203#SS "Social Security number"
+* parameter[=].resource.identifier.system = "http://hl7.org/fhir/sid/us-ssn"
+* parameter[=].resource.identifier.value = "120-35-2435"
+* parameter[=].resource.name.family = "Samuels"
+* parameter[=].resource.name.given = "August"
+* parameter[=].resource.gender = #male
+* parameter[=].resource.birthDate = "1989-03-12"
+* parameter[=].resource.address.state = "MA"
+* parameter[=].resource.address.postalCode = "01059"
+* parameter[+].name = "authorized-practitioner"
+* parameter[=].resource.id = "practitioner-req-1"
+* parameter[=].resource.resourceType = "Practitioner"
+* parameter[=].resource.meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner"
+* parameter[=].resource.text.status = #generated
+* parameter[=].resource.text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Adam Amster MD</div>"
+* parameter[=].resource.identifier[0].system = "http://hl7.org/fhir/sid/us-npi"
+* parameter[=].resource.identifier[=].value = "1928340565"
+* parameter[=].resource.name.family = "Amster"
+* parameter[=].resource.name.given = "Adam"
+* parameter[=].resource.address.state = "MA"
+* parameter[+].name = "authorized-practitioner-role"
+* parameter[=].resource.resourceType = "PractitionerRole"
+* parameter[=].resource.id = "practitionerrole-req-1"
+* parameter[=].resource.meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole"
+* parameter[=].resource.text.status = #generated
+* parameter[=].resource.text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Adam Amster, Internal Medicine, Highview Clinic</div>"
+* parameter[=].resource.practitioner.reference = "Practitioner/practitioner-req-1"
+* parameter[=].resource.practitioner.display = "Adam Amster"
+* parameter[=].resource.organization.reference = "Organization/organization-req-1"
+* parameter[=].resource.organization.display = "Highview Clinic"
+* parameter[=].resource.telecom[0].system = #phone
+* parameter[=].resource.telecom[=].value = "951-555-5555"
+* parameter[=].resource.telecom[+].system = #email
+* parameter[=].resource.telecom[=].value = "aamster-highview-clinic@exampleemail.org"
+* parameter[+].name = "authorized-practitioner-organization"
+* parameter[=].resource.resourceType = "Organization"
+* parameter[=].resource.id = "organization-req-1"
+* parameter[=].resource.meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization"
+* parameter[=].resource.text.status = #generated
+* parameter[=].resource.text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Highview Clinic</div>"
+* parameter[=].resource.identifier.system = "http://hl7.org/fhir/sid/us-npi"
+* parameter[=].resource.identifier.value = "9851234689"
+* parameter[=].resource.active = true
+* parameter[=].resource.name = "Highview Clinic"
+* parameter[=].resource.address.state = "MA"
+* parameter[+].name = "prefetch-request"
+* parameter[=].valueBoolean = false
+

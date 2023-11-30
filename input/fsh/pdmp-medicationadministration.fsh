@@ -12,7 +12,7 @@ Description: "MedicationAdministration SHALL include a performer actor reference
 Expression: "reference.exists() or identifier.exists()"
 
 
-Profile: MedicationAdministrationProfile
+Profile: PdmpMedicationAdministration
 Parent: MedicationAdministration
 Id: pdmp-medicationadministration
 Title: "PDMP MedicationAdministration"

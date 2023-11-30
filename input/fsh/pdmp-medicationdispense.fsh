@@ -15,7 +15,7 @@ Severity: #error
 Description: "MedicationDispense SHALL include a performer actor reference or performer actor identifier"
 Expression: "reference.exists() or identifier.exists()"
 
-Profile: MedicationDispenseProfile
+Profile: PdmpMedicationDispense
 Parent: $us-core-medicationdispense
 Id: pdmp-medicationdispense
 Title: "PDMP MedicationDispense"
