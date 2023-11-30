@@ -1,4 +1,5 @@
 Alias: $pdmp-event-type = http://hl7.org/fhir/us/pdmp/CodeSystem/pdmp-event-type
+Alias: $operation-event-type = urn:ietf:rfc:3986
 
 Instance: pdmp-request
 InstanceOf: MessageDefinition
@@ -24,7 +25,7 @@ Usage: #definition
 * description = "Message requesting information from a PDMP facilitator system about medication dispensations and administrations"
 * jurisdiction = urn:iso:std:iso:3166#US "United States of America"
 * purpose = "Request information from a PDMP facilitator about medication dispensations and administrations"
-* eventCoding = $pdmp-event-type#pdmp-patient-request
+* eventCoding = $operation-event-type#http://hl7.org/fhir/us/pdmp/OperationDefinition/get-pdmp-history
 * category = #currency
 * focus.code = #Parameters
 * focus.min = 1

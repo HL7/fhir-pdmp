@@ -10,7 +10,6 @@ The Intermediaries may translate the incoming FHIR request for data to a PMIX/NI
 <figure class="figure">
 <figcaption class="figure-caption"><strong>Figure 3: Deployment Option using Intermediaries and PMIX/NIEM</strong></figcaption>
   <img src="dep-option-1.png" style="float:none">  
-    </p>
 </figure>
 </div>
 
