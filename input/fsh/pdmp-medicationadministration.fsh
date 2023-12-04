@@ -75,8 +75,8 @@ Description: "Defines constraints and extensions on the MedicationAdministration
 * dosage.dose 1..1 MS
 * dosage.dose.value 1..1 MS
 * dosage.dose.unit 1..1 MS
-* dosage.dose.system 1..1 MS
-* dosage.dose.code 1..1 MS
+* dosage.dose.system 0..1 MS
+* dosage.dose.code 0..1 MS
 
 Alias: $rxnorm = http://www.nlm.nih.gov/research/umls/rxnorm
 Alias: $ndc = http://hl7.org/fhir/sid/ndc
@@ -99,4 +99,5 @@ Description: "Example of a PDMP medication administration"
 * performer.actor.identifier.value = "1669512349"
 * performer.actor.display = "Ronald Bone, MD"
 * dosage.text = "Give 1 tablet"
-* dosage.dose = 1 '{each}' "each"
+* dosage.dose.value = 1 
+* dosage.dose.unit = "each"

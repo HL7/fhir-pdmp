@@ -1,24 +1,21 @@
-Alias: $us-core-patient = http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient
-Alias: $us-core-relatedperson = http://hl7.org/fhir/us/core/StructureDefinition/us-core-relatedperson
-Alias: $us-core-practitioner = http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner
-Alias: $us-core-practitionerrole = http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole
-Alias: $us-core-organization = http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization
+Alias: $pdmp-messageheader-response = http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-messageheader-response-op
+Alias: $pdmp-parameters-response = http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-parameters-response-operation
+Alias: $pdmp-bundle-response = http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-bundle-response-message
+Alias: $pdmp-bundle-history-result = http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-bundle-history-result
 Alias: $pdmp-patient = http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-patient
 Alias: $pdmp-pharmacy = http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-organization-pharmacy
-Alias: $pdmp-bundle-history-result = http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-bundle-history-result
+Alias: $us-core-practitioner = http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner
 
-Profile: PdmpParametersResponseOperation
-Parent: Parameters
-Id: pdmp-parameters-response-operation
-Title: "PDMP Parameters - Response Operation"
-Description: "This profile tailors the Parameters resource to convey PDMP Request outputs."
+Profile: PdmpBundleResponseMessage
+Parent: Bundle
+Id: pdmp-bundle-response-message
+Title: "PDMP Bundle - Response Message"
+Description: "This profile constrains a Bundle resource for use as the response message from a PDMP--with a Parameters resource as the message's message focus."
 * ^extension.url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg"
 * ^extension.valueCode = #phx
-* ^meta.lastUpdated = "2023-10-05T00:00:00-05:00"
 * ^version = "1.0.0"
-* ^status = #active
 * ^experimental = false
-* ^date = "2023-11-29T00:00:00-05:00"
+* ^date = "2023-11-30T00:00:00-05:00"
 * ^publisher = "HL7 International / Pharmacy"
 * ^contact[0].name = "HL7 International / Pharmacy"
 * ^contact[=].telecom.system = #url
@@ -29,36 +26,68 @@ Description: "This profile tailors the Parameters resource to convey PDMP Reques
 * ^contact[=].telecom[+].system = #email
 * ^contact[=].telecom[=].value = "fm@frankmckinney.com"
 * ^jurisdiction = urn:iso:std:iso:3166#US "United States of America"
-* parameter MS
-* parameter ^slicing.discriminator.type = #value
-* parameter ^slicing.discriminator.path = "name"
-* parameter ^slicing.ordered = false
-* parameter ^slicing.rules = #open
-* parameter contains
-    pdmp-history-result 1..1 MS and
-    prefetch-retrieval-key 0..* MS
-* parameter[pdmp-history-result].name = "pdmp-history-result" (exactly)
-* parameter[pdmp-history-result].name MS
-* parameter[pdmp-history-result].value[x] only Reference($pdmp-bundle-history-result)
-* parameter[pdmp-history-result].value[x] MS
-* parameter[prefetch-retrieval-key].name = "prefetch-retrieval-key" (exactly)
-* parameter[prefetch-retrieval-key].name MS
-* parameter[prefetch-retrieval-key].value[x] only string
-* parameter[prefetch-retrieval-key].value[x] MS
+* . ^mustSupport = false
+* type only code
+* type = #message (exactly)
+* type MS
+* total 0..0
+* total ^mustSupport = false
+* entry ..* MS
+* entry ^slicing.discriminator.type = #type
+* entry ^slicing.discriminator.path = "resource"
+* entry ^slicing.rules = #open
+* entry.search 0..0
+* entry.search ^mustSupport = false
+* entry.request 0..0
+* entry.request ^mustSupport = false
+* entry.response 0..0
+* entry.response ^mustSupport = false
+* entry contains
+    messageheader 1..1 MS and
+    response-parameters 1..1 MS
+* entry[messageheader].resource 1..1 MS
+* entry[messageheader].resource only $pdmp-messageheader-response
+* entry[response-parameters].resource 1..1 MS
+* entry[response-parameters].resource only $pdmp-parameters-response
 
-Alias: $taxonomy = http://nucc.org/provider-taxonomy
+Alias: $pdmp-event-type = http://hl7.org/fhir/us/pdmp/CodeSystem/pdmp-event-type
 Alias: $v2-0203 = http://terminology.hl7.org/CodeSystem/v2-0203
+Alias: $rxnorm = http://www.nlm.nih.gov/research/umls/rxnorm
+Alias: $ndc = http://hl7.org/fhir/sid/ndc
+Alias: $organization-type = http://terminology.hl7.org/CodeSystem/organization-type
 
-Instance: get-pdmp-history-output-parameters-1
-InstanceOf: pdmp-parameters-response-operation
+Instance: pdmp-bundle-response-1
+InstanceOf: pdmp-bundle-response-message
 Usage: #example
-Description: "Example of a Parameters resource used to respond to a request a patient's PDMP history"
+Description: "Example of a PDMP response message"
+* meta.profile = $pdmp-bundle-response
+* type = #message
+* timestamp = "2020-03-11T08:10:17-05:00"
+* entry[0].fullUrl = "urn:uuid:b5000d0c-fed9-4746-ac26-b5ce0111a2b7"
+* entry[=].resource = b5000d0c-fed9-4746-ac26-b5ce0111a2b7
+* entry[+].fullUrl = "urn:uuid:aecbb129-9a73-4b59-9d66-ff5cdb3f3164"
+* entry[=].resource = aecbb129-9a73-4b59-9d66-ff5cdb3f3164
+
+Instance: b5000d0c-fed9-4746-ac26-b5ce0111a2b7
+InstanceOf: MessageHeader
+Usage: #inline
+* meta.profile = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-messageheader-response-op"
+* eventCoding = urn:ietf:rfc:3986#http://hl7.org/fhir/us/pdmp/OperationDefinition/get-pdmp-history
+* source.name = "MyPDMPServer"
+* source.endpoint = "https://pdmp1.testpdmp.org/"
+* response.identifier = "messageheader-req-op-1"
+* response.code = #ok
+* focus = Reference(urn:uuid:aecbb129-9a73-4b59-9d66-ff5cdb3f3164)
+
+Instance: aecbb129-9a73-4b59-9d66-ff5cdb3f3164
+InstanceOf: pdmp-parameters-response-operation
+Usage: #inline
+Description: "Example of a Parameters resource returning a patient's PDMP history"
 * parameter[pdmp-history-result].name = "pdmp-history-result"
 * parameter[pdmp-history-result].resource.id = "bundle-res-1"
 * parameter[pdmp-history-result].resource.resourceType = "Bundle"
 * parameter[pdmp-history-result].resource.meta.profile = $pdmp-bundle-history-result
 * parameter[pdmp-history-result].resource.type = #collection
-
 * parameter[pdmp-history-result].resource.entry[0].fullUrl = "urn:uuid:9ce2a97b-5cab-4986-814f-4734016e6084"
 * parameter[pdmp-history-result].resource.entry[=].id = "meddispense-res-1-op"
 * parameter[pdmp-history-result].resource.entry[=].resource.resourceType = "MedicationDispense"
@@ -83,7 +112,7 @@ Description: "Example of a Parameters resource used to respond to a request a pa
 * parameter[pdmp-history-result].resource.entry[=].resource.authorizingPrescription.identifier.type = $v2-0203#PLAC "Placer Identifier"
 * parameter[pdmp-history-result].resource.entry[=].resource.authorizingPrescription.identifier.system = "http://myprescribingsystem.com/ordernumber"
 * parameter[pdmp-history-result].resource.entry[=].resource.authorizingPrescription.identifier.value = "605153"
-* parameter[pdmp-history-result].resource.entry[=].resource.quantity.value = 10 
+* parameter[pdmp-history-result].resource.entry[=].resource.quantity.value = 10
 * parameter[pdmp-history-result].resource.entry[=].resource.quantity.unit = "each"
 * parameter[pdmp-history-result].resource.entry[=].resource.daysSupply.value = 5
 * parameter[pdmp-history-result].resource.entry[=].resource.whenHandedOver = "2023-06-05"
@@ -100,8 +129,11 @@ Description: "Example of a Parameters resource used to respond to a request a pa
 * parameter[pdmp-history-result].resource.entry[=].resource.identifier.value = "120-35-2435"
 * parameter[pdmp-history-result].resource.entry[=].resource.name.family = "Samuels"
 * parameter[pdmp-history-result].resource.entry[=].resource.name.given = "August"
+* parameter[pdmp-history-result].resource.entry[=].resource.name.given = "John"
 * parameter[pdmp-history-result].resource.entry[=].resource.gender = #male
 * parameter[pdmp-history-result].resource.entry[=].resource.birthDate = "1989-03-12"
+* parameter[pdmp-history-result].resource.entry[=].resource.address.line = "202 2nd Avenue"
+* parameter[pdmp-history-result].resource.entry[=].resource.address.city = "North Amherst"
 * parameter[pdmp-history-result].resource.entry[=].resource.address.state = "MA"
 * parameter[pdmp-history-result].resource.entry[=].resource.address.postalCode = "01059"
 

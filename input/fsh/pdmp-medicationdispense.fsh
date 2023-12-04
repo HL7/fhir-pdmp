@@ -1,7 +1,6 @@
 Alias: $us-core-medication = http://hl7.org/fhir/us/core/StructureDefinition/us-core-medication
 Alias: $us-core-patient = http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient
 Alias: $us-core-practitioner = http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner
-Alias: $us-core-organization = http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization
 Alias: $medicationdispense-status = http://hl7.org/fhir/ValueSet/medicationdispense-status
 Alias: $us-core-medication-clinical-drug = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1010.4
 Alias: $us-core-medicationdispense = http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationdispense
@@ -68,11 +67,11 @@ Description: "Defines constraints and extensions on the MedicationDispense resou
 * performer.actor.display MS
 * performer.actor.display ^comment = "Performer's name"
 * authorizingPrescription 0..1
-* quantity 1..1
-* quantity.value 1..1
-* quantity.unit 1..1
-* quantity.system 1..1
-* quantity.code 1..1
+* quantity 1..1 MS
+* quantity.value 1..1 MS
+* quantity.unit 1..1 MS
+* quantity.system 0..1 MS
+* quantity.code 0..1 MS
 * daysSupply 1..1 MS
 * daysSupply.value 1..1 MS
 * whenHandedOver 1.. MS
@@ -101,7 +100,8 @@ Description: "Example of a PDMP medication dispense"
 * performer.actor.identifier[0].system = "http://terminology.hl7.org/CodeSystem/NCPDPProviderIdentificationNumber"
 * performer.actor.identifier[=].value = "999017"
 * performer.actor.display = "Our Pharmacy"
-* quantity = 15 '{each}' "each"
+* quantity.value = 15 
+* quantity.unit = "each"
 * daysSupply.value = 5
 * whenHandedOver = "2023-07-08T06:38:52Z"
 * dosageInstruction.sequence = 1

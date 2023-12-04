@@ -1,32 +1,20 @@
 == Suppressed Messages ==
 
-# Quantities for medication products such as tablets or capsules are typically stated as "each" in dispensing and administration processes
-UCUM Codes that contain human readable annotations like {each} can be misleading (e.g. they are ignored when comparing units). Best Practice is not to depend on annotations in the UCUM code, so this usage should be checked
-
 # Inherited from the base MedicationDispense resource
 The string value contains text that looks like embedded HTML tags. If this content is rendered to HTML without appropriate post-processing, it may be a security risk
 
-# This Organization example--representing a pharmacy--includes an NCPDP Provider Identifier as an .identifier value, which is not described in the US Core Organization
-This element does not match any known slice defined in the profile http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization|6.1.0
-
-# The message profile includes a Parameters resource as the message focus, which in turn references the resources noted in the warnings below
-Entry 'http://example.org/MyEHR/Practitioner/practitioner-req-2-del' isn't reachable by traversing links (forward or backward) from the MessageHeader, so its presence should be reviewed (is it needed to process the message?)
-Entry 'http://example.org/MyEHR/Practitioner/practitioner-req-2' isn't reachable by traversing links (forward or backward) from the MessageHeader, so its presence should be reviewed (is it needed to process the message?)
-Entry 'http://example.org/MyEHR/Practitioner/practitioner-req-3' isn't reachable by traversing links (forward or backward) from the MessageHeader, so its presence should be reviewed (is it needed to process the message?)
-
 # MessageHeader and Parameters profiles do not have separate examples b/c they aren't used indepenently. Instead, profile pages contain links to full message examples for pdmp-messageheader-request, pdmp-messageheader-response, pdmp-parameters-request
-The Implementation Guide contains no explicitly linked examples for this profile
+INFORMATION: StructureDefinition.where(url = 'http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-messageheader-request-op'): The Implementation Guide contains no explicitly linked examples for this profile
+INFORMATION: StructureDefinition.where(url = 'http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-messageheader-response-op'): The Implementation Guide contains no explicitly linked examples for this profile
 
-# Informational alert related to slice definition
-The repeating element has a pattern. The pattern will apply to all the repeats (this has not been clear to all users)
 
-# ****** TEMPORARY TESTING - Warnings / information alerts caused by moving the Patient resource in order to test reference resolution **********
-This element does not match any known slice defined in the profile http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-bundle-response|0.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)
-Entry 'https://pdmp1.testpdmp.org/Patient/patient-res-3-1' isn't reachable by traversing links (forward or backward) from the MessageHeader, so its presence should be reviewed (is it needed to process the message?)
-URN reference is not locally contained within the bundle urn:uuid:53a1e123-5b56-44ae-b7e8-36e0b9800f57
+# Alert related to slicing of Organization.identifier by the identifier.system (US Core used to differentiate NPI, CLIA, NAIC. Extended in this PDMP profile to add typical pharmacy identifiers: NCPDP Org ID and DEA registrant)
+INFORMATION: StructureDefinition/pdmp-organization-pharmacy: StructureDefinition.snapshot.element[10].pattern.ofType(Identifier): The repeating element has a pattern. The pattern will apply to all the repeats (this has not been clear to all users)
+INFORMATION: StructureDefinition/pdmp-organization-pharmacy: StructureDefinition.snapshot.element[11].pattern.ofType(Identifier): The repeating element has a pattern. The pattern will apply to all the repeats (this has not been clear to all users)
+INFORMATION: StructureDefinition/pdmp-organization-pharmacy: StructureDefinition.snapshot.element[12].pattern.ofType(Identifier): The repeating element has a pattern. The pattern will apply to all the repeats (this has not been clear to all users)
+INFORMATION: StructureDefinition/pdmp-organization-pharmacy: StructureDefinition.snapshot.element[13].pattern.ofType(Identifier): The repeating element has a pattern. The pattern will apply to all the repeats (this has not been clear to all users)
+INFORMATION: StructureDefinition/pdmp-organization-pharmacy: StructureDefinition.snapshot.element[14].pattern.ofType(Identifier): The repeating element has a pattern. The pattern will apply to all the repeats (this has not been clear to all users)
 
-# ******** TEMPORARY TESTING - Informational alerts caused by the validator not finding referenced resources within the same nested bundle as the referencing resource (response bundle within the message bundle)
-Can't find 'urn:uuid:53a1e123-5b56-44ae-b7e8-36e0b9800f57' in the bundle (Bundle.entry[1].resource.entry[0].resource.subject)
-Can't find 'urn:uuid:82ae67e4-f23a-4c17-b80a-9076a37f5d6e' in the bundle (Bundle.entry[1].resource.entry[0].resource.performer[0].actor)
-Can't find 'https://pdmp1.testpdmp.org/Organization/pharmacy-res-4-1' in the bundle (Bundle.entry[1].resource.entry[0].resource.performer[0].actor)
-Can't find 'Organization/pharmacy-res-3-1' in the bundle (Bundle.entry[1].resource.entry[0].resource.performer[0].actor)
+# Informational alerts caused by the validator not finding referenced resources within the same nested bundle as the referencing resource (operation results bundle within a message bundle). Note that when the same bundle is not nested in a message bundle, the validator successfully resolves the references (see the example, Parameters-get-pdmp-history-output-parameters-1)
+INFORMATION: Bundle/pdmp-bundle-response-1: Bundle: Can't find 'urn:uuid:53a1e123-5b56-44ae-b7e8-36e0b9800f57' in the bundle (Bundle.entry[1].resource.parameter[0].resource.entry[0].resource.subject)
+INFORMATION: Bundle/pdmp-bundle-response-1: Bundle: Can't find 'urn:uuid:82ae67e4-f23a-4c17-b80a-9076a37f5d6e' in the bundle (Bundle.entry[1].resource.parameter[0].resource.entry[0].resource.performer[0].actor)
