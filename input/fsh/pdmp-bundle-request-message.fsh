@@ -51,8 +51,6 @@ Description: "This profile constrains a Bundle resource for use as the request m
 * entry[parameters].resource only $pdmp-parameters-request-op
 
 
-
-
 Alias: $v2-0203 = http://terminology.hl7.org/CodeSystem/v2-0203
 Alias: $taxonomy = http://nucc.org/provider-taxonomy
 

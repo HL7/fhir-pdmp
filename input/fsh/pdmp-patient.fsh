@@ -1,7 +1,6 @@
 Alias: $us-core-medication = http://hl7.org/fhir/us/core/StructureDefinition/us-core-medication
 Alias: $us-core-patient = http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient
 Alias: $us-core-practitioner = http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner
-Alias: $us-core-organization = http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization
 Alias: $us-core-relatedperson = http://hl7.org/fhir/us/core/StructureDefinition/us-core-relatedperson
 Alias: $patient-status = http://hl7.org/fhir/ValueSet/patient-status
 Alias: $patient-animal-extension = http://hl7.org/fhir/StructureDefinition/patient-animal
