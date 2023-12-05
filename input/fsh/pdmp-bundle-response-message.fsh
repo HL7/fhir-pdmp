@@ -56,7 +56,7 @@ Alias: $rxnorm = http://www.nlm.nih.gov/research/umls/rxnorm
 Alias: $ndc = http://hl7.org/fhir/sid/ndc
 Alias: $organization-type = http://terminology.hl7.org/CodeSystem/organization-type
 
-Instance: pdmp-bundle-response-1
+Instance: pdmp-bundle-response-message-1
 InstanceOf: pdmp-bundle-response-message
 Usage: #example
 Description: "Example of a PDMP response message"
