@@ -1,6 +1,6 @@
 ### FHIR Search API
 
-_to be reviewed/revised_
+_This page was removed from the implementation guide, as this request method doesn't enable the submission of input information that stakeholders deemed necessary, such as authorized provider information_
 
 The FHIR standard provides a set of [search mechanisms](http://hl7.org/fhir/search.html) by which specific FHIR resources can be accessed from a FHIR server. Typically the search parameters are specified in the RESTful URL and accessed using the HTTP GET operation. Searches may also be performed using HTTP POST, with parameters specified in the operation body.
 

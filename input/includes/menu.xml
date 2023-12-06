@@ -11,7 +11,7 @@
         <a href="use-case.html">Use Case Details</a>
       </li>
       <li>
-        <a href="message-processing.html">Message Processing</a>
+        <a href="submission-options.html">Message Processing</a>
       </li>
    	  <li>
         <a href="conformance.html">Conformance Expectations</a>
@@ -47,4 +47,5 @@
 	</ul>
   </li>
   <li><a href="downloads.html">Downloads</a></li>
+  <li><a href="changes.html">Change Log</a></li>
 </ul>      
