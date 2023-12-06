@@ -34,7 +34,7 @@ The following system actors participate in the data exchange flows described in 
 
 The guide is organized into the following sections:
 
-- [Use Case Details](use-case.html) defines the PDMP use case, participants and guidance.
+- [Use Case Overview](use-case.html) describes the PDMP use case, participants and environment variations.
 - [Submission Options](submission-options.html) details PDMP request submission and response processing.
 - [Security](security.html) provides information for implementers related to security and privacy.
 - [Deployment Architecture](deployment.html) provides guidance on system deployment options.
