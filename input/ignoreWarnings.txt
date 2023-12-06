@@ -8,7 +8,7 @@ INFORMATION: StructureDefinition.where(url = 'http://hl7.org/fhir/us/pdmp/Struct
 INFORMATION: StructureDefinition.where(url = 'http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-messageheader-response-op'): The Implementation Guide contains no explicitly linked examples for this profile
 
 
-# Alert related to slicing of Organization.identifier by the identifier.system (US Core used to differentiate NPI, CLIA, NAIC. Extended in this PDMP profile to add typical pharmacy identifiers: NCPDP Org ID and DEA registrant)
+# US Core uses an identifier.system pattern to differentiate NPI, CLIA, NAIC. This PDMP profile added two typical pharmacy identifiers to the slicing: NCPDP Org ID and DEA registrant
 INFORMATION: StructureDefinition/pdmp-organization-pharmacy: StructureDefinition.snapshot.element[10].pattern.ofType(Identifier): The repeating element has a pattern. The pattern will apply to all the repeats (this has not been clear to all users)
 INFORMATION: StructureDefinition/pdmp-organization-pharmacy: StructureDefinition.snapshot.element[11].pattern.ofType(Identifier): The repeating element has a pattern. The pattern will apply to all the repeats (this has not been clear to all users)
 INFORMATION: StructureDefinition/pdmp-organization-pharmacy: StructureDefinition.snapshot.element[12].pattern.ofType(Identifier): The repeating element has a pattern. The pattern will apply to all the repeats (this has not been clear to all users)
@@ -16,5 +16,5 @@ INFORMATION: StructureDefinition/pdmp-organization-pharmacy: StructureDefinition
 INFORMATION: StructureDefinition/pdmp-organization-pharmacy: StructureDefinition.snapshot.element[14].pattern.ofType(Identifier): The repeating element has a pattern. The pattern will apply to all the repeats (this has not been clear to all users)
 
 # Informational alerts caused by the validator not finding referenced resources within the same nested bundle as the referencing resource (operation results bundle within a message bundle). Note that when the same bundle is not nested in a message bundle, the validator successfully resolves the references (see the example, Parameters-get-pdmp-history-output-parameters-1)
-INFORMATION: Bundle/pdmp-bundle-response-1: Bundle: Can't find 'urn:uuid:53a1e123-5b56-44ae-b7e8-36e0b9800f57' in the bundle (Bundle.entry[1].resource.parameter[0].resource.entry[0].resource.subject)
-INFORMATION: Bundle/pdmp-bundle-response-1: Bundle: Can't find 'urn:uuid:82ae67e4-f23a-4c17-b80a-9076a37f5d6e' in the bundle (Bundle.entry[1].resource.parameter[0].resource.entry[0].resource.performer[0].actor)
+INFORMATION: Bundle/pdmp-bundle-response-message-1: Bundle: Can't find 'urn:uuid:53a1e123-5b56-44ae-b7e8-36e0b9800f57' in the bundle (Bundle.entry[1].resource.parameter[0].resource.entry[0].resource.subject)
+INFORMATION: Bundle/pdmp-bundle-response-message-1: Bundle: Can't find 'urn:uuid:82ae67e4-f23a-4c17-b80a-9076a37f5d6e' in the bundle (Bundle.entry[1].resource.parameter[0].resource.entry[0].resource.performer[0].actor)

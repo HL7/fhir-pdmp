@@ -70,7 +70,7 @@ Instance: messageheader-req-op-1
 InstanceOf: pdmp-messageheader-request-op
 Usage: #inline
 * eventCoding.system = "urn:ietf:rfc:3986"
-* eventCoding.code = #http://hl7.org/fhir/us/pdmp/OperationDefinition/get-pdmp-history
+* eventCoding.code = #http://hl7.org/fhir/us/pdmp/OperationDefinition/get-pdmp-history "get-pdmp-history"
 * source.name = "MyPDMPServer"
 * source.endpoint = "http://pdmpserver.example.org/api"
 * focus = Reference(Parameters/parameters-req-op-1)

@@ -1,8 +1,8 @@
 ### Introduction
 
-Prescription Drug Monitoring Programs (PDMPs) are state-based databases that provide prescribers, pharmacists, and health authorities timely information about controlled substance, and in some states non-controlled substance prescribing and patient behaviors. Use of medication information stored in PDMPs during care delivery helps avoid drug misuse, abuse and diversion and can provide improved patient care and safety.
+Prescription Drug Monitoring Programs (PDMPs) are state-based databases that provide prescribers, pharmacists, and health authorities timely information about controlled substance, and in some states non-controlled substance dispensing, administration and patient behaviors. Use of information stored in PDMPs during care delivery helps avoid drug misuse and diversion and can provide improved patient care and safety.
 
-To reduce opioid abuse and for other purposes, states have implemented policies mandating providers to reference PDMPs to obtain patients' medication history before prescribing or dispensing certain medications. The Prescription Drug Monitoring Program (PDMP) FHIR Implementation Guide defines a method for providers to access patient patient PDMP information using the HL7 FHIR standard. 
+To reduce opioid misuse and for other purposes, states have implemented policies mandating providers to reference PDMPs to obtain patients' history before prescribing or dispensing certain medications. The Prescription Drug Monitoring Program (PDMP) FHIR Implementation Guide defines a method for providers to access patient PDMP information using the HL7 FHIR standard. 
 
 For general background on state PDMP programs, see the Centers for Disease Control and Prevention [PDMP - What States Need to Know](https://www.cdc.gov/drugoverdose/pdmp/index.html).
 
@@ -35,7 +35,7 @@ The following system actors participate in the data exchange flows described in 
 The guide is organized into the following sections:
 
 - [Use Case Details](use-case.html) defines the PDMP use case, participants and guidance.
-- [Message Processing](message-processing.html) details PDMP message submission and response processing.
+- [Submission Options](submission-options.html) details PDMP request submission and response processing.
 - [Security](security.html) provides information for implementers related to security and privacy.
 - [Deployment Architecture](deployment.html) provides guidance on system deployment options.
 - [Conformance Expectations](conformance.html) defines use of Must Support elements and also describes conventions for situations where information is not available.
