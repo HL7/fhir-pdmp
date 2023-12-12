@@ -72,6 +72,11 @@ Instance: b5000d0c-fed9-4746-ac26-b5ce0111a2b7
 InstanceOf: MessageHeader
 Usage: #inline
 * meta.profile = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-messageheader-response-op"
+* extension[0].url = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-header-timestamp-extension"
+* extension[=].valueDateTime = "2023-12-01"
+* extension[+].url = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-activity-period-extension"
+* extension[=].valuePeriod.start = "2021-12-02"
+* extension[=].valuePeriod.end = "2023-12-01"
 * eventCoding = urn:ietf:rfc:3986#http://hl7.org/fhir/us/pdmp/OperationDefinition/get-pdmp-history "get-pdmp-history"
 * source.name = "MyPDMPServer"
 * source.endpoint = "https://pdmp1.testpdmp.org/"
