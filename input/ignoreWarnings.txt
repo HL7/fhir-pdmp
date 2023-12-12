@@ -3,12 +3,12 @@
 # Inherited from the base MedicationDispense resource
 The string value contains text that looks like embedded HTML tags. If this content is rendered to HTML without appropriate post-processing, it may be a security risk
 
-# MessageHeader and Parameters profiles do not have separate examples b/c they aren't used indepenently. Instead, profile pages contain links to full message examples for pdmp-messageheader-request, pdmp-messageheader-response, pdmp-parameters-request
+# MessageHeader profiles do not have separate examples b/c they aren't used indepenently. Instead, profile pages contain links to full message examples for pdmp-messageheader-request, pdmp-messageheader-response, pdmp-parameters-request
 INFORMATION: StructureDefinition.where(url = 'http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-messageheader-request-op'): The Implementation Guide contains no explicitly linked examples for this profile
 INFORMATION: StructureDefinition.where(url = 'http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-messageheader-response-op'): The Implementation Guide contains no explicitly linked examples for this profile
 
-
-# US Core uses an identifier.system pattern to differentiate NPI, CLIA, NAIC. This PDMP profile added two typical pharmacy identifiers to the slicing: NCPDP Org ID and DEA registrant
+# The pattern is set in a repeating slice.  The pattern is expected to hold for all repetitions of that slice.  (It's fixing the 'system' for the identifier.)
+# This PDMP profile is based on US Core and adds two typical pharmacy identifiers to the slicing: NCPDP Org ID and DEA registrant
 INFORMATION: StructureDefinition/pdmp-organization-pharmacy: StructureDefinition.snapshot.element[10].pattern.ofType(Identifier): The repeating element has a pattern. The pattern will apply to all the repeats (this has not been clear to all users)
 INFORMATION: StructureDefinition/pdmp-organization-pharmacy: StructureDefinition.snapshot.element[11].pattern.ofType(Identifier): The repeating element has a pattern. The pattern will apply to all the repeats (this has not been clear to all users)
 INFORMATION: StructureDefinition/pdmp-organization-pharmacy: StructureDefinition.snapshot.element[12].pattern.ofType(Identifier): The repeating element has a pattern. The pattern will apply to all the repeats (this has not been clear to all users)
