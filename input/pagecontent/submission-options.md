@@ -15,7 +15,13 @@ See [the messaging section below](submission-options.html#message-submission-ove
 
 <p></p>
 
-#### Message submission overview
+### Message submission
+The PDMP  `get-pdmp-history` operation may also be invoked using FHIR messaging. The PDMP Requester submits the operation's request parameters within a FHIR Bundle that also includes a MessageHeader. The `event` element in the MessageHeader references the `get-pdmp-history` operation definition.
+
+A message-based request is illustrated below:
+
+<p></p>
+
 <div>
 <figure class="figure">
 <figcaption class="figure-caption"><strong>Figure: High-level PDMP Message Flow</strong></figcaption>
