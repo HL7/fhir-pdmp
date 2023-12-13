@@ -21,7 +21,9 @@ Description: "The date the request was sent to the PDMP Responder."
 * ^context[0].type = #element
 * ^context[=].expression = "MessageHeader"
 * ^context[+].type = #element
-* ^context[=].expression = "Parameters"
+* ^context[=].expression = "Parameters.parameter"
+* ^context[+].type = #element
+* ^context[=].expression = "Bundle.entry.Parameters.parameter"
 * value[x] 1..
 * value[x] only dateTime
 * value[x] ^short = "Message Timestamp"
