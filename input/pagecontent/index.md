@@ -41,7 +41,6 @@ The guide is organized into the following sections:
 - [Conformance Expectations](conformance.html) defines use of Must Support elements and also describes conventions for situations where information is not available.
 - [Applicable US Core Profiles](us-core-profiles.html) defines expectations for the use of US Core profiles in the guide's searches.
 - [Profiles, Terminology and Examples](artifacts.html) lists the FHIR profiles and other artifacts defined in this IG.
-- [Capability Statements](capability-statements.html) defines sets of guide functionality to be implemented by PDMP Requesters and PDMP Responders.
 - [Mappings to Related Standards](mappings.html) describes how FHIR content relates to other standards use in the larger PDMP ecosystem.
 
 ### FHIR Basics 

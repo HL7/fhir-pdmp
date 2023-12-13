@@ -18,7 +18,7 @@ Usage: #definition
 * contact[=].telecom[=].value = "frank.mckinney@pocp.com"
 * contact[=].telecom[+].system = #email
 * contact[=].telecom[=].value = "fm@frankmckinney.com"
-* description = "Operation returning FHIR resources fulfilling one or more submitted queries"
+* description = "Operation returning an individual patient's PDMP history"
 * jurisdiction = urn:iso:std:iso:3166#US "United States of America"
 * affectsState = false
 * code = #get-pdmp-history
