@@ -11,7 +11,7 @@ The operation can be called in two ways:
 
 See the [get-pdmp-history OperationDefinition](OperationDefinition-get-pdmp-history.html) for full operation details.
 
-See [the messaging section below](submission-options.html#message-submission-overview) for details on calling the `get-pdmp-history` operation using FHIR messaging.
+See [the messaging section below](submission-options.html#message-submission) for details on calling the `get-pdmp-history` operation using FHIR messaging.
 
 <p></p>
 
