@@ -127,3 +127,57 @@ Description: "Example of a Parameters resource used to respond to a request a pa
 * parameter[pdmp-history-result].resource.entry[=].resource.address.state = "MN"
 * parameter[pdmp-history-result].resource.entry[=].resource.address.postalCode = "55008"
 * parameter[pdmp-history-result].resource.entry[=].resource.address.country = "USA"
+
+
+Instance: get-pdmp-history-output-parameters-2-minimal-history
+InstanceOf: pdmp-parameters-response-operation
+Usage: #example
+Description: "Example of minimal population of a Parameters resource used to respond when a patient has PDMP history"
+* parameter[pdmp-history-result].name = "pdmp-history-result"
+* parameter[pdmp-history-result].resource.id = "bundle-res-2"
+* parameter[pdmp-history-result].resource.resourceType = "Bundle"
+* parameter[pdmp-history-result].resource.meta.profile = $pdmp-bundle-history-result
+* parameter[pdmp-history-result].resource.type = #collection
+
+* parameter[pdmp-history-result].resource.entry[0].fullUrl = "urn:uuid:9ce2a97b-5cab-4986-814f-4734016e6084"
+* parameter[pdmp-history-result].resource.entry[=].id = "meddispense-res-2-op"
+* parameter[pdmp-history-result].resource.entry[=].resource.resourceType = "MedicationDispense"
+* parameter[pdmp-history-result].resource.entry[=].resource.meta.profile = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-medicationdispense"
+* parameter[pdmp-history-result].resource.entry[=].resource.text.status = #generated
+* parameter[pdmp-history-result].resource.entry[=].resource.text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">A record of a medication that was dispensed to the patient identified in the PDMP request: August Samuels</div>"
+* parameter[pdmp-history-result].resource.entry[=].resource.status = #completed
+* parameter[pdmp-history-result].resource.entry[=].resource.medicationCodeableConcept.coding[0] = $ndc#00093015001
+* parameter[pdmp-history-result].resource.entry[=].resource.medicationCodeableConcept.coding[0].userSelected = true
+* parameter[pdmp-history-result].resource.entry[=].resource.medicationCodeableConcept.coding[+] = $rxnorm#993781 "acetaminophen 300 MG / codeine phosphate 30 MG Oral Tablet"
+* parameter[pdmp-history-result].resource.entry[=].resource.medicationCodeableConcept.text = "Acetaminophen 300 mg / Codeine 30 mg oral tablet"
+* parameter[pdmp-history-result].resource.entry[=].resource.subject.reference = "urn:uuid:53a1e123-5b56-44ae-b7e8-36e0b9800f57"
+* parameter[pdmp-history-result].resource.entry[=].resource.subject.display = "August Samuels"
+* parameter[pdmp-history-result].resource.entry[=].resource.performer.actor.reference = "urn:uuid:82ae67e4-f23a-4c17-b80a-9076a37f5d6e"
+* parameter[pdmp-history-result].resource.entry[=].resource.quantity.value = 10 
+* parameter[pdmp-history-result].resource.entry[=].resource.quantity.unit = "each"
+* parameter[pdmp-history-result].resource.entry[=].resource.daysSupply.value = 5
+* parameter[pdmp-history-result].resource.entry[=].resource.whenHandedOver = "2023-06-05"
+
+* parameter[pdmp-history-result].resource.entry[+].fullUrl = "urn:uuid:53a1e123-5b56-44ae-b7e8-36e0b9800f57"
+* parameter[pdmp-history-result].resource.entry[=].resource.id = "patient-res-1-2-op"
+* parameter[pdmp-history-result].resource.entry[=].resource.resourceType = "Patient"
+* parameter[pdmp-history-result].resource.entry[=].resource.meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
+* parameter[pdmp-history-result].resource.entry[=].resource.text.status = #generated
+* parameter[pdmp-history-result].resource.entry[=].resource.text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">The PDMP Responder's patient record for August Samuels as associated with a medication dispense</div>"
+* parameter[pdmp-history-result].resource.entry[=].resource.identifier.system = "http://hl7.org/fhir/sid/us-ssn"
+* parameter[pdmp-history-result].resource.entry[=].resource.identifier.value = "120-35-2435"
+* parameter[pdmp-history-result].resource.entry[=].resource.name.family = "Samuels"
+* parameter[pdmp-history-result].resource.entry[=].resource.name.given = "August"
+* parameter[pdmp-history-result].resource.entry[=].resource.gender = #unknown
+* parameter[pdmp-history-result].resource.entry[=].resource.birthDate = "1989-03-12"
+
+* parameter[pdmp-history-result].resource.entry[+].fullUrl = "urn:uuid:82ae67e4-f23a-4c17-b80a-9076a37f5d6e"
+* parameter[pdmp-history-result].resource.entry[=].resource.id = "pharmacy-res-2-1-op"
+* parameter[pdmp-history-result].resource.entry[=].resource.resourceType = "Organization"
+* parameter[pdmp-history-result].resource.entry[=].resource.meta.profile = $pdmp-pharmacy
+* parameter[pdmp-history-result].resource.entry[=].resource.text.status = #generated
+* parameter[pdmp-history-result].resource.entry[=].resource.text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">The pharmacy that dispensed the reported medication: Our Pharmacy</div>"
+* parameter[pdmp-history-result].resource.entry[=].resource.identifier[0].system = "http://hl7.org/fhir/sid/us-npi"
+* parameter[pdmp-history-result].resource.entry[=].resource.identifier[=].value = "1669512349"
+* parameter[pdmp-history-result].resource.entry[=].resource.active = true
+* parameter[pdmp-history-result].resource.entry[=].resource.name = "Our Pharmacy"
