@@ -30,6 +30,6 @@ Usage: #definition
 * rest.mode = #client
 * rest.operation.extension.url = "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"
 * rest.operation.extension.valueCode = #SHALL
-* rest.operation.name = "get-pdmp-history"
-* rest.operation.definition = "http://hl7.org/fhir/us/pdmp/OperationDefinition/get-pdmp-history"
+* rest.operation.name = "pdmp-history"
+* rest.operation.definition = "http://hl7.org/fhir/us/pdmp/OperationDefinition/pdmp-history"
 * rest.operation.documentation = "Operation returning an individual patient's PDMP history"

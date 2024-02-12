@@ -70,7 +70,7 @@ Instance: messageheader-req-op-1
 InstanceOf: pdmp-messageheader-request-op
 Usage: #inline
 * eventCoding.system = "urn:ietf:rfc:3986"
-* eventCoding.code = #http://hl7.org/fhir/us/pdmp/OperationDefinition/get-pdmp-history "get-pdmp-history"
+* eventCoding.code = #http://hl7.org/fhir/us/pdmp/OperationDefinition/pdmp-history "pdmp-history"
 * source.name = "MyPDMPServer"
 * source.endpoint = "http://pdmpserver.example.org/api"
 * focus = Reference(Parameters/parameters-req-op-1)
@@ -135,5 +135,5 @@ Description: "Example of a Parameters resource used to request a patient's PDMP 
 * parameter[authorized-practitioner-organization].resource.active = true
 * parameter[authorized-practitioner-organization].resource.name = "Highview Clinic"
 * parameter[authorized-practitioner-organization].resource.address.state = "MA"
-* parameter[prefetch-request].name = "prefetch-request"
-* parameter[prefetch-request].valueBoolean = false
+* parameter[pre-stage-only].name = "pre-stage-only"
+* parameter[pre-stage-only].valueBoolean = false

@@ -41,8 +41,8 @@ Description: "This profile tailors the Parameters resource to convey PDMP Reques
     delegate-practitioner 0..1 MS and
     delegate-practitioner-role 0..1 MS and
     delegate-organization 0..1 MS and
-    prefetch-request 0..* MS and
-    prefetch-retrieval-key 0..* MS
+    pre-stage-only 0..* MS and
+    pre-stage-retrieval-key 0..* MS
 * parameter[patient].name = "patient" (exactly)
 * parameter[patient].name MS
 * parameter[patient].value[x] only Reference($pdmp-patient)
@@ -75,17 +75,17 @@ Description: "This profile tailors the Parameters resource to convey PDMP Reques
 * parameter[delegate-organization].name MS
 * parameter[delegate-organization].value[x] only Reference($us-core-organization)
 * parameter[delegate-organization].value[x] MS
-* parameter[prefetch-request].name = "prefetch-request" (exactly)
-* parameter[prefetch-request].name MS
-* parameter[prefetch-request].value[x] only boolean
-* parameter[prefetch-retrieval-key].name = "prefetch-retrieval-key" (exactly)
-* parameter[prefetch-retrieval-key].name MS
-* parameter[prefetch-retrieval-key].value[x] only string
+* parameter[pre-stage-only].name = "pre-stage-only" (exactly)
+* parameter[pre-stage-only].name MS
+* parameter[pre-stage-only].value[x] only boolean
+* parameter[pre-stage-retrieval-key].name = "pre-stage-retrieval-key" (exactly)
+* parameter[pre-stage-retrieval-key].name MS
+* parameter[pre-stage-retrieval-key].value[x] only string
 
 Alias: $taxonomy = http://nucc.org/provider-taxonomy
 Alias: $v2-0203 = http://terminology.hl7.org/CodeSystem/v2-0203
 
-Instance: get-pdmp-history-input-parameters-1
+Instance: pdmp-history-input-parameters-1
 InstanceOf: pdmp-parameters-request-operation
 Usage: #example
 Description: "Example of a Parameters resource used to request a patient's PDMP history"
@@ -140,11 +140,11 @@ Description: "Example of a Parameters resource used to request a patient's PDMP 
 * parameter[authorized-practitioner-organization].resource.active = true
 * parameter[authorized-practitioner-organization].resource.name = "Highview Clinic"
 * parameter[authorized-practitioner-organization].resource.address.state = "MA"
-* parameter[prefetch-request].name = "prefetch-request"
-* parameter[prefetch-request].valueBoolean = false
+* parameter[pre-stage-only].name = "pre-stage-only"
+* parameter[pre-stage-only].valueBoolean = false
 
 
-Instance: get-pdmp-history-input-parameters-2-minimum
+Instance: pdmp-history-input-parameters-2-minimum
 InstanceOf: pdmp-parameters-request-operation
 Usage: #example
 Description: "Example of the minimal Parameters resource population to request a patient's PDMP history"
@@ -190,5 +190,5 @@ Description: "Example of the minimal Parameters resource population to request a
 * parameter[authorized-practitioner-organization].resource.text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Highview Clinic</div>"
 * parameter[authorized-practitioner-organization].resource.active = true
 * parameter[authorized-practitioner-organization].resource.name = "Highview Clinic"
-* parameter[prefetch-request].name = "prefetch-request"
-* parameter[prefetch-request].valueBoolean = false
+* parameter[pre-stage-only].name = "pre-stage-only"
+* parameter[pre-stage-only].valueBoolean = false

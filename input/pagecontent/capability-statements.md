@@ -14,7 +14,7 @@ The PDMP Responder **SHALL**:
 
 * Support the PDMP Patient, PDMP MedicationDispense and PDMP Pharmacy Organization resource profiles.
 * Support the US Core Practitioner, US Core PractitionerRole and US Core Organization (for organizations other than pharmacies) profiles.
-* Support the get-pdmp-history operation and associated Parameters and Bundle profiles.
+* Support the pdmp-history operation and associated Parameters and Bundle profiles.
 * Implement the RESTful behavior according to the [FHIR specification](https://www.hl7.org/fhir/http.html).
 	* which includes returning the following response classes:
 		* (Status 200): successful operation
@@ -37,7 +37,7 @@ The PDMP Responder **SHOULD**:
 
 The PDMP Responder MAY:
 
-* Support submission of the get-pdmp-history operation using FHIR Messaging, including support for the associated MessageDefinition and guidance.
+* Support submission of the pdmp-history operation using FHIR Messaging, including support for the associated MessageDefinition and guidance.
 
 
 ##### Security:
@@ -58,7 +58,7 @@ The PDMP Requester **SHALL**:
 
 * Support the PDMP Patient, PDMP MedicationDispense and PDMP Pharmacy Organization resource profiles.
 * Support the US Core Practitioner, US Core PractitionerRole and US Core Organization (for organizations other than pharmacies) profiles.
-* Support the get-pdmp-history operation and associated Parameters and Bundle profiles.
+* Support the pdmp-history operation and associated Parameters and Bundle profiles.
 * Consume the RESTful responses according to the FHIR specification.
 	* which includes returning the following response classes:
 		* (Status 200): successful operation
