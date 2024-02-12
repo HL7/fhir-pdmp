@@ -36,20 +36,20 @@ Description: "This profile tailors the Parameters resource to convey PDMP Reques
 * parameter ^slicing.rules = #open
 * parameter contains
     pdmp-history-result 1..1 MS and
-    prefetch-retrieval-key 0..* MS
+    pre-stage-retrieval-key 0..* MS
 * parameter[pdmp-history-result].name = "pdmp-history-result" (exactly)
 * parameter[pdmp-history-result].name MS
 * parameter[pdmp-history-result].value[x] only Reference($pdmp-bundle-history-result)
 * parameter[pdmp-history-result].value[x] MS
-* parameter[prefetch-retrieval-key].name = "prefetch-retrieval-key" (exactly)
-* parameter[prefetch-retrieval-key].name MS
-* parameter[prefetch-retrieval-key].value[x] only string
-* parameter[prefetch-retrieval-key].value[x] MS
+* parameter[pre-stage-retrieval-key].name = "pre-stage-retrieval-key" (exactly)
+* parameter[pre-stage-retrieval-key].name MS
+* parameter[pre-stage-retrieval-key].value[x] only string
+* parameter[pre-stage-retrieval-key].value[x] MS
 
 Alias: $taxonomy = http://nucc.org/provider-taxonomy
 Alias: $v2-0203 = http://terminology.hl7.org/CodeSystem/v2-0203
 
-Instance: get-pdmp-history-output-parameters-1
+Instance: pdmp-history-output-parameters-1
 InstanceOf: pdmp-parameters-response-operation
 Usage: #example
 Description: "Example of a Parameters resource used to respond to a request a patient's PDMP history"
@@ -129,7 +129,7 @@ Description: "Example of a Parameters resource used to respond to a request a pa
 * parameter[pdmp-history-result].resource.entry[=].resource.address.country = "USA"
 
 
-Instance: get-pdmp-history-output-parameters-2-minimal-history
+Instance: pdmp-history-output-parameters-2-minimal-history
 InstanceOf: pdmp-parameters-response-operation
 Usage: #example
 Description: "Example of minimal population of a Parameters resource used to respond when a patient has PDMP history"

@@ -72,7 +72,7 @@ Instance: b5000d0c-fed9-4746-ac26-b5ce0111a2b7
 InstanceOf: MessageHeader
 Usage: #inline
 * meta.profile = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-messageheader-response-op"
-* eventCoding = urn:ietf:rfc:3986#http://hl7.org/fhir/us/pdmp/OperationDefinition/get-pdmp-history "get-pdmp-history"
+* eventCoding = urn:ietf:rfc:3986#http://hl7.org/fhir/us/pdmp/OperationDefinition/pdmp-history "pdmp-history"
 * source.name = "MyPDMPServer"
 * source.endpoint = "https://pdmp1.testpdmp.org/"
 * response.identifier = "messageheader-req-op-1"

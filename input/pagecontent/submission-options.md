@@ -1,22 +1,37 @@
-### PDMP `get-pdmp-history` operation
+### PDMP `pdmp-history` operation
 
-The PDMP request and response are accomplished using a FHIR Operation ([get-pdmp-history](OperationDefinition-get-pdmp-history.html)) which is invoked at the PDMP Responder. Use of an operation enables features needed to support current PDMP processing requirements including:
+The PDMP request and response are accomplished using a FHIR Operation ([pdmp-history](OperationDefinition-pdmp-history.html)) which is invoked by POSTing a FHIR Parameters resource containing patient and requesting provider details to the PDMP Responder's `Patient/$pdmp-history` endpoint. In response, the PDMP Responder gathers PDMP history information and returns it within another Parameters resource.
 
-- submission of requester information including authorized provider and delegate details and facility information
-- support for a "pre-fetch" request processing option which instructs the PDMP Responder to tee up results to be returned in response to a subsequent request from the PDMP Requester
+<p></p>
+
+<div>
+<figure class="figure">
+<figcaption class="figure-caption"><strong>Figure: High-level PDMP Operation Flow and Content</strong></figcaption>
+  <p>
+  <img src="operation-flow.png" style="float:none">  
+  </p>
+</figure>
+</div>
+
+<p></p>
+
+Use of an operation enables the process to support current PDMP processing requirements including:
+
+- submission of requesting provider and delegate details and facility information which are used for authorization and record-keeping 
+- support for a "pre-stage-only" request processing option which instructs the PDMP Responder to tee up results to be returned in response to a subsequent request from the PDMP Requester
+
+See the [pdmp-history OperationDefinition](OperationDefinition-pdmp-history.html) for full operation details.
 
 The operation can be called in two ways:
-- directly using a RESTful POST to the PDMP Responder's `[base]/Patient/$get-pdmp-history` endpoint
-- using FHIR messaging, by submitting the operation's request parameters within a bundle that also includes a MessageHeader that references the `get-pdmp-history` operation definition
+- directly using a RESTful POST to the PDMP Responder's `[base]/Patient/$pdmp-history` endpoint
+- using FHIR messaging, by submitting the operation's request parameters within a bundle that also includes a MessageHeader that references the `pdmp-history` operation definition
 
-See the [get-pdmp-history OperationDefinition](OperationDefinition-get-pdmp-history.html) for full operation details.
-
-See [the messaging section below](submission-options.html#message-submission) for details on calling the `get-pdmp-history` operation using FHIR messaging.
+See [the messaging section below](submission-options.html#message-submission) for details on calling the `pdmp-history` operation using FHIR messaging.
 
 <p></p>
 
 ### Message submission
-The PDMP  `get-pdmp-history` operation may also be invoked using FHIR messaging. The PDMP Requester submits the operation's request parameters within a FHIR Bundle that also includes a MessageHeader. The `event` element in the MessageHeader references the `get-pdmp-history` operation definition.
+The PDMP  `pdmp-history` operation may also be invoked using FHIR messaging. The PDMP Requester submits the operation's request parameters within a FHIR Bundle that also includes a MessageHeader. The `event` element in the MessageHeader references the `pdmp-history` operation definition.
 
 A message-based request is illustrated below:
 
@@ -24,9 +39,29 @@ A message-based request is illustrated below:
 
 <div>
 <figure class="figure">
-<figcaption class="figure-caption"><strong>Figure: High-level PDMP Message Flow</strong></figcaption>
+<figcaption class="figure-caption"><strong>Figure: PDMP Message Flow</strong></figcaption>
   <p>
   <img src="message-flow.png" style="float:none">  
+  </p>
+</figure>
+</div>
+
+<p></p>
+
+The messaging method may also be used to transmit requests via an intermediary such as an e-prescribing network or other healthcare data exchange. The MessageHeader supplies elements that the participants may use to: 
+- specify which PDMP Responder to forward the message to
+- link requests and responses during routing
+- log processing information .
+
+Below is an illustration of submission through an intermediary:
+
+<p></p>
+
+<div>
+<figure class="figure">
+<figcaption class="figure-caption"><strong>Figure: Intermediary Message Flow</strong></figcaption>
+  <p>
+  <img src="intermediary-flow.png" style="float:none">  
   </p>
 </figure>
 </div>
@@ -39,7 +74,7 @@ The PDMP Request message includes a MessageHeader and a Parameters resource cont
 
 Specification details and examples are at [PDMP Bundle - Request Message](StructureDefinition-pdmp-bundle-request-message.html) 
 
-Note that the MessageHeader.event of the request references the same [get-pdmp-history operation](OperationDefinition-get-pdmp-history.html) that can be invoked directly using a RESTful POST to in non-messaging environments.
+Note that the MessageHeader.event of the request references the same [pdmp-history operation](OperationDefinition-pdmp-history.html) that can be invoked directly using a RESTful POST to in non-messaging environments.
 <p></p>
 
 #### Response message content
@@ -48,8 +83,8 @@ The PDMP Response message contains a MessageHeader and a Parameters resource con
 - medication dispenses, administrations and related details if the PDMP Responder is able to locate information for the requested patient
 - an OperationOutcome providing processing information including any errors that occurred or reasons for not returning patient information (e.g., no PDMP information found for the requested patient).
 
-In addition, the Parameters resource may include a `prefetch-retrieval-key` string value if the associated request included a `prefetch-request` parameter value of `true`.
-- When a `prefetch-retrieval-key` is returned, the requester is expected to include the key when submitting a subsequent request to retrieve the prefetched result.
+In addition, the Parameters resource may include a `pre-stage-retrieval-key` string value if the associated request included a `pre-stage-only` parameter value of `true`.
+- When a `pre-stage-retrieval-key` is returned, the requester is expected to include the key when submitting a subsequent request to retrieve the pre-staged result.
 
 <p></p>
 
@@ -58,13 +93,13 @@ Details and examples are at [PDMP Bundle - Response Message](StructureDefinition
 <p></p>
 
 #### Message submission
-Invoking the `get-pdmp-history` operation via FHIR messaging is accomplished following the guidance provided in the [Invoking Operations via Messages](http://hl7.org/fhir/messaging.html#operations) section of the FHIR specification.
+Invoking the `pdmp-history` operation via FHIR messaging is accomplished following the guidance provided in the [Invoking Operations via Messages](http://hl7.org/fhir/messaging.html#operations) section of the FHIR specification.
 
 **MessageHeader population**
 
-The MessageHeader.event of the request message references the [`get-pdmp-history` operation](OperationDefinition-get-pdmp-history.html). Specifically:
+The MessageHeader.event of the request message references the [`pdmp-history` operation](OperationDefinition-pdmp-history.html). Specifically:
 - MessageHeader.eventCoding.system = `"urn:ietf:rfc:3986"`
-- MessageHeader.eventCoding.code = `"http://hl7.org/fhir/us/pdmp/OperationDefinition/get-pdmp-history"`
+- MessageHeader.eventCoding.code = `"http://hl7.org/fhir/us/pdmp/OperationDefinition/pdmp-history"`
 
 **Submission endpoint and parameters**
 

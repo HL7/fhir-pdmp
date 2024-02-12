@@ -27,7 +27,7 @@ Description: "This profile constrains a MessageHeader resource for use in a PDMP
 * eventCoding.system 1..1 MS
 * eventCoding.system = "urn:ietf:rfc:3986" (exactly)
 * eventCoding.code 1..1 MS
-* eventCoding.code = #http://hl7.org/fhir/us/pdmp/OperationDefinition/get-pdmp-history (exactly)
+* eventCoding.code = #http://hl7.org/fhir/us/pdmp/OperationDefinition/pdmp-history (exactly)
 * sender only Reference($us-core-practitionerrole)
 * focus 1..1 MS
 * focus only Reference($pdmp-parameters-request-operation)
