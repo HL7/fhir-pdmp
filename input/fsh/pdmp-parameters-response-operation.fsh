@@ -86,7 +86,9 @@ Description: "Example of a Parameters resource used to respond to a request a pa
 * parameter[pdmp-history-result].resource.entry[=].resource.quantity.value = 10 
 * parameter[pdmp-history-result].resource.entry[=].resource.quantity.unit = "each"
 * parameter[pdmp-history-result].resource.entry[=].resource.daysSupply.value = 5
-* parameter[pdmp-history-result].resource.entry[=].resource.whenHandedOver = "2023-06-05"
+* parameter[pdmp-history-result].resource.entry[=].resource.whenPrepared = "2023-06-05"
+* parameter[pdmp-history-result].resource.entry[=].resource.whenHandedOver.extension.url = "http://hl7.org/fhir/StructureDefinition/data-absent-reason"
+* parameter[pdmp-history-result].resource.entry[=].resource.whenHandedOver.extension.valueCode = #unknown
 * parameter[pdmp-history-result].resource.entry[=].resource.dosageInstruction.sequence = 1
 * parameter[pdmp-history-result].resource.entry[=].resource.dosageInstruction.text = "1 tab tid prn pain"
 
@@ -156,7 +158,9 @@ Description: "Example of minimal population of a Parameters resource used to res
 * parameter[pdmp-history-result].resource.entry[=].resource.quantity.value = 10 
 * parameter[pdmp-history-result].resource.entry[=].resource.quantity.unit = "each"
 * parameter[pdmp-history-result].resource.entry[=].resource.daysSupply.value = 5
-* parameter[pdmp-history-result].resource.entry[=].resource.whenHandedOver = "2023-06-05"
+* parameter[pdmp-history-result].resource.entry[=].resource.whenPrepared = "2023-06-05"
+* parameter[pdmp-history-result].resource.entry[=].resource.whenHandedOver.extension.url = "http://hl7.org/fhir/StructureDefinition/data-absent-reason"
+* parameter[pdmp-history-result].resource.entry[=].resource.whenHandedOver.extension.valueCode = #unknown
 
 * parameter[pdmp-history-result].resource.entry[+].fullUrl = "urn:uuid:53a1e123-5b56-44ae-b7e8-36e0b9800f57"
 * parameter[pdmp-history-result].resource.entry[=].resource.id = "patient-res-1-2-op"
@@ -181,3 +185,20 @@ Description: "Example of minimal population of a Parameters resource used to res
 * parameter[pdmp-history-result].resource.entry[=].resource.identifier[=].value = "1669512349"
 * parameter[pdmp-history-result].resource.entry[=].resource.active = true
 * parameter[pdmp-history-result].resource.entry[=].resource.name = "Our Pharmacy"
+
+
+Instance: pdmp-history-output-parameters-3-error-retrieving-data
+InstanceOf: pdmp-parameters-response-operation
+Usage: #example
+* meta.profile = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-parameters-response-operation"
+* parameter.name = "pdmp-history-result"
+* parameter.resource.resourceType = "Bundle"
+* parameter.resource.id = "bundle-res-3"
+* parameter.resource.meta.profile = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-bundle-history-result"
+* parameter.resource.type = #collection
+* parameter.resource.entry.fullUrl = "http://example.org/pdmp-a/OperationOutcome/100"
+* parameter.resource.entry.resource.resourceType = "OperationOutcome"
+* parameter.resource.entry.resource.id = "100"
+* parameter.resource.entry.resource.issue.severity = #error
+* parameter.resource.entry.resource.issue.code = #processing
+* parameter.resource.entry.resource.issue.diagnostics = "The state PDMP system did not respond within the timeout period"
