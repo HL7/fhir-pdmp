@@ -120,7 +120,9 @@ Description: "Example of a Parameters resource returning a patient's PDMP histor
 * parameter[pdmp-history-result].resource.entry[=].resource.quantity.value = 10
 * parameter[pdmp-history-result].resource.entry[=].resource.quantity.unit = "each"
 * parameter[pdmp-history-result].resource.entry[=].resource.daysSupply.value = 5
-* parameter[pdmp-history-result].resource.entry[=].resource.whenHandedOver = "2023-06-05"
+* parameter[pdmp-history-result].resource.entry[=].resource.whenPrepared = "2023-06-05"
+* parameter[pdmp-history-result].resource.entry[=].resource.whenHandedOver.extension.url = "http://hl7.org/fhir/StructureDefinition/data-absent-reason"
+* parameter[pdmp-history-result].resource.entry[=].resource.whenHandedOver.extension.valueCode = #unknown
 * parameter[pdmp-history-result].resource.entry[=].resource.dosageInstruction.sequence = 1
 * parameter[pdmp-history-result].resource.entry[=].resource.dosageInstruction.text = "1 tab tid prn pain"
 

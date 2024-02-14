@@ -12,7 +12,7 @@
   - Quantiy, including numeric value and units SHALL be populated
 - **MedicationDispense.daysSupply**
   - Dispensed days supply SHALL be populated
-- **MedicationDispense.whenHandedOver**
-  - The date that the medication was dispensed to the patient SHALL be populated in the whenHandedOver element
+- **MedicationDispense.whenPrepared**
+  - The date that the medication was prepared SHALL be populated in the whenPrepared element
 
 <p></p>

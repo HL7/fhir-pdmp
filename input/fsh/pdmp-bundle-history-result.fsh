@@ -71,7 +71,9 @@ Description: "Example of a Bundle resource used to transmit a patient's PDMP his
 * entry[=].resource.quantity.value = 10 
 * entry[=].resource.quantity.unit = "each"
 * entry[=].resource.daysSupply.value = 5
-* entry[=].resource.whenHandedOver = "2023-06-05"
+* entry[=].resource.whenPrepared = "2023-06-05"
+* entry[=].resource.whenHandedOver.extension.url = "http://hl7.org/fhir/StructureDefinition/data-absent-reason"
+* entry[=].resource.whenHandedOver.extension.valueCode = #unknown
 * entry[=].resource.dosageInstruction.sequence = 1
 * entry[=].resource.dosageInstruction.text = "1 tab tid prn pain"
 
