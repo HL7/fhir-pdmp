@@ -72,12 +72,7 @@ Instance: b5000d0c-fed9-4746-ac26-b5ce0111a2b7
 InstanceOf: MessageHeader
 Usage: #inline
 * meta.profile = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-messageheader-response-op"
-* extension[0].url = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-header-timestamp-extension"
-* extension[=].valueDateTime = "2023-12-01"
-* extension[+].url = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-activity-period-extension"
-* extension[=].valuePeriod.start = "2021-12-02"
-* extension[=].valuePeriod.end = "2023-12-01"
-* eventCoding = urn:ietf:rfc:3986#http://hl7.org/fhir/us/pdmp/OperationDefinition/get-pdmp-history "get-pdmp-history"
+* eventCoding = urn:ietf:rfc:3986#http://hl7.org/fhir/us/pdmp/OperationDefinition/pdmp-history "pdmp-history"
 * source.name = "MyPDMPServer"
 * source.endpoint = "https://pdmp1.testpdmp.org/"
 * response.identifier = "messageheader-req-op-1"
@@ -89,6 +84,11 @@ InstanceOf: pdmp-parameters-response-operation
 Usage: #inline
 Description: "Example of a Parameters resource returning a patient's PDMP history"
 * parameter[pdmp-history-result].name = "pdmp-history-result"
+* parameter[pdmp-history-result].extension[0].url = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-header-timestamp-extension"
+* parameter[pdmp-history-result].extension[=].valueDateTime = "2023-12-01"
+* parameter[pdmp-history-result].extension[+].url = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-activity-period-extension"
+* parameter[pdmp-history-result].extension[=].valuePeriod.start = "2021-12-02"
+* parameter[pdmp-history-result].extension[=].valuePeriod.end = "2023-12-01"
 * parameter[pdmp-history-result].resource.id = "bundle-res-1"
 * parameter[pdmp-history-result].resource.resourceType = "Bundle"
 * parameter[pdmp-history-result].resource.meta.profile = $pdmp-bundle-history-result
@@ -120,7 +120,9 @@ Description: "Example of a Parameters resource returning a patient's PDMP histor
 * parameter[pdmp-history-result].resource.entry[=].resource.quantity.value = 10
 * parameter[pdmp-history-result].resource.entry[=].resource.quantity.unit = "each"
 * parameter[pdmp-history-result].resource.entry[=].resource.daysSupply.value = 5
-* parameter[pdmp-history-result].resource.entry[=].resource.whenHandedOver = "2023-06-05"
+* parameter[pdmp-history-result].resource.entry[=].resource.whenPrepared = "2023-06-05"
+* parameter[pdmp-history-result].resource.entry[=].resource.whenHandedOver.extension.url = "http://hl7.org/fhir/StructureDefinition/data-absent-reason"
+* parameter[pdmp-history-result].resource.entry[=].resource.whenHandedOver.extension.valueCode = #unknown
 * parameter[pdmp-history-result].resource.entry[=].resource.dosageInstruction.sequence = 1
 * parameter[pdmp-history-result].resource.entry[=].resource.dosageInstruction.text = "1 tab tid prn pain"
 

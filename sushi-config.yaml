@@ -6,10 +6,10 @@ name: PDMP
 title: US Prescription Drug Monitoring Program (PDMP)
 description: US Prescription Drug Monitoring Program (PDMP) FHIR IG
 status: draft # draft | active | retired | unknown
-version: 1.0.0-ballot
+version: 0.1.0
 fhirVersion: 4.0.1 
 copyrightYear: 2023+
-releaseLabel: STU1 # ci-build | draft | qa-preview | ballot | trial-use | release | update | normative+trial-use
+releaseLabel: ci-build # ci-build | draft | qa-preview | ballot | trial-use | release | update | normative+trial-use | STU1
 license: CC0-1.0 
 jurisdiction: urn:iso:std:iso:3166#US "United States of America"
 publisher:

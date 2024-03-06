@@ -74,8 +74,8 @@ Description: "Defines constraints and extensions on the MedicationDispense resou
 * quantity.code 0..1 MS
 * daysSupply 1..1 MS
 * daysSupply.value 1..1 MS
-* whenHandedOver 1.. MS
-* whenHandedOver ^isModifier = false
+* whenPrepared 1.. MS
+* whenPrepared ^isModifier = false
 * dosageInstruction ..1 MS
 * dosageInstruction ^isModifier = false
 
@@ -103,6 +103,6 @@ Description: "Example of a PDMP medication dispense"
 * quantity.value = 15 
 * quantity.unit = "each"
 * daysSupply.value = 5
-* whenHandedOver = "2023-07-08T06:38:52Z"
+* whenPrepared = "2023-07-08T06:38:52Z"
 * dosageInstruction.sequence = 1
 * dosageInstruction.text = "1 tablet every 6-8 hours as needed for pain"

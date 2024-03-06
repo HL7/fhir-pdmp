@@ -132,7 +132,7 @@ The following FHIR resources are used in the request for a patient's PDMP histor
 * MedicationAdministration: Used to communicate administration information.
 * Message Header: Used to communicate information supporting the request and response interactions (in the FHIR messaging option only)
 * Organization: Used to communicate information about the requester, dispenser and administering party organization.
-* Parameters: Used to enumerate input and output information in the `get-pdmp-history` operation.
+* Parameters: Used to enumerate input and output information in the `pdmp-history` operation.
 * Patient: Used to communicate information about the patient.
 * Practitioner and PractitionerRole: Used to communicate information about the requesting provider, the prescriber of a dispensed or administered product, or the provider that administered a medication.
 

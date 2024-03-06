@@ -18,8 +18,12 @@ Description: "The date the request was sent to the PDMP Responder."
 * ^contact[=].telecom[+].system = #email
 * ^contact[=].telecom[=].value = "fm@frankmckinney.com"
 * ^jurisdiction = urn:iso:std:iso:3166#US "United States of America"
-* ^context.type = #element
-* ^context.expression = "MessageHeader"
+* ^context[0].type = #element
+* ^context[=].expression = "MessageHeader"
+* ^context[+].type = #element
+* ^context[=].expression = "Parameters.parameter"
+* ^context[+].type = #element
+* ^context[=].expression = "Bundle.entry.Parameters.parameter"
 * value[x] 1..
 * value[x] only dateTime
 * value[x] ^short = "Message Timestamp"

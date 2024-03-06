@@ -1,4 +1,4 @@
-Instance: get-pdmp-history
+Instance: pdmp-history
 InstanceOf: OperationDefinition
 Usage: #definition
 * extension.url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg"
@@ -18,10 +18,10 @@ Usage: #definition
 * contact[=].telecom[=].value = "frank.mckinney@pocp.com"
 * contact[=].telecom[+].system = #email
 * contact[=].telecom[=].value = "fm@frankmckinney.com"
-* description = "Operation returning FHIR resources fulfilling one or more submitted queries"
+* description = "Operation returning an individual patient's PDMP history"
 * jurisdiction = urn:iso:std:iso:3166#US "United States of America"
 * affectsState = false
-* code = #get-pdmp-history
+* code = #pdmp-history
 * system = true
 * type = false
 * instance = false
@@ -75,17 +75,17 @@ Usage: #definition
 * parameter[=].max = "1"
 * parameter[=].documentation = "An Organization resource reflecting the delegate's organization"
 * parameter[=].type = #Organization
-* parameter[+].name = #prefetch-request
+* parameter[+].name = #pre-stage-only
 * parameter[=].use = #in
 * parameter[=].min = 0
 * parameter[=].max = "1"
 * parameter[=].documentation = "Indicates that the PDMP Responder is expected to gather the requested information and stage it for future retrieval (via a subsequent invocation of this operation)"
 * parameter[=].type = #boolean
-* parameter[+].name = #prefetch-retrieval-key
+* parameter[+].name = #pre-stage-retrieval-key
 * parameter[=].use = #in
 * parameter[=].min = 0
 * parameter[=].max = "1"
-* parameter[=].documentation = "The prefetch-retrieval-key returned from a previous operation call in which the prefetch-request parameter was set to true"
+* parameter[=].documentation = "The pre-stage-retrieval-key returned from a previous operation call in which the pre-stage-only parameter was set to true"
 * parameter[=].type = #string
 * parameter[+].name = #pdmp-history-result
 * parameter[=].use = #out
@@ -93,9 +93,9 @@ Usage: #definition
 * parameter[=].max = "1"
 * parameter[=].documentation = "A Bundle of type 'searchset' that contains medication dispense and administration information for the requested patient (if found) and/or OperationOutcome resource(s) with processing information"
 * parameter[=].type = #Bundle
-* parameter[+].name = #prefetch-retrieval-key
+* parameter[+].name = #pre-stage-retrieval-key
 * parameter[=].use = #out
 * parameter[=].min = 0
 * parameter[=].max = "1"
-* parameter[=].documentation = "This parameter is used only when responding to an invocation in which the prefetch-request parameter was set to true. This element may be populated with a string value that the requester is to submit in the prefetch-retrieval-key parameter of the subsequent invocation that retrieves the staged information"
+* parameter[=].documentation = "This parameter is used only when responding to an invocation in which the pre-stage-only parameter was set to true. This element may be populated with a string value that the requester is to submit in the pre-stage-retrieval-key parameter of the subsequent invocation that retrieves the staged information"
 * parameter[=].type = #string
