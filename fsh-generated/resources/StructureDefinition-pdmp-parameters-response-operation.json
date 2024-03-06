@@ -1,0 +1,146 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "pdmp-parameters-response-operation",
+  "meta": {
+    "lastUpdated": "2023-10-05T00:00:00-05:00"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "phx"
+    }
+  ],
+  "url": "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-parameters-response-operation",
+  "version": "1.0.0",
+  "name": "PdmpParametersResponseOperation",
+  "title": "PDMP Parameters - Response Operation",
+  "status": "active",
+  "experimental": false,
+  "date": "2023-11-29T00:00:00-05:00",
+  "publisher": "HL7 International / Pharmacy",
+  "contact": [
+    {
+      "name": "HL7 International / Pharmacy",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/medication"
+        }
+      ]
+    },
+    {
+      "name": "Frank McKinney",
+      "telecom": [
+        {
+          "system": "email",
+          "value": "frank.mckinney@pocp.com"
+        },
+        {
+          "system": "email",
+          "value": "fm@frankmckinney.com"
+        }
+      ]
+    }
+  ],
+  "description": "This profile tailors the Parameters resource to convey PDMP Request outputs.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "code": "US",
+          "system": "urn:iso:std:iso:3166",
+          "display": "United States of America"
+        }
+      ]
+    }
+  ],
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "v2",
+      "uri": "http://hl7.org/v2",
+      "name": "HL7 v2 Mapping"
+    },
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "Parameters",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Parameters",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Parameters.parameter",
+        "path": "Parameters.parameter",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "value",
+              "path": "name"
+            }
+          ],
+          "ordered": false,
+          "rules": "open"
+        },
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "Parameters.parameter:pdmp-history-result",
+        "path": "Parameters.parameter",
+        "sliceName": "pdmp-history-result",
+        "min": 1,
+        "max": "1",
+        "mustSupport": true
+      },
+      {
+        "id": "Parameters.parameter:pdmp-history-result.name",
+        "path": "Parameters.parameter.name",
+        "fixedString": "pdmp-history-result",
+        "mustSupport": true
+      },
+      {
+        "id": "Parameters.parameter:pdmp-history-result.value[x]",
+        "path": "Parameters.parameter.value[x]",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-bundle-history-result"
+            ]
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "Parameters.parameter:pre-stage-retrieval-key",
+        "path": "Parameters.parameter",
+        "sliceName": "pre-stage-retrieval-key",
+        "min": 0,
+        "max": "*",
+        "mustSupport": true
+      },
+      {
+        "id": "Parameters.parameter:pre-stage-retrieval-key.name",
+        "path": "Parameters.parameter.name",
+        "fixedString": "pre-stage-retrieval-key",
+        "mustSupport": true
+      },
+      {
+        "id": "Parameters.parameter:pre-stage-retrieval-key.value[x]",
+        "path": "Parameters.parameter.value[x]",
+        "type": [
+          {
+            "code": "string"
+          }
+        ],
+        "mustSupport": true
+      }
+    ]
+  }
+}

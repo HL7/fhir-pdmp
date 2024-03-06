@@ -1,0 +1,72 @@
+{
+  "resourceType": "CodeSystem",
+  "status": "active",
+  "content": "complete",
+  "name": "PdmpCodeSystemEventType",
+  "id": "pdmp-event-type",
+  "title": "PDMP Code System - Event Type",
+  "description": "This code system defines event types used in PDMP message headers",
+  "url": "http://hl7.org/fhir/us/pdmp/CodeSystem/pdmp-event-type",
+  "concept": [
+    {
+      "code": "pdmp-patient-request",
+      "display": "PDMP Patient Request",
+      "definition": "Request for a single patient's PDMP information"
+    },
+    {
+      "code": "pdmp-patient-response",
+      "display": "PDMP Patient Response",
+      "definition": "Response containing a single patient's PDMP information"
+    }
+  ],
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "phx"
+    }
+  ],
+  "meta": {
+    "lastUpdated": "2023-10-01T00:00:00-05:00"
+  },
+  "version": "1.0.0",
+  "experimental": false,
+  "date": "2023-10-01T00:00:00-05:00",
+  "publisher": "HL7 International / Pharmacy",
+  "contact": [
+    {
+      "name": "HL7 International / Pharmacy",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/medication"
+        }
+      ]
+    },
+    {
+      "name": "Frank McKinney",
+      "telecom": [
+        {
+          "system": "email",
+          "value": "frank.mckinney@pocp.com"
+        },
+        {
+          "system": "email",
+          "value": "fm@frankmckinney.com"
+        }
+      ]
+    }
+  ],
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "code": "US",
+          "system": "urn:iso:std:iso:3166",
+          "display": "United States of America"
+        }
+      ]
+    }
+  ],
+  "caseSensitive": false,
+  "count": 2
+}

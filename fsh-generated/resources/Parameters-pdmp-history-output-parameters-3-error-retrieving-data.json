@@ -1,0 +1,40 @@
+{
+  "resourceType": "Parameters",
+  "id": "pdmp-history-output-parameters-3-error-retrieving-data",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-parameters-response-operation"
+    ]
+  },
+  "parameter": [
+    {
+      "name": "pdmp-history-result",
+      "resource": {
+        "resourceType": "Bundle",
+        "id": "bundle-res-3",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-bundle-history-result"
+          ]
+        },
+        "type": "collection",
+        "entry": [
+          {
+            "fullUrl": "http://example.org/pdmp-a/OperationOutcome/100",
+            "resource": {
+              "resourceType": "OperationOutcome",
+              "id": "100",
+              "issue": [
+                {
+                  "severity": "error",
+                  "code": "processing",
+                  "diagnostics": "The state PDMP system did not respond within the timeout period"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

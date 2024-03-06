@@ -1,0 +1,94 @@
+{
+  "resourceType": "CapabilityStatement",
+  "id": "pdmp-client",
+  "url": "http://hl7.org/fhir/us/pdmp/CapabilityStatement/pdmp-client",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "phx"
+    }
+  ],
+  "version": "1.0.0",
+  "name": "PDMP_Server",
+  "status": "draft",
+  "date": "2023-12-13",
+  "publisher": "HL7 International / Pharmacy",
+  "contact": [
+    {
+      "name": "HL7 International / Pharmacy",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/medication"
+        }
+      ]
+    },
+    {
+      "name": "Frank McKinney",
+      "telecom": [
+        {
+          "system": "email",
+          "value": "frank.mckinney@pocp.com"
+        },
+        {
+          "system": "email",
+          "value": "fm@frankmckinney.com"
+        }
+      ]
+    }
+  ],
+  "description": "This resource defines the expected capabilities of the PDMP Client actor when conforming to the PDMP IG and It is expected that it will be used in conjunction with the US Core CapabilityStatement. Together they describe the complete list of actual profiles, RESTful operations, and messaging capabilities supported by PDMP Clients. PDMP Client requirements may also be impacted by the rules of local jurisdictions or other contextual requirements.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "code": "US",
+          "system": "urn:iso:std:iso:3166",
+          "display": "United States of America"
+        }
+      ]
+    }
+  ],
+  "kind": "requirements",
+  "fhirVersion": "4.0.1",
+  "format": [
+    "json",
+    "xml"
+  ],
+  "_format": [
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+          "valueCode": "SHALL"
+        }
+      ]
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+          "valueCode": "SHOULD"
+        }
+      ]
+    }
+  ],
+  "rest": [
+    {
+      "mode": "client",
+      "operation": [
+        {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
+              "valueCode": "SHALL"
+            }
+          ],
+          "name": "pdmp-history",
+          "definition": "http://hl7.org/fhir/us/pdmp/OperationDefinition/pdmp-history",
+          "documentation": "Operation returning an individual patient's PDMP history"
+        }
+      ]
+    }
+  ]
+}

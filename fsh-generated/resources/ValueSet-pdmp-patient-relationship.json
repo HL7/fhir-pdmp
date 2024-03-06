@@ -1,0 +1,61 @@
+{
+  "resourceType": "ValueSet",
+  "status": "active",
+  "name": "PdmpPatientRelationship",
+  "id": "pdmp-patient-relationship",
+  "title": "PDMP Value Set - Patient Relationship",
+  "description": "This value set contains codes defining a relationship between a RelatedPerson and the patient",
+  "url": "http://hl7.org/fhir/us/pdmp/ValueSet/pdmp-patient-relationship",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "phx"
+    }
+  ],
+  "version": "1.0.0",
+  "experimental": false,
+  "date": "2023-11-26T00:00:00-05:00",
+  "publisher": "HL7 International / Pharmacy",
+  "contact": [
+    {
+      "name": "HL7 International / Pharmacy",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/medication"
+        }
+      ]
+    },
+    {
+      "name": "Frank McKinney",
+      "telecom": [
+        {
+          "system": "email",
+          "value": "frank.mckinney@pocp.com"
+        },
+        {
+          "system": "email",
+          "value": "fm@frankmckinney.com"
+        }
+      ]
+    }
+  ],
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "code": "US",
+          "system": "urn:iso:std:iso:3166",
+          "display": "United States of America"
+        }
+      ]
+    }
+  ],
+  "compose": {
+    "include": [
+      {
+        "system": "http://hl7.org/fhir/us/pdmp/CodeSystem/temporary-pdmp-patient-relationship"
+      }
+    ]
+  }
+}

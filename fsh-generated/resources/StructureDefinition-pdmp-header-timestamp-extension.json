@@ -1,0 +1,116 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "pdmp-header-timestamp-extension",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2023-06-20T00:00:00.000-05:00"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "phx"
+    }
+  ],
+  "url": "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-header-timestamp-extension",
+  "version": "2.2.0",
+  "name": "PDMP_Header_Timestamp_Extension",
+  "title": "PDMP Extension - Header Timestamp",
+  "status": "draft",
+  "date": "2023-06-22T13:57:40-05:00",
+  "publisher": "HL7 International / Pharmacy",
+  "contact": [
+    {
+      "name": "HL7 International / Pharmacy",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/medication"
+        }
+      ]
+    },
+    {
+      "name": "Frank McKinney",
+      "telecom": [
+        {
+          "system": "email",
+          "value": "frank.mckinney@pocp.com"
+        },
+        {
+          "system": "email",
+          "value": "fm@frankmckinney.com"
+        }
+      ]
+    }
+  ],
+  "description": "The date the request was sent to the PDMP Responder.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "code": "US",
+          "system": "urn:iso:std:iso:3166",
+          "display": "United States of America"
+        }
+      ]
+    }
+  ],
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    }
+  ],
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "MessageHeader"
+    },
+    {
+      "type": "element",
+      "expression": "Parameters.parameter"
+    },
+    {
+      "type": "element",
+      "expression": "Bundle.entry.Parameters.parameter"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "PDMP Extension - Header Timestamp",
+        "definition": "The date the request was sent to the PDMP Responder."
+      },
+      {
+        "id": "Extension.extension",
+        "path": "Extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "fixedUri": "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-header-timestamp-extension"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "short": "Message Timestamp",
+        "definition": "Represents the date time the request was sent to the PDMP Responder",
+        "min": 1,
+        "type": [
+          {
+            "code": "dateTime"
+          }
+        ]
+      }
+    ]
+  }
+}

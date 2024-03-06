@@ -1,0 +1,64 @@
+{
+  "resourceType": "ValueSet",
+  "status": "active",
+  "name": "PdmpValueSetEventType",
+  "id": "pdmp-event-type",
+  "title": "PDMP Value Set - Event Type",
+  "description": "This value set contains event types used in PDMP message headers.",
+  "url": "http://hl7.org/fhir/us/pdmp/ValueSet/pdmp-event-type",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "phx"
+    }
+  ],
+  "meta": {
+    "lastUpdated": "2023-10-01T00:00:00-05:00"
+  },
+  "version": "1.0.0",
+  "experimental": false,
+  "date": "2023-10-01T00:00:00-05:00",
+  "publisher": "HL7 International / Pharmacy",
+  "contact": [
+    {
+      "name": "HL7 International / Pharmacy",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/medication"
+        }
+      ]
+    },
+    {
+      "name": "Frank McKinney",
+      "telecom": [
+        {
+          "system": "email",
+          "value": "frank.mckinney@pocp.com"
+        },
+        {
+          "system": "email",
+          "value": "fm@frankmckinney.com"
+        }
+      ]
+    }
+  ],
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "code": "US",
+          "system": "urn:iso:std:iso:3166",
+          "display": "United States of America"
+        }
+      ]
+    }
+  ],
+  "compose": {
+    "include": [
+      {
+        "system": "http://hl7.org/fhir/us/pdmp/CodeSystem/pdmp-event-type"
+      }
+    ]
+  }
+}

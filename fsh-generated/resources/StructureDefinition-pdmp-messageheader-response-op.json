@@ -1,0 +1,145 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "pdmp-messageheader-response-op",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "phx"
+    }
+  ],
+  "url": "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-messageheader-response-op",
+  "version": "1.0.0",
+  "name": "PdmpMessageHeaderResponseOp",
+  "title": "PDMP MessageHeader - Response Operation",
+  "status": "active",
+  "experimental": false,
+  "date": "2023-10-01T00:00:00-00:00",
+  "publisher": "HL7 International / Pharmacy",
+  "contact": [
+    {
+      "name": "HL7 International / Pharmacy",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/medication"
+        }
+      ]
+    },
+    {
+      "name": "Frank McKinney",
+      "telecom": [
+        {
+          "system": "email",
+          "value": "frank.mckinney@pocp.com"
+        },
+        {
+          "system": "email",
+          "value": "fm@frankmckinney.com"
+        }
+      ]
+    }
+  ],
+  "description": "This profile constrains a MessageHeader resource for use in a PDMP response data bundle. A Bundle resource is the focus.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "code": "US",
+          "system": "urn:iso:std:iso:3166",
+          "display": "United States of America"
+        }
+      ]
+    }
+  ],
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "v2",
+      "uri": "http://hl7.org/v2",
+      "name": "HL7 v2 Mapping"
+    },
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    },
+    {
+      "identity": "w5",
+      "uri": "http://hl7.org/fhir/fivews",
+      "name": "FiveWs Pattern Mapping"
+    }
+  ],
+  "kind": "resource",
+  "abstract": false,
+  "type": "MessageHeader",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/MessageHeader",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "MessageHeader",
+        "path": "MessageHeader",
+        "mustSupport": false
+      },
+      {
+        "id": "MessageHeader.event[x]",
+        "path": "MessageHeader.event[x]",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "type",
+              "path": "$this"
+            }
+          ],
+          "ordered": false,
+          "rules": "open"
+        }
+      },
+      {
+        "id": "MessageHeader.event[x]:eventCoding",
+        "path": "MessageHeader.event[x]",
+        "sliceName": "eventCoding",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Coding"
+          }
+        ],
+        "mustSupport": true
+      },
+      {
+        "id": "MessageHeader.event[x]:eventCoding.system",
+        "path": "MessageHeader.event[x].system",
+        "min": 1,
+        "fixedUri": "urn:ietf:rfc:3986",
+        "mustSupport": true
+      },
+      {
+        "id": "MessageHeader.event[x]:eventCoding.code",
+        "path": "MessageHeader.event[x].code",
+        "min": 1,
+        "fixedCode": "http://hl7.org/fhir/us/pdmp/OperationDefinition/pdmp-history",
+        "mustSupport": true
+      },
+      {
+        "id": "MessageHeader.focus",
+        "path": "MessageHeader.focus",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/StructureDefinition/Parameters"
+            ],
+            "aggregation": [
+              "bundled"
+            ]
+          }
+        ],
+        "mustSupport": true
+      }
+    ]
+  }
+}

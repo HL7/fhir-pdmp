@@ -1,0 +1,73 @@
+{
+  "resourceType": "MessageDefinition",
+  "id": "pdmp-request",
+  "url": "http://hl7.org/fhir/us/pdmp/MessageDefinition/pdmp-request",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "phx"
+    }
+  ],
+  "version": "1.0.0",
+  "name": "PdmpMessageDefinitionRequest",
+  "title": "PDMP Message Definition - Request",
+  "status": "active",
+  "experimental": false,
+  "date": "2023-10-08T00:00:00-00:00",
+  "publisher": "HL7 International / Pharmacy",
+  "contact": [
+    {
+      "name": "HL7 International / Pharmacy",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/medication"
+        }
+      ]
+    },
+    {
+      "name": "Frank McKinney",
+      "telecom": [
+        {
+          "system": "email",
+          "value": "frank.mckinney@pocp.com"
+        },
+        {
+          "system": "email",
+          "value": "fm@frankmckinney.com"
+        }
+      ]
+    }
+  ],
+  "description": "Message requesting information from a PDMP facilitator system about medication dispensations and administrations",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "code": "US",
+          "system": "urn:iso:std:iso:3166",
+          "display": "United States of America"
+        }
+      ]
+    }
+  ],
+  "purpose": "Request information from a PDMP facilitator about medication dispensations and administrations",
+  "eventCoding": {
+    "code": "http://hl7.org/fhir/us/pdmp/OperationDefinition/pdmp-history",
+    "system": "urn:ietf:rfc:3986"
+  },
+  "category": "currency",
+  "focus": [
+    {
+      "code": "Parameters",
+      "min": 1,
+      "max": "1"
+    }
+  ],
+  "allowedResponse": [
+    {
+      "message": "http://hl7.org/fhir/us/pdmp/MessageDefinition/pdmp-response",
+      "situation": "Returned when processing completes"
+    }
+  ]
+}

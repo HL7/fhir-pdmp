@@ -1,0 +1,70 @@
+{
+  "resourceType": "Organization",
+  "id": "pdmp-pharmacy-1",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-organization-pharmacy"
+    ]
+  },
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">The pharmacy that dispensed the reported medication: Our Pharmacy</div>"
+  },
+  "identifier": [
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+            "code": "DEA",
+            "display": "Drug Enforcement Administration registration number"
+          }
+        ]
+      },
+      "system": "urn:oid:2.16.840.1.113883.4.814",
+      "value": "CS4861378"
+    },
+    {
+      "system": "http://hl7.org/fhir/sid/us-npi",
+      "value": "1669512349"
+    },
+    {
+      "system": "http://terminology.hl7.org/CodeSystem/NCPDPProviderIdentificationNumber",
+      "value": "999017"
+    }
+  ],
+  "active": true,
+  "type": [
+    {
+      "coding": [
+        {
+          "code": "prov",
+          "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+          "display": "Healthcare Provider"
+        }
+      ]
+    }
+  ],
+  "name": "Our Pharmacy",
+  "telecom": [
+    {
+      "system": "phone",
+      "value": "952-555-5555"
+    },
+    {
+      "system": "email",
+      "value": "contact-our-pharmacy@email.org"
+    }
+  ],
+  "address": [
+    {
+      "line": [
+        "220 Oak St"
+      ],
+      "city": "Minneapolis",
+      "state": "MN",
+      "postalCode": "55008",
+      "country": "USA"
+    }
+  ]
+}

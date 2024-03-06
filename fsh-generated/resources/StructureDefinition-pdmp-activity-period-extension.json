@@ -1,0 +1,116 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "pdmp-activity-period-extension",
+  "meta": {
+    "versionId": "1",
+    "lastUpdated": "2023-06-20T00:00:00.000-05:00"
+  },
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode": "phx"
+    }
+  ],
+  "url": "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-activity-period-extension",
+  "version": "2.2.0",
+  "name": "PDMP_Activity_Period_Extension",
+  "title": "PDMP Extension - Activity Period",
+  "status": "draft",
+  "date": "2023-06-22T13:57:40-05:00",
+  "publisher": "HL7 International / Pharmacy",
+  "contact": [
+    {
+      "name": "HL7 International / Pharmacy",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/medication"
+        }
+      ]
+    },
+    {
+      "name": "Frank McKinney",
+      "telecom": [
+        {
+          "system": "email",
+          "value": "frank.mckinney@pocp.com"
+        },
+        {
+          "system": "email",
+          "value": "fm@frankmckinney.com"
+        }
+      ]
+    }
+  ],
+  "description": "The date period (start/end) of the responses returned by the PDMP.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "code": "US",
+          "system": "urn:iso:std:iso:3166",
+          "display": "United States of America"
+        }
+      ]
+    }
+  ],
+  "fhirVersion": "4.0.1",
+  "mapping": [
+    {
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
+    }
+  ],
+  "kind": "complex-type",
+  "abstract": false,
+  "context": [
+    {
+      "type": "element",
+      "expression": "MessageHeader"
+    },
+    {
+      "type": "element",
+      "expression": "Parameters.parameter"
+    },
+    {
+      "type": "element",
+      "expression": "Bundle.entry.Parameters.parameter"
+    }
+  ],
+  "type": "Extension",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Extension",
+        "path": "Extension",
+        "short": "PDMP Extension - Activity Period",
+        "definition": "The date period (start/end) of the responses returned by the PDMP."
+      },
+      {
+        "id": "Extension.extension",
+        "path": "Extension.extension",
+        "max": "0"
+      },
+      {
+        "id": "Extension.url",
+        "path": "Extension.url",
+        "fixedUri": "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-activity-period-extension"
+      },
+      {
+        "id": "Extension.value[x]",
+        "path": "Extension.value[x]",
+        "short": "PDMP Activity Period",
+        "definition": "Indicates the date period of dispenses and administrations returned by the PDMP",
+        "min": 1,
+        "type": [
+          {
+            "code": "Period"
+          }
+        ]
+      }
+    ]
+  }
+}
