@@ -1,14 +1,14 @@
 ### Introduction
 
-Prescription Drug Monitoring Programs (PDMPs) are state-based databases that provide prescribers, pharmacists, and health authorities timely information about controlled substance, and in some states non-controlled substance dispensing, administration and patient behaviors. Use of information stored in PDMPs during care delivery helps avoid drug misuse and diversion and can provide improved patient care and safety.
+Prescription Drug Monitoring Programs (PDMPs) are state-based databases that provide prescribers and pharmacists with timely information about controlled substance, and in some states non-controlled substance dispensing, administration and patient behaviors. Use of information stored in PDMPs during care delivery helps avoid drug misuse and diversion and can provide improved patient care and safety.
 
-To reduce opioid misuse and for other purposes, states have implemented policies mandating providers to reference PDMPs to obtain patients' history before prescribing or dispensing certain medications. The Prescription Drug Monitoring Program (PDMP) FHIR Implementation Guide defines a method for providers to access patient PDMP information using the HL7 FHIR standard. 
+To reduce opioid misuse and for other purposes, states have implemented policies mandating providers to reference PDMPs to obtain a patient's PDMP history before prescribing or dispensing certain medications. The Prescription Drug Monitoring Program (PDMP) FHIR Implementation Guide defines a method for providers to access patient PDMP information using the HL7 FHIR standard. 
 
 For general background on state PDMP programs, see the Centers for Disease Control and Prevention [PDMP - What States Need to Know](https://www.cdc.gov/drugoverdose/pdmp/index.html).
 
 ### Scope
 
-This guide centers around a single use case, in which a provider (prescriber or pharmacist) or their authorized delegate accesses a Patient’s controlled substance or prescription medication history.
+This guide centers around a single use case, in which a provider (prescriber or pharmacist) or their authorized delegate accesses requests and receives a patient’s history as contained in the PDMP.
 
 <div>
 <figure class="figure">
@@ -21,13 +21,13 @@ This guide centers around a single use case, in which a provider (prescriber or 
 
 All other interactions between the parties above--such as a prescription being sent from the prescriber to the dispensing pharmacy, or the pharmacy submitting dispense history data to the PDMP--are critical to the overall PDMP process but are not in-scope for this IG. 
 
-This implementation guide is intended be used in the United States. It reflects US pharmacy processes and conventions. 
+This implementation guide is intended to be used in the United States. It reflects US pharmacy processes and conventions. 
 
 #### Actors
 The following system actors participate in the data exchange flows described in this guide:
 
-- **PDMP Requester:** A system that retrieves patient prescription data from a PDMP on behalf of a prescriber, pharmacist or other authorized healthcare or law enforcement entity. This system can be thought of as the client in a client-server interaction.
-- **PDMP Responder:** A state-based PDMP, intermediary or partner system that acts as a source of prescription data by responding to PDMP data requests. This system can be thought of as the server in a client-server interaction.
+- **PDMP Requester:** A system that retrieves patient prescription data from a PDMP on behalf of a prescriber or pharmacist. This system can be thought of as the client in a client-server interaction.
+- **PDMP Responder:** A state-based PDMP, intermediary or partner system that acts as a source of prescription data by responding to PDMP requests. This system can be thought of as the server in a client-server interaction.
 
 
 ### Content and Organization
