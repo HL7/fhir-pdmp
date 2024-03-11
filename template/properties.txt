@@ -1,0 +1,2 @@
+jiraSpecFile:FHIR-us-pdmp
+packagelisturl:http://hl7.org/fhir/us/pdmp/package-list.json
