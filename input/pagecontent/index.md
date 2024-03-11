@@ -1,33 +1,71 @@
 ### Introduction
 
-Prescription Drug Monitoring Programs (PDMPs) are state-based databases that provide prescribers and pharmacists with timely information about controlled substance, and in some states non-controlled substance dispensing, administration and patient behaviors. Use of information stored in PDMPs during care delivery helps avoid drug misuse and diversion and can provide improved patient care and safety.
+Prescription Drug Monitoring Programs (PDMPs) are state-based databases that provide prescribers and pharmacists with timely information about controlled substance, and in some states non-controlled substance, dispensing, administration and patient behaviors. Use of information stored in PDMPs during care delivery helps avoid drug misuse and diversion and can provide improved patient care and safety.
 
 To reduce opioid misuse and for other purposes, states have implemented policies mandating providers to reference PDMPs to obtain a patient's PDMP history before prescribing or dispensing certain medications. The Prescription Drug Monitoring Program (PDMP) FHIR Implementation Guide defines a method for providers to request and retrieve patient PDMP information using the HL7 FHIR standard. 
 
 For general background on state PDMP programs, see the Centers for Disease Control and Prevention [PDMP - What States Need to Know](https://www.cdc.gov/drugoverdose/pdmp/index.html).
 
-### Scope
+#### PDMP Ecosystem
 
-This guide centers around a single use case, in which a provider (prescriber or pharmacist) or their authorized delegate accesses requests and receives a patient’s history as contained in the PDMP.
+The following figure, provided by Prescription Drug Monitoring Program Training and Technical Assistance Center ([PDMP TTAC](https://www.pdmpassist.org)) shows an overview of the PDMP reporting ecosystem.  
+
+In this figure, 
+* a `user` can interact with a `State PDMP System` directly (i.e., a web portal) or through a `Health care or pharmacy entity`
+* `Health care or pharmacy entity` can interact with a `State PDMP System` directly or via `RxCheck Hub`, `PMPi Hub` or `Integration Facilitator`
+* `State PDMP System`s exchange information with each other through `RxCheck Hub` or `PMPi Hub`
+
+Outside of a `user` accessing a `State PDMP System` via a web portal, the interactions in Figure 1 can support discrete data exchange. 
 
 <div>
 <figure class="figure">
-<figcaption class="figure-caption"><strong>Figure: IG Scope</strong></figcaption>
+<figcaption class="figure-caption"><strong>Figure 1: An overview of the PDMP ecosystem</strong></figcaption>
+  <p>
+  <img src="pdmp-ecosystem-small.png" style="float:none">  
+  </p>
+</figure>
+</div>
+<p></p>
+
+### Scope
+
+For this Implementation Guide, we limit and abstract the ecosystem in Figure 1 to focus on `PDMP request` and `PDMP response` messages exchanged between the `PDMP Requester` and the `PDMP Responder` as depicted in Figure 2.
+
+<div>
+<figure class="figure">
+<figcaption class="figure-caption"><strong>Figure 2:  Abstract Model and Actors</strong></figcaption>
   <p>
   <img src="pdmp-overview-scope.png" style="float:none">  
   </p>
 </figure>
 </div>
+<p></p>
 
-All other interactions between the parties above--such as a prescription being sent from the prescriber to the dispensing pharmacy, or the pharmacy submitting dispense history data to the PDMP--are critical to the overall PDMP process but are not in-scope for this IG. 
+To support regulatory requirements in various states, `PDMP response` supports both the PDMP history as discrete data and a URL pointing to the PDMP history rendered (fully-formatted) to regulatory requirements.
 
-This implementation guide is intended to be used in the United States. It reflects US pharmacy processes and conventions. 
+This guide provides both RESTful operation and messaging submission methods to match implementers' particular environments as described [here](submission-options.html).
 
-#### Actors
-The following system actors participate in the data exchange flows described in this guide:
+This Implementation Guide is intended to be used in the United States.  It reflects US pharmacy processes and conventions.
 
-- **PDMP Requester:** A system that retrieves patient prescription data from a PDMP on behalf of a prescriber or pharmacist. This system can be thought of as the client in a client-server interaction.
-- **PDMP Responder:** A state-based PDMP, intermediary or partner system that acts as a source of prescription data by responding to PDMP requests. This system can be thought of as the server in a client-server interaction.
+### Out of Scope
+**Other interactions** between PDMP ecosystem parties, including parties not depicted in Figure 1, are ***out of scope*** for this Implementation Guide.  These exchanges include, but are not limited to:
+- data exchange between PDMPs
+- prescription dispensations reported by the pharmacy to the PDMP
+- electronic prescriptions sent from the prescriber to the pharmacy
+
+
+**Patient Matching:** This Implementiontion guide does not specify patient matching requirements.  States may require requesters to include certain patient information to enable or facilitate patient matching; however, these requirements are ***out of scope*** of this Implementation Guide.
+
+
+### Actors and Definitions
+
+- **PDMP Requester:** A system that sends `PDMP request`s to `PDMP Responder`s and receives `PDMP resonse`s in return. The system may include both a local system (e.g., EHR, Pharmacy System) and associated intermediaries (e.g., eRx switch). This system can be thought of as the client in a client-server interaction.  
+
+- **PDMP Responder:** A system that receives `PDMP request`s from `PDMP Requester`s and responds with `PDMP response`s. The system may include, in addition to the state PDMP, other partner systems (e.g., hubs).  This system can be thought of as the server in a client-server interaction.
+
+- **PDMP request:** A message, sent by a `PDMP requester` on behalf of a user, which contains all necessary and required information such that a `PDMP Responder` can, if appropriate, respond with a `PDMP response`.  This includes, but is not limited to, user identification and authorization and patient identification.
+
+- **PDMP response:** A message, sent by a `PDMP Responder` that particular `PDMP Requester` that submitted a specific  `PDMP request`.  The message may include any combination of: the PDMP history in discrete data, a URL to a formatted PDMP history report, additional alerts and message, error messages, and other relevant information.
 
 
 ### Content and Organization
