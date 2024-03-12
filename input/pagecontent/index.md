@@ -5,7 +5,7 @@ Prescription Drug Monitoring Programs (PDMPs) are state-based databases that pro
 To reduce opioid misuse, reduce drug diversion, and for other purposes, states have implemented policies mandating providers to reference PDMPs to obtain a patient's PDMP history before prescribing or dispensing certain medications. The Prescription Drug Monitoring Program (PDMP) FHIR Implementation Guide defines a method for providers to request and retrieve patient PDMP information using the HL7 FHIR standard. 
 
 For general background on state PDMP programs, see the Centers for Disease Control and Prevention [PDMP - What States Need to Know](https://www.cdc.gov/drugoverdose/pdmp/index.html).
-
+ 
 #### PDMP Ecosystem
 
 The following figure, provided by Prescription Drug Monitoring Program Training and Technical Assistance Center ([PDMP TTAC](https://www.pdmpassist.org)) shows an overview of the PDMP reporting ecosystem.  
