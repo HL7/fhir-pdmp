@@ -13,7 +13,7 @@ The broad PDMP ecosystem - from writing a prescription to reporting PDMP history
 
 In Figure 8.1, above, 
 * prescribers write a prescription and forward it electronically to the pharmacy using NCPDP SCRIPT.
-* upon dispesing or sale of the prescription, the pharmacy reports the dispensation to the appropriate PDMP system(s) using ASAP
+* upon dispensing or sale of the prescription, the pharmacy reports the dispensation to the appropriate PDMP system(s) using ASAP
 * PDMP systems exchange information between each other using PMIX/NIEM
 * in contrast, getting the PDMP information to providers (prescribers and pharmacists) does not utilize a single, consistent, methodology.  Current implementations include
   * all PDMP provide a web portal for provider access
@@ -25,14 +25,14 @@ The stakeholders that participated in the development of this Implementation Gui
 
 ### Mapping
 
-Specific mapping from each FHIR resource in this Implementation Guide to PIMS/NIEM and NCPDP SCRIPT RxHistory is included in the description of each resource.  Specific links follow.  Generally, On the resource page (e.g., [PDMP MedicationDispense](StructureDefinition-pdmp-medicationdispense.html)), click on the 'Mappings' tab and then scroll to the bottom of the page to find the PMIX/NIEM and NCPDP SCRIPT RxHistory mapping.
+Specific mapping from each FHIR resource in this Implementation Guide to PMIX/NIEM and NCPDP SCRIPT RxHistory is included in the description of each resource.  Specific links follow.  Generally, On the resource page (e.g., [PDMP MedicationDispense](StructureDefinition-pdmp-medicationdispense.html)), click on the 'Mappings' tab and then scroll to the bottom of the page to find the PMIX/NIEM and NCPDP SCRIPT RxHistory mapping.
 
 Links to the mappings
 - [PDMP MedicationDispense Mapping](StructureDefinition-pdmp-medicationdispense-mappings.html)
-- [PMDP MedicationDispense map to NCPDP SCRIPT RxHistory](StructureDefinition-pdmp-medicationdispense-mappings.html#mappings-for-ncpdp-script-2017071-rxhistory-response-http-ncpdp-orgscript2017071rxhistoryresponse)
+- [PDMP MedicationDispense map to NCPDP SCRIPT RxHistory](StructureDefinition-pdmp-medicationdispense-mappings.html#mappings-for-ncpdp-script-2017071-rxhistory-response-http-ncpdp-orgscript2017071rxhistoryresponse)
 
 
-The following tables consolidate the mappings for request and response senarios.
+The following tables consolidate the mappings for request and response scenarios.
 
 #### NCPDP Mappings for Request
 {:.no_toc}
@@ -197,7 +197,7 @@ This section includes the minimal mapping for the  response from a state  to an 
         <td class="maptable17">Patient Last Name</td>
         <td class="maptable17">Message/Body/RxHistoryResponse/Patient/HumanPatient/Name/LastName</td>
         <td class="maptable17">Patient.name.family</td>
-      </tr>C:\Users\smrob\OneDrive\Documents\GitHub\fhir-pdmp\output\qa.html
+      </tr>
         <td class="maptable17">Patient Date of Birth</td>
         <td class="maptable17">Message/Body/RxHistoryResponse/Patient/HumanPatient/DateOfBirth</td>
         <td class="maptable17">Patient.birthdate</td>
@@ -224,7 +224,7 @@ This section includes the minimal mapping for the  response from a state  to an 
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">Patient State Code</td>
-        <td class="maptable17">Message/Body/RxHistoryResponse/Patient/HumanPatient/Addresss/StateProvince</td>
+        <td class="maptable17">Message/Body/RxHistoryResponse/Patient/HumanPatient/Address/StateProvince</td>
         <td class="maptable17">Patient.address.state</td>
       </tr>
       <tr style='height:20px;'>
@@ -302,7 +302,7 @@ This section includes the minimal mapping for the  response from a state  to an 
         <td class="maptable16" rowspan="2">Drug</td>
         <td class="maptable17">Product ID Qualifier</td>
         <td class="maptable17">Message/Body/RxHistoryResponse/MedicationDispensed/DrugCoded/ProductCode/Qualifier</td>
-        <td class="maptable17">MedicationDipense.medicationReference.code.coding.system</td>
+        <td class="maptable17">MedicationDispense.medicationReference.code.coding.system</td>
       </tr>
       <tr style='height:32px;'>
         <td class="maptable17">Product ID</td>
@@ -640,7 +640,7 @@ This section includes the minimal mapping for the  response from a state  to an 
       <tr style='height:20px;'>
         <td class="maptable17">Drug Name[1]</td>
         <td class="maptable17">&lt;pmp:DrugProductNameText&gt;</td>
-        <td class="maptable17">MedicationDispense.medicationReference.code.coding.code.dispay</td>
+        <td class="maptable17">MedicationDispense.medicationReference.code.coding.code.display</td>
       </tr>
       <tr style='height:32px;'>
         <td class="maptable17">Drug Strength[1]</td>
@@ -685,13 +685,13 @@ This section includes the minimal mapping for the  response from a state  to an 
       <tr style='height:20px;'>
         <td class="maptable16" rowspan="2">Drug</td>
         <td class="maptable17">Product ID Qualifier</td>
-        <td class="maptable17">&lt;pmp:DrugCPDProductIdentifier&gt;&lt;pmp:DrugDINProductIdentifier&gt;</br>&lt;pmp:DrugHRIProductIdentifier&gt;&lt;pmp:pmp:DrugNDCProductIdentifier&gt;</br>&lt;pmp:DrugUPCProductIdentifie&gt;&lt;pmp:DrugUPNProductIdentifier&gt;</td>
-        <td class="maptable17">MedicationDipense.medicationReference.code.coding.system</td>
+        <td class="maptable17">&lt;pmp:DrugCPDProductIdentifier&gt;&lt;pmp:DrugDINProductIdentifier&gt;</br>&lt;pmp:DrugHRIProductIdentifier&gt;&lt;pmp:pmp:DrugNDCProductIdentifier&gt;</br>&lt;pmp:DrugUPCProductIdentifier&gt;&lt;pmp:DrugUPNProductIdentifier&gt;</td>
+        <td class="maptable17">MedicationDispense.medicationReference.code.coding.system</td>
       </tr>
       <tr style='height:32px;'>
         <td class="maptable17">Product ID</td>
         <td class="maptable17">&lt;IdentificationID&gt;</td>
-        <td class="maptable17">MedicationDipense.medicationReference.code.coding.code</td>
+        <td class="maptable17">MedicationDispense.medicationReference.code.coding.code</td>
       </tr>
       <tr style='height:32px;'>
         <td class="maptable16" rowspan="6">Dispenser Organization</td>

@@ -173,5 +173,6 @@
    <page name="Submission Options" key="submission-options"/>
    <page name="Us Core Profiles" key="us-core-profiles"/>
    <page name="Use Case" key="use-case"/>
+   <page name="Use Case Old 2024 03 12" key="use-case_old_2024-03-12"/>
    <page name="Artifacts Summary" key="artifacts"/>
 </specification>

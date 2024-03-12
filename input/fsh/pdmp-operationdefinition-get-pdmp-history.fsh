@@ -91,7 +91,7 @@ Usage: #definition
 * parameter[=].use = #out
 * parameter[=].min = 0
 * parameter[=].max = "1"
-* parameter[=].documentation = "A Bundle of type 'searchset' that contains medication dispense and administration information for the requested patient (if found) and/or OperationOutcome resource(s) with processing information"
+* parameter[=].documentation = "A Bundle of type 'searchset' that contains medication dispensation and administration information for the requested patient (if found) and/or OperationOutcome resource(s) with processing information"
 * parameter[=].type = #Bundle
 * parameter[+].name = #pre-stage-retrieval-key
 * parameter[=].use = #out

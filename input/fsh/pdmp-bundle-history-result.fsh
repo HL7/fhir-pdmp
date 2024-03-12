@@ -82,7 +82,7 @@ Description: "Example of a Bundle resource used to transmit a patient's PDMP his
 * entry[=].resource.resourceType = "Patient"
 * entry[=].resource.meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
 * entry[=].resource.text.status = #generated
-* entry[=].resource.text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">The PDMP Responder's patient record for August Samuels as associated with a medication dispense</div>"
+* entry[=].resource.text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">The PDMP Responder's patient record for the patient identified in the PDMP request: August Samuels</div>"
 * entry[=].resource.identifier.system = "http://hl7.org/fhir/sid/us-ssn"
 * entry[=].resource.identifier.value = "120-35-2435"
 * entry[=].resource.name.family = "Samuels"
