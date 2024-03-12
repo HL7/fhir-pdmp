@@ -29,7 +29,7 @@ Specific mapping from each FHIR resource in this Implementation Guide to PIMS/NI
 
 Links to the mappings
 - [PDMP MedicationDispense Mapping](StructureDefinition-pdmp-medicationdispense-mappings.html)
-- [PMDP MedicationDispense map to NCPDP SCRIPT RxHistory](StructureDefinition-pdmp-medicationdispense-mappings.html#mappings-for-ncpdp-script-2017071-rxhistory-response-http-ncpdp)
+- [PMDP MedicationDispense map to NCPDP SCRIPT RxHistory](StructureDefinition-pdmp-medicationdispense-mappings.html#mappings-for-ncpdp-script-2017071-rxhistory-response-http-ncpdp-orgscript2017071rxhistoryresponse)
 
 
 The following tables consolidate the mappings for request and response senarios.

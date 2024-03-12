@@ -103,7 +103,6 @@ Description: "Example of a Bundle resource used to transmit a patient's PDMP his
 * entry[=].resource.identifier[+].system = "http://terminology.hl7.org/CodeSystem/NCPDPProviderIdentificationNumber"
 * entry[=].resource.identifier[=].value = "999017"
 * entry[=].resource.active = true
-* entry[=].resource.type = $organization-type#prov "Healthcare Provider"
 * entry[=].resource.name = "Our Pharmacy"
 * entry[=].resource.telecom[0].system = #phone
 * entry[=].resource.telecom[=].value = "952-555-5555"

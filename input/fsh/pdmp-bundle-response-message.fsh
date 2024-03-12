@@ -50,11 +50,9 @@ Description: "This profile constrains a Bundle resource for use as the response 
 * entry[response-parameters].resource 1..1 MS
 * entry[response-parameters].resource only $pdmp-parameters-response
 
-Alias: $pdmp-event-type = http://hl7.org/fhir/us/pdmp/CodeSystem/pdmp-event-type
 Alias: $v2-0203 = http://terminology.hl7.org/CodeSystem/v2-0203
 Alias: $rxnorm = http://www.nlm.nih.gov/research/umls/rxnorm
 Alias: $ndc = http://hl7.org/fhir/sid/ndc
-Alias: $organization-type = http://terminology.hl7.org/CodeSystem/organization-type
 
 Instance: pdmp-bundle-response-message-1
 InstanceOf: pdmp-bundle-response-message
@@ -72,6 +70,8 @@ Instance: b5000d0c-fed9-4746-ac26-b5ce0111a2b7
 InstanceOf: MessageHeader
 Usage: #inline
 * meta.profile = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-messageheader-response-op"
+* text.status = #generated
+* text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Event = the canonical URL for the pdmp-history operation. Focus is the Parameters resource holding response content.</div>"
 * eventCoding = urn:ietf:rfc:3986#http://hl7.org/fhir/us/pdmp/OperationDefinition/pdmp-history "pdmp-history"
 * source.name = "MyPDMPServer"
 * source.endpoint = "https://pdmp1.testpdmp.org/"
@@ -155,7 +155,6 @@ Description: "Example of a Parameters resource returning a patient's PDMP histor
 * parameter[pdmp-history-result].resource.entry[=].resource.identifier[+].system = "http://terminology.hl7.org/CodeSystem/NCPDPProviderIdentificationNumber"
 * parameter[pdmp-history-result].resource.entry[=].resource.identifier[=].value = "999017"
 * parameter[pdmp-history-result].resource.entry[=].resource.active = true
-* parameter[pdmp-history-result].resource.entry[=].resource.type = $organization-type#prov "Healthcare Provider"
 * parameter[pdmp-history-result].resource.entry[=].resource.name = "Our Pharmacy"
 * parameter[pdmp-history-result].resource.entry[=].resource.telecom[0].system = #phone
 * parameter[pdmp-history-result].resource.entry[=].resource.telecom[=].value = "952-555-5555"
