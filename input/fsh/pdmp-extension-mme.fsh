@@ -1,4 +1,4 @@
-Extension: MME
+Extension: Morphine_Milligram_Equivalent
 Id: pdmp-extension-mme
 Title: "PDMP Extension - MME"
 Description: "MME - Morphine Milligram Equivalent.  The quantity of morphine (mg/day, except for fentanyl patchs use mcg/day) equivalent to the daily opioid dose for the prescription as dispensed."
@@ -20,6 +20,8 @@ Description: "MME - Morphine Milligram Equivalent.  The quantity of morphine (mg
 * ^jurisdiction = urn:iso:std:iso:3166#US "United States of America"
 * ^context.type = #element
 * ^context.expression = "MedicationDispense"
+* ^context.type = #element
+* ^context[=].expression = "MedicationAdministration"
 * value[x] 1..
 * value[x] only positiveInt
 * value[x] ^short = "MME"

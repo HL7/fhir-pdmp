@@ -1,4 +1,4 @@
-Extension: MME
+Extension: Lorazepam-Milligram-Equivalent
 Id: pdmp-extension-lme
 Title: "PDMP Extension - LME"
 Description: "LME - Lorazepam Milligram Equivalent.  The lorazepam dose (mg) equivalent to the sedative dose of the prescription as dispensed."
@@ -20,6 +20,8 @@ Description: "LME - Lorazepam Milligram Equivalent.  The lorazepam dose (mg) equ
 * ^jurisdiction = urn:iso:std:iso:3166#US "United States of America"
 * ^context.type = #element
 * ^context.expression = "MedicationDispense"
+* ^context.type = #element
+* ^context[=].expression = "MedicationAdministration"
 * value[x] 1..
 * value[x] only decimal
 * value[x] ^short = "LME"
