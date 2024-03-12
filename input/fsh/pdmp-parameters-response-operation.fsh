@@ -118,7 +118,6 @@ Description: "Example of a Parameters resource used to respond to a request a pa
 * parameter[pdmp-history-result].resource.entry[=].resource.identifier[+].system = "http://terminology.hl7.org/CodeSystem/NCPDPProviderIdentificationNumber"
 * parameter[pdmp-history-result].resource.entry[=].resource.identifier[=].value = "999017"
 * parameter[pdmp-history-result].resource.entry[=].resource.active = true
-* parameter[pdmp-history-result].resource.entry[=].resource.type = $organization-type#prov "Healthcare Provider"
 * parameter[pdmp-history-result].resource.entry[=].resource.name = "Our Pharmacy"
 * parameter[pdmp-history-result].resource.entry[=].resource.telecom[0].system = #phone
 * parameter[pdmp-history-result].resource.entry[=].resource.telecom[=].value = "952-555-5555"
@@ -190,6 +189,7 @@ Description: "Example of minimal population of a Parameters resource used to res
 Instance: pdmp-history-output-parameters-3-error-retrieving-data
 InstanceOf: pdmp-parameters-response-operation
 Usage: #example
+Description: "Example of population of the Parameters resource when a processing exception causes no PDMP history to be returned"
 * meta.profile = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-parameters-response-operation"
 * parameter.name = "pdmp-history-result"
 * parameter.resource.resourceType = "Bundle"
@@ -199,6 +199,8 @@ Usage: #example
 * parameter.resource.entry.fullUrl = "http://example.org/pdmp-a/OperationOutcome/100"
 * parameter.resource.entry.resource.resourceType = "OperationOutcome"
 * parameter.resource.entry.resource.id = "100"
+* parameter.resource.entry.resource.text.status = #generated
+* parameter.resource.entry.resource.text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">An error occurred during processing: The state PDMP system did not respond within the timeout period</div>"
 * parameter.resource.entry.resource.issue.severity = #error
 * parameter.resource.entry.resource.issue.code = #processing
 * parameter.resource.entry.resource.issue.diagnostics = "The state PDMP system did not respond within the timeout period"

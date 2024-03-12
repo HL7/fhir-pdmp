@@ -66,7 +66,6 @@ Description: "Example of a PDMP dispensing pharmacy"
 * identifier[+].system = "http://terminology.hl7.org/CodeSystem/NCPDPProviderIdentificationNumber"
 * identifier[=].value = "999017"
 * active = true
-* type = $organization-type#prov "Healthcare Provider"
 * name = "Our Pharmacy"
 * telecom[0].system = #phone
 * telecom[=].value = "952-555-5555"

@@ -1,4 +1,3 @@
-Alias: $pdmp-event-type = http://hl7.org/fhir/us/pdmp/CodeSystem/pdmp-event-type
 Alias: $operation-event-type = urn:ietf:rfc:3986
 
 Instance: pdmp-response
