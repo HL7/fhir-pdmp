@@ -19,7 +19,7 @@
    <name value="PDMP"/>
    <title value="US Prescription Drug Monitoring Program (PDMP)"/>
    <status value="draft"/>
-   <date value="2024-03-11T10:22:33-07:00"/>
+   <date value="2024-03-11T23:27:42-07:00"/>
    <publisher value="HL7 International / Pharmacy"/>
    <contact>
       <name value="HL7 International / Pharmacy"/>
@@ -449,24 +449,6 @@
             <valueString value="CodeSystem"/>
          </extension>
          <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
-            <valueUri value="CodeSystem-pdmp-event-type.html"/>
-         </extension>
-         <reference>
-            <reference value="CodeSystem/pdmp-event-type"/>
-         </reference>
-         <name value="PDMP Code System - Event Type"/>
-         <description value="This code system defines event types used in PDMP message headers"/>
-         <exampleBoolean value="false"/>
-         <groupingId value="-term-codesystem"/>
-      </resource>
-      <resource>
-         <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-sort">
-            <valueInteger value="999999999"/>
-         </extension>
-         <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-            <valueString value="CodeSystem"/>
-         </extension>
-         <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
             <valueUri value="CodeSystem-temporary-pdmp-patient-relationship.html"/>
          </extension>
          <reference>
@@ -510,6 +492,42 @@
          </reference>
          <name value="PDMP Extension - Header Timestamp"/>
          <description value="The date the request was sent to the PDMP Responder."/>
+         <exampleBoolean value="false"/>
+         <groupingId value="-str-extension"/>
+      </resource>
+      <resource>
+         <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-sort">
+            <valueInteger value="999999999"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+            <valueString value="StructureDefinition:extension"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+            <valueUri value="StructureDefinition-pdmp-extension-lme.html"/>
+         </extension>
+         <reference>
+            <reference value="StructureDefinition/pdmp-extension-lme"/>
+         </reference>
+         <name value="PDMP Extension - LME"/>
+         <description value="LME - Lorazepam Milligram Equivalent.  The lorazepam dose (mg) equivalent to the sedative dose of the prescription as dispensed."/>
+         <exampleBoolean value="false"/>
+         <groupingId value="-str-extension"/>
+      </resource>
+      <resource>
+         <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-sort">
+            <valueInteger value="999999999"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+            <valueString value="StructureDefinition:extension"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+            <valueUri value="StructureDefinition-pdmp-extension-mme.html"/>
+         </extension>
+         <reference>
+            <reference value="StructureDefinition/pdmp-extension-mme"/>
+         </reference>
+         <name value="PDMP Extension - MME"/>
+         <description value="MME - Morphine Milligram Equivalent.  The quantity of morphine (mg/day, except for fentanyl patchs use mcg/day) equivalent to the daily opioid dose for the prescription as dispensed."/>
          <exampleBoolean value="false"/>
          <groupingId value="-str-extension"/>
       </resource>
@@ -755,24 +773,6 @@
             <valueString value="ValueSet"/>
          </extension>
          <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
-            <valueUri value="ValueSet-pdmp-event-type.html"/>
-         </extension>
-         <reference>
-            <reference value="ValueSet/pdmp-event-type"/>
-         </reference>
-         <name value="PDMP Value Set - Event Type"/>
-         <description value="This value set contains event types used in PDMP message headers."/>
-         <exampleBoolean value="false"/>
-         <groupingId value="-term-valueset"/>
-      </resource>
-      <resource>
-         <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-sort">
-            <valueInteger value="999999999"/>
-         </extension>
-         <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-            <valueString value="ValueSet"/>
-         </extension>
-         <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
             <valueUri value="ValueSet-pdmp-patient-relationship.html"/>
          </extension>
          <reference>
@@ -977,6 +977,7 @@
             <reference value="Parameters/pdmp-history-output-parameters-3-error-retrieving-data"/>
          </reference>
          <name value="pdmp-history-output-parameters-3-error-retrieving-data"/>
+         <description value="Example of population of the Parameters resource when a processing exception causes no PDMP history to be returned"/>
          <exampleCanonical value="http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-parameters-response-operation"/>
          <groupingId value="-ex-example"/>
       </resource>
