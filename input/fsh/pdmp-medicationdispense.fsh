@@ -40,6 +40,8 @@ Description: "Defines constraints and extensions on the MedicationDispense resou
 * extension contains
     pdmp-extension-rx-refill-number named rx-refill-number 0..1 MS and
     pdmp-extension-rx-transmission-method named rx-transmission-method 0..1 MS
+    pdmp-extension-mme named rx-mme 0..1 MS
+    pdmp-extension-lme named rx-lme 0..1 MS
 * status 1.. MS
 * status from $medicationdispense-status (required)
 * status ^binding.description = "A set of codes indicating the current status of a MedicationDispense."
