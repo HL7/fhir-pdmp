@@ -6,6 +6,8 @@ Alias: $us-core-medication-clinical-drug = http://cts.nlm.nih.gov/fhir/ValueSet/
 Alias: $us-core-medicationdispense = http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationdispense
 Alias: $pdmp-extension-rx-refill-number = http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-extension-rx-refill-number
 Alias: $pdmp-extension-rx-transmission-method = http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-extension-rx-transmission-method
+Alias: $pdmp-extension-mme = http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-extension-mme
+Alias: $pdmp-extension-lme = http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-extension-lme
 Alias: $pmix-transmission-code = http://hl7.org/fhir/us/pdmp/CodeSystem/temporary-pmix-transmission-form-of-rx-origin
 Alias: $pdmp-pharmacy = http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-organization-pharmacy
 
@@ -39,7 +41,9 @@ Description: "Defines constraints and extensions on the MedicationDispense resou
 * . ^isModifier = false
 * extension contains
     pdmp-extension-rx-refill-number named rx-refill-number 0..1 MS and
-    pdmp-extension-rx-transmission-method named rx-transmission-method 0..1 MS
+    pdmp-extension-rx-transmission-method named rx-transmission-method 0..1 MS and
+    pdmp-extension-mme named rx-mme 0..1 MS and
+    pdmp-extension-lme named rx-lme 0..1 MS
 * status 1.. MS
 * status from $medicationdispense-status (required)
 * status ^binding.description = "A set of codes indicating the current status of a MedicationDispense."
@@ -92,6 +96,8 @@ Description: "Example of a PDMP medication dispense"
 * extension[=].valuePositiveInt = 1
 * extension[+].url = $pdmp-extension-rx-transmission-method
 * extension[=].valueCoding = $pmix-transmission-code#"05" "Electronic Prescription"
+* extension[+].url = $pdmp-extension-mme
+* extension[=].valuePositiveInt = 18
 * status = #in-progress
 * medicationCodeableConcept.coding[0] = $rxnorm#993781 "acetaminophen 300 MG / codeine phosphate 30 MG Oral Tablet"
 * medicationCodeableConcept.coding[+] = $ndc#00093015001
