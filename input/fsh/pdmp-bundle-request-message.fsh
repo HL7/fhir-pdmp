@@ -69,6 +69,9 @@ Description: "Example of a PDMP request message"
 Instance: messageheader-req-op-1
 InstanceOf: pdmp-messageheader-request-op
 Usage: #inline
+* meta.profile = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-messageheader-request-op"
+* text.status = #generated
+* text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Event = the canonical URL for the pdmp-history operation. Focus is the Parameters resource holding request inputs.</div>"
 * eventCoding.system = "urn:ietf:rfc:3986"
 * eventCoding.code = #http://hl7.org/fhir/us/pdmp/OperationDefinition/pdmp-history "pdmp-history"
 * source.name = "MyPDMPServer"

@@ -18,3 +18,6 @@ INFORMATION: StructureDefinition/pdmp-organization-pharmacy: StructureDefinition
 # Informational alerts caused by the validator not finding referenced resources within the same nested bundle as the referencing resource (operation results bundle within a message bundle). Note that when the same bundle is not nested in a message bundle, the validator successfully resolves the references (see the example, Parameters-pdmp-history-output-parameters-1)
 # INFORMATION: Bundle/pdmp-bundle-response-message-1: Bundle: Can't find 'urn:uuid:53a1e123-5b56-44ae-b7e8-36e0b9800f57' in the bundle (Bundle.entry[1].resource.parameter[0].resource.entry[0].resource.subject)
 # INFORMATION: Bundle/pdmp-bundle-response-message-1: Bundle: Can't find 'urn:uuid:82ae67e4-f23a-4c17-b80a-9076a37f5d6e' in the bundle (Bundle.entry[1].resource.parameter[0].resource.entry[0].resource.performer[0].actor)
+
+# Slicing information (includes information about the MedicationDispense whenHandedOver invariant failing (mdd-1) failing - due to the interaction between that invariant in base FHIR and US Core invariant 
+Details for urn:uuid:aecbb129-9a73-4b59-9d66-ff5cdb3f3164 matching against profile http://hl7.org/fhir/StructureDefinition/Parameters|4.0.1
