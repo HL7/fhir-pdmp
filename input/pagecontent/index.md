@@ -2,10 +2,10 @@
 
 Prescription Drug Monitoring Programs (PDMPs) are state-based databases that provide prescribers and pharmacists with timely information about controlled substance, and in some states non-controlled substance, dispensing, administration and patient behaviors. Use of information stored in PDMPs during care delivery helps avoid drug misuse and diversion and can provide improved patient care and safety.
 
-To reduce opioid misuse and for other purposes, states have implemented policies mandating providers to reference PDMPs to obtain a patient's PDMP history before prescribing or dispensing certain medications. The Prescription Drug Monitoring Program (PDMP) FHIR Implementation Guide defines a method for providers to request and retrieve patient PDMP information using the HL7 FHIR standard. 
+To reduce opioid misuse, reduce drug diversion, and for other purposes, states have implemented policies mandating providers to reference PDMPs to obtain a patient's PDMP history before prescribing or dispensing certain medications. The Prescription Drug Monitoring Program (PDMP) FHIR Implementation Guide defines a method for providers to request and retrieve patient PDMP information using the HL7 FHIR standard. 
 
 For general background on state PDMP programs, see the Centers for Disease Control and Prevention [PDMP - What States Need to Know](https://www.cdc.gov/drugoverdose/pdmp/index.html).
-
+ 
 #### PDMP Ecosystem
 
 The following figure, provided by Prescription Drug Monitoring Program Training and Technical Assistance Center ([PDMP TTAC](https://www.pdmpassist.org)) shows an overview of the PDMP reporting ecosystem.  
@@ -54,18 +54,20 @@ This Implementation Guide is intended to be used in the United States.  It refle
 - electronic prescriptions sent from the prescriber to the pharmacy
 
 
-**Patient Matching:** This Implementiontion guide does not specify patient matching requirements.  States may require requesters to include certain patient information to enable or facilitate patient matching; however, these requirements are ***out of scope*** of this Implementation Guide.
+**Patient Matching:** This Implementation Guide does not specify patient matching requirements.  States may require requesters to include certain patient information to enable or facilitate patient matching.  This guide supports that patient information, however, the specific patient matching criteria requirements for each PDMP are ***out of scope***.
 
 
 ### Actors and Definitions
 
-- **PDMP Requester:** A system that sends `PDMP request`s to `PDMP Responder`s and receives `PDMP resonse`s in return. The system may include both a local system (e.g., EHR, Pharmacy System) and associated intermediaries (e.g., eRx switch). This system can be thought of as the client in a client-server interaction.  
+- **PDMP Requester:** A system that sends `PDMP request`s to `PDMP Responder`s and receives `PDMP response`s in return. The system may include both a local system (e.g., EHR, Pharmacy System) and associated intermediaries (e.g., eRx switch). This system can be thought of as the client in a client-server interaction.  
 
 - **PDMP Responder:** A system that receives `PDMP request`s from `PDMP Requester`s and responds with `PDMP response`s. The system may include, in addition to the state PDMP, other partner systems (e.g., hubs).  This system can be thought of as the server in a client-server interaction.
 
 - **PDMP request:** A message, sent by a `PDMP requester` on behalf of a user, which contains all necessary and required information such that a `PDMP Responder` can, if appropriate, respond with a `PDMP response`.  This includes, but is not limited to, user identification and authorization and patient identification.
 
 - **PDMP response:** A message, sent by a `PDMP Responder` that particular `PDMP Requester` that submitted a specific  `PDMP request`.  The message may include any combination of: the PDMP history in discrete data, a URL to a formatted PDMP history report, additional alerts and message, error messages, and other relevant information.
+
+- **PDMP history:** The content of a `PDMP response` including pertinent patient, pharmacy, prescriber, and dispensation records. The `PDMP Responder` may also include alerts, administration records, and other information as appropriate or as required by policy or regulation. 
 
 
 ### Content and Organization

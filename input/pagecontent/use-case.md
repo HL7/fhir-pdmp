@@ -1,72 +1,41 @@
 ### Abstract Use Case
-This guide centers around a single use case, in which a provider (prescriber or pharmacist) accesses a Patient’s controlled substance history
+This guide centers around a single use case, in which a `PDMP Requestor` (prescriber or pharmacist) accesses a Patient’s medication history from a `PDMP Responder` (a state PDMP or related system(s))
 
 <div>
 <figure class="figure">
-<figcaption class="figure-caption"><strong>Figure: IG Scope</strong></figcaption>
+<figcaption class="figure-caption"><strong>Figure 1: IG Scope</strong></figcaption>
   <p>
   <img src="pdmp-overview-scope.png" style="float:none">  
   </p>
 </figure>
 </div>
 
-All other interactions between the parties above--such as a prescription being sent from the prescriber to the dispensing pharmacy, or the pharmacy submitting dispense history data to the PDMP--are critical to the overall PDMP process but are not in-scope for this IG. 
+All other interactions between the parties above--such as a prescription being sent from the prescriber to the dispensing pharmacy, or the pharmacy submitting dispensations to the PDMP--are critical to the overall PDMP process but are not in-scope for this IG (see [Scope](index.html#scope)). 
 
 <p></p>
 
-### Provider Data Access Using FHIR
+### Use Case 1
 
-As discussed above, the current mechanisms to access data vary between the usage of multiple data transmission formats or proprietary mechanisms such as web portals. The  ecosystem can benefit from the use of FHIR standards for accessing  data in the following ways:
-
-* Ability to integrate discrete PDMP data results using the `get-pdmdp-history` operation directly or submitting the request using FHIR messaging
-* Ability to integrate PDMP web application access into EHR work flows using SMART on FHIR Apps
-* Ability to initiate a PDMP history request as a decision support step in an appropriate EHR workflow using CDS Hooks
-* Ability to enhance security mechanisms outlined by FHIR and SMART on FHIR between the  actors
-
-<p></p>
-
-The figures below shows the different options for using FHIR APIs to access data in the EHR work flows.
-
-<div>
-<figure class="figure">
-<figcaption class="figure-caption"><strong>Figure: Options to leverage FHIR APIs with intermediaries and PMIX/NIEM to access  data</strong></figcaption>
-  <p>
-  <img src="pdmp-data-access-fhir-1.png" style="float:none">  
-  </p>
-</figure>
-</div>
+Sam August comes to the Highview Clinic complaining about right hand and wrist pain after he fell from a ladder.  He is seen by Dr Adam Amster.  After examining Mr August, Dr Amster's assessment is a sprained wrist and a broken right ring finger.  Mr Amster is provided a wrist brace and his affected finger is immobilized with a splint.  Dr Amster also determines that a pain medication is appropriate, and 
+1. enters a prescription for Acetaminophen with Codeine 325 mg / 30 mg into the Highview Clinic EHR.  
+1. The EHR workflow checks determine a PDMP review is needed and 
+1. presents Dr Amster with a prompt to request Mr August's PDMP history.
+1. Dr Amster requests the PDMP History
+1. The EHR creates a `pdmp-bundle-request` and 
+1. sends it to the `State PDMP (PDMP Responder)`.
+1. The PDMP processes the request and 
+1. responds with a `pdmp-bundle-response` sent to the EHR.  
+1. The EHR presents the PDMP response, which
+1. Dr Amster reviews and acknowledges,
+1. subsequently finalizing the prescription,
+1. which the EHR sends to the pharmacy as an `NCPDP SCRIPT NewRx`
 
 <div>
 <figure class="figure">
-<figcaption class="figure-caption"><strong>Figure: Options to leverage only FHIR APIs with intermediaries to access  data</strong></figcaption>
+<figcaption class="figure-caption"><strong>Figure 2: Use Case 1 sequence diagram</strong></figcaption>
   <p>
-  <img src="pdmp-data-access-fhir-2.png" style="float:none">  
+  <img src="use-case-1-sequence.png" style="float:none">  
   </p>
 </figure>
 </div>
-
-<div>
-<figure class="figure">
-<figcaption class="figure-caption"><strong>Figure: Options to leverage only FHIR APIs to access  data without intermediaries</strong></figcaption>
-  <p>
-  <img src="pdmp-data-access-fhir-3.png" style="float:none">  
-  </p>
-</figure>
-</div>
-
-<p></p>
-
-#### FHIR Resources Used to Convey a Patient's PDMP History
-
-The following FHIR resources are used in the request for a patient's PDMP history and to convey the resulting medication dispense and administration data.
-
-* Alert: Used to communicate clinical alerts or other additional information in the PDMP response.
-* MedicationDispense: Used to communicate dispense information.
-* MedicationAdministration: Used to communicate administration information.
-* Message Header: Used to communicate information supporting the request and response interactions (in the FHIR messaging option only)
-* Organization: Used to communicate information about the requester, dispenser and administering party organization.
-* Parameters: Used to enumerate input and output information in the `pdmp-history` operation.
-* Patient: Used to communicate information about the patient.
-* Practitioner and PractitionerRole: Used to communicate information about the requesting provider, the prescriber of a dispensed or administered product, or the provider that administered a medication.
-
 

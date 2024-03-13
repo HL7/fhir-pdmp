@@ -97,7 +97,7 @@ Description: "Example of a Parameters resource used to respond to a request a pa
 * parameter[pdmp-history-result].resource.entry[=].resource.resourceType = "Patient"
 * parameter[pdmp-history-result].resource.entry[=].resource.meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
 * parameter[pdmp-history-result].resource.entry[=].resource.text.status = #generated
-* parameter[pdmp-history-result].resource.entry[=].resource.text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">The PDMP Responder's patient record for August Samuels as associated with a medication dispense</div>"
+* parameter[pdmp-history-result].resource.entry[=].resource.text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">The PDMP Responder's patient record for the patient identified in the PDMP request: August Samuels</div>"
 * parameter[pdmp-history-result].resource.entry[=].resource.identifier.system = "http://hl7.org/fhir/sid/us-ssn"
 * parameter[pdmp-history-result].resource.entry[=].resource.identifier.value = "120-35-2435"
 * parameter[pdmp-history-result].resource.entry[=].resource.name.family = "Samuels"
@@ -166,7 +166,7 @@ Description: "Example of minimal population of a Parameters resource used to res
 * parameter[pdmp-history-result].resource.entry[=].resource.resourceType = "Patient"
 * parameter[pdmp-history-result].resource.entry[=].resource.meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
 * parameter[pdmp-history-result].resource.entry[=].resource.text.status = #generated
-* parameter[pdmp-history-result].resource.entry[=].resource.text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">The PDMP Responder's patient record for August Samuels as associated with a medication dispense</div>"
+* parameter[pdmp-history-result].resource.entry[=].resource.text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">The PDMP Responder's patient record for the patient identified in the PDMP request: August Samuels</div>"
 * parameter[pdmp-history-result].resource.entry[=].resource.identifier.system = "http://hl7.org/fhir/sid/us-ssn"
 * parameter[pdmp-history-result].resource.entry[=].resource.identifier.value = "120-35-2435"
 * parameter[pdmp-history-result].resource.entry[=].resource.name.family = "Samuels"

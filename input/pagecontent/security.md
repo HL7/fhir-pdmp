@@ -14,11 +14,6 @@ In each of the exchanges described in this guide, the PDMP Client SHALL provide 
 * Specifically the PDMP Responder will implement the Authorization Server (documented as EHR Authorization Server in the SMART on FHIR Backend Services specification) that will permit the PDMP Requester to ask for  data about specific patients.  
 * The PDMP Responder's Authorization Server will register each PDMP Requester and provide the capability to register its public key with the Authorization Server. 
 * The PDMP Responder is expected to allow registration of a PDMP Requester for each individual Provider or a Provider Organization as required by policies.
-* The PDMP Responder SHALL collect the following information about the individual provider user submitting each request, which will be used for both auditing and for identifying the requester uniquely.
-  * Provider name
-  * Provider role
-  * Provider DEA, NPI Number
-  * Provider facility information 
 
 
 #####  PDMP Requester Requirements

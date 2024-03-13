@@ -155,7 +155,7 @@
    <name value="PDMP"/>
    <title value="US Prescription Drug Monitoring Program (PDMP)"/>
    <status value="draft"/>
-   <date value="2024-03-11T23:27:42-07:00"/>
+   <date value="2024-03-12T18:44:50-07:00"/>
    <publisher value="HL7 International / Pharmacy"/>
    <contact>
       <name value="HL7 International / Pharmacy"/>
@@ -722,7 +722,7 @@
             <reference value="StructureDefinition/pdmp-medicationdispense"/>
          </reference>
          <name value="PDMP MedicationDispense"/>
-         <description value="Defines constraints and extensions on the MedicationDispense resource when used by a Prescription Drug Monitoring Program (PDMP) to return an individual's medication dispense history."/>
+         <description value="Defines constraints and extensions on the MedicationDispense resource when used by a Prescription Drug Monitoring Program (PDMP) to return an individual's medication dispensation history."/>
          <exampleBoolean value="false"/>
          <groupingId value="-str-profile"/>
       </resource>
@@ -830,7 +830,7 @@
             <reference value="StructureDefinition/pdmp-patient"/>
          </reference>
          <name value="PDMP Patient"/>
-         <description value="Defines constraints and extensions on the Patient resource when used by a Prescription Drug Monitoring Program (PDMP) to request or return an individual's medication dispense history."/>
+         <description value="Defines constraints and extensions on the Patient resource when used by a Prescription Drug Monitoring Program (PDMP) to request or return an individual's medication dispenssation history."/>
          <exampleBoolean value="false"/>
          <groupingId value="-str-profile"/>
       </resource>
@@ -902,7 +902,7 @@
             <reference value="StructureDefinition/pdmp-extension-mme"/>
          </reference>
          <name value="PDMP Extension - MME"/>
-         <description value="MME - Morphine Milligram Equivalent.  The quantity of morphine (mg/day, except for fentanyl patchs use mcg/day) equivalent to the daily opioid dose for the prescription as dispensed."/>
+         <description value="MME - Morphine Milligram Equivalent.  The quantity of morphine (mg/day, except for fentanyl patchs use mcg/hr) equivalent to the daily opioid dose for the prescription as dispensed."/>
          <exampleBoolean value="false"/>
          <groupingId value="-str-extension"/>
       </resource>
@@ -1226,7 +1226,7 @@
             <reference value="MedicationDispense/pdmp-meddispense-1"/>
          </reference>
          <name value="pdmp-meddispense-1"/>
-         <description value="Example of a PDMP medication dispense"/>
+         <description value="Example of a PDMP medication dispensation record"/>
          <exampleCanonical value="http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-medicationdispense"/>
          <groupingId value="-ex-example"/>
       </resource>
@@ -1419,6 +1419,14 @@
             </extension>
             <nameUrl value="use-case.html"/>
             <title value="Use Case"/>
+            <generation value="markdown"/>
+         </page>
+         <page>
+            <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+               <valueUrl value="use-case_old_2024-03-12.html"/>
+            </extension>
+            <nameUrl value="use-case_old_2024-03-12.html"/>
+            <title value="Use Case Old 2024 03 12"/>
             <generation value="markdown"/>
          </page>
          <page>

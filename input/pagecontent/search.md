@@ -12,7 +12,7 @@ For details, see these sections of the FHIR specification:
 - [Patient Search Parameters](https://build.fhir.org/patient.html#search)
 - [MedicationDispense Search Parameters](https://build.fhir.org/medicationdispense.html#search)
 
-Below are important parameters used when retrieving a patient's medication dispense data from a PDMP Responder:
+Below are important parameters used when retrieving a patient's medication dispensation history from a PDMP Responder:
 
 _Patient resource search parameters_
 - `family` - Family name
@@ -37,10 +37,10 @@ Searches may be performed in one or two steps:
 **One Step**
 -  A single FHIR search can include both MedicationDispense and Patient parameters--serving to both:
   -  locate the intended patient
-  -  and filter the set of dispense information to be returned. 
+  -  and filter the set of dispensation information to be returned. 
 
 
-The following FHIR search uses both Patient and MedicationDispense parameters to retrieve a single patient's dispense data from a PDMP Responder.
+The following FHIR search uses both Patient and MedicationDispense parameters to retrieve a single patient's dispensation data from a PDMP Responder.
 
 `GET [base]/MedicationDispense` <br/>
 `?patient.given=karina&patient.family=doe&patient.birthdate=eq2008-08-22`<br/>
@@ -56,7 +56,7 @@ The above API call will fetch all MedicationDispense all 2023 dispenses for a pa
 
 **Two Step** 
 - A sequence of two FHIR searches may also be used, as follows:
-  - first, locate the patient for whom dispense information is desired
+  - first, locate the patient for whom dispensation information is desired
   - second, retrieve only medication dispenses linked to that patient.
 
 This approach has the benefit of enabling the person requesting the information to first confirm the patient match before retrieving their clinical data, which limits the opportunity for other patients' medical information to be unnecessarily released.
