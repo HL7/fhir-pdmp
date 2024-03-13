@@ -19,9 +19,8 @@ Description: "MME - Morphine Milligram Equivalent.  The quantity of morphine (mg
 * ^contact[=].telecom[=].value = "scott@BearHealthTech.consulting"
 * ^jurisdiction = urn:iso:std:iso:3166#US "United States of America"
 * ^context.type = #element
-* ^context.expression = "MedicationDispense"
-* ^context.type = #element
-* ^context[=].expression = "MedicationAdministration"
+* ^context[0].expression = "MedicationDispense"
+* ^context[+].expression = "MedicationAdministration"
 * value[x] 1..
 * value[x] only positiveInt
 * value[x] ^short = "MME"

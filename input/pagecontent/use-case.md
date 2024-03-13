@@ -10,7 +10,7 @@ This guide centers around a single use case, in which a `PDMP Requestor` (prescr
 </figure>
 </div>
 
-All other interactions between the parties above--such as a prescription being sent from the prescriber to the dispensing pharmacy, or the pharmacy submitting dispensations to the PDMP--are critical to the overall PDMP process but are not in-scope for this IG (see [Scope](index.md#scope)). 
+All other interactions between the parties above--such as a prescription being sent from the prescriber to the dispensing pharmacy, or the pharmacy submitting dispensations to the PDMP--are critical to the overall PDMP process but are not in-scope for this IG (see [Scope](index.html#scope)). 
 
 <p></p>
 
