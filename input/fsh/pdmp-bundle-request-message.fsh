@@ -1,11 +1,3 @@
-Alias: $pdmp-messageheader-request-op = http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-messageheader-request-op
-Alias: $pdmp-parameters-request-op = http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-parameters-request-operation
-Alias: $pdmp-patient = http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-patient
-Alias: $us-core-practitioner = http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner
-Alias: $us-core-practitionerrole = http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole
-Alias: $us-core-organization = http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization
-Alias: $us-core-relatedperson = http://hl7.org/fhir/us/core/StructureDefinition/us-core-relatedperson
-
 Profile: PdmpBundleRequestMessage
 Parent: Bundle
 Id: pdmp-bundle-request-message
@@ -46,19 +38,16 @@ Description: "This profile constrains a Bundle resource for use as the request m
     messageheader 1..1 MS and
     parameters 1..1 MS
 * entry[messageheader].resource 1..1 MS
-* entry[messageheader].resource only $pdmp-messageheader-request-op
+* entry[messageheader].resource only $pdmp-messageheader-request
 * entry[parameters].resource 1..1 MS
-* entry[parameters].resource only $pdmp-parameters-request-op
+* entry[parameters].resource only $pdmp-parameters-request
 
-
-Alias: $v2-0203 = http://terminology.hl7.org/CodeSystem/v2-0203
-Alias: $taxonomy = http://nucc.org/provider-taxonomy
 
 Instance: pdmp-bundle-request-message-1
 InstanceOf: pdmp-bundle-request-message
 Usage: #example
 Description: "Example of a PDMP request message"
-* meta.profile = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-bundle-request-message"
+* meta.profile = $pdmp-bundle-request-message
 * type = #message
 * timestamp = "2023-10-10T15:26:30.162-07:00"
 * entry[0].fullUrl = "http://example.org/MyEHR/MessageHeader/messageheader-req-op-1"
@@ -67,9 +56,9 @@ Description: "Example of a PDMP request message"
 * entry[=].resource = parameters-req-op-1
 
 Instance: messageheader-req-op-1
-InstanceOf: pdmp-messageheader-request-op
+InstanceOf: pdmp-messageheader-request
 Usage: #inline
-* meta.profile = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-messageheader-request-op"
+* meta.profile = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-messageheader-request"
 * text.status = #generated
 * text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Event = the canonical URL for the pdmp-history operation. Focus is the Parameters resource holding request inputs.</div>"
 * eventCoding.system = "urn:ietf:rfc:3986"
@@ -78,11 +67,9 @@ Usage: #inline
 * source.endpoint = "http://pdmpserver.example.org/api"
 * focus = Reference(Parameters/parameters-req-op-1)
 
-Alias: $taxonomy = http://nucc.org/provider-taxonomy
-Alias: $v2-0203 = http://terminology.hl7.org/CodeSystem/v2-0203
 
 Instance: parameters-req-op-1
-InstanceOf: pdmp-parameters-request-operation
+InstanceOf: pdmp-parameters-request
 Usage: #inline
 Description: "Example of a Parameters resource used to request a patient's PDMP history"
 * parameter[patient].name = "patient"
@@ -103,7 +90,7 @@ Description: "Example of a Parameters resource used to request a patient's PDMP 
 * parameter[authorized-practitioner].name = "authorized-practitioner"
 * parameter[authorized-practitioner].resource.id = "practitioner-req-op-1"
 * parameter[authorized-practitioner].resource.resourceType = "Practitioner"
-* parameter[authorized-practitioner].resource.meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner"
+* parameter[authorized-practitioner].resource.meta.profile = $us-core-practitioner
 * parameter[authorized-practitioner].resource.text.status = #generated
 * parameter[authorized-practitioner].resource.text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Adam Amster MD</div>"
 * parameter[authorized-practitioner].resource.identifier[0].system = "http://hl7.org/fhir/sid/us-npi"
@@ -114,7 +101,7 @@ Description: "Example of a Parameters resource used to request a patient's PDMP 
 * parameter[authorized-practitioner-role].name = "authorized-practitioner-role"
 * parameter[authorized-practitioner-role].resource.resourceType = "PractitionerRole"
 * parameter[authorized-practitioner-role].resource.id = "practitionerrole-req-op-1"
-* parameter[authorized-practitioner-role].resource.meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole"
+* parameter[authorized-practitioner-role].resource.meta.profile = $us-core-practitionerrole
 * parameter[authorized-practitioner-role].resource.text.status = #generated
 * parameter[authorized-practitioner-role].resource.text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Adam Amster, Internal Medicine, Highview Clinic</div>"
 * parameter[authorized-practitioner-role].resource.practitioner.identifier.system = "http://hl7.org/fhir/sid/us-npi"
@@ -130,7 +117,7 @@ Description: "Example of a Parameters resource used to request a patient's PDMP 
 * parameter[authorized-practitioner-organization].name = "authorized-practitioner-organization"
 * parameter[authorized-practitioner-organization].resource.resourceType = "Organization"
 * parameter[authorized-practitioner-organization].resource.id = "organization-req-op-1"
-* parameter[authorized-practitioner-organization].resource.meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization"
+* parameter[authorized-practitioner-organization].resource.meta.profile = $us-core-organization
 * parameter[authorized-practitioner-organization].resource.text.status = #generated
 * parameter[authorized-practitioner-organization].resource.text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Highview Clinic</div>"
 * parameter[authorized-practitioner-organization].resource.identifier.system = "http://hl7.org/fhir/sid/us-npi"

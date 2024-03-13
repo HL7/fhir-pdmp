@@ -18,10 +18,10 @@ Description: "LME - Lorazepam Milligram Equivalent.  The lorazepam dose (mg) equ
 * ^contact[=].telecom[+].system = #email
 * ^contact[=].telecom[=].value = "scott@BearHealthTech.consulting"
 * ^jurisdiction = urn:iso:std:iso:3166#US "United States of America"
-* ^context.type = #element
-* ^context.expression = "MedicationDispense"
-// * ^context.type = #element
-// * ^context[=].expression = "MedicationAdministration"
+* ^context[0].type = #element
+* ^context[=].expression = "MedicationDispense"
+* ^context[+].type = #element
+* ^context[=].expression = "MedicationAdministration"
 * value[x] 1..
 * value[x] only decimal
 * value[x] ^short = "LME"

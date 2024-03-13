@@ -1,11 +1,3 @@
-Alias: $us-core-medication = http://hl7.org/fhir/us/core/StructureDefinition/us-core-medication
-Alias: $us-core-medicationrequest = http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest
-Alias: $us-core-patient = http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient
-Alias: $us-core-encounter = http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter
-Alias: $us-core-practitioner = http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner
-Alias: $medication-admin-status = http://hl7.org/fhir/ValueSet/medication-admin-status
-Alias: $us-core-medication-clinical-drug = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1010.4
-
 Invariant: pdmp-administration-performer
 Severity: #error
 Description: "MedicationAdministration SHALL include a performer actor reference or performer actor identifier"
@@ -21,7 +13,7 @@ Description: "Defines constraints and extensions on the MedicationAdministration
 * ^extension.valueCode = #phx
 * ^version = "2.2.0"
 * ^status = #active
-* ^date = "2023-06-20"
+* ^date = "2024-03-13"
 * ^publisher = "HL7 International / Pharmacy"
 * ^contact[0].name = "HL7 International / Pharmacy"
 * ^contact[=].telecom.system = #url
@@ -44,6 +36,7 @@ Description: "Defines constraints and extensions on the MedicationAdministration
 * medication[x] only CodeableConcept or Reference($us-core-medication)
 * medication[x] from $us-core-medication-clinical-drug (extensible)
 * medication[x] ^binding.description = "Prescribable medications"
+* medicationCodeableConcept.coding.userSelected MS
 * subject only Reference($us-core-patient)
 * subject MS
 * subject ^isModifier = false
@@ -78,9 +71,6 @@ Description: "Defines constraints and extensions on the MedicationAdministration
 * dosage.dose.system 0..1 MS
 * dosage.dose.code 0..1 MS
 
-Alias: $rxnorm = http://www.nlm.nih.gov/research/umls/rxnorm
-Alias: $ndc = http://hl7.org/fhir/sid/ndc
-Alias: $pmix-transmission-code = http://hl7.org/fhir/us/pdmp/CodeSystem/temporary-pmix-transmission-form-of-rx-origin
 
 Instance: pdmp-medadmin-1
 InstanceOf: pdmp-medicationadministration
@@ -88,10 +78,11 @@ Usage: #example
 Description: "Example of a PDMP medication administration"
 * meta.profile = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-medicationadministration"
 * extension[0].url = $pdmp-extension-rx-transmission-method
-* extension[=].valueCoding = $pmix-transmission-code#"02" "Telephone Prescription"
+* extension[=].valueCoding = $pmix-transmission-cs#"02" "Telephone Prescription"
 * status = #completed
 * medicationCodeableConcept.coding[0] = $rxnorm#864706 "methadone hydrochloride 10 MG Oral Tablet"
 * medicationCodeableConcept.coding[+] = $ndc#00406577123 "METHADONE HYDROCHLORIDE, 1 TABLET in 1 BLISTER PACK (0406-5771-23) (package)"
+* medicationCodeableConcept.coding[=].userSelected = true
 * medicationCodeableConcept.text = "methadone hydrochloride 10 MG Oral Tablet"
 * subject.display = "Amy V. Shaw"
 * effectivePeriod.start = "2023-01-15T04:30:00+01:00"

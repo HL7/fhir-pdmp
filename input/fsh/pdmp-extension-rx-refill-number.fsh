@@ -1,7 +1,7 @@
-Extension: Prescription_Refill_Number_Extension
-Id: pdmp-extension-rx-refill-number
-Title: "PDMP Extension - Prescription Refill Number"
-Description: "The refill number of the prescription dispensed."
+Extension: PrescriptionFillNumberExtension
+Id: pdmp-extension-rx-fill-number
+Title: "PDMP Extension - Prescription Fill Number"
+Description: "The fill number of the prescription dispensed. The value representing a prescription's initial fill is 1. The first refill is 2, etc."
 * ^extension.url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg"
 * ^extension.valueCode = #phx
 * ^meta.versionId = "1"
@@ -22,5 +22,5 @@ Description: "The refill number of the prescription dispensed."
 * ^context.expression = "MedicationDispense"
 * value[x] 1..
 * value[x] only positiveInt
-* value[x] ^short = "Refill Number"
-* value[x] ^definition = "Represents the specific refill number for the prescription dispensed."
+* value[x] ^short = "Fill Number"
+* value[x] ^definition = "Represents the specific fill number for the prescription dispensed, with 1 representing the intial fill, 2 representing the first refill, etc."

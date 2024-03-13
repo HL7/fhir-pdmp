@@ -1,5 +1,3 @@
-Alias: $pdmp-patient-relationship = http://hl7.org/fhir/us/pdmp/CodeSystem/temporary-pdmp-patient-relationship
-
 ValueSet: PdmpPatientRelationship
 Id: pdmp-patient-relationship
 Title: "PDMP Value Set - Patient Relationship"
@@ -20,4 +18,4 @@ Description: "This value set contains codes defining a relationship between a Re
 * ^contact[=].telecom[+].system = #email
 * ^contact[=].telecom[=].value = "fm@frankmckinney.com"
 * ^jurisdiction = urn:iso:std:iso:3166#US "United States of America"
-* include codes from system $pdmp-patient-relationship
+* include codes from system $pdmp-patient-relationship-cs

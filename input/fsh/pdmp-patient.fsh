@@ -1,10 +1,3 @@
-Alias: $us-core-medication = http://hl7.org/fhir/us/core/StructureDefinition/us-core-medication
-Alias: $us-core-patient = http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient
-Alias: $us-core-practitioner = http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner
-Alias: $us-core-relatedperson = http://hl7.org/fhir/us/core/StructureDefinition/us-core-relatedperson
-Alias: $patient-status = http://hl7.org/fhir/ValueSet/patient-status
-Alias: $patient-animal-extension = http://hl7.org/fhir/StructureDefinition/patient-animal
-
 Invariant: pdmp-full-birthdate
 Severity: #error
 Description: "Date SHALL include year, month and day if present"
@@ -14,7 +7,7 @@ Profile: PdmpPatient
 Parent: $us-core-patient
 Id: pdmp-patient
 Title: "PDMP Patient"
-Description: "Defines constraints and extensions on the Patient resource when used by a Prescription Drug Monitoring Program (PDMP) to request or return an individual's medication dispenssation history."
+Description: "Defines constraints and extensions on the Patient resource when used by a Prescription Drug Monitoring Program (PDMP) to request or return an individual's medication dispensation history."
 * ^extension.url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg"
 * ^extension.valueCode = #phx
 * ^version = "1.0.0"
@@ -43,7 +36,7 @@ Description: "Defines constraints and extensions on the Patient resource when us
 * identifier ^slicing.discriminator.type = #value
 * identifier ^slicing.discriminator.path = "type.coding.code"
 * identifier ^slicing.rules = #open
-* identifier ^slicing.description = "Slice based on the Identifier.type.code"
+* identifier ^slicing.description = "Slice based on the identifier.type.code"
 * identifier contains
     medicalRecordNumber 0.. and
     driversLicense 0.. and
@@ -124,7 +117,7 @@ Description: "Example of a PDMP patient representing an animal"
 * meta.profile = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-patient"
 * extension[0].url = $patient-animal-extension
 * extension[=].extension[0].url = "species"
-* extension[=].extension[0].valueCodeableConcept.coding = temporary-pmix-species-type-code#02 "Veterinary Patient"
+* extension[=].extension[0].valueCodeableConcept.coding = temporary-codesystem-pmix-species-type-code#02 "Veterinary Patient"
 * identifier.type.coding.system = "http://terminology.hl7.org/CodeSystem/v2-0203"
 * identifier.type.coding.code = #MR
 * identifier.type.coding.display = "Medical record number"
@@ -160,4 +153,4 @@ Description: "Example of the owner of an animal patient"
 * address.state = "MA"
 * address.postalCode = "01742"
 * patient.reference = "Patient/pdmp-patient-2-veterinary"
-* relationship.coding = http://hl7.org/fhir/us/pdmp/CodeSystem/temporary-pdmp-patient-relationship#animal-owner "Animal Owner"
+* relationship.coding = http://hl7.org/fhir/us/pdmp/CodeSystem/temporary-pdmp-codesystem-patient-relationship#animal-owner "Animal Owner"

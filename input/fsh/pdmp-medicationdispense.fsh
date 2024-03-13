@@ -1,16 +1,3 @@
-Alias: $us-core-medication = http://hl7.org/fhir/us/core/StructureDefinition/us-core-medication
-Alias: $us-core-patient = http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient
-Alias: $us-core-practitioner = http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner
-Alias: $medicationdispense-status = http://hl7.org/fhir/ValueSet/medicationdispense-status
-Alias: $us-core-medication-clinical-drug = http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1010.4
-Alias: $us-core-medicationdispense = http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationdispense
-Alias: $pdmp-extension-rx-refill-number = http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-extension-rx-refill-number
-Alias: $pdmp-extension-rx-transmission-method = http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-extension-rx-transmission-method
-Alias: $pdmp-extension-mme = http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-extension-mme
-Alias: $pdmp-extension-lme = http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-extension-lme
-Alias: $pmix-transmission-code = http://hl7.org/fhir/us/pdmp/CodeSystem/temporary-pmix-transmission-form-of-rx-origin
-Alias: $pdmp-pharmacy = http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-organization-pharmacy
-
 Invariant: pdmp-dispense-performer
 Severity: #error
 Description: "MedicationDispense SHALL include a performer actor reference or performer actor identifier"
@@ -20,7 +7,7 @@ Profile: PdmpMedicationDispense
 Parent: $us-core-medicationdispense
 Id: pdmp-medicationdispense
 Title: "PDMP MedicationDispense"
-Description: "Defines constraints and extensions on the MedicationDispense resource when used by a Prescription Drug Monitoring Program (PDMP) to return an individual's medication dispensation history."
+Description: "Defines constraints and extensions on the MedicationDispense resource when used by a Prescription Drug Monitoring Program (PDMP) to return an individual's medication dispense history."
 * ^extension.url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg"
 * ^extension.valueCode = #phx
 * ^version = "2.2.0"
@@ -40,7 +27,7 @@ Description: "Defines constraints and extensions on the MedicationDispense resou
 * . ^mustSupport = false
 * . ^isModifier = false
 * extension contains
-    pdmp-extension-rx-refill-number named rx-refill-number 0..1 MS and
+    pdmp-extension-rx-fill-number named rx-fill-number 0..1 MS and
     pdmp-extension-rx-transmission-method named rx-transmission-method 0..1 MS and
     pdmp-extension-mme named rx-mme 0..1 MS and
     pdmp-extension-lme named rx-lme 0..1 MS
@@ -52,6 +39,7 @@ Description: "Defines constraints and extensions on the MedicationDispense resou
 * medication[x] from $us-core-medication-clinical-drug (extensible)
 * medication[x] ^isModifier = false
 * medication[x] ^binding.description = "Prescribable medications"
+* medicationCodeableConcept.coding.userSelected MS
 * subject 1.. MS
 * subject only Reference($us-core-patient)
 * subject ^isModifier = false
@@ -70,7 +58,26 @@ Description: "Defines constraints and extensions on the MedicationDispense resou
 * performer.actor.identifier.value only string
 * performer.actor.display MS
 * performer.actor.display ^comment = "Performer's name"
-* authorizingPrescription 0..1
+* authorizingPrescription 0..1 MS
+* authorizingPrescription.identifier 0..1 MS
+/*
+* authorizingPrescription.identifier ^slicing.discriminator.type = #value
+* authorizingPrescription.identifier ^slicing.discriminator.path = "type.coding.code"
+* authorizingPrescription.identifier ^slicing.rules = #open
+* authorizingPrescription.identifier ^slicing.description = "Slice based on the identifier.type.code"
+* authorizingPrescription.identifier.value MS
+* authorizingPrescription.identifier contains
+    pharmacy-prescription-id 0..*
+    prescriber-order-id 0..* and
+* authorizingPrescription.identifier[pharmacy-prescription-id] ^short = "Pharmacy Prescription ID"
+* authorizingPrescription.identifier[pharmacy-prescription-id] ^comment = "Prescription ID assigned by the pharmacy"
+* authorizingPrescription.identifier[pharmacy-prescription-id].type.coding.code = #FILL
+* authorizingPrescription.identifier[pharmacy-prescription-id] ^mustSupport = true
+* authorizingPrescription.identifier[prescriber-order-id] ^short = "Prescriber Order ID"
+* authorizingPrescription.identifier[prescriber-order-id] ^comment = "Order ID assigned by the prescriber system"
+* authorizingPrescription.identifier[prescriber-order-id].type.coding.code = #PLAC
+*/
+
 * quantity 1..1 MS
 * quantity.value 1..1 MS
 * quantity.unit 1..1 MS
@@ -83,7 +90,6 @@ Description: "Defines constraints and extensions on the MedicationDispense resou
 * dosageInstruction ..1 MS
 * dosageInstruction ^isModifier = false
 
-Alias: $rxnorm = http://www.nlm.nih.gov/research/umls/rxnorm
 
 Instance: pdmp-meddispense-1
 InstanceOf: pdmp-medicationdispense
@@ -92,20 +98,24 @@ Description: "Example of a PDMP medication dispensation record"
 * meta.versionId = "1"
 * meta.lastUpdated = "2016-12-08T06:38:52Z"
 * meta.profile = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-medicationdispense"
-* extension[0].url = $pdmp-extension-rx-refill-number
+* extension[0].url = $pdmp-extension-rx-fill-number
 * extension[=].valuePositiveInt = 1
 * extension[+].url = $pdmp-extension-rx-transmission-method
-* extension[=].valueCoding = $pmix-transmission-code#"05" "Electronic Prescription"
+* extension[=].valueCoding = $pmix-transmission-cs#"05" "Electronic Prescription"
 * extension[+].url = $pdmp-extension-mme
 * extension[=].valuePositiveInt = 18
 * status = #in-progress
 * medicationCodeableConcept.coding[0] = $rxnorm#993781 "acetaminophen 300 MG / codeine phosphate 30 MG Oral Tablet"
 * medicationCodeableConcept.coding[+] = $ndc#00093015001
+* medicationCodeableConcept.coding[=].userSelected = true
 * medicationCodeableConcept.text = "Acetaminophen 300 mg / Codeine 30 mg oral tablet"
 * subject.display = "Amy V. Shaw"
 * performer.actor.identifier[0].system = "http://terminology.hl7.org/CodeSystem/NCPDPProviderIdentificationNumber"
 * performer.actor.identifier[=].value = "999017"
 * performer.actor.display = "Our Pharmacy"
+* authorizingPrescription.identifier.type = $v2-0203#FILL "Filler Identifier"
+* authorizingPrescription.identifier.system = "http://mypharmacysystem.com/prescriptionnumber"
+* authorizingPrescription.identifier.value = "065046045550"
 * quantity.value = 15 
 * quantity.unit = "each"
 * daysSupply.value = 5

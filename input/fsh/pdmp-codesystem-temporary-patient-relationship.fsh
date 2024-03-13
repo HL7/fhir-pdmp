@@ -1,6 +1,6 @@
-CodeSystem: TemporaryPdmpPatientRelationship
-Id: temporary-pdmp-patient-relationship
-Title: "PDMP Code System - Patient Relationship (Temporary)"
+CodeSystem: TemporaryPdmpCodeSystemPatientRelationship
+Id: temporary-pdmp-codesystem-patient-relationship
+Title: "PDMP CodeSystem - Patient Relationship (Temporary)"
 Description: "This code system defines a relationship between a RelatedPerson and the patient"
 * ^extension.url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg"
 * ^extension.valueCode = #phx
