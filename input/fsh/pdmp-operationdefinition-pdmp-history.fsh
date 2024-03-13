@@ -25,8 +25,8 @@ Usage: #definition
 * system = true
 * type = false
 * instance = false
-* inputProfile = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-parameters-request-operation"
-* outputProfile = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-parameters-response-operation"
+* inputProfile = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-parameters-request"
+* outputProfile = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-parameters-response"
 * parameter[0].name = #patient
 * parameter[=].use = #in
 * parameter[=].min = 1
@@ -87,7 +87,7 @@ Usage: #definition
 * parameter[=].max = "1"
 * parameter[=].documentation = "The pre-stage-retrieval-key returned from a previous operation call in which the pre-stage-only parameter was set to true"
 * parameter[=].type = #string
-* parameter[+].name = #pdmp-history-result
+* parameter[+].name = #pdmp-history-data
 * parameter[=].use = #out
 * parameter[=].min = 0
 * parameter[=].max = "1"

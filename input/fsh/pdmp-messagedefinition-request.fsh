@@ -1,5 +1,3 @@
-Alias: $operation-event-type = urn:ietf:rfc:3986
-
 Instance: pdmp-request
 InstanceOf: MessageDefinition
 Usage: #definition

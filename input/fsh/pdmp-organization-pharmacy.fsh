@@ -1,5 +1,3 @@
-Alias: $us-core-organization = http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization
-
 Profile: PdmpOrganizationPharmacy
 Parent: $us-core-organization
 Id: pdmp-organization-pharmacy
@@ -43,11 +41,7 @@ Description: "Defines constraints and extensions on the Organization resource wh
 * identifier[DEA] ^comment = "Drug Enforcement Administration registration number"
 * identifier[DEA] ^patternIdentifier.system = "urn:oid:2.16.840.1.113883.4.814"
 * identifier[DEA] ^mustSupport = true
-
-
-
-
-
+* address MS
 
 Instance: pdmp-pharmacy-1
 InstanceOf: pdmp-organization-pharmacy

@@ -1,10 +1,8 @@
-Alias: $pdmp-parameters-response-operation = http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-parameters-response-operation
-
-Profile: PdmpMessageHeaderResponseOp
+Profile: PdmpMessageHeaderResponse
 Parent: MessageHeader
-Id: pdmp-messageheader-response-op
-Title: "PDMP MessageHeader - Response Operation"
-Description: "This profile constrains a MessageHeader resource for use in a PDMP response data bundle. A Bundle resource is the focus."
+Id: pdmp-messageheader-response
+Title: "PDMP MessageHeader - Response"
+Description: "This profile constrains a MessageHeader resource for use in a PDMP response data bundle. A Parameters resource is the focus."
 * ^extension.url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg"
 * ^extension.valueCode = #phx
 * ^version = "1.0.0"

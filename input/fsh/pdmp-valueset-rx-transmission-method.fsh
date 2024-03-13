@@ -1,5 +1,3 @@
-Alias: $pmix-transmission-code = http://hl7.org/fhir/us/pdmp/CodeSystem/temporary-pmix-transmission-form-of-rx-origin
-
 ValueSet: PdmpRxTransmissionMethod
 Id: pdmp-rx-transmission-method
 Title: "PDMP Value Set - Prescription Transmission Method"
@@ -21,4 +19,4 @@ Description: "This value set contains codes for the methods by which a prescript
 * ^contact[=].telecom[+].system = #email
 * ^contact[=].telecom[=].value = "fm@frankmckinney.com"
 * ^jurisdiction = urn:iso:std:iso:3166#US "United States of America"
-* include codes from system $pmix-transmission-code
+* include codes from system $pmix-transmission-cs

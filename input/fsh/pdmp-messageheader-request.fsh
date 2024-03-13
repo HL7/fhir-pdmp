@@ -1,10 +1,7 @@
-Alias: $pdmp-parameters-request-operation = http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-parameters-request-operation
-Alias: $us-core-practitionerrole = http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole
-
-Profile: PdmpMessageHeaderRequestOp
+Profile: PdmpMessageHeaderRequest
 Parent: MessageHeader
-Id: pdmp-messageheader-request-op
-Title: "PDMP MessageHeader - Request Operation"
+Id: pdmp-messageheader-request
+Title: "PDMP MessageHeader - Request"
 Description: "This profile constrains a MessageHeader resource for use in a PDMP request data bundle. A Parameters resource is the focus."
 * ^extension.url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg"
 * ^extension.valueCode = #phx
@@ -30,5 +27,5 @@ Description: "This profile constrains a MessageHeader resource for use in a PDMP
 * eventCoding.code = #http://hl7.org/fhir/us/pdmp/OperationDefinition/pdmp-history (exactly)
 * sender only Reference($us-core-practitionerrole)
 * focus 1..1 MS
-* focus only Reference($pdmp-parameters-request-operation)
+* focus only Reference($pdmp-parameters-request)
 * focus ^type.aggregation = #bundled

@@ -1,5 +1,3 @@
-Alias: $pmix-species-type = http://hl7.org/fhir/us/pdmp/CodeSystem/temporary-pmix-species-type-code
-
 ValueSet: PdmpSpeciesType
 Id: pdmp-species-type
 Title: "PDMP Value Set - Species Type"
@@ -20,4 +18,4 @@ Description: "This value set contains codes identifying the species type (human 
 * ^contact[=].telecom[+].system = #email
 * ^contact[=].telecom[=].value = "fm@frankmckinney.com"
 * ^jurisdiction = urn:iso:std:iso:3166#US "United States of America"
-* include codes from system $pmix-species-type
+* include codes from system $pmix-species-type-cs

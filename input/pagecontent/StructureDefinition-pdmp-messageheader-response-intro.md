@@ -8,6 +8,6 @@
 <p></p>
 
 **Example.** This profile is illustrated in the following full message example:
-- [PDMP Response 1](Bundle-pdmp-bundle-response-1.html)
+- [PDMP Response 1](Bundle-pdmp-bundle-response-message-1.html)
 
 <p></p>
