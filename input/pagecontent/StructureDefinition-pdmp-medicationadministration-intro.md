@@ -12,5 +12,10 @@
   - The dose administered, including numeric value and units SHALL be populated
 - **MedicationAdministration.effective**
   - The date(s) that the medication was adminstered to the patient SHALL be populated
+- **MedicationAdministration.medicationCodeableConcept.userSelected**
+  - The userSelected element associated with the drug code received from administration data source
+  - The userSelected element associated with any additional drug codes provided SHALL NOT be populated
+- **MedicationAdministration.authorizingPrescription.identifier**
+  - This element SHOULD be populated with the authorizing prescription's prescriber-system-assigned order number, if known
 
-<p></p>
+  <p></p>

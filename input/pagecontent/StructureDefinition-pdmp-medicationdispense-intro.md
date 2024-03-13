@@ -14,5 +14,10 @@
   - Dispensed days supply SHALL be populated
 - **MedicationDispense.whenPrepared**
   - The date that the medication was prepared SHALL be populated in the whenPrepared element
+- **MedicationDispense.medicationCodeableConcept.userSelected**
+  - The userSelected element associated with the drug code received from the pharmacy or other dispensation data source
+  - The userSelected element associated with any additional drug codes provided SHALL NOT be populated
+- **MedicationDispense.authorizingPrescription.identifier**
+  - This element SHOULD be populated with the authorizing prescription's pharmacy-assigned prescription number, if known; otherwise it should be populated with the authorizing prescription's prescriber-system-assigned order number, if known
 
 <p></p>
