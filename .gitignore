@@ -4,3 +4,5 @@
 /temp/
 /template/
 FHIR-us-pdmp.xml
+.csspell
+.vscode
