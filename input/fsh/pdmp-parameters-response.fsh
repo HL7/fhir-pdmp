@@ -249,6 +249,21 @@ Description: "Example of population of the Parameters resource when a link to th
 * parameter[=].resource.text.status = #generated
 * parameter[=].resource.text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Incomplete results: History includes only information from the MN PDMP. Iowa PDMP did not respond within the timeout window</div>"
 * parameter[=].resource.issue.severity = #warning
-* parameter[=].resource.issue.code = #transient
+* parameter[=].resource.issue.code = #incomplete
 * parameter[=].resource.issue.details = $pmix-response-status-cs#error "Error"
 * parameter[=].resource.issue.diagnostics = "Incomplete results: History includes only information from the MN PDMP. Iowa PDMP did not respond within the timeout window"
+
+Instance: pdmp-history-output-parameters-7-fatal-error
+InstanceOf: pdmp-parameters-response
+Usage: #example
+Description: "Example of population of the Parameters resource when a fatal exception is encountered and processing doesn't complete"
+* meta.profile = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-parameters-response"
+* parameter[0].name = "outcome"
+* parameter[=].resource.resourceType = "OperationOutcome"
+* parameter[=].resource.id = "86b95d37-653b-4d46-9af1-02f43eba4f72"
+* parameter[=].resource.text.status = #generated
+* parameter[=].resource.text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Incomplete results: A system error occurred during processing</div>"
+* parameter[=].resource.issue.severity = #error
+* parameter[=].resource.issue.code = #exception
+* parameter[=].resource.issue.details = $pmix-response-status-cs#error "Error"
+* parameter[=].resource.issue.diagnostics = "An unexpected system error occurred during processing. Please resubmit."
