@@ -1,4 +1,8 @@
-### PDMP `pdmp-history` operation
+This section describes how a PDMP Requester can retrieve a patient's information from a PDMP Responder by calling the `pdmp-history` operation directly or by submitting that operation request using FHIR messaging.
+
+<p></p>
+
+### PDMP History Operation
 
 The PDMP request and response are accomplished using a FHIR Operation ([pdmp-history](OperationDefinition-pdmp-history.html)) which is invoked by POSTing a FHIR Parameters resource containing patient and requesting provider details to the PDMP Responder's `Patient/$pdmp-history` endpoint. In response, the PDMP Responder gathers PDMP history information and returns it within another Parameters resource.
 
@@ -19,14 +23,16 @@ Use of an operation enables the process to support current PDMP processing requi
 
 - submission of requesting provider and delegate details and facility information which are used for authorization and record-keeping 
 - support for a "pre-stage-only" request processing option which instructs the PDMP Responder to tee up results to be returned in response to a subsequent request from the PDMP Requester
+- support for the return of PDMP history in the form of discrete FHIR data
+- support for the return of a URL for accessing a PDMP report.
 
-See the [pdmp-history OperationDefinition](OperationDefinition-pdmp-history.html) for full operation details.
+**Operation definition.** See the [pdmp-history OperationDefinition](OperationDefinition-pdmp-history.html) for an overview of the operation's inputs and outputs, and the following Parameter definitions for additional details:
+- [request parameter details](StructureDefinition-pdmp-parameters-request.html)
+- [response parameter details](StructureDefinition-pdmp-parameters-response.html)
 
-The operation can be called in two ways:
-- directly using a RESTful POST to the PDMP Responder's `[base]/Patient/$pdmp-history` endpoint
-- using FHIR messaging, by submitting the operation's request parameters within a bundle that also includes a MessageHeader that references the `pdmp-history` operation definition
-
-See [the messaging section below](submission-options.html#message-submission) for details on calling the `pdmp-history` operation using FHIR messaging.
+**Submission options.** The operation can be called in two ways:
+- **direct operation call** using a RESTful POST to the PDMP Responder's `[base]/Patient/$pdmp-history` endpoint
+- **using FHIR messaging**, by submitting the operation's request parameters within a bundle that also includes a MessageHeader that references the `pdmp-history` operation definition. See [the messaging section below](submission-options.html#message-submission) for details.
 
 <p></p>
 
@@ -70,29 +76,21 @@ Below is an illustration of submission through an intermediary:
 
 #### Request message content
 
-The PDMP Request message includes a MessageHeader and a Parameters resource containing the information needed to retrieve a single individual's information--including medication dispenses, administrations and related information--from a PDMP Responder. 
+The PDMP Request message includes a MessageHeader and a Parameters resource containing the information needed to retrieve a single individual's information from a PDMP Responder (see [request parameter details](StructureDefinition-pdmp-parameters-request.html)). Note that the MessageHeader.event of the request references the same [pdmp-history operation](OperationDefinition-pdmp-history.html) that can be invoked directly using a RESTful POST to in non-messaging environments.
 
-Specification details and examples are at [PDMP Bundle - Request Message](StructureDefinition-pdmp-bundle-request-message.html) 
+Further details and examples are at [PDMP Bundle - Request Message](StructureDefinition-pdmp-bundle-request-message.html) 
 
-Note that the MessageHeader.event of the request references the same [pdmp-history operation](OperationDefinition-pdmp-history.html) that can be invoked directly using a RESTful POST to in non-messaging environments.
 <p></p>
 
 #### Response message content
 
-The PDMP Response message contains a MessageHeader and a Parameters resource containing a Bundle holding:
-- medication dispenses, administrations and related details if the PDMP Responder is able to locate information for the requested patient
-- an OperationOutcome providing processing information including any errors that occurred or reasons for not returning patient information (e.g., no PDMP information found for the requested patient).
+The PDMP Response message contains a MessageHeader and the [response Parameters resource](StructureDefinition-pdmp-parameters-request.html) defined in the [pdmp-history operation](OperationDefinition-pdmp-history.html).
 
-In addition, the Parameters resource may include a `pre-stage-retrieval-key` string value if the associated request included a `pre-stage-only` parameter value of `true`.
-- When a `pre-stage-retrieval-key` is returned, the requester is expected to include the key when submitting a subsequent request to retrieve the pre-staged result.
+Further details and examples are at [PDMP Bundle - Response Message](StructureDefinition-pdmp-bundle-response-message.html) 
 
 <p></p>
 
-Details and examples are at [PDMP Bundle - Response Message](StructureDefinition-pdmp-bundle-response-message.html) 
-
-<p></p>
-
-#### Message submission
+#### Message submission details
 Invoking the `pdmp-history` operation via FHIR messaging is accomplished following the guidance provided in the [Invoking Operations via Messages](http://hl7.org/fhir/messaging.html#operations) section of the FHIR specification.
 
 **MessageHeader population**
@@ -116,85 +114,42 @@ PDMP messages are exchanged using standard FHIR messaging features.
 
 <p></p>
 
+### Returning Processing Information and Exceptions
 
-### Handling for processing exceptions
+This section provides guidance for PDMP Responders for responding in situations where the request cannot be processed in part or in whole, or where there is other processing information to be returned in the operation response.
 
-The section below provides guidance for PDMP Responders for responding in situations where the request cannot be processed in part or in whole.
+All scenarios described below communicate processing information using the operation's `outcome` parameter, which holds an OperationOutcome resource that gives the details of one or more processing aspects. This OperationOutcome contains:
+
+* a definition of severity in the `OperationOutcome.issue.severity` field which must come from [this FHIR value set](https://hl7.org/fhir/R4/valueset-issue-severity.html). 
+* a definition of the type of error in the `OperationOutcome.issue.code` element (e.g., `incomplete` transient error, `business-rule` processing error, etc.) which must come from [this FHIR value set](https://hl7.org/fhir/R4/valueset-issue-type.html).
+* additional diagnostic details of the error or other processing condition in `OperationOutcome.diagnostics` property
+* an `OperationOutcome.issue.details.coding.code` value to further define the processing condition
+* a human-readable version of the condition's details in the `OperationOutcome.issue.details.coding.display` field.
+
+PDMP Responders are expected to utilize codes and descriptive text in the `.diagnostics`' `.issue.details` elements that meet their existing conventions and/or jurisdictional requirements.
+
+<p></p>
+<p></p>
+
+_Below are expectations for returning processing information in common PDMP scenarios:_
 
 <p></p>
 
-#### Non-fatal exceptions
+#### Successful processing that doesn't return PDMP history
 
-If the PDMP Responder encounters a non-fatal exception when executing a request, the system SHALL include an OperationOutcome entry within the results Bundle describing the issue. The `search.mode` of this entry SHALL  be set to the value, `outcome`.
+When a PDMP Responder system successfully completes processing of a PDMP request but has no PDMP history to return (e.g., if the requested patient is not found) it  SHALL respond by returning an OperationOutcome resource within the `outcome` operation parameter that describes the reason that no history was returned, as show in [this example](Parameters-pdmp-history-output-parameters-3-patient-not-found.html).
 
-<pre>
-    {
-      "fullUrl" : "http://example.org/pdmp-a/Bundle/987654",
-      "resource" : {
-        "resourceType" : "Bundle",
-        "id" : "987654",
+<p></p>
 
-...
+#### Non-fatal processing exception
 
-        "entry" : [
-          {
-            "fullUrl" : "http://example.org/pdmp-a/OperationOutcome/100",
-            "resource" : {
-              "resourceType" : "OperationOutcome",
-              "id" : "100",
-              "issue" : [
-                {
-                  "severity" : "error",
-                  "code" : "processing",
-                  "diagnostics" : "The Wisconsin PDMP did not respond within the timeout period. Returning only records from the Minnesota PDMP"
-                }
-              ]
-            },
-            "search" : {
-              "mode" : "outcome"
-            }
-          }
-        ]
-      }
-    }
-</pre>
-
-TO BE ADDED: [Full PDMP Response example containing an exception]()
+If the PDMP Responder encounters a non-fatal exception when executing a request, which impacts the content of the response, the system SHALL include an OperationOutcome within the operation's `outcome` parameter describing the issue, as illustrated in [this example](Parameters-pdmp-history-output-parameters-6-non-fatal-warning.html). 
 
 <p></p>
 
 #### Error preventing completion of response processing
 
-When a PDMP Responder system encounters an error that prevents it from completing processing of a PDMP request, it  SHALL respond by returning an OperationOutcome resource within the results Bundle that describes the nature of the failure.
-
-The OperationOutcome:
-
-* SHALL contain a definition of severity in the `OperationOutcome.issue.severity` field. 
-* SHALL contain a definition of the type of error in the `OperationOutcome.issue.code` element.
-* SHOULD provide additional diagnostic details of the error in `OperationOutcome.diagnostics` property
-* SHOULD contain details of the error in the `OperationOutcome.issue.details.coding.display` field.
-* SHOULD contain an `OperationOutcome.issue.details.coding.code` value.
-
-TO BE ADDED: [Example]()
+When a PDMP Responder system encounters an error that prevents it from completing processing of a PDMP request, it  SHALL respond by returning an OperationOutcome resource within the `outcome` operation parameter that describes the nature of the failure, as show in [this example](Parameters-pdmp-history-output-parameters-7-fatal-error.html).
 
 <p></p>
-
-### Security considerations for messaging
-
-See the [Security](security.html) section for security and privacy guidance.
-
-### Integrating a PDMP web interface into the requester's system using SMART App Launch
-
-_to be added_
-
-
-
-The operation requesting patient PDMP history may also be invoked using FHIR messaging in environments where... 
-
-- the PDMP Responder only accepts requests via an intermediary
-- or the participants would otherwise benefit from messaging features such as inclusion of a MessageHeader to convey information for routing, logging or other purposes. 
-
-This page overviews the messaging workflow, message content and related considerations. See [the FHIR standard's messaging page](http://hl7.org/fhir/messaging.html) for additional details on FHIR messaging conventions.
-
-
-<br>
+<p></p>

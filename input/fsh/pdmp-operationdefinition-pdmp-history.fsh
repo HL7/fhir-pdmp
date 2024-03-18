@@ -91,11 +91,23 @@ Usage: #definition
 * parameter[=].use = #out
 * parameter[=].min = 0
 * parameter[=].max = "1"
-* parameter[=].documentation = "A Bundle of type 'searchset' that contains medication dispensation and administration information for the requested patient (if found) and/or OperationOutcome resource(s) with processing information"
+* parameter[=].documentation = "A Bundle of type 'collection' that contains medication dispensation and administration information for the requested patient (if found)"
 * parameter[=].type = #Bundle
+* parameter[+].name = #pdmp-history-link
+* parameter[=].use = #out
+* parameter[=].min = 0
+* parameter[=].max = "1"
+* parameter[=].documentation = "A url to access an external report containing a PDMP report for the requested patient"
+* parameter[=].type = #url
 * parameter[+].name = #pre-stage-retrieval-key
 * parameter[=].use = #out
 * parameter[=].min = 0
 * parameter[=].max = "1"
 * parameter[=].documentation = "This parameter is used only when responding to an invocation in which the pre-stage-only parameter was set to true. This element may be populated with a string value that the requester is to submit in the pre-stage-retrieval-key parameter of the subsequent invocation that retrieves the staged information"
 * parameter[=].type = #string
+* parameter[+].name = #outcome
+* parameter[=].use = #out
+* parameter[=].min = 0
+* parameter[=].max = "1"
+* parameter[=].documentation = "An OperationOutcome resource containing processing information associated with the operation response, including error, warning and/or informational information"
+* parameter[=].type = #OperationOutcome
