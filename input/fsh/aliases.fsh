@@ -50,8 +50,8 @@ Alias: $pdmp-patient = http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-pati
 Alias: $pdmp-pharmacy = http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-organization-pharmacy
 
 // PDMP terminology
-Alias: $pdmp-response-status-cs = http://hl7.org/fhir/us/pdmp/CodeSystem/temporary-pdmp-codesystem-additional-response-status
-Alias: $pmix-response-status-cs = http://hl7.org/fhir/us/pdmp/CodeSystem/temporary-codesystem-pmix-response-status
+Alias: $pdmp-response-status-cs = http://hl7.org/fhir/us/pdmp/CodeSystem/temporary-pdmp-response-status
+Alias: $pmix-response-status-cs = http://hl7.org/fhir/us/pdmp/CodeSystem/temporary-pmix-response-status
 Alias: $pmix-transmission-cs = http://hl7.org/fhir/us/pdmp/CodeSystem/temporary-pmix-transmission-form-of-rx-origin
-Alias: $pdmp-patient-relationship-cs = http://hl7.org/fhir/us/pdmp/CodeSystem/temporary-pdmp-codesystem-patient-relationship
-Alias: $pmix-species-type-cs = http://hl7.org/fhir/us/pdmp/CodeSystem/temporary-codesystem-pmix-species-type-code
+Alias: $pdmp-patient-relationship-cs = http://hl7.org/fhir/us/pdmp/CodeSystem/temporary-pdmp-patient-relationship
+Alias: $pmix-species-type-cs = http://hl7.org/fhir/us/pdmp/CodeSystem/temporary-pmix-species-type-code
