@@ -3,21 +3,18 @@
 # Inherited from the base MedicationDispense resource
 The string value contains text that looks like embedded HTML tags. If this content is rendered to HTML without appropriate post-processing, it may be a security risk
 
+# A base MedicationDispense invariant causes an error when a Data Absent Reason extension is used for whenHandedOver. Discussed in CGP WG on 3/7/24 and a jira to address this was created: https://jira.hl7.org/browse/FHIR-44999
+Constraint failed: mdd-1: 'whenHandedOver cannot be before whenPrepared' (defined in http://hl7.org/fhir/StructureDefinition/MedicationDispense)java.lang.NullPointerException: null (log: java.lang.NullPointerException: null)
+Constraint failed: mdd-1: 'whenHandedOver cannot be before whenPrepared'java.lang.NullPointerException: null (log: java.lang.NullPointerException: null)
+
 # MessageHeader profiles do not have separate examples b/c they aren't used indepenently. Instead, profile pages contain links to full message examples for pdmp-messageheader-request, pdmp-messageheader-response, pdmp-parameters-request
 INFORMATION: StructureDefinition.where(url = 'http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-messageheader-request'): The Implementation Guide contains no explicitly linked examples for this profile
 INFORMATION: StructureDefinition.where(url = 'http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-messageheader-response'): The Implementation Guide contains no explicitly linked examples for this profile
 
-# The pattern is set in a repeating slice.  The pattern is expected to hold for all repetitions of that slice.  (It's fixing the 'system' for the identifier.)
-# This PDMP profile is based on US Core and adds two typical pharmacy identifiers to the slicing: NCPDP Org ID and DEA registrant
+# Slicing information note references the MedicationDispense 'whenHandedOver cannot be before whenPrepared' invariant error (see note above)
+Details for urn:uuid:aecbb129-9a73-4b59-9d66-ff5cdb3f3164 matching against profile http://hl7.org/fhir/StructureDefinition/Parameters|4.0.1
+
+# The US Core Organization profile sets identifier patterns in repeating slices for NPI, CLIA and NAIC. The pattern is expected to hold for all repetitions of that slice.  (It's fixing the 'system' for the identifier.)
 INFORMATION: StructureDefinition/pdmp-organization-pharmacy: StructureDefinition.snapshot.element[10].pattern.ofType(Identifier): The repeating element has a pattern. The pattern will apply to all the repeats (this has not been clear to all users)
 INFORMATION: StructureDefinition/pdmp-organization-pharmacy: StructureDefinition.snapshot.element[11].pattern.ofType(Identifier): The repeating element has a pattern. The pattern will apply to all the repeats (this has not been clear to all users)
 INFORMATION: StructureDefinition/pdmp-organization-pharmacy: StructureDefinition.snapshot.element[12].pattern.ofType(Identifier): The repeating element has a pattern. The pattern will apply to all the repeats (this has not been clear to all users)
-INFORMATION: StructureDefinition/pdmp-organization-pharmacy: StructureDefinition.snapshot.element[13].pattern.ofType(Identifier): The repeating element has a pattern. The pattern will apply to all the repeats (this has not been clear to all users)
-INFORMATION: StructureDefinition/pdmp-organization-pharmacy: StructureDefinition.snapshot.element[14].pattern.ofType(Identifier): The repeating element has a pattern. The pattern will apply to all the repeats (this has not been clear to all users)
-
-# Informational alerts caused by the validator not finding referenced resources within the same nested bundle as the referencing resource (operation results bundle within a message bundle). Note that when the same bundle is not nested in a message bundle, the validator successfully resolves the references (see the example, Parameters-pdmp-history-output-parameters-1)
-# INFORMATION: Bundle/pdmp-bundle-response-message-1: Bundle: Can't find 'urn:uuid:53a1e123-5b56-44ae-b7e8-36e0b9800f57' in the bundle (Bundle.entry[1].resource.parameter[0].resource.entry[0].resource.subject)
-# INFORMATION: Bundle/pdmp-bundle-response-message-1: Bundle: Can't find 'urn:uuid:82ae67e4-f23a-4c17-b80a-9076a37f5d6e' in the bundle (Bundle.entry[1].resource.parameter[0].resource.entry[0].resource.performer[0].actor)
-
-# Slicing information (includes information about the MedicationDispense whenHandedOver invariant failing (mdd-1) failing - due to the interaction between that invariant in base FHIR and US Core invariant 
-Details for urn:uuid:aecbb129-9a73-4b59-9d66-ff5cdb3f3164 matching against profile http://hl7.org/fhir/StructureDefinition/Parameters|4.0.1

@@ -6,10 +6,10 @@ name: PDMP
 title: US Prescription Drug Monitoring Program (PDMP)
 description: US Prescription Drug Monitoring Program (PDMP) FHIR IG
 status: draft # draft | active | retired | unknown
-version: 0.1.0
+version: 1.0.0-ballot
 fhirVersion: 4.0.1 
 copyrightYear: 2023+
-releaseLabel: ci-build # ci-build | draft | qa-preview | ballot | trial-use | release | update | normative+trial-use | STU1
+releaseLabel: STU1 # ci-build | draft | qa-preview | ballot | trial-use | release | update | normative+trial-use
 license: CC0-1.0 
 jurisdiction: urn:iso:std:iso:3166#US "United States of America"
 publisher:
@@ -41,7 +41,12 @@ contact:
         value: frank.mckinney@pocp.com
       - system: email
         value: fm@frankmckinney.com
-
+  - name: Scott Robertson
+    telecom:
+      - system: email
+        value: scott.robertson@pocp.com
+      - system: email
+        value: scott@BearHealthTech.consulting
 extension:
   - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-wg
     valueCode: phx

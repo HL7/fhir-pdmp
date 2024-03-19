@@ -1,5 +1,5 @@
-CodeSystem: TemporaryCodeSystemPMIXResponseStatus
-Id: temporary-codesystem-pmix-response-status
+CodeSystem: TemporaryPMIXResponseStatus
+Id: temporary-pmix-response-status
 Title: "PMIX Response Status Codes (Temporary)"
 Description: "Code indicating the overall status of a PDMP response. Based on the PMIX Status Message code set"
 * ^status = #active

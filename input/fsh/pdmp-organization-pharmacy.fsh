@@ -31,8 +31,8 @@ Description: "Defines constraints and extensions on the Organization resource wh
 * identifier.value ..1 MS
 * identifier.value only string
 * identifier contains
-    NCPDP 0..* and
-    DEA 0..*
+    NCPDP 0..1 and
+    DEA 0..1
 * identifier[NCPDP] ^short = "NCPDP Provider ID"
 * identifier[NCPDP] ^comment = "NCPDP Provider Identification Number."
 * identifier[NCPDP] ^patternIdentifier.system = "http://terminology.hl7.org/CodeSystem/NCPDPProviderIdentificationNumber"

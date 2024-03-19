@@ -1,6 +1,6 @@
-CodeSystem: PdmpAdditionalResponseStatus
-Id: temporary-pdmp-codesystem-additional-response-status
-Title: "PDMP CodeSystem Additional Response Status Codes"
+CodeSystem: TemporaryPdmpResponseStatus
+Id: temporary-pdmp-response-status
+Title: "PDMP Response Status Codes (Temporary)"
 Description: "Codes indicating the overall status of a PDMP response. Intended to augment the PMIX Status Message code set"
 * ^status = #active
 * ^experimental = false
