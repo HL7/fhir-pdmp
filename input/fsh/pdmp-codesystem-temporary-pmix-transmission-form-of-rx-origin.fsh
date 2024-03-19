@@ -1,7 +1,7 @@
 CodeSystem: TemporaryPMIXTransmissionFormOfRxOrigin
 Id: temporary-pmix-transmission-form-of-rx-origin
 Title: "PMIX Transmission Form Of Rx Origin Code (Temporary)"
-Description: "Code indicating how the pharmacy received the prescription - exerpted from PMIX_NIEM_4.0_Domain_Extension_Schema.xsd"
+Description: "Code indicating how the pharmacy received the prescription"
 * ^status = #active
 * ^experimental = false
 * ^caseSensitive = true
