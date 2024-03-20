@@ -1,5 +1,6 @@
 /fsh-generated/
 /input-cache/
+/node_modules/
 /output/
 /temp/
 /template/

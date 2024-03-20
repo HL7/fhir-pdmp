@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <specification xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                url="http://hl7.org/fhir/us/pdmp"
-               ciUrl=""
+               ciUrl="https://build.fhir.org/ig/HL7/fhir-pdmp"
                defaultWorkgroup="pharm"
-               defaultVersion="current"
+               defaultVersion="1.0.0-ballot"
                xsi:noNamespaceSchemaLocation="../schemas/specification.xsd"
-               gitUrl="https://github.com/HL7/fhir-pdmp">
-   <version code="current" url=""/>
+               gitUrl="https://github.com/HL7/fhir-pdmp"
+               ballotUrl="http://hl7.org/fhir/us/pdmp/2024May">
+   <version code="current" url="https://build.fhir.org/ig/HL7/fhir-pdmp"/>
+   <version code="1.0.0-ballot" url="http://hl7.org/fhir/us/pdmp/2024May"/>
    <artifactPageExtension value="-definitions"/>
    <artifactPageExtension value="-examples"/>
    <artifactPageExtension value="-mappings"/>
@@ -40,21 +42,21 @@
    <artifact name="PDMP MedicationDispense"
              key="StructureDefinition-pdmp-medicationdispense"
              id="StructureDefinition/pdmp-medicationdispense"/>
-   <artifact name="PDMP MessageHeader - Request Operation"
-             key="StructureDefinition-pdmp-messageheader-request-op"
-             id="StructureDefinition/pdmp-messageheader-request-op"/>
-   <artifact name="PDMP MessageHeader - Response Operation"
-             key="StructureDefinition-pdmp-messageheader-response-op"
-             id="StructureDefinition/pdmp-messageheader-response-op"/>
+   <artifact name="PDMP MessageHeader - Request"
+             key="StructureDefinition-pdmp-messageheader-request"
+             id="StructureDefinition/pdmp-messageheader-request"/>
+   <artifact name="PDMP MessageHeader - Response"
+             key="StructureDefinition-pdmp-messageheader-response"
+             id="StructureDefinition/pdmp-messageheader-response"/>
    <artifact name="PDMP Organization - Pharmacy"
              key="StructureDefinition-pdmp-organization-pharmacy"
              id="StructureDefinition/pdmp-organization-pharmacy"/>
-   <artifact name="PDMP Parameters - Request Operation"
-             key="StructureDefinition-pdmp-parameters-request-operation"
-             id="StructureDefinition/pdmp-parameters-request-operation"/>
-   <artifact name="PDMP Parameters - Response Operation"
-             key="StructureDefinition-pdmp-parameters-response-operation"
-             id="StructureDefinition/pdmp-parameters-response-operation"/>
+   <artifact name="PDMP Parameters - Request"
+             key="StructureDefinition-pdmp-parameters-request"
+             id="StructureDefinition/pdmp-parameters-request"/>
+   <artifact name="PDMP Parameters - Response"
+             key="StructureDefinition-pdmp-parameters-response"
+             id="StructureDefinition/pdmp-parameters-response"/>
    <artifact name="PDMP Patient"
              key="StructureDefinition-pdmp-patient"
              id="StructureDefinition/pdmp-patient"/>
@@ -70,9 +72,9 @@
    <artifact name="PDMP Extension - MME"
              key="StructureDefinition-pdmp-extension-mme"
              id="StructureDefinition/pdmp-extension-mme"/>
-   <artifact name="PDMP Extension - Prescription Refill Number"
-             key="StructureDefinition-pdmp-extension-rx-refill-number"
-             id="StructureDefinition/pdmp-extension-rx-refill-number"/>
+   <artifact name="PDMP Extension - Prescription Fill Number"
+             key="StructureDefinition-pdmp-extension-rx-fill-number"
+             id="StructureDefinition/pdmp-extension-rx-fill-number"/>
    <artifact name="PDMP Extension - Prescription Transmission Method"
              key="StructureDefinition-pdmp-extension-rx-transmission-method"
              id="StructureDefinition/pdmp-extension-rx-transmission-method"/>
@@ -82,16 +84,25 @@
    <artifact name="PDMP Value Set - Prescription Transmission Method"
              key="ValueSet-pdmp-rx-transmission-method"
              id="ValueSet/pdmp-rx-transmission-method"/>
+   <artifact name="PDMP Value Set - Response Status"
+             key="ValueSet-pdmp-response-status"
+             id="ValueSet/pdmp-response-status"/>
    <artifact name="PDMP Value Set - Species Type"
              key="ValueSet-pdmp-species-type"
              id="ValueSet/pdmp-species-type"/>
-   <artifact name="PDMP Code System - Patient Relationship (Temporary)"
+   <artifact name="PDMP CodeSystem - Patient Relationship (Temporary)"
              key="CodeSystem-temporary-pdmp-patient-relationship"
              id="CodeSystem/temporary-pdmp-patient-relationship"/>
-   <artifact name="PMIX Code System - Species Type Code (Temporary)"
+   <artifact name="PDMP Response Status Codes (Temporary)"
+             key="CodeSystem-temporary-pdmp-response-status"
+             id="CodeSystem/temporary-pdmp-response-status"/>
+   <artifact name="PMIX Response Status Codes (Temporary)"
+             key="CodeSystem-temporary-pmix-response-status"
+             id="CodeSystem/temporary-pmix-response-status"/>
+   <artifact name="PMIX Species Type Code (Temporary)"
              key="CodeSystem-temporary-pmix-species-type-code"
              id="CodeSystem/temporary-pmix-species-type-code"/>
-   <artifact name="PMIX Transmission Form Of Rx Origin Code System (Temporary)"
+   <artifact name="PMIX Transmission Form Of Rx Origin Code (Temporary)"
              key="CodeSystem-temporary-pmix-transmission-form-of-rx-origin"
              id="CodeSystem/temporary-pmix-transmission-form-of-rx-origin"/>
    <artifact name="pdmp-bundle-history-result-1"
@@ -115,15 +126,30 @@
    <artifact name="pdmp-history-output-parameters-2-minimal-history"
              key="Parameters-pdmp-history-output-parameters-2-minimal-history"
              id="Parameters/pdmp-history-output-parameters-2-minimal-history"/>
-   <artifact name="pdmp-history-output-parameters-3-error-retrieving-data"
-             key="Parameters-pdmp-history-output-parameters-3-error-retrieving-data"
-             id="Parameters/pdmp-history-output-parameters-3-error-retrieving-data"/>
+   <artifact name="pdmp-history-output-parameters-3-patient-not-found"
+             key="Parameters-pdmp-history-output-parameters-3-patient-not-found"
+             id="Parameters/pdmp-history-output-parameters-3-patient-not-found"/>
+   <artifact name="pdmp-history-output-parameters-4-link-response"
+             key="Parameters-pdmp-history-output-parameters-4-link-response"
+             id="Parameters/pdmp-history-output-parameters-4-link-response"/>
+   <artifact name="pdmp-history-output-parameters-5-pre-stage-response"
+             key="Parameters-pdmp-history-output-parameters-5-pre-stage-response"
+             id="Parameters/pdmp-history-output-parameters-5-pre-stage-response"/>
+   <artifact name="pdmp-history-output-parameters-6-non-fatal-warning"
+             key="Parameters-pdmp-history-output-parameters-6-non-fatal-warning"
+             id="Parameters/pdmp-history-output-parameters-6-non-fatal-warning"/>
+   <artifact name="pdmp-history-output-parameters-7-fatal-error"
+             key="Parameters-pdmp-history-output-parameters-7-fatal-error"
+             id="Parameters/pdmp-history-output-parameters-7-fatal-error"/>
    <artifact name="pdmp-medadmin-1"
              key="MedicationAdministration-pdmp-medadmin-1"
              id="MedicationAdministration/pdmp-medadmin-1"/>
    <artifact name="pdmp-meddispense-1"
              key="MedicationDispense-pdmp-meddispense-1"
              id="MedicationDispense/pdmp-meddispense-1"/>
+   <artifact name="pdmp-meddispense-2"
+             key="MedicationDispense-pdmp-meddispense-2"
+             id="MedicationDispense/pdmp-meddispense-2"/>
    <artifact name="pdmp-patient-1"
              key="Patient-pdmp-patient-1"
              id="Patient/pdmp-patient-1"/>
@@ -136,43 +162,65 @@
    <artifact name="relatedperson-2-veterinary"
              key="RelatedPerson-relatedperson-2-veterinary"
              id="RelatedPerson/relatedperson-2-veterinary"/>
-   <artifact id="CodeSystem/pdmp-event-type"
+   <artifact deprecated="true"
+             id="CodeSystem/pdmp-event-type"
              key="CodeSystem-pdmp-event-type"
-             name="PDMP Code System - Event Type"
-             deprecated="true"/>
-   <artifact id="ValueSet/pdmp-event-type"
+             name="PDMP Code System - Event Type"/>
+   <artifact deprecated="true"
+             id="StructureDefinition/pdmp-extension-rx-refill-number"
+             key="StructureDefinition-pdmp-extension-rx-refill-number"
+             name="PDMP Extension - Prescription Refill Number"/>
+   <artifact deprecated="true"
+             id="StructureDefinition/pdmp-messageheader-request-op"
+             key="StructureDefinition-pdmp-messageheader-request-op"
+             name="PDMP MessageHeader - Request Operation"/>
+   <artifact deprecated="true"
+             id="StructureDefinition/pdmp-messageheader-response-op"
+             key="StructureDefinition-pdmp-messageheader-response-op"
+             name="PDMP MessageHeader - Response Operation"/>
+   <artifact deprecated="true"
+             id="StructureDefinition/pdmp-parameters-request-operation"
+             key="StructureDefinition-pdmp-parameters-request-operation"
+             name="PDMP Parameters - Request Operation"/>
+   <artifact deprecated="true"
+             id="StructureDefinition/pdmp-parameters-response-operation"
+             key="StructureDefinition-pdmp-parameters-response-operation"
+             name="PDMP Parameters - Response Operation"/>
+   <artifact deprecated="true"
+             id="ValueSet/pdmp-event-type"
              key="ValueSet-pdmp-event-type"
-             name="PDMP Value Set - Event Type"
-             deprecated="true"/>
+             name="PDMP Value Set - Event Type"/>
    <artifact deprecated="true"
              id="StructureDefinition/pdmp-refill-number-extension"
              key="StructureDefinition-pdmp-refill-number-extension"
              name="Refill_Number_Extensionn"/>
-   <artifact id="Parameters/get-pdmp-history-input-parameters-1"
+   <artifact deprecated="true"
+             id="Parameters/get-pdmp-history-input-parameters-1"
              key="Parameters-get-pdmp-history-input-parameters-1"
-             name="get-pdmp-history-input-parameters-1"
-             deprecated="true"/>
-   <artifact id="Parameters/get-pdmp-history-output-parameters-1"
+             name="get-pdmp-history-input-parameters-1"/>
+   <artifact deprecated="true"
+             id="Parameters/get-pdmp-history-output-parameters-1"
              key="Parameters-get-pdmp-history-output-parameters-1"
-             name="get-pdmp-history-output-parameters-1"
-             deprecated="true"/>
+             name="get-pdmp-history-output-parameters-1"/>
    <page name="(NA)" key="NA"/>
    <page name="(many)" key="many"/>
    <page name="Table of Contents" key="toc"/>
    <page name="Home" key="index"/>
    <page name="Capability Statements" key="capability-statements"/>
+   <page name="Cds Smart" key="cds-smart"/>
    <page name="Changes" key="changes"/>
    <page name="Conformance" key="conformance"/>
    <page name="Deployment" key="deployment"/>
    <page name="Downloads" key="downloads"/>
-   <page name="Fhir Medication Background" key="fhir-medication-background"/>
    <page name="Mappings" key="mappings"/>
    <page name="Profiles" key="profiles"/>
-   <page name="Search" key="search"/>
    <page name="Security" key="security"/>
    <page name="Submission Options" key="submission-options"/>
    <page name="Us Core Profiles" key="us-core-profiles"/>
    <page name="Use Case" key="use-case"/>
-   <page name="Use Case Old 2024 03 12" key="use-case_old_2024-03-12"/>
    <page name="Artifacts Summary" key="artifacts"/>
+   <page deprecated="true"
+         key="fhir-medication-background"
+         name="Fhir Medication Background"/>
+   <page deprecated="true" key="search" name="Search"/>
 </specification>

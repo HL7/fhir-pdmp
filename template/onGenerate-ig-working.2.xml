@@ -15,11 +15,11 @@
       <valueCode value="phx"/>
    </extension>
    <url value="http://hl7.org/fhir/us/pdmp/ImplementationGuide/hl7.fhir.us.pdmp"/>
-   <version value="0.1.0"/>
+   <version value="1.0.0-ballot"/>
    <name value="PDMP"/>
    <title value="US Prescription Drug Monitoring Program (PDMP)"/>
    <status value="draft"/>
-   <date value="2024-03-12T18:44:50-07:00"/>
+   <date value="2024-03-20T11:44:50-07:00"/>
    <publisher value="HL7 International / Pharmacy"/>
    <contact>
       <name value="HL7 International / Pharmacy"/>
@@ -37,6 +37,17 @@
       <telecom>
          <system value="email"/>
          <value value="fm@frankmckinney.com"/>
+      </telecom>
+   </contact>
+   <contact>
+      <name value="Scott Robertson"/>
+      <telecom>
+         <system value="email"/>
+         <value value="scott.robertson@pocp.com"/>
+      </telecom>
+      <telecom>
+         <system value="email"/>
+         <value value="scott@BearHealthTech.consulting"/>
       </telecom>
    </contact>
    <description value="US Prescription Drug Monitoring Program (PDMP) FHIR IG"/>
@@ -85,7 +96,7 @@
             <valueString value="releaselabel"/>
          </extension>
          <extension url="value">
-            <valueString value="ci-build"/>
+            <valueString value="STU1"/>
          </extension>
       </extension>
       <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
@@ -454,7 +465,7 @@
          <reference>
             <reference value="CodeSystem/temporary-pdmp-patient-relationship"/>
          </reference>
-         <name value="PDMP Code System - Patient Relationship (Temporary)"/>
+         <name value="PDMP CodeSystem - Patient Relationship (Temporary)"/>
          <description value="This code system defines a relationship between a RelatedPerson and the patient"/>
          <exampleBoolean value="false"/>
          <groupingId value="-term-codesystem"/>
@@ -539,13 +550,13 @@
             <valueString value="StructureDefinition:extension"/>
          </extension>
          <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
-            <valueUri value="StructureDefinition-pdmp-extension-rx-refill-number.html"/>
+            <valueUri value="StructureDefinition-pdmp-extension-rx-fill-number.html"/>
          </extension>
          <reference>
-            <reference value="StructureDefinition/pdmp-extension-rx-refill-number"/>
+            <reference value="StructureDefinition/pdmp-extension-rx-fill-number"/>
          </reference>
-         <name value="PDMP Extension - Prescription Refill Number"/>
-         <description value="The refill number of the prescription dispensed."/>
+         <name value="PDMP Extension - Prescription Fill Number"/>
+         <description value="The fill number of the prescription dispensed. The value representing a prescription's initial fill is 1. The first refill is 2, etc."/>
          <exampleBoolean value="false"/>
          <groupingId value="-str-extension"/>
       </resource>
@@ -599,7 +610,7 @@
             <reference value="StructureDefinition/pdmp-medicationdispense"/>
          </reference>
          <name value="PDMP MedicationDispense"/>
-         <description value="Defines constraints and extensions on the MedicationDispense resource when used by a Prescription Drug Monitoring Program (PDMP) to return an individual's medication dispensation history."/>
+         <description value="Defines constraints and extensions on the MedicationDispense resource when used by a Prescription Drug Monitoring Program (PDMP) to return an individual's medication dispense history."/>
          <exampleBoolean value="false"/>
          <groupingId value="-str-profile"/>
       </resource>
@@ -647,12 +658,12 @@
             <valueString value="StructureDefinition:resource"/>
          </extension>
          <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
-            <valueUri value="StructureDefinition-pdmp-messageheader-request-op.html"/>
+            <valueUri value="StructureDefinition-pdmp-messageheader-request.html"/>
          </extension>
          <reference>
-            <reference value="StructureDefinition/pdmp-messageheader-request-op"/>
+            <reference value="StructureDefinition/pdmp-messageheader-request"/>
          </reference>
-         <name value="PDMP MessageHeader - Request Operation"/>
+         <name value="PDMP MessageHeader - Request"/>
          <description value="This profile constrains a MessageHeader resource for use in a PDMP request data bundle. A Parameters resource is the focus."/>
          <exampleBoolean value="false"/>
          <groupingId value="-str-profile"/>
@@ -665,13 +676,13 @@
             <valueString value="StructureDefinition:resource"/>
          </extension>
          <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
-            <valueUri value="StructureDefinition-pdmp-messageheader-response-op.html"/>
+            <valueUri value="StructureDefinition-pdmp-messageheader-response.html"/>
          </extension>
          <reference>
-            <reference value="StructureDefinition/pdmp-messageheader-response-op"/>
+            <reference value="StructureDefinition/pdmp-messageheader-response"/>
          </reference>
-         <name value="PDMP MessageHeader - Response Operation"/>
-         <description value="This profile constrains a MessageHeader resource for use in a PDMP response data bundle. A Bundle resource is the focus."/>
+         <name value="PDMP MessageHeader - Response"/>
+         <description value="This profile constrains a MessageHeader resource for use in a PDMP response data bundle. A Parameters resource is the focus."/>
          <exampleBoolean value="false"/>
          <groupingId value="-str-profile"/>
       </resource>
@@ -719,13 +730,13 @@
             <valueString value="StructureDefinition:resource"/>
          </extension>
          <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
-            <valueUri value="StructureDefinition-pdmp-parameters-request-operation.html"/>
+            <valueUri value="StructureDefinition-pdmp-parameters-request.html"/>
          </extension>
          <reference>
-            <reference value="StructureDefinition/pdmp-parameters-request-operation"/>
+            <reference value="StructureDefinition/pdmp-parameters-request"/>
          </reference>
-         <name value="PDMP Parameters - Request Operation"/>
-         <description value="This profile tailors the Parameters resource to convey PDMP Request inputs."/>
+         <name value="PDMP Parameters - Request"/>
+         <description value="This profile tailors the Parameters resource to convey PDMP History operation inputs."/>
          <exampleBoolean value="false"/>
          <groupingId value="-str-profile"/>
       </resource>
@@ -737,13 +748,13 @@
             <valueString value="StructureDefinition:resource"/>
          </extension>
          <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
-            <valueUri value="StructureDefinition-pdmp-parameters-response-operation.html"/>
+            <valueUri value="StructureDefinition-pdmp-parameters-response.html"/>
          </extension>
          <reference>
-            <reference value="StructureDefinition/pdmp-parameters-response-operation"/>
+            <reference value="StructureDefinition/pdmp-parameters-response"/>
          </reference>
-         <name value="PDMP Parameters - Response Operation"/>
-         <description value="This profile tailors the Parameters resource to convey PDMP Request outputs."/>
+         <name value="PDMP Parameters - Response"/>
+         <description value="This profile tailors the Parameters resource to convey PDMP History operation outputs."/>
          <exampleBoolean value="false"/>
          <groupingId value="-str-profile"/>
       </resource>
@@ -761,9 +772,27 @@
             <reference value="StructureDefinition/pdmp-patient"/>
          </reference>
          <name value="PDMP Patient"/>
-         <description value="Defines constraints and extensions on the Patient resource when used by a Prescription Drug Monitoring Program (PDMP) to request or return an individual's medication dispenssation history."/>
+         <description value="Defines constraints and extensions on the Patient resource when used by a Prescription Drug Monitoring Program (PDMP) to request or return an individual's medication dispensation history."/>
          <exampleBoolean value="false"/>
          <groupingId value="-str-profile"/>
+      </resource>
+      <resource>
+         <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-sort">
+            <valueInteger value="999999999"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+            <valueString value="CodeSystem"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+            <valueUri value="CodeSystem-temporary-pdmp-response-status.html"/>
+         </extension>
+         <reference>
+            <reference value="CodeSystem/temporary-pdmp-response-status"/>
+         </reference>
+         <name value="PDMP Response Status Codes (Temporary)"/>
+         <description value="Codes indicating the overall status of a PDMP response. Intended to augment the PMIX Status Message code set"/>
+         <exampleBoolean value="false"/>
+         <groupingId value="-term-codesystem"/>
       </resource>
       <resource>
          <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-sort">
@@ -798,6 +827,24 @@
          </reference>
          <name value="PDMP Value Set - Prescription Transmission Method"/>
          <description value="This value set contains codes for the methods by which a prescription was received by the dispensing or administering party."/>
+         <exampleBoolean value="false"/>
+         <groupingId value="-term-valueset"/>
+      </resource>
+      <resource>
+         <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-sort">
+            <valueInteger value="999999999"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+            <valueString value="ValueSet"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+            <valueUri value="ValueSet-pdmp-response-status.html"/>
+         </extension>
+         <reference>
+            <reference value="ValueSet/pdmp-response-status"/>
+         </reference>
+         <name value="PDMP Value Set - Response Status"/>
+         <description value="This value set contains codes indicating the overall status of a PDMP response"/>
          <exampleBoolean value="false"/>
          <groupingId value="-term-valueset"/>
       </resource>
@@ -906,7 +953,7 @@
          </reference>
          <name value="pdmp-history-input-parameters-1"/>
          <description value="Example of a Parameters resource used to request a patient's PDMP history"/>
-         <exampleCanonical value="http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-parameters-request-operation"/>
+         <exampleCanonical value="http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-parameters-request"/>
          <groupingId value="-ex-example"/>
       </resource>
       <resource>
@@ -924,7 +971,7 @@
          </reference>
          <name value="pdmp-history-input-parameters-2-minimum"/>
          <description value="Example of the minimal Parameters resource population to request a patient's PDMP history"/>
-         <exampleCanonical value="http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-parameters-request-operation"/>
+         <exampleCanonical value="http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-parameters-request"/>
          <groupingId value="-ex-example"/>
       </resource>
       <resource>
@@ -942,7 +989,7 @@
          </reference>
          <name value="pdmp-history-output-parameters-1"/>
          <description value="Example of a Parameters resource used to respond to a request a patient's PDMP history"/>
-         <exampleCanonical value="http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-parameters-response-operation"/>
+         <exampleCanonical value="http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-parameters-response"/>
          <groupingId value="-ex-example"/>
       </resource>
       <resource>
@@ -960,7 +1007,7 @@
          </reference>
          <name value="pdmp-history-output-parameters-2-minimal-history"/>
          <description value="Example of minimal population of a Parameters resource used to respond when a patient has PDMP history"/>
-         <exampleCanonical value="http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-parameters-response-operation"/>
+         <exampleCanonical value="http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-parameters-response"/>
          <groupingId value="-ex-example"/>
       </resource>
       <resource>
@@ -971,14 +1018,86 @@
             <valueString value="Parameters"/>
          </extension>
          <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
-            <valueUri value="Parameters-pdmp-history-output-parameters-3-error-retrieving-data.html"/>
+            <valueUri value="Parameters-pdmp-history-output-parameters-3-patient-not-found.html"/>
          </extension>
          <reference>
-            <reference value="Parameters/pdmp-history-output-parameters-3-error-retrieving-data"/>
+            <reference value="Parameters/pdmp-history-output-parameters-3-patient-not-found"/>
          </reference>
-         <name value="pdmp-history-output-parameters-3-error-retrieving-data"/>
-         <description value="Example of population of the Parameters resource when a processing exception causes no PDMP history to be returned"/>
-         <exampleCanonical value="http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-parameters-response-operation"/>
+         <name value="pdmp-history-output-parameters-3-patient-not-found"/>
+         <description value="Example of population of the Parameters resource when the requested patient is not found and no PDMP history is returned"/>
+         <exampleCanonical value="http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-parameters-response"/>
+         <groupingId value="-ex-example"/>
+      </resource>
+      <resource>
+         <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-sort">
+            <valueInteger value="999999999"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+            <valueString value="Parameters"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+            <valueUri value="Parameters-pdmp-history-output-parameters-4-link-response.html"/>
+         </extension>
+         <reference>
+            <reference value="Parameters/pdmp-history-output-parameters-4-link-response"/>
+         </reference>
+         <name value="pdmp-history-output-parameters-4-link-response"/>
+         <description value="Example of population of the Parameters resource when a link to the PDMP history is returned"/>
+         <exampleCanonical value="http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-parameters-response"/>
+         <groupingId value="-ex-example"/>
+      </resource>
+      <resource>
+         <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-sort">
+            <valueInteger value="999999999"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+            <valueString value="Parameters"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+            <valueUri value="Parameters-pdmp-history-output-parameters-5-pre-stage-response.html"/>
+         </extension>
+         <reference>
+            <reference value="Parameters/pdmp-history-output-parameters-5-pre-stage-response"/>
+         </reference>
+         <name value="pdmp-history-output-parameters-5-pre-stage-response"/>
+         <description value="Example of population of the Parameters resource when pre-staging of PDMP history was requested"/>
+         <exampleCanonical value="http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-parameters-response"/>
+         <groupingId value="-ex-example"/>
+      </resource>
+      <resource>
+         <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-sort">
+            <valueInteger value="999999999"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+            <valueString value="Parameters"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+            <valueUri value="Parameters-pdmp-history-output-parameters-6-non-fatal-warning.html"/>
+         </extension>
+         <reference>
+            <reference value="Parameters/pdmp-history-output-parameters-6-non-fatal-warning"/>
+         </reference>
+         <name value="pdmp-history-output-parameters-6-non-fatal-warning"/>
+         <description value="Example of population of the Parameters resource when a link to the PDMP history is returned with a warning"/>
+         <exampleCanonical value="http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-parameters-response"/>
+         <groupingId value="-ex-example"/>
+      </resource>
+      <resource>
+         <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-sort">
+            <valueInteger value="999999999"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+            <valueString value="Parameters"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+            <valueUri value="Parameters-pdmp-history-output-parameters-7-fatal-error.html"/>
+         </extension>
+         <reference>
+            <reference value="Parameters/pdmp-history-output-parameters-7-fatal-error"/>
+         </reference>
+         <name value="pdmp-history-output-parameters-7-fatal-error"/>
+         <description value="Example of population of the Parameters resource when a fatal exception is encountered and processing doesn't complete"/>
+         <exampleCanonical value="http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-parameters-response"/>
          <groupingId value="-ex-example"/>
       </resource>
       <resource>
@@ -1013,7 +1132,25 @@
             <reference value="MedicationDispense/pdmp-meddispense-1"/>
          </reference>
          <name value="pdmp-meddispense-1"/>
-         <description value="Example of a PDMP medication dispensation record"/>
+         <description value="Example of a PDMP medication dispensation record with MME extension"/>
+         <exampleCanonical value="http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-medicationdispense"/>
+         <groupingId value="-ex-example"/>
+      </resource>
+      <resource>
+         <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-sort">
+            <valueInteger value="999999999"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+            <valueString value="MedicationDispense"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+            <valueUri value="MedicationDispense-pdmp-meddispense-2.html"/>
+         </extension>
+         <reference>
+            <reference value="MedicationDispense/pdmp-meddispense-2"/>
+         </reference>
+         <name value="pdmp-meddispense-2"/>
+         <description value="Example of a PDMP medication dispensation record with LME extension"/>
          <exampleCanonical value="http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-medicationdispense"/>
          <groupingId value="-ex-example"/>
       </resource>
@@ -1097,12 +1234,30 @@
             <valueString value="CodeSystem"/>
          </extension>
          <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+            <valueUri value="CodeSystem-temporary-pmix-response-status.html"/>
+         </extension>
+         <reference>
+            <reference value="CodeSystem/temporary-pmix-response-status"/>
+         </reference>
+         <name value="PMIX Response Status Codes (Temporary)"/>
+         <description value="Code indicating the overall status of a PDMP response"/>
+         <exampleBoolean value="false"/>
+         <groupingId value="-term-codesystem"/>
+      </resource>
+      <resource>
+         <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-sort">
+            <valueInteger value="999999999"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+            <valueString value="CodeSystem"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
             <valueUri value="CodeSystem-temporary-pmix-species-type-code.html"/>
          </extension>
          <reference>
             <reference value="CodeSystem/temporary-pmix-species-type-code"/>
          </reference>
-         <name value="PMIX Code System - Species Type Code (Temporary)"/>
+         <name value="PMIX Species Type Code (Temporary)"/>
          <description value="This code system defines codes identifying the species type of a patient (human vs veterinary)"/>
          <exampleBoolean value="false"/>
          <groupingId value="-term-codesystem"/>
@@ -1120,8 +1275,8 @@
          <reference>
             <reference value="CodeSystem/temporary-pmix-transmission-form-of-rx-origin"/>
          </reference>
-         <name value="PMIX Transmission Form Of Rx Origin Code System (Temporary)"/>
-         <description value="Code indicating how the pharmacy received the prescription - exerpted from PMIX_NIEM_4.0_Domain_Extension_Schema.xsd"/>
+         <name value="PMIX Transmission Form Of Rx Origin Code (Temporary)"/>
+         <description value="Code indicating how the pharmacy received the prescription"/>
          <exampleBoolean value="false"/>
          <groupingId value="-term-codesystem"/>
       </resource>
@@ -1168,6 +1323,14 @@
          </page>
          <page>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+               <valueUrl value="cds-smart.html"/>
+            </extension>
+            <nameUrl value="cds-smart.html"/>
+            <title value="Cds Smart"/>
+            <generation value="markdown"/>
+         </page>
+         <page>
+            <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
                <valueUrl value="changes.html"/>
             </extension>
             <nameUrl value="changes.html"/>
@@ -1200,14 +1363,6 @@
          </page>
          <page>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
-               <valueUrl value="fhir-medication-background.html"/>
-            </extension>
-            <nameUrl value="fhir-medication-background.html"/>
-            <title value="Fhir Medication Background"/>
-            <generation value="markdown"/>
-         </page>
-         <page>
-            <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
                <valueUrl value="mappings.html"/>
             </extension>
             <nameUrl value="mappings.html"/>
@@ -1220,14 +1375,6 @@
             </extension>
             <nameUrl value="profiles.html"/>
             <title value="Profiles"/>
-            <generation value="markdown"/>
-         </page>
-         <page>
-            <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
-               <valueUrl value="search.html"/>
-            </extension>
-            <nameUrl value="search.html"/>
-            <title value="Search"/>
             <generation value="markdown"/>
          </page>
          <page>
@@ -1260,14 +1407,6 @@
             </extension>
             <nameUrl value="use-case.html"/>
             <title value="Use Case"/>
-            <generation value="markdown"/>
-         </page>
-         <page>
-            <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
-               <valueUrl value="use-case_old_2024-03-12.html"/>
-            </extension>
-            <nameUrl value="use-case_old_2024-03-12.html"/>
-            <title value="Use Case Old 2024 03 12"/>
             <generation value="markdown"/>
          </page>
       </page>
@@ -1337,7 +1476,7 @@
       </parameter>
       <parameter>
          <code value="releaselabel"/>
-         <value value="ci-build"/>
+         <value value="STU1"/>
       </parameter>
       <parameter>
          <code value="path-history"/>

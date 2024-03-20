@@ -1,5 +1,5 @@
 ### Abstract Use Case
-This guide centers around a single use case, in which a `PDMP Requestor` (prescriber or pharmacist) accesses a Patient’s medication history from a `PDMP Responder` (a state PDMP or related system(s))
+This guide centers around a single use case, in which a `PDMP Requestor` (prescriber or pharmacist) accesses a Patient’s PDMP history from a `PDMP Responder` (a state PDMP or related system(s))
 
 <div>
 <figure class="figure">
@@ -15,6 +15,7 @@ All other interactions between the parties above--such as a prescription being s
 <p></p>
 
 ### Use Case 1
+A simple PDMP request/response
 
 Sam August comes to the Highview Clinic complaining about right hand and wrist pain after he fell from a ladder.  He is seen by Dr Adam Amster.  After examining Mr August, Dr Amster's assessment is a sprained wrist and a broken right ring finger.  Mr Amster is provided a wrist brace and his affected finger is immobilized with a splint.  Dr Amster also determines that a pain medication is appropriate, and 
 1. enters a prescription for Acetaminophen with Codeine 325 mg / 30 mg into the Highview Clinic EHR.  
@@ -24,7 +25,7 @@ Sam August comes to the Highview Clinic complaining about right hand and wrist p
 1. The EHR creates a `pdmp-bundle-request` and 
 1. sends it to the `State PDMP (PDMP Responder)`.
 1. The PDMP processes the request and 
-1. responds with a `pdmp-bundle-response` sent to the EHR.  
+1. responds with a `pdmp-bundle-response` to the EHR.  
 1. The EHR presents the PDMP response, which
 1. Dr Amster reviews and acknowledges,
 1. subsequently finalizing the prescription,
@@ -39,3 +40,32 @@ Sam August comes to the Highview Clinic complaining about right hand and wrist p
 </figure>
 </div>
 
+<p></p>
+
+### Use Case 2
+Illustrating a pre-stage PDMP request/response
+
+Sam August presents at the Highview Medical Center Emergency Department complaining of severe pain in his right hand, wrist, and forearm after falling off of a ladder.  
+1. Mr August is admitted to the ED's EHR and triaged into the care service
+1. Per ED policy, the ED EHR submits a pre-stage PDMP request
+    1. The EHR creates a `pdmp-bundle-request` with the input parameter `pre-stage-only`= `true` and 
+    1. sends it to the `State PDMP (PDMP Responder)`
+1. The PDMP processes the request and 
+1. responds with a `pdmp-bundle-response` with the retrieval key in the output parameter `pre-stage-retrieval-key` to the EHR.
+
+Mr August is subsequently seen by Dr Amster.  Dr Amster's assessment is one or more fractures in the hand, wrist, and forearm.  Subsequent radiology images confirm fractures of the lower right ulna and multiple metacarpal and phalanges.  Dr Amster orders casting of the right forearm and hand, and  
+
+5. enters a prescription for Acetaminophen with Codeine 325 mg / 30 mg into the ED's EHR.  
+1. The EHR workflow checks determine a PDMP review is needed and 
+1. presents Dr Amster with a prompt to request Mr August's PDMP history.
+1. Dr Amster requests the PDMP History
+1. The EHR creates a `pdmp-bundle-request` and includes the `pre-stage-retrieval-key`, previously received, as an input parameter and
+1. sends it to the `State PDMP (PDMP Responder)`.
+1. The PDMP uses the `pre-stage-retrieval-key` to retrieve the previously generated PDMP history and 
+1. responds with a `pdmp-bundle-response` to the EHR.  
+1. The EHR presents the PDMP response, which
+1. Dr Amster reviews and acknowledges,
+1. subsequently finalizing the prescription,
+1. which the EHR sends to the pharmacy as an `NCPDP SCRIPT NewRx`
+
+*need to add flow diagram*
