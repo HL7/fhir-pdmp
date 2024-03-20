@@ -5,7 +5,7 @@ Usage: #definition
 * extension.valueCode = #phx
 * version = "1.0.0"
 * name = "PdmpOperationGetPdmpHistory"
-* title = "PDMP Operation Get PDMP History"
+* title = "PDMP Operation PDMP History"
 * status = #active
 * kind = #operation
 * date = "2023-11-29"

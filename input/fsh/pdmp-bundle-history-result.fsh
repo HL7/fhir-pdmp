@@ -34,7 +34,7 @@ Description: "This profile constrains a Bundle resource to carry the history det
 * entry.response 0..0
 * entry.response ^mustSupport = false
 * entry contains
-    patient 0..* MS and
+    patient 1..* MS and
     medicationdispense 0..* MS and
     medicationadministration 0..* MS and
     pharmacy 0..* MS and
