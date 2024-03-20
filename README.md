@@ -1,2 +1,2 @@
 # fhir-pdmp
-US Prescription Drug Monitoring Program (PDMP) FHIR IG
+US Prescription Drug Monitoring Program (PDMP) FHIR IG 
