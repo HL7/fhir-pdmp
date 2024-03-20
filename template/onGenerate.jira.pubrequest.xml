@@ -1,1 +1,6 @@
-
+<publication-request>
+   <package version="1.0.0-ballot"
+            path="http://hl7.org/fhir/us/pdmp/2024May"
+            status="ballot"
+            ci-build="https://build.fhir.org/ig/HL7/fhir-pdmp"/>
+</publication-request>

@@ -94,24 +94,32 @@ Description: "Defines constraints and extensions on the MedicationDispense resou
 Instance: pdmp-meddispense-1
 InstanceOf: pdmp-medicationdispense
 Usage: #example
-Description: "Example of a PDMP medication dispensation record"
+Description: "Example of a PDMP medication dispensation record with MME extension"
 * meta.versionId = "1"
-* meta.lastUpdated = "2016-12-08T06:38:52Z"
+* meta.lastUpdated = "2023-06-05T06:38:52Z"
 * meta.profile = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-medicationdispense"
+* text.status = #generated
+* text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">A record of a medication that was dispensed to the patient identified in the PDMP request: August Samuels</div>"
+* meta.source = "http://example.org/ma-pdmp"
 * extension[0].url = $pdmp-extension-rx-fill-number
 * extension[=].valuePositiveInt = 1
 * extension[+].url = $pdmp-extension-rx-transmission-method
 * extension[=].valueCoding = $pmix-transmission-cs#"05" "Electronic Prescription"
 * extension[+].url = $pdmp-extension-mme
-* extension[=].valuePositiveInt = 18
-* status = #in-progress
+* extension[=].valueDecimal = 18
+* identifier.type = $v2-0203#FILL "Filler Identifier"
+* identifier.system = "http://ourpharmacy.com/fillnumber"
+* identifier.value = "2000353"
+* status = #completed
 * medicationCodeableConcept.coding[0] = $rxnorm#993781 "acetaminophen 300 MG / codeine phosphate 30 MG Oral Tablet"
 * medicationCodeableConcept.coding[+] = $ndc#00093015001
 * medicationCodeableConcept.coding[=].userSelected = true
 * medicationCodeableConcept.text = "Acetaminophen 300 mg / Codeine 30 mg oral tablet"
-* subject.display = "Amy V. Shaw"
-* performer.actor.identifier[0].system = "http://terminology.hl7.org/CodeSystem/NCPDPProviderIdentificationNumber"
-* performer.actor.identifier[=].value = "999017"
+* subject.reference = "urn:uuid:53a1e123-5b56-44ae-b7e8-36e0b9800f57"
+* subject.display = "August Samuels"
+* performer.actor.reference = "urn:uuid:82ae67e4-f23a-4c17-b80a-9076a37f5d6e"
+* performer.actor.identifier.system = "http://terminology.hl7.org/CodeSystem/NCPDPProviderIdentificationNumber"
+* performer.actor.identifier.value = "999017"
 * performer.actor.display = "Our Pharmacy"
 * authorizingPrescription.identifier.type = $v2-0203#FILL "Filler Identifier"
 * authorizingPrescription.identifier.system = "http://mypharmacysystem.com/prescriptionnumber"
@@ -119,6 +127,42 @@ Description: "Example of a PDMP medication dispensation record"
 * quantity.value = 15 
 * quantity.unit = "each"
 * daysSupply.value = 5
-* whenPrepared = "2023-07-08T06:38:52Z"
+* whenPrepared = "2023-06-05"
+* whenHandedOver.extension.url = "http://hl7.org/fhir/StructureDefinition/data-absent-reason"
+* whenHandedOver.extension.valueCode = #unknown
 * dosageInstruction.sequence = 1
 * dosageInstruction.text = "1 tablet every 6-8 hours as needed for pain"
+
+
+
+Instance: pdmp-meddispense-2
+InstanceOf: pdmp-medicationdispense
+Usage: #example
+Description: "Example of a PDMP medication dispensation record with LME extension "
+* meta.versionId = "1"
+* meta.lastUpdated = "2016-12-10T06:38:52Z"
+* meta.profile = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-medicationdispense"
+* extension[0].url = $pdmp-extension-rx-fill-number
+* extension[=].valuePositiveInt = 4
+* extension[+].url = $pdmp-extension-rx-transmission-method
+* extension[=].valueCoding = $pmix-transmission-cs#"05" "Electronic Prescription"
+* extension[+].url = $pdmp-extension-lme
+* extension[=].valueDecimal = 4
+* status = #in-progress
+* medicationCodeableConcept.coding[0] = $rxnorm#433800 "24 HR alprazolam 1 MG Extended Release Oral Tablet"
+* medicationCodeableConcept.coding[+] = $ndc#00093545106
+* medicationCodeableConcept.coding[=].userSelected = true
+* medicationCodeableConcept.text = "24 HR alprazolam 1 MG Extended Release Oral Tablet"
+* subject.display = "Amy V. Shaw"
+* performer.actor.identifier[0].system = "http://terminology.hl7.org/CodeSystem/NCPDPProviderIdentificationNumber"
+* performer.actor.identifier[=].value = "999017"
+* performer.actor.display = "Our Pharmacy"
+* authorizingPrescription.identifier.type = $v2-0203#FILL "Filler Identifier"
+* authorizingPrescription.identifier.system = "http://mypharmacysystem.com/prescriptionnumber"
+* authorizingPrescription.identifier.value = "065046045550"
+* quantity.value = 60 
+* quantity.unit = "each"
+* daysSupply.value = 30
+* whenPrepared = "2023-07-08T06:45:52Z"
+* dosageInstruction.sequence = 1
+* dosageInstruction.text = "2 tablets every morning"

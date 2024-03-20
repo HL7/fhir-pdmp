@@ -23,6 +23,6 @@ Description: "MME - Morphine Milligram Equivalent.  The quantity of morphine (mg
 * ^context[+].type = #element
 * ^context[=].expression = "MedicationAdministration"
 * value[x] 1..
-* value[x] only positiveInt
+* value[x] only decimal
 * value[x] ^short = "MME"
 * value[x] ^definition = "Represents the equivalent daily morphine dose (mg/day or mcg/hr) for prescription as dispensed."

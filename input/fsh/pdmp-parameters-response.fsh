@@ -57,16 +57,20 @@ Description: "Example of a Parameters resource used to respond to a request a pa
 * parameter[pdmp-history-data].resource.resourceType = "Bundle"
 * parameter[pdmp-history-data].resource.meta.profile = $pdmp-bundle-history-result
 * parameter[pdmp-history-data].resource.type = #collection
-
 * parameter[pdmp-history-data].resource.entry[0].fullUrl = "urn:uuid:9ce2a97b-5cab-4986-814f-4734016e6084"
 * parameter[pdmp-history-data].resource.entry[=].id = "meddispense-res-1"
 * parameter[pdmp-history-data].resource.entry[=].resource.resourceType = "MedicationDispense"
+* parameter[pdmp-history-data].resource.entry[=].resource.meta.lastUpdated = "2023-06-05T18:38:52Z"
 * parameter[pdmp-history-data].resource.entry[=].resource.meta.profile = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-medicationdispense"
 * parameter[pdmp-history-data].resource.entry[=].resource.meta.source = "http://example.org/ma-pdmp"
 * parameter[pdmp-history-data].resource.entry[=].resource.text.status = #generated
 * parameter[pdmp-history-data].resource.entry[=].resource.text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">A record of a medication that was dispensed to the patient identified in the PDMP request: August Samuels</div>"
-* parameter[pdmp-history-data].resource.entry[=].resource.extension.url = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-extension-rx-fill-number"
-* parameter[pdmp-history-data].resource.entry[=].resource.extension.valuePositiveInt = 1
+* parameter[pdmp-history-data].resource.entry[=].resource.extension[0].url = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-extension-rx-fill-number"
+* parameter[pdmp-history-data].resource.entry[=].resource.extension[=].valuePositiveInt = 1
+* parameter[pdmp-history-data].resource.entry[=].resource.extension[+].url = $pdmp-extension-rx-transmission-method
+* parameter[pdmp-history-data].resource.entry[=].resource.extension[=].valueCoding = $pmix-transmission-cs#"05" "Electronic Prescription"
+* parameter[pdmp-history-data].resource.entry[=].resource.extension[+].url = $pdmp-extension-mme
+* parameter[pdmp-history-data].resource.entry[=].resource.extension[=].valueDecimal = 18
 * parameter[pdmp-history-data].resource.entry[=].resource.identifier.type = $v2-0203#FILL "Filler Identifier"
 * parameter[pdmp-history-data].resource.entry[=].resource.identifier.system = "http://ourpharmacy.com/fillnumber"
 * parameter[pdmp-history-data].resource.entry[=].resource.identifier.value = "2000353"
@@ -84,14 +88,14 @@ Description: "Example of a Parameters resource used to respond to a request a pa
 * parameter[pdmp-history-data].resource.entry[=].resource.authorizingPrescription.identifier.type = $v2-0203#FILL "Filler Identifier"
 * parameter[pdmp-history-data].resource.entry[=].resource.authorizingPrescription.identifier.system = "http://mypharmacysystem.com/prescriptionnumber"
 * parameter[pdmp-history-data].resource.entry[=].resource.authorizingPrescription.identifier.value = "000022056"
-* parameter[pdmp-history-data].resource.entry[=].resource.quantity.value = 10 
+* parameter[pdmp-history-data].resource.entry[=].resource.quantity.value = 15 
 * parameter[pdmp-history-data].resource.entry[=].resource.quantity.unit = "each"
 * parameter[pdmp-history-data].resource.entry[=].resource.daysSupply.value = 5
 * parameter[pdmp-history-data].resource.entry[=].resource.whenPrepared = "2023-06-05"
 * parameter[pdmp-history-data].resource.entry[=].resource.whenHandedOver.extension.url = "http://hl7.org/fhir/StructureDefinition/data-absent-reason"
 * parameter[pdmp-history-data].resource.entry[=].resource.whenHandedOver.extension.valueCode = #unknown
 * parameter[pdmp-history-data].resource.entry[=].resource.dosageInstruction.sequence = 1
-* parameter[pdmp-history-data].resource.entry[=].resource.dosageInstruction.text = "1 tab tid prn pain"
+* parameter[pdmp-history-data].resource.entry[=].resource.dosageInstruction.text = "1 tab every 6 to 8 hours as needed for pain"
 
 * parameter[pdmp-history-data].resource.entry[+].fullUrl = "urn:uuid:53a1e123-5b56-44ae-b7e8-36e0b9800f57"
 * parameter[pdmp-history-data].resource.entry[=].resource.id = "patient-res-1-1"

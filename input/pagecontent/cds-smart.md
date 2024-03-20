@@ -22,7 +22,7 @@ FHIR's CDS Hooks and SMART App Launch standards enable information exchange and 
 
 When applied to PDMP...
 - **CDS Hooks can alert the provider to check a patient's PDMP history** in situations where it may not be apparent that the patient's use of opioids may be pertinent, for example when the provider is ordering a colonoscopy (as long-term opioid use decreases gastric motility). This can provide value in workflows where checking PDMP history is not mandated.
-- **SMART App Launch supports mandated use** of PDMP information during drug ordering or dispensing by rendering the PDMP report or in a standard way within the provider's workflow.
+- **SMART App Launch supports mandated use** of PDMP information during drug ordering or dispensing by rendering the PDMP history or in a standard way within the provider's workflow.
 
 #### Guidance for using CDS Hooks and SMART App Launch for PDMP
 This guide defers to the CDS Hooks and SMART App Launch implementation guides for details on their implementation. However, it provides the following direction for using those standards to retrieve PDMP history.

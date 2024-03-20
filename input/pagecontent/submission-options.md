@@ -24,7 +24,7 @@ Use of an operation enables the process to support current PDMP processing requi
 - submission of requesting provider and delegate details and facility information which are used for authorization and record-keeping 
 - support for a "pre-stage-only" request processing option which instructs the PDMP Responder to tee up results to be returned in response to a subsequent request from the PDMP Requester
 - support for the return of PDMP history in the form of discrete FHIR data
-- support for the return of a URL for accessing a PDMP report.
+- support for the return of a URL for accessing a PDMP history.
 
 **Operation definition.** See the [pdmp-history OperationDefinition](OperationDefinition-pdmp-history.html) for an overview of the operation's inputs and outputs, and the following Parameter definitions for additional details:
 - [request parameter details](StructureDefinition-pdmp-parameters-request.html)
