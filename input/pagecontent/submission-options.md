@@ -105,7 +105,7 @@ The request message is POSTed to the PDMP Responder using the standard FHIR $pro
   - URL: `[base]/$process-message`
   - Details from the base FHIR specification are [here](https://www.hl7.org/fhir/operation-messageheader-process-message.html).
 
-Per the standard, the $process-message operation SHALL contain a single `content` parameter consisting of a FHIR message (a Bundle containing a MessageHeader resource).  
+Per the standard, the $process-message operation **SHALL** contain a single `content` parameter consisting of a FHIR message (a Bundle containing a MessageHeader resource).  
 
 The `async` and `response-url` Process Message parameters may be used when supported by the PDMP Responder.
 
@@ -135,21 +135,37 @@ _Below are expectations for returning processing information in common PDMP scen
 
 <p></p>
 
-#### Successful processing that doesn't return PDMP history
+#### Successful processing that does not locate PDMP history for the requested patient
 
-When a PDMP Responder system successfully completes processing of a PDMP request but has no PDMP history to return (e.g., if the requested patient is not found) it  SHALL respond by returning an OperationOutcome resource within the `outcome` operation parameter that describes the reason that no history was returned, as show in [this example](Parameters-pdmp-history-output-parameters-3-patient-not-found.html).
+When a PDMP Responder system successfully completes processing of a PDMP request but has no PDMP history to return (e.g., if the requested patient is not found) it  **SHALL** respond by returning an OperationOutcome resource within the `outcome` operation parameter that describes the reason that no history was returned, as show in [this example](Parameters-pdmp-history-output-parameters-3-patient-not-found.html). 
+
+In this scenario, one iteration of `issue.details.code` **SHOULD** be populated with the `no-data` code from the [response status value set](ValueSet-pdmp-response-status.html)
+
+A `pdmp-history-link` **MAY** also be populated in this scenario, referencing a human-readable report that states that the patient was not found.
+
+<p></p>
+
+#### Successful acceptance of a pre-stage-only request
+
+The PDMP Requester populates the `pre-stage-only` input parameter with `true` to request that the PDMP Responder gather information for the submitted patient and stage it for retrieval via a subsequent `pdmp-history` call. The PDMP Responder returns an operation response with the `outcome` parameter populated to indicate that the request was accepted, as show in [this example](Parameters-pdmp-history-output-parameters-5-pre-stage-response.html).
+
+In this scenario, one iteration of `issue.details.code` **SHOULD** be populated with the `pre-stage-accepted` code from the [response status value set](ValueSet-pdmp-response-status.html)
 
 <p></p>
 
 #### Non-fatal processing exception
 
-If the PDMP Responder encounters a non-fatal exception when executing a request, which impacts the content of the response, the system SHALL include an OperationOutcome within the operation's `outcome` parameter describing the issue, as illustrated in [this example](Parameters-pdmp-history-output-parameters-6-non-fatal-warning.html). 
+If the PDMP Responder encounters a non-fatal exception when executing a request that impacts the content of the response the system **SHALL** include an OperationOutcome within the operation's `outcome` parameter describing the issue and how the response content was impacted, as illustrated in [this example](Parameters-pdmp-history-output-parameters-6-non-fatal-warning.html). 
+
+In this scenario, one iteration of `issue.details.code` **SHOULD** be populated with the `error` code from the [response status value set](ValueSet-pdmp-response-status.html)
 
 <p></p>
 
 #### Error preventing completion of response processing
 
-When a PDMP Responder system encounters an error that prevents it from completing processing of a PDMP request, it  SHALL respond by returning an OperationOutcome resource within the `outcome` operation parameter that describes the nature of the failure, as show in [this example](Parameters-pdmp-history-output-parameters-7-fatal-error.html).
+When a PDMP Responder system encounters an error that prevents it from completing processing of a PDMP request, it  **SHALL** respond by returning an OperationOutcome resource within the `outcome` operation parameter that describes the nature of the failure, as show in [this example](Parameters-pdmp-history-output-parameters-7-fatal-error.html).
+
+In this scenario, one iteration of `issue.details.code` **SHOULD** be populated with the `error` code from the [response status value set](ValueSet-pdmp-response-status.html)
 
 <p></p>
 <p></p>
