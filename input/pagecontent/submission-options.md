@@ -6,6 +6,19 @@ This section describes how a PDMP Requester can retrieve a patient's information
 
 The PDMP request and response are accomplished using a FHIR Operation ([pdmp-history](OperationDefinition-pdmp-history.html)) which is invoked by POSTing a FHIR Parameters resource containing patient and requesting provider details to the PDMP Responder's `Patient/$pdmp-history` endpoint. In response, the PDMP Responder gathers PDMP history information and returns it within another Parameters resource.
 
+The PDMP history may be returned as... 
+- discrete FHIR data returned in the operation response's `pdmp-history-data` parameter
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; and / or
+
+- a URL to access a report containing PDMP history--returned in the response's `pdmp-history-link` parameter.
+
+A PDMP Responder may choose to implement either or both of those options, with consideration for applicable state rules or other requirements.
+
+Also contained in the response are: 
+- an optional identifier to be submitted in a subsequent request, in the  `pre-stage-retrieval-key` parameter
+- processing information in the form of a FHIR OperationOutcome resource, returned in the `outcome` parameter.
+
 <p></p>
 
 <div>
