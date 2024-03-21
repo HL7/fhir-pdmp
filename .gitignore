@@ -8,3 +8,4 @@ FHIR-us-pdmp.xml
 .csspell
 .vscode
 .cspell/custom-dictionary-workspace.txt
+template/
