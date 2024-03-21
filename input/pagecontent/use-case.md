@@ -14,7 +14,9 @@ All other interactions between the parties above--such as a prescription being s
 
 <p></p>
 
+
 ### Use Case 1 - *A simple PDMP request/response*
+
 
 Sam August comes to the Highview Clinic complaining about right hand and wrist pain after he fell from a ladder.  He is seen by Dr Adam Amster.  After examining Mr August, Dr Amster's assessment is a sprained wrist and a broken right ring finger.  Mr Amster is provided a wrist brace and his affected finger is immobilized with a splint.  Dr Amster determines that a pain medication is appropriate, and 
 1. enters a prescription for Acetaminophen with Codeine 325 mg / 30 mg into the Highview Clinic EHR.  
@@ -41,7 +43,9 @@ Sam August comes to the Highview Clinic complaining about right hand and wrist p
 
 <p></p>
 
+
 ### Use Case 2 - *Illustrating a pre-stage PDMP request/response*
+
 
 Sam August presents at the Highview Medical Center Emergency Department complaining of severe pain in his right hand, wrist, and forearm after falling off of a ladder.  
 1. Mr August is admitted to the ED's EHR and triaged into the care service
@@ -65,6 +69,7 @@ Mr August is subsequently seen by Dr Amster.  Dr Amster's assessment is one or m
 1. Dr Amster reviews and acknowledges,
 1. subsequently finalizing the prescription,
 1. which the EHR sends to the pharmacy as an `NCPDP SCRIPT NewRx`
+
 
 <div>
 <figure class="figure">
@@ -93,5 +98,4 @@ The use case sequence is the same as above, except for Use Case 1 step 9 and Use
 </div>
 
 <p></p>
-
 
