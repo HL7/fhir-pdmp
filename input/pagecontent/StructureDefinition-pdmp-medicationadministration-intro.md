@@ -10,6 +10,7 @@
   - A reference to the authorizing MedicationRequest SHOULD be populated
 - **MedicationAdministration.dosage.dose**
   - The dose administered, including numeric value and units SHALL be populated
+  - When the dose is stated in terms of "eaches" (e.g., tablets, capsules, etc.), populate only the `dose.unit` value with the text "each". Do not populate the `dose.system` or `dose.code` values
 - **MedicationAdministration.effective**
   - The date(s) that the medication was adminstered to the patient SHALL be populated
 - **MedicationAdministration.medicationCodeableConcept.userSelected**

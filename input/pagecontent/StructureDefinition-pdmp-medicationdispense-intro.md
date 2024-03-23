@@ -9,7 +9,8 @@
 - **MedicationDispense.authorizingPrescription**
   - A reference to the authorizing MedicationRequest SHOULD be populated
 - **MedicationDispense.quantity**
-  - Quantiy, including numeric value and units SHALL be populated
+  - Quantity, including numeric value and units SHALL be populated
+  - When the dispense quantity is stated in terms of "eaches" (e.g., tablets, capsules, etc.), populate only the `quantity.unit` value with the text "each". Do not populate the `quantity.system` or `quantity.code` values
 - **MedicationDispense.daysSupply**
   - Dispensed days supply SHALL be populated
 - **MedicationDispense.whenPrepared**
@@ -20,4 +21,12 @@
 - **MedicationDispense.authorizingPrescription.identifier**
   - This element SHOULD be populated with the authorizing prescription's pharmacy-assigned prescription number, if known; otherwise it should be populated with the authorizing prescription's prescriber-system-assigned order number, if known
 
+<p></p>
+<p></p>
+
+**Technical note:**
+
+A rule defined in the base MedicationDispense StructureDefinition causes an error to be produced when a valid date is present in MedicationDispense.whenPrepared and a [Data Absent Reason extension](https://hl7.org/fhir/R4/extension-data-absent-reason.html) is used in place of MedicationDispense.whenHandedOver. This rule (invariant mdd-1), which asserts that the whenPrepared date must precede the whenHandedOver date, interprets whenHandedOver's value as 'null' in this situation, causing the test to fail. A request has been submitted to adjust the rule to accommodate this valid use of the Data Absent Reason extension in a future FHIR release.
+ 
+<p></p>
 <p></p>
