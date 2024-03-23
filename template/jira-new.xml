@@ -14,6 +14,8 @@
 <artifact id="StructureDefinition/pdmp-header-timestamp-extension" key="StructureDefinition-pdmp-header-timestamp-extension" name="PDMP Extension - Header Timestamp"/>
 <artifact id="StructureDefinition/pdmp-extension-lme" key="StructureDefinition-pdmp-extension-lme" name="PDMP Extension - LME"/>
 <artifact id="StructureDefinition/pdmp-extension-mme" key="StructureDefinition-pdmp-extension-mme" name="PDMP Extension - MME"/>
+<artifact id="StructureDefinition/pdmp-extension-method-of-payment" key="StructureDefinition-pdmp-extension-method-of-payment" name="PDMP Extension - Method of Payment"/>
+<artifact id="StructureDefinition/pdmp-extension-opioid-treatment-code" key="StructureDefinition-pdmp-extension-opioid-treatment-code" name="PDMP Extension - Opioid Treatment Code"/>
 <artifact id="StructureDefinition/pdmp-extension-rx-fill-number" key="StructureDefinition-pdmp-extension-rx-fill-number" name="PDMP Extension - Prescription Fill Number"/>
 <artifact deprecated="true" id="StructureDefinition/pdmp-extension-rx-refill-number" key="StructureDefinition-pdmp-extension-rx-refill-number" name="PDMP Extension - Prescription Refill Number"/>
 <artifact id="StructureDefinition/pdmp-extension-rx-transmission-method" key="StructureDefinition-pdmp-extension-rx-transmission-method" name="PDMP Extension - Prescription Transmission Method"/>
@@ -34,10 +36,14 @@
 <artifact id="StructureDefinition/pdmp-patient" key="StructureDefinition-pdmp-patient" name="PDMP Patient"/>
 <artifact id="CodeSystem/temporary-pdmp-response-status" key="CodeSystem-temporary-pdmp-response-status" name="PDMP Response Status Codes (Temporary)"/>
 <artifact deprecated="true" id="ValueSet/pdmp-event-type" key="ValueSet-pdmp-event-type" name="PDMP Value Set - Event Type"/>
+<artifact id="ValueSet/pmix-method-of-payment" key="ValueSet-pmix-method-of-payment" name="PDMP Value Set - Method of Payment"/>
+<artifact id="ValueSet/pdmp-opioid-treatment-code" key="ValueSet-pdmp-opioid-treatment-code" name="PDMP Value Set - Opioid Treatment Code"/>
 <artifact id="ValueSet/pdmp-patient-relationship" key="ValueSet-pdmp-patient-relationship" name="PDMP Value Set - Patient Relationship"/>
 <artifact id="ValueSet/pdmp-rx-transmission-method" key="ValueSet-pdmp-rx-transmission-method" name="PDMP Value Set - Prescription Transmission Method"/>
 <artifact id="ValueSet/pdmp-response-status" key="ValueSet-pdmp-response-status" name="PDMP Value Set - Response Status"/>
 <artifact id="ValueSet/pdmp-species-type" key="ValueSet-pdmp-species-type" name="PDMP Value Set - Species Type"/>
+<artifact id="CodeSystem/temporary-pmix-method-of-payment" key="CodeSystem-temporary-pmix-method-of-payment" name="PMIX Method of Payment Code (Temporary)"/>
+<artifact id="CodeSystem/temporary-pmix-opioid-treatment-code" key="CodeSystem-temporary-pmix-opioid-treatment-code" name="PMIX Opioid Treatment Code (Temporary)"/>
 <artifact id="CodeSystem/temporary-pmix-response-status" key="CodeSystem-temporary-pmix-response-status" name="PMIX Response Status Codes (Temporary)"/>
 <artifact id="CodeSystem/temporary-pmix-species-type-code" key="CodeSystem-temporary-pmix-species-type-code" name="PMIX Species Type Code (Temporary)"/>
 <artifact id="CodeSystem/temporary-pmix-transmission-form-of-rx-origin" key="CodeSystem-temporary-pmix-transmission-form-of-rx-origin" name="PMIX Transmission Form Of Rx Origin Code (Temporary)"/>

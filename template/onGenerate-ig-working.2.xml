@@ -19,7 +19,7 @@
    <name value="PDMP"/>
    <title value="US Prescription Drug Monitoring Program (PDMP)"/>
    <status value="draft"/>
-   <date value="2024-03-20T11:44:50-07:00"/>
+   <date value="2024-03-22T16:58:55-07:00"/>
    <publisher value="HL7 International / Pharmacy"/>
    <contact>
       <name value="HL7 International / Pharmacy"/>
@@ -532,6 +532,24 @@
             <valueString value="StructureDefinition:extension"/>
          </extension>
          <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+            <valueUri value="StructureDefinition-pdmp-extension-method-of-payment.html"/>
+         </extension>
+         <reference>
+            <reference value="StructureDefinition/pdmp-extension-method-of-payment"/>
+         </reference>
+         <name value="PDMP Extension - Method of Payment"/>
+         <description value="A code representing the method of payment for the dispensation"/>
+         <exampleBoolean value="false"/>
+         <groupingId value="-str-extension"/>
+      </resource>
+      <resource>
+         <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-sort">
+            <valueInteger value="999999999"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+            <valueString value="StructureDefinition:extension"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
             <valueUri value="StructureDefinition-pdmp-extension-mme.html"/>
          </extension>
          <reference>
@@ -539,6 +557,24 @@
          </reference>
          <name value="PDMP Extension - MME"/>
          <description value="MME - Morphine Milligram Equivalent.  The quantity of morphine (mg/day, except for fentanyl patchs use mcg/hr) equivalent to the daily opioid dose for the prescription as dispensed."/>
+         <exampleBoolean value="false"/>
+         <groupingId value="-str-extension"/>
+      </resource>
+      <resource>
+         <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-sort">
+            <valueInteger value="999999999"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+            <valueString value="StructureDefinition:extension"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+            <valueUri value="StructureDefinition-pdmp-extension-opioid-treatment-code.html"/>
+         </extension>
+         <reference>
+            <reference value="StructureDefinition/pdmp-extension-opioid-treatment-code"/>
+         </reference>
+         <name value="PDMP Extension - Opioid Treatment Code"/>
+         <description value="A code identifying the reason for an opioid prescription"/>
          <exampleBoolean value="false"/>
          <groupingId value="-str-extension"/>
       </resource>
@@ -793,6 +829,42 @@
          <description value="Codes indicating the overall status of a PDMP response. Intended to augment the PMIX Status Message code set"/>
          <exampleBoolean value="false"/>
          <groupingId value="-term-codesystem"/>
+      </resource>
+      <resource>
+         <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-sort">
+            <valueInteger value="999999999"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+            <valueString value="ValueSet"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+            <valueUri value="ValueSet-pmix-method-of-payment.html"/>
+         </extension>
+         <reference>
+            <reference value="ValueSet/pmix-method-of-payment"/>
+         </reference>
+         <name value="PDMP Value Set - Method of Payment"/>
+         <description value="This value set contains codes representing the method of payment for the dispensation"/>
+         <exampleBoolean value="false"/>
+         <groupingId value="-term-valueset"/>
+      </resource>
+      <resource>
+         <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-sort">
+            <valueInteger value="999999999"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+            <valueString value="ValueSet"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+            <valueUri value="ValueSet-pdmp-opioid-treatment-code.html"/>
+         </extension>
+         <reference>
+            <reference value="ValueSet/pdmp-opioid-treatment-code"/>
+         </reference>
+         <name value="PDMP Value Set - Opioid Treatment Code"/>
+         <description value="This value set contains codes the reason for the opioid treatment prescribed"/>
+         <exampleBoolean value="false"/>
+         <groupingId value="-term-valueset"/>
       </resource>
       <resource>
          <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-sort">
@@ -1225,6 +1297,42 @@
          <description value="This resource defines the expected capabilities of the PDMP Server actor when conforming to the PDMP IG and It is expected that it will be used in conjunction with the US Core CapabilityStatement. Together they describe the complete list of specific profiles, RESTful operations, and messaging capabilities supported by PDMP Servers. PDMP Server requirements may also be impacted by the rules of local jurisdictions or other contextual requirements."/>
          <exampleBoolean value="false"/>
          <groupingId value="-dyn-capabilitystatement"/>
+      </resource>
+      <resource>
+         <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-sort">
+            <valueInteger value="999999999"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+            <valueString value="CodeSystem"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+            <valueUri value="CodeSystem-temporary-pmix-method-of-payment.html"/>
+         </extension>
+         <reference>
+            <reference value="CodeSystem/temporary-pmix-method-of-payment"/>
+         </reference>
+         <name value="PMIX Method of Payment Code (Temporary)"/>
+         <description value="A code identifying the method of payment"/>
+         <exampleBoolean value="false"/>
+         <groupingId value="-term-codesystem"/>
+      </resource>
+      <resource>
+         <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-sort">
+            <valueInteger value="999999999"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+            <valueString value="CodeSystem"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+            <valueUri value="CodeSystem-temporary-pmix-opioid-treatment-code.html"/>
+         </extension>
+         <reference>
+            <reference value="CodeSystem/temporary-pmix-opioid-treatment-code"/>
+         </reference>
+         <name value="PMIX Opioid Treatment Code (Temporary)"/>
+         <description value="A code identifying the reason for an opioid prescription"/>
+         <exampleBoolean value="false"/>
+         <groupingId value="-term-codesystem"/>
       </resource>
       <resource>
          <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-sort">

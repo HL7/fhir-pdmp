@@ -28,6 +28,5 @@ Dosage Form[2]	Message/Body/RxHistoryResponse/MedicationDispensed/Quantity/Quant
     * medicationReference.form ->  "MedicationDispensed/Quantity/QuantityUnitOfMeasure"
 Refills Authorized	not directly represented in RxHistoryResponse	MedicationDispense.authorizingPrescription.dispenseRequest.numberOfRepeatsAllowed
     * authorizingPrescription.dispenseRequest.numberOfRepeatsAllowed -> "" "{not directly represented in RxHistoryResponse}"
-Partial Fill Indicator		MedicationDispense.type
 Method of Payment	Message/Body/RxHistoryResponse/MedicationDispensed/HistorySource/PaymentType
 */

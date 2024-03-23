@@ -1,10 +1,10 @@
 ### Other Data Standards Supporting the PDMP Ecosystem
 
-The broad PDMP ecosystem - from writing a prescription to reporting PDMP history, employs a combination of NCPDP, ASAP and PMIX/NIEM, as illustrated below:
+The broad PDMP ecosystem - from writing a prescription to reporting PDMP history, employs a combination of NCPDP, ASAP and PMIX/NIEM standards, as illustrated below:
 
 <div>
 <figure class="figure">
-<figcaption class="figure-caption"><strong>Figure: Standards supporting the PDMP ecosystem</strong></figcaption>
+<figcaption class="figure-caption"><strong>Figure 1: Standards supporting the PDMP ecosystem</strong></figcaption>
   <p>
   <img src="pdmp-overview-standards.png" style="float:none">  
   </p>
@@ -35,7 +35,6 @@ Links to the mappings
 The following tables consolidate the mappings for request and response scenarios.
 
 #### NCPDP Mappings for Request
-{:.no_toc}
 
 This section includes the minimal mapping for the request from an EHR to a state PDMP using NCPDP SCRIPT 2017071 RxHistoryRequest.
 
@@ -52,12 +51,12 @@ This section includes the minimal mapping for the request from an EHR to a state
       <tr style='height:20px;'>
         <td class="maptable16" rowspan="4">Request</td>
         <td class="maptable17">Requester</td>
-        <td class="maptable17">Message/Body/RxHistoryRequest/Prescriber/NonVeterinarian/Name</td>
+        <td class="maptable17">Prescriber/NonVeterinarian/Name</td>
         <td class="maptable17">Practitioner.name</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">Requester Role</td>
-        <td class="maptable17">Message/Body/RxHistoryRequest/RequestorRole</td>
+        <td class="maptable17">RequestorRole</td>
         <td class="maptable17">PractitionerRole.code</td>
       </tr>
       <tr style='height:20px;'>
@@ -73,66 +72,66 @@ This section includes the minimal mapping for the request from an EHR to a state
       <tr style='height:20px;'>
         <td class="maptable16" rowspan="2">Requester Identifier</td>
         <td class="maptable17">NPI Number*</td>
-        <td class="maptable17">Message/Body/RxHistoryRequest/Prescriber/NonVeterinarian/Identification/NPI</td>
+        <td class="maptable17">Prescriber/NonVeterinarian/Identification/NPI</td>
         <td class="maptable17">Practitioner.identifier</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">DEA Number*</td>
-        <td class="maptable17">Message/Body/RxHistoryRequest/Prescriber/NonVeterinarian/Identification/DEANumber</td>
+        <td class="maptable17">Prescriber/NonVeterinarian/Identification/DEANumber</td>
         <td class="maptable17">Practitioner.identifier</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable16" rowspan="3">Requesting Facility ID</td>
         <td class="maptable17">DEA Number*</td>
-        <td class="maptable17">Message/Body/RxHistoryRequest/Facility/Identification/DEANumber</td>
+        <td class="maptable17">Facility/Identification/DEANumber</td>
         <td class="maptable17">Organization.identifier</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">NCPDP Number*</td>
-        <td class="maptable17">Message/Body/RxHistoryRequest/Facility/Identification/NCPDPID</td>
+        <td class="maptable17">Facility/Identification/NCPDPID</td>
         <td class="maptable17">Organization.identifier</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">NPI*</td>
-        <td class="maptable17">Message/Body/RxHistoryRequest/Facility/Identification/NPI</td>
+        <td class="maptable17">Facility/Identification/NPI</td>
         <td class="maptable17">Organization.identifier</td>
       </tr>
       <tr style='height:28px;'>
         <td class="maptable16" rowspan="2">Requesting Facility</td>
         <td class="maptable17">Facility Name</td>
-        <td class="maptable17">Message/Body/RxHistoryRequest/Facility/FacilityName</td>
+        <td class="maptable17">Facility/FacilityName</td>
         <td class="maptable17">Organization.name</td>
       </tr>
       <tr style='height:28px;'>
         <td class="maptable17">State code of Requesting Facility</td>
-        <td class="maptable17">Message/Body/RxHistoryRequest/Facility/Address/StateProvince</td>
+        <td class="maptable17">Facility/Address/StateProvince</td>
         <td class="maptable17">Organization.address.state</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable16" rowspan="3">Patient</td>
         <td class="maptable17">First Name</td>
-        <td class="maptable17">Message/Body/RxHistoryRequest/Patient/HumanPatient/Name/FirstName</td>
+        <td class="maptable17">Patient/HumanPatient/Name/FirstName</td>
         <td class="maptable17">MedicationDispense.subject(Patient) --> Patient.name.given</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">Last Name</td>
-        <td class="maptable17">Message/Body/RxHistoryRequest/Patient/HumanPatient/Name/LastName</td>
+        <td class="maptable17">Patient/HumanPatient/Name/LastName</td>
         <td class="maptable17">MedicationDispense.subject(Patient) --> Patient.name.family</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">Date of Birth</td>
-        <td class="maptable17">Message/Body/RxHistoryRequest/Patient/HumanPatient/DateOfBirth</td>
+        <td class="maptable17">Patient/HumanPatient/DateOfBirth</td>
         <td class="maptable17">MedicationDispense.subject(Patient) --> Patient.birthdate</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable16" rowspan="2">Request Prescription Date Range</td>
         <td class="maptable17">Start Date</td>
-        <td class="maptable17">Message/Body/RxHistoryRequest/RequestedDates/StartDate</td>
+        <td class="maptable17">RequestedDates/StartDate</td>
         <td class="maptable17">MedicationDispense.authorizingPrescription.dispenseRequest.validityPeriod</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">End Date</td>
-        <td class="maptable17">Message/Body/RxHistoryRequest/RequestedDates/EndDate;</td>
+        <td class="maptable17">RequestedDates/EndDate;</td>
         <td class="maptable17">MedicationDispense.authorizingPrescription.dispenseRequest.validityPeriod</td>
       </tr>
       <tr style='height:40px;'>
@@ -146,7 +145,6 @@ This section includes the minimal mapping for the request from an EHR to a state
 
 
 #### NCPDP Mappings for Response
-{:.no_toc}
 
 This section includes the minimal mapping for the  response from a state  to an EHR using NCPDP SCRIPT 2017071 RxHistoryResponse.
 
@@ -171,12 +169,12 @@ This section includes the minimal mapping for the  response from a state  to an 
       </tr>
       <tr style='height:32px;'>
         <td class="maptable17">Response Prescription Date Range (Start Date)</td>
-        <td class="maptable17">Message/Body/RxHistoryResponse/RequestedDates/StartDate</td>
+        <td class="maptable17">RequestedDates/StartDate</td>
         <td class="maptable17">MessageHeader.extension (StructureDefinition-response-prescription-period-extension - Period.start)</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">Response Prescription Date Range (End date)</td>
-        <td class="maptable17">Message/Body/RxHistoryResponse/RequestedDates/EndDate</td>
+        <td class="maptable17">RequestedDates/EndDate</td>
         <td class="maptable17">MessageHeader.extension (StructureDefinition-response-prescription-period-extension - Period.end)</td>
       </tr>
       <tr style='height:20px;'>
@@ -190,97 +188,97 @@ This section includes the minimal mapping for the  response from a state  to an 
       <tr style='height:20px;'>
         <td class="maptable16" rowspan="10">Patient</td>
         <td class="maptable17">Patient First Name</td>
-        <td class="maptable17">Message/Body/RxHistoryResponse/Patient/HumanPatient/Name/FirstName</td>
+        <td class="maptable17">Patient/HumanPatient/Name/FirstName</td>
         <td class="maptable17">Patient.name.given</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">Patient Last Name</td>
-        <td class="maptable17">Message/Body/RxHistoryResponse/Patient/HumanPatient/Name/LastName</td>
+        <td class="maptable17">Patient/HumanPatient/Name/LastName</td>
         <td class="maptable17">Patient.name.family</td>
       </tr>
         <td class="maptable17">Patient Date of Birth</td>
-        <td class="maptable17">Message/Body/RxHistoryResponse/Patient/HumanPatient/DateOfBirth</td>
+        <td class="maptable17">Patient/HumanPatient/DateOfBirth</td>
         <td class="maptable17">Patient.birthdate</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">Patient Gender</td>
-        <td class="maptable17">Message/Body/RxHistoryResponse/Patient/HumanPatient/Gender</td>
+        <td class="maptable17">Patient/HumanPatient/Gender</td>
         <td class="maptable17">Patient.gender</td>
       </tr>
       <tr style='height:32px;'>
         <td class="maptable17">Patient Street Address 1</td>
-        <td class="maptable17">Message/Body/RxHistoryResponse/Patient/HumanPatient/Address/AddressLine1</td>
+        <td class="maptable17">Patient/HumanPatient/Address/AddressLine1</td>
         <td class="maptable17">Patient.address.line[0]</td>
       </tr>
       <tr style='height:32px;'>
         <td class="maptable17">Patient Street Address 2</td>
-        <td class="maptable17">Message/Body/RxHistoryResponse/Patient/HumanPatient/Address/AddressLine2</td>
+        <td class="maptable17">Patient/HumanPatient/Address/AddressLine2</td>
         <td class="maptable17">Patient.address.line[1]</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">Patient City Address</td>
-        <td class="maptable17">Message/Body/RxHistoryResponse/Patient/HumanPatient/Address/City</td>
+        <td class="maptable17">Patient/HumanPatient/Address/City</td>
         <td class="maptable17">Patient.address.city</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">Patient State Code</td>
-        <td class="maptable17">Message/Body/RxHistoryResponse/Patient/HumanPatient/Address/StateProvince</td>
+        <td class="maptable17">Patient/HumanPatient/Address/StateProvince</td>
         <td class="maptable17">Patient.address.state</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">Patient Zip Code</td>
-        <td class="maptable17">Message/Body/RxHistoryResponse/Patient/HumanPatient/Address/PostalCode</td>
+        <td class="maptable17">Patient/HumanPatient/Address/PostalCode</td>
         <td class="maptable17">Patient.address.postalCode</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">SSN*</td>
-        <td class="maptable17">Message/Body/RxHistoryResponse/Patient/HumanPatient/Identification/SocialSecurity</td>
+        <td class="maptable17">Patient/HumanPatient/Identification/SocialSecurity</td>
         <td class="maptable17">Patient.identifier</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable16" rowspan="12">Prescription</td>
         <td class="maptable17">Prescription Filled Date</td>
-        <td class="maptable17">Message/Body/RxHistoryResponse/MedicationDispensed/LastFillDate</td>
+        <td class="maptable17">MedicationDispensed/LastFillDate</td>
         <td class="maptable17">MedicationDispense.whenPrepared</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">Prescription Written Date</td>
-        <td class="maptable17">Message/Body/RxHistoryResponse/MedicationDispensed/WrittenDate</td>
+        <td class="maptable17">MedicationDispensed/WrittenDate</td>
         <td class="maptable17">MedicationDispense.authorizingPrescription.authoredOn</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">Prescription Number</td>
-        <td class="maptable17">Message/Body/RxHistoryResponse/MedicationDispensed/HistorySource/SourceReference</td>
+        <td class="maptable17">MedicationDispensed/HistorySource/SourceReference</td>
         <td class="maptable17">MedicationDispense.Identifier</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">Drug Name[1]</td>
-        <td class="maptable17">Message/Body/RxHistoryResponse/MedicationDispensed/DrugDescription</td>
+        <td class="maptable17">MedicationDispensed/DrugDescription</td>
         <td class="maptable17">MedicationDispense.medicationReference.text</td>
       </tr>
       <tr style='height:32px;'>
         <td class="maptable17">Drug Strength[1]</td>
-        <td class="maptable17">Message/Body/RxHistoryResponse/MedicationDispensed/DrugCoded/Strength</td>
+        <td class="maptable17">MedicationDispensed/DrugCoded/Strength</td>
         <td class="maptable17">MedicationDispense.medicationReference.ingredient.strength</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">Dosage Form[2]</td>
-        <td class="maptable17">Message/Body/RxHistoryResponse/MedicationDispensed/Quantity/QuantityUnitOfMeasure</td>
+        <td class="maptable17">MedicationDispensed/Quantity/QuantityUnitOfMeasure</td>
         <td class="maptable17">MedicationDispense.medicationReference.form</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">Drug Quantity</td>
-        <td class="maptable17">Message/Body/RxHistoryResponse/MedicationDispensed/Quantity/Value</td>
+        <td class="maptable17">MedicationDispensed/Quantity/Value</td>
         <td class="maptable17">MedicationDispense.quantity</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">Days of Supply</td>
-        <td class="maptable17">Message/Body/RxHistoryResponse/MedicationDispensed/DaysSupply</td>
+        <td class="maptable17">MedicationDispensed/DaysSupply</td>
         <td class="maptable17">MedicationDispense.daysSupply</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">Refill Number</td>
-        <td class="maptable17">Message/Body/RxHistoryResponse/MedicationDispensed/HistorySource/FillNumber</td>
+        <td class="maptable17">MedicationDispensed/HistorySource/FillNumber</td>
         <td class="maptable17">MedicationDispense.type</td>
       </tr>
       <tr style='height:20px;'>
@@ -295,112 +293,112 @@ This section includes the minimal mapping for the  response from a state  to an 
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">Method of Payment</td>
-        <td class="maptable17">Message/Body/RxHistoryResponse/MedicationDispensed/HistorySource/PaymentType</td>
+        <td class="maptable17">MedicationDispensed/HistorySource/PaymentType</td>
         <td class="maptable17"><i>are we including this in our response? SCRIPT uses code list PaymentType</i></td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable16" rowspan="2">Drug</td>
         <td class="maptable17">Product ID Qualifier</td>
-        <td class="maptable17">Message/Body/RxHistoryResponse/MedicationDispensed/DrugCoded/ProductCode/Qualifier</td>
+        <td class="maptable17">MedicationDispensed/DrugCoded/ProductCode/Qualifier</td>
         <td class="maptable17">MedicationDispense.medicationReference.code.coding.system</td>
       </tr>
       <tr style='height:32px;'>
         <td class="maptable17">Product ID</td>
-        <td class="maptable17">Message/Body/RxHistoryResponse/MedicationDispensed/DrugCoded/ProductCode/Code</td>
+        <td class="maptable17">MedicationDispensed/DrugCoded/ProductCode/Code</td>
         <td class="maptable17">MedicationDispense.medicationReference.code.coding.code</td>
       </tr>
       <tr style='height:32px;'>
         <td class="maptable16" rowspan="6">Dispenser Organization</td>
         <td class="maptable17">Dispenser Organization Name (Facility)</td>
-        <td class="maptable17">Message/Body/RxHistoryResponse/MedicationDispensed/Pharmacy/BusinessName</td>
+        <td class="maptable17">MedicationDispensed/Pharmacy/BusinessName</td>
         <td class="maptable17">Organization.name</td>
       </tr>
       <tr style='height:32px;'>
         <td class="maptable17">Dispenser Organization Street Address</td>
-        <td class="maptable17">Message/Body/RxHistoryResponse/MedicationDispensed/Pharmacy/Address/AddressLine1<br/>Message/Body/RxHistoryResponse/MedicationDispensed/Pharmacy/Address/AddressLine2</td>
+        <td class="maptable17">MedicationDispensed/Pharmacy/Address/AddressLine1<br/>MedicationDispensed/Pharmacy/Address/AddressLine2</td>
         <td class="maptable17">Organization.address.line</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">Dispenser Organization City Address</td>
-        <td class="maptable17">Message/Body/RxHistoryResponse/MedicationDispensed/Pharmacy/Address/City</td>
+        <td class="maptable17">MedicationDispensed/Pharmacy/Address/City</td>
         <td class="maptable17">Organization.address.city</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">Dispenser Organization State Code</td>
-        <td class="maptable17">Message/Body/RxHistoryResponse/MedicationDispensed/Pharmacy/Address/StateProvince</td>
+        <td class="maptable17">MedicationDispensed/Pharmacy/Address/StateProvince</td>
         <td class="maptable17">Organization.address.state</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">Dispenser Organization Zip Code</td>
-        <td class="maptable17">Message/Body/RxHistoryResponse/MedicationDispensed/Pharmacy/Address/PostalCode</td>
+        <td class="maptable17">MedicationDispensed/Pharmacy/Address/PostalCode</td>
         <td class="maptable17">Organization.address.postalCode</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">Dispenser Organization Phone Number</td>
-        <td class="maptable17">Message/Body/RxHistoryResponse/MedicationDispensed/Pharmacy/CommunicationNumbers/PrimaryTelephone</td>
+        <td class="maptable17">MedicationDispensed/Pharmacy/CommunicationNumbers/PrimaryTelephone</td>
         <td class="maptable17">Organization.telecom</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable16" rowspan="3">Dispenser Organization (Pharmacy identifier)</td>
         <td class="maptable17">DEA Number*</td>
-        <td class="maptable17">Message/Body/RxHistoryResponse/MedicationDispensed/Pharmacy/Identification/DEANumber</td>
+        <td class="maptable17">MedicationDispensed/Pharmacy/Identification/DEANumber</td>
         <td class="maptable17">Organization.identifier</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">NCPDP Number*</td>
-        <td class="maptable17">Message/Body/RxHistoryResponse/MedicationDispensed/Pharmacy/Identification/NCPDPID</td>
+        <td class="maptable17">MedicationDispensed/Pharmacy/Identification/NCPDPID</td>
         <td class="maptable17">Organization.identifier</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">NPI Number*</td>
-        <td class="maptable17">Message/Body/RxHistoryResponse/MedicationDispensed/Pharmacy/Identification/NPI</td>
+        <td class="maptable17">MedicationDispensed/Pharmacy/Identification/NPI</td>
         <td class="maptable17">Organization.identifier</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable16" rowspan="6">Prescriber</td>
         <td class="maptable17">Prescriber First Name</td>
-        <td class="maptable17">Message/Body/RxHistoryResponse/MedicationDispensed/Prescriber/NonVeterinarian/Name/FirstName</td>
+        <td class="maptable17">MedicationDispensed/Prescriber/NonVeterinarian/Name/FirstName</td>
         <td class="maptable17">Practitioner.name.given</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">Prescriber Last Name</td>
-        <td class="maptable17">Message/Body/RxHistoryResponse/MedicationDispensed/Prescriber/NonVeterinarian/Name/LastName</td>
+        <td class="maptable17">MedicationDispensed/Prescriber/NonVeterinarian/Name/LastName</td>
         <td class="maptable17">Practitioner.name.family</td>
       </tr>
       <tr style='height:32px;'>
         <td class="maptable17">Prescriber Street Address</td>
-        <td class="maptable17">Message/Body/RxHistoryResponse/MedicationDispensed/Prescriber/NonVeterinarian/Address/AddressLine1 <br/>Message/Body/RxHistoryResponse/MedicationDispensed/Prescriber/NonVeterinarian/Address/AddressLine2</td>
+        <td class="maptable17">MedicationDispensed/Prescriber/NonVeterinarian/Address/AddressLine1 <br/>MedicationDispensed/Prescriber/NonVeterinarian/Address/AddressLine2</td>
         <td class="maptable17">Practitioner.address.line</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">Prescriber City Address</td>
-        <td class="maptable17">Message/Body/RxHistoryResponse/MedicationDispensed/Prescriber/NonVeterinarian/Address/City</td>
+        <td class="maptable17">MedicationDispensed/Prescriber/NonVeterinarian/Address/City</td>
         <td class="maptable17">Practitioner.address.city</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">Prescriber State Code</td>
-        <td class="maptable17">Message/Body/RxHistoryResponse/MedicationDispensed/Prescriber/NonVeterinarian/Address/StateProvince</td>
+        <td class="maptable17">MedicationDispensed/Prescriber/NonVeterinarian/Address/StateProvince</td>
         <td class="maptable17">Practitioner.address.state</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">Prescriber Zip Code</td>
-        <td class="maptable17">Message/Body/RxHistoryResponse/MedicationDispensed/Prescriber/NonVeterinarian/Address/PostalCode</td>
+        <td class="maptable17">MedicationDispensed/Prescriber/NonVeterinarian/Address/PostalCode</td>
         <td class="maptable17">Practitioner.address.postalCode</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable16" rowspan="4">Prescriber Identifier</td>
         <td class="maptable17">DEA Number*</td>
-        <td class="maptable17">Message/Body/RxHistoryResponse/MedicationDispensed/Prescriber/NonVeterinarian/Identification/DEANumber</td>
+        <td class="maptable17">MedicationDispensed/Prescriber/NonVeterinarian/Identification/DEANumber</td>
         <td class="maptable17">Practitioner.identifier</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">NPI Number*</td>
-        <td class="maptable17">Message/Body/RxHistoryResponse/MedicationDispensed/Prescriber/NonVeterinarian/Identification/DEANumb…</td>
+        <td class="maptable17">MedicationDispensed/Prescriber/NonVeterinarian/Identification/DEANumb…</td>
         <td class="maptable17">Practitioner.identifier</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">State License* Identifier</td>
-        <td class="maptable17">Message/Body/RxHistoryResponse/MedicationDispensed/Prescriber/NonVeterinarian/Identification/StateLicenseNumber</td>
+        <td class="maptable17">MedicationDispensed/Prescriber/NonVeterinarian/Identification/StateLicenseNumber</td>
         <td class="maptable17">Practitioner.identifier</td>
       </tr>
       <tr style='height:20px;'>
@@ -418,8 +416,6 @@ This section includes the minimal mapping for the  response from a state  to an 
 
 
 #### PMIX Mappings for  Request
-
-{:.no_toc}
 
 This section includes the minimal mapping for the  request from an EHR to a state  using PMIX.
 
@@ -439,17 +435,17 @@ This section includes the minimal mapping for the  request from an EHR to a stat
       <tr style='height:20px;'>
         <td class="maptable16" rowspan="4">Request</td>
         <td class="maptable17">Requester</td>
-        <td class="maptable17">&lt;pmix:Requester&gt;</td>
+        <td class="maptable17">pmix:Requester</td>
         <td class="maptable17">Practitioner.name</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">Requester Role</td>
-        <td class="maptable17">&lt;pmix:RequesterRole&gt;</td>
+        <td class="maptable17">pmix:RequesterRole</td>
         <td class="maptable17">PractitionerRole.code</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">Request ID</td>
-        <td class="maptable17">&lt;pmix:RequestID&gt;</td>
+        <td class="maptable17">pmix:RequestID</td>
         <td class="maptable17">MessageHeader.id</td>
       </tr>
       <tr style='height:20px;'>
@@ -460,39 +456,39 @@ This section includes the minimal mapping for the  request from an EHR to a stat
       <tr style='height:20px;'>
         <td class="maptable16" rowspan="2">Requester Identifier</td>
         <td class="maptable17">NPI Number*</td>
-        <td class="maptable17">&lt;nc:IdentificationID&gt;</td>
+        <td class="maptable17">nc:IdentificationID</td>
         <td class="maptable17">Practitioner.identifier</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">DEA Number*</td>
-        <td class="maptable17">&lt;nc:IdentificationID&gt;</td>
+        <td class="maptable17">nc:IdentificationID</td>
         <td class="maptable17">Practitioner.identifier</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable16" rowspan="3">Requesting Facility ID</td>
         <td class="maptable17">DEA Number*</td>
-        <td class="maptable17">&lt;nc:IdentificationID&gt;</td>
+        <td class="maptable17">nc:IdentificationID</td>
         <td class="maptable17">Organization.identifier</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">NCPDP Number*</td>
-        <td class="maptable17">&lt;nc:IdentificationID&gt;</td>
+        <td class="maptable17">nc:IdentificationID</td>
         <td class="maptable17">Organization.identifier</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">NPI*</td>
-        <td class="maptable17">&lt;nc:IdentificationID&gt;</td>
+        <td class="maptable17">nc:IdentificationID</td>
         <td class="maptable17">Organization.identifier</td>
       </tr>
       <tr style='height:28px;'>
         <td class="maptable16" rowspan="2">Requesting Facility</td>
         <td class="maptable17">Facility Name</td>
-        <td class="maptable17">&lt;nc:OrganizationDoingBusinessAsName&gt;</td>
+        <td class="maptable17">nc:OrganizationDoingBusinessAsName</td>
         <td class="maptable17">Organization.name</td>
       </tr>
       <tr style='height:28px;'>
         <td class="maptable17">State code of Requesting Facility</td>
-        <td class="maptable17">&lt;nc:LocationStateUSPostalServiceCode&gt;</td>
+        <td class="maptable17">nc:LocationStateUSPostalServiceCode</td>
         <td class="maptable17">Organization.address.state</td>
       </tr>
       <tr style='height:20px;'>
@@ -501,28 +497,28 @@ This section includes the minimal mapping for the  request from an EHR to a stat
       <tr style='height:20px;'>
         <td class="maptable16" rowspan="3">Patient</td>
         <td class="maptable17">First Name</td>
-        <td class="maptable17">&lt;nc:PersonGivenName&gt;</td>
+        <td class="maptable17">nc:PersonGivenName</td>
         <td class="maptable17">MedicationDispense.subject(Patient) --> Patient.name.given</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">Last Name</td>
-        <td class="maptable17">&lt;nc:PersonSurName&gt;</td>
+        <td class="maptable17">nc:PersonSurName</td>
         <td class="maptable17">MedicationDispense.subject(Patient) --> Patient.name.family</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">Date of Birth</td>
-        <td class="maptable17">&lt;nc:Date&gt;</td>
+        <td class="maptable17">nc:Date</td>
         <td class="maptable17">MedicationDispense.subject(Patient) --> Patient.birthdate</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable16" rowspan="2">Request Prescription Date Range</td>
         <td class="maptable17">Start Date</td>
-        <td class="maptable17">&lt;pmp:RequestPrescriptionDateRangeBegin&gt;</td>
+        <td class="maptable17">pmp:RequestPrescriptionDateRangeBegin</td>
         <td class="maptable17">MedicationDispense.authorizingPrescription.dispenseRequest.validityPeriod</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">End Date</td>
-        <td class="maptable17">&lt;pmp:RequestPrescriptionDateRangeEnd&gt;</td>
+        <td class="maptable17">pmp:RequestPrescriptionDateRangeEnd</td>
         <td class="maptable17">MedicationDispense.authorizingPrescription.dispenseRequest.validityPeriod</td>
       </tr>
       <tr style='height:40px;'>
@@ -554,17 +550,17 @@ This section includes the minimal mapping for the  response from a state  to an 
       <tr style='height:20px;'>
         <td class="maptable16" rowspan="4"></td>
         <td class="maptable17">Response Date/Timestamp</td>
-        <td class="maptable17">&lt;pmp:ReportExecutionDate&gt;&lt;pmp:ReportExecutionTime&gt;</td>
+        <td class="maptable17">pmp:ReportExecutionDate&gt;pmp:ReportExecutionTime</td>
         <td class="maptable17">MessageHeader.extension (StructureDefinition-header-timestamp-extension)</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">Response Prescription Date Range (Start Date)</td>
-        <td class="maptable17">&lt;pmp:ReportDateRangeBegin&gt;</td>
+        <td class="maptable17">pmp:ReportDateRangeBegin</td>
         <td class="maptable17">MessageHeader.extension (StructureDefinition-response-prescription-period-extension - Period.start)</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">Response Prescription Date Range (End date)</td>
-        <td class="maptable17">&lt;pmp:ReportDateRangeEnd&gt;</td>
+        <td class="maptable17">pmp:ReportDateRangeEnd</td>
         <td class="maptable17">MessageHeader.extension (StructureDefinition-response-prescription-period-extension - Period.end)</td>
       </tr>
       <tr style='height:20px;'>
@@ -578,208 +574,208 @@ This section includes the minimal mapping for the  response from a state  to an 
       <tr style='height:20px;'>
         <td class="maptable16" rowspan="9">Patient</td>
         <td class="maptable17">Patient First Name</td>
-        <td class="maptable17">&lt;nc:PersonGivenName&gt;</td>
+        <td class="maptable17">nc:PersonGivenName</td>
         <td class="maptable17">Patient.name.given</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">Patient Last Name</td>
-        <td class="maptable17">&lt;nc:PersonSurName&gt;</td>
+        <td class="maptable17">nc:PersonSurName</td>
         <td class="maptable17">Patient.name.family</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">Patient Date of Birth</td>
-        <td class="maptable17">&lt;nc:Date&gt;</td>
+        <td class="maptable17">nc:Date</td>
         <td class="maptable17">Patient.birthdate</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">Patient Gender</td>
-        <td class="maptable17">&lt;PersonSexCode&gt;</td>
+        <td class="maptable17">PersonSexCode</td>
         <td class="maptable17">Patient.gender</td>
       </tr>
       <tr style='height:32px;'>
         <td class="maptable17">Patient Street Address</td>
-        <td class="maptable17">&lt;StreetFullText&gt;</td>
+        <td class="maptable17">StreetFullText</td>
         <td class="maptable17">Patient.address.line</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">Patient City Address</td>
-        <td class="maptable17">&lt;nc:LocationCityName&gt;</td>
+        <td class="maptable17">nc:LocationCityName</td>
         <td class="maptable17">Patient.address.city</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">Patient State Code</td>
-        <td class="maptable17">&lt;nc:LocationStateUSPostalServiceCode&gt;</td>
+        <td class="maptable17">nc:LocationStateUSPostalServiceCode</td>
         <td class="maptable17">Patient.address.state</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">Patient Zip Code</td>
-        <td class="maptable17">&lt;nc:LocationPostalExtensionCod&gt;</td>
+        <td class="maptable17">nc:LocationPostalExtensionCod</td>
         <td class="maptable17">Patient.address.postalCode</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">SSN*</td>
-        <td class="maptable17">&lt;nc:IdentificationID&gt;</td>
+        <td class="maptable17">nc:IdentificationID</td>
         <td class="maptable17">Patient.identifier</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable16" rowspan="12">Prescription</td>
         <td class="maptable17">Prescription Filled Date</td>
-        <td class="maptable17">&lt;pmp:ReportDateRangeBegin&gt;&lt;pmp:ReportDateRangeEnd&gt;</td>
+        <td class="maptable17">pmp:ReportDateRangeBegin&gt;pmp:ReportDateRangeEnd</td>
         <td class="maptable17">MedicationDispense.whenPrepared</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">Prescription Written Date</td>
-        <td class="maptable17">&lt;nc:Date&gt;</td>
+        <td class="maptable17">nc:Date</td>
         <td class="maptable17">MedicationDispense.authorizingPrescription.authoredOn</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">Prescription Number</td>
-        <td class="maptable17">&lt;pmp:PrescriptionNumberText&gt;</td>
+        <td class="maptable17">pmp:PrescriptionNumberText</td>
         <td class="maptable17">MedicationDispense.Identifier</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">Drug Name[1]</td>
-        <td class="maptable17">&lt;pmp:DrugProductNameText&gt;</td>
+        <td class="maptable17">pmp:DrugProductNameText</td>
         <td class="maptable17">MedicationDispense.medicationReference.code.coding.code.display</td>
       </tr>
       <tr style='height:32px;'>
         <td class="maptable17">Drug Strength[1]</td>
-        <td class="maptable17">&lt;pmp:DrugStrengthText&gt;</td>
+        <td class="maptable17">pmp:DrugStrengthText</td>
         <td class="maptable17">MedicationDispense.medicationReference.ingredient.strength</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">Dosage Form[2]</td>
-        <td class="maptable17">&lt;pmp:DrugUnitOfMeasureText&gt;</td>
+        <td class="maptable17">pmp:DrugUnitOfMeasureText</td>
         <td class="maptable17">MedicationDispense.medicationReference.form</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">Drug Quantity</td>
-        <td class="maptable17">&lt;pmp:DispensedQuantity&gt;</td>
+        <td class="maptable17">pmp:DispensedQuantity</td>
         <td class="maptable17">MedicationDispense.quantity</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">Days of Supply</td>
-        <td class="maptable17">&lt;pmp:DaysSupplyCount&gt;</td>
+        <td class="maptable17">pmp:DaysSupplyCount</td>
         <td class="maptable17">MedicationDispense.daysSupply</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">Refill Number</td>
-        <td class="maptable17">&lt;pmp:DrugRefillNumberCount&gt;</td>
+        <td class="maptable17">pmp:DrugRefillNumberCount</td>
         <td class="maptable17">MedicationDispense.extension - (StructureDefinition-refill-number-extension)</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">Refills Authorized</td>
-        <td class="maptable17">&lt;pmp:RefillsAuthorizedCount&gt;</td>
+        <td class="maptable17">pmp:RefillsAuthorizedCount</td>
         <td class="maptable17">MedicationDispense.authorizingPrescription.dispenseRequest.numberOfRepeatsAllowed</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">Partial Fill Indicator</td>
-        <td class="maptable17">&lt;pmp:PartialFillIndicator&gt;</td>
+        <td class="maptable17">pmp:PartialFillIndicator</td>
         <td class="maptable17">MedicationDispense.type</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">Method of Payment</td>
-        <td class="maptable17">&lt;pmp:MethodOfPaymentCode&gt;</td>
+        <td class="maptable17">pmp:MethodOfPaymentCode</td>
         <td class="maptable17">MedicationDispense.note</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable16" rowspan="2">Drug</td>
         <td class="maptable17">Product ID Qualifier</td>
-        <td class="maptable17">&lt;pmp:DrugCPDProductIdentifier&gt;&lt;pmp:DrugDINProductIdentifier&gt;</br>&lt;pmp:DrugHRIProductIdentifier&gt;&lt;pmp:pmp:DrugNDCProductIdentifier&gt;</br>&lt;pmp:DrugUPCProductIdentifier&gt;&lt;pmp:DrugUPNProductIdentifier&gt;</td>
+        <td class="maptable17">pmp:DrugCPDProductIdentifier&gt;pmp:DrugDINProductIdentifier&gt;</br>pmp:DrugHRIProductIdentifier&gt;pmp:pmp:DrugNDCProductIdentifier&gt;</br>pmp:DrugUPCProductIdentifier&gt;pmp:DrugUPNProductIdentifier</td>
         <td class="maptable17">MedicationDispense.medicationReference.code.coding.system</td>
       </tr>
       <tr style='height:32px;'>
         <td class="maptable17">Product ID</td>
-        <td class="maptable17">&lt;IdentificationID&gt;</td>
+        <td class="maptable17">IdentificationID</td>
         <td class="maptable17">MedicationDispense.medicationReference.code.coding.code</td>
       </tr>
       <tr style='height:32px;'>
         <td class="maptable16" rowspan="6">Dispenser Organization</td>
         <td class="maptable17">Dispenser Organization Name (Facility)</td>
-        <td class="maptable17">&lt;nc:OrganizationDoingBusinessAsName&gt;</td>
+        <td class="maptable17">nc:OrganizationDoingBusinessAsName</td>
         <td class="maptable17">Organization.name</td>
       </tr>
       <tr style='height:32px;'>
         <td class="maptable17">Dispenser Organization Street Address</td>
-        <td class="maptable17">&lt;nc:StreetFullText&gt;</td>
+        <td class="maptable17">nc:StreetFullText</td>
         <td class="maptable17">Organization.address.line</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">Dispenser Organization City Address</td>
-        <td class="maptable17">&lt;nc:LocationCityName&gt;</td>
+        <td class="maptable17">nc:LocationCityName</td>
         <td class="maptable17">Organization.address.city</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">Dispenser Organization State Code</td>
-        <td class="maptable17">&lt;nc:LocationStateUSPostalServiceCode&gt;</td>
+        <td class="maptable17">nc:LocationStateUSPostalServiceCode</td>
         <td class="maptable17">Organization.address.state</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">Dispenser Organization Zip Code</td>
-        <td class="maptable17">&lt;nc:LocationPostalCode&gt;</td>
+        <td class="maptable17">nc:LocationPostalCode</td>
         <td class="maptable17">Organization.address.postalCode</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">Dispenser Organization Phone Number</td>
-        <td class="maptable17">&lt;nc:TelephoneNumberFullID&gt;</td>
+        <td class="maptable17">nc:TelephoneNumberFullID</td>
         <td class="maptable17">Organization.telecom</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable16" rowspan="3">Dispenser Organization (Pharmacy identifier)</td>
         <td class="maptable17">DEA Number*</td>
-        <td class="maptable17">&lt;nc:IdentificationID&gt;</td>
+        <td class="maptable17">nc:IdentificationID</td>
         <td class="maptable17">Organization.identifier</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">NCPDP Number*</td>
-        <td class="maptable17">&lt;nc:IdentificationID&gt;</td>
+        <td class="maptable17">nc:IdentificationID</td>
         <td class="maptable17">Organization.identifier</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">NPI Number*</td>
-        <td class="maptable17">&lt;nc:IdentificationID&gt;</td>
+        <td class="maptable17">nc:IdentificationID</td>
         <td class="maptable17">Organization.identifier</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable16" rowspan="6">Prescriber</td>
         <td class="maptable17">Prescriber First Name</td>
-        <td class="maptable17">&lt;nc:PersonGivenName&gt;</td>
+        <td class="maptable17">nc:PersonGivenName</td>
         <td class="maptable17">Practitioner.name.given</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">Prescriber Last Name</td>
-        <td class="maptable17">&lt;nc:PersonSurName&gt;</td>
+        <td class="maptable17">nc:PersonSurName</td>
         <td class="maptable17">Practitioner.name.family</td>
       </tr>
       <tr style='height:32px;'>
         <td class="maptable17">Prescriber Street Address</td>
-        <td class="maptable17">&lt;nc:StreetFullText&gt;</td>
+        <td class="maptable17">nc:StreetFullText</td>
         <td class="maptable17">Practitioner.address.line</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">Prescriber City Address</td>
-        <td class="maptable17">&lt;nc:LocationCityName&gt;</td>
+        <td class="maptable17">nc:LocationCityName</td>
         <td class="maptable17">Practitioner.address.city</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">Prescriber State Code</td>
-        <td class="maptable17">&lt;nc:LocationStateUSPostalServiceCode&gt;</td>
+        <td class="maptable17">nc:LocationStateUSPostalServiceCode</td>
         <td class="maptable17">Practitioner.address.state</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">Prescriber Zip Code</td>
-        <td class="maptable17">&lt;LocationPostalCode&gt;</td>
+        <td class="maptable17">LocationPostalCode</td>
         <td class="maptable17">Practitioner.address.postalCode</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable16" rowspan="4">Prescriber Identifier</td>
         <td class="maptable17">DEA Number*</td>
-        <td class="maptable17">&lt;IdentificationID&gt;</td>
+        <td class="maptable17">IdentificationID</td>
         <td class="maptable17">Practitioner.identifier</td>
       </tr>
       <tr style='height:20px;'>
         <td class="maptable17">NPI Number*</td>
-        <td class="maptable17">&lt;IdentificationID&gt;</td>
+        <td class="maptable17">IdentificationID</td>
         <td class="maptable17">Practitioner.identifier</td>
       </tr>
       <tr style='height:20px;'>

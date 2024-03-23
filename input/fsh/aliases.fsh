@@ -42,6 +42,8 @@ Alias: $pdmp-parameters-response = http://hl7.org/fhir/us/pdmp/StructureDefiniti
 // PDMP content profiles
 Alias: $pdmp-extension-lme = http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-extension-lme
 Alias: $pdmp-extension-mme = http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-extension-mme
+Alias: $pdmp-extension-opioid-treatment-code = http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-extension-opioid-treatment-code
+Alias: $pdmp-extension-method-of-payment = http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-extension-method-of-payment
 Alias: $pdmp-extension-rx-fill-number = http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-extension-rx-fill-number
 Alias: $pdmp-extension-rx-transmission-method = http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-extension-rx-transmission-method
 Alias: $pdmp-medicationadministration = http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-medicationadministration
@@ -55,3 +57,5 @@ Alias: $pmix-response-status-cs = http://hl7.org/fhir/us/pdmp/CodeSystem/tempora
 Alias: $pmix-transmission-cs = http://hl7.org/fhir/us/pdmp/CodeSystem/temporary-pmix-transmission-form-of-rx-origin
 Alias: $pdmp-patient-relationship-cs = http://hl7.org/fhir/us/pdmp/CodeSystem/temporary-pdmp-patient-relationship
 Alias: $pmix-species-type-cs = http://hl7.org/fhir/us/pdmp/CodeSystem/temporary-pmix-species-type-code
+Alias: $pmix-method-of-payment-cs = http://hl7.org/fhir/us/pdmp/CodeSystem/temporary-pmix-method-of-payment
+Alias: $pmix-opioid-treatment-code-cs = http://hl7.org/fhir/us/pdmp/CodeSystem/temporary-pmix-opioid-treatment-code

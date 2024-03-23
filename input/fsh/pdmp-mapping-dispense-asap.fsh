@@ -1,3 +1,8 @@
+/*
+2024-03-22 smrobertson
+    ASAP mapping has been excluded from PDMP on FHIR STU1
+    this information retained if ASAP mapping is brought back into the IG
+
 //Alias:  = http://AdHocPDMPRequestResponse/AdHocPDMPRequestResult/Details/PDMPDetailedResponse/PrescriptionDetails/PharmacyDispenseInfo/Prescriptions/DispensingEventInfo/
 
 Mapping: pdmp-meddispense-to-asap-ws
@@ -38,16 +43,16 @@ Title: "ASAP WebService v2.1A"
 * whenHandedOver -> "DispensingEvent/DateSold" 
 // * authorizingPrescription.MedicationRequest.dispenseRequest.quantity -> "DispensingEvent/QuantityPrescribed" 
 * dosageInstruction.text -> "DispensingEvent/RxSIG" 
-/* 
-* -> "DispensingEvent/TreatmentTypeCode" 
-* -> "DispensingEvent/DiagnosisCode" 
-* -> "DispensingEvent/RxSerialNumber/IssuingState"
-* -> "DispensingEvent/RxSerialNumber/SerialNumber" 
-* -> "DispensingEvent/PickupOrDropOffPerson/Name/GivenName"
-* -> "DispensingEvent/PickupOrDropOffPerson/Name/MiddleName"
-* -> "DispensingEvent/PickupOrDropOffPerson/Name/SurName"
-* -> "DispensingEvent/PickupOrDropOffPerson/Name/NameSuffix"
-* -> "DispensingEvent/PickupOrDropOffPerson/IDQualifer"
-* -> "DispensingEvent/PickupOrDropOffPerson/ID"
-* -> "DispensingEvent/PickupOrDropOffPerson/RelationshipCode"
+
+// * -> "DispensingEvent/TreatmentTypeCode" 
+// * -> "DispensingEvent/DiagnosisCode" 
+// * -> "DispensingEvent/RxSerialNumber/IssuingState"
+// * -> "DispensingEvent/RxSerialNumber/SerialNumber" 
+// * -> "DispensingEvent/PickupOrDropOffPerson/Name/GivenName"
+// * -> "DispensingEvent/PickupOrDropOffPerson/Name/MiddleName"
+// * -> "DispensingEvent/PickupOrDropOffPerson/Name/SurName"
+// * -> "DispensingEvent/PickupOrDropOffPerson/Name/NameSuffix"
+// * -> "DispensingEvent/PickupOrDropOffPerson/IDQualifer"
+// * -> "DispensingEvent/PickupOrDropOffPerson/ID"
+// * -> "DispensingEvent/PickupOrDropOffPerson/RelationshipCode"
 */

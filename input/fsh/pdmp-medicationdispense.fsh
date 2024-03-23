@@ -30,7 +30,9 @@ Description: "Defines constraints and extensions on the MedicationDispense resou
     pdmp-extension-rx-fill-number named rx-fill-number 0..1 MS and
     pdmp-extension-rx-transmission-method named rx-transmission-method 0..1 MS and
     pdmp-extension-mme named rx-mme 0..1 MS and
-    pdmp-extension-lme named rx-lme 0..1 MS
+    pdmp-extension-lme named rx-lme 0..1 MS and
+    pdmp-extension-method-of-payment named rx-method-of-payment 0..1 and
+    pdmp-extension-opioid-treatment-code named rx-opioid-treatment-code 0..1
 * status 1.. MS
 * status from $medicationdispense-status (required)
 * status ^binding.description = "A set of codes indicating the current status of a MedicationDispense."
@@ -107,6 +109,10 @@ Description: "Example of a PDMP medication dispensation record with MME extensio
 * extension[=].valueCoding = $pmix-transmission-cs#"05" "Electronic Prescription"
 * extension[+].url = $pdmp-extension-mme
 * extension[=].valueDecimal = 18
+* extension[+].url  = $pdmp-extension-method-of-payment
+* extension[=].valueCoding = $pmix-method-of-payment-cs#"01" "Private Pay (Cash, Charge, Credit Card)"
+* extension[+].url  = $pdmp-extension-opioid-treatment-code
+* extension[=].valueCoding = $pmix-opioid-treatment-code-cs#"10" "Acute Opioid Therapy"
 * identifier.type = $v2-0203#FILL "Filler Identifier"
 * identifier.system = "http://ourpharmacy.com/fillnumber"
 * identifier.value = "2000353"
@@ -153,7 +159,7 @@ Description: "Example of a PDMP medication dispensation record with LME extensio
 * medicationCodeableConcept.coding[+] = $ndc#00093545106
 * medicationCodeableConcept.coding[=].userSelected = true
 * medicationCodeableConcept.text = "24 HR alprazolam 1 MG Extended Release Oral Tablet"
-* subject.display = "Amy V. Shaw"
+* subject.display = "August Samuels"
 * performer.actor.identifier[0].system = "http://terminology.hl7.org/CodeSystem/NCPDPProviderIdentificationNumber"
 * performer.actor.identifier[=].value = "999017"
 * performer.actor.display = "Our Pharmacy"
