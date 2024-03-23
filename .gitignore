@@ -9,9 +9,4 @@ FHIR-us-pdmp.xml
 .vscode
 .cspell/custom-dictionary-workspace.txt
 template/
-template/onGenerate.jira.tmp2.xml
-template/onGenerate-ig-updated.xml
-template/onGenerate-ig-working.1.xml
-template/onGenerate-ig-working.2.xml
-template/onGenerate-ig-working.json
-template/onGenerate.jira.tmp.xml
+
