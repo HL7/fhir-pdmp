@@ -75,13 +75,13 @@ This Implementation Guide is intended to be used in the United States.  It refle
 The guide is organized into the following sections:
 
 - [Use Case Overview](use-case.html) describes the PDMP use case, participants and environment variations.
-- [Submission Options](submission-options.html) details PDMP request submission and response processing.
+- [Operation Submission Options](submission-options.html) details PDMP request submission and response processing using a FHIR operation.
+- [CDS Hooks and SMART App Options](cds-smart.html) describes use of these FHIR mechanisms to integrate retrieval and view of PDMP information into the provider's workflow.
 - [Security](security.html) provides information for implementers related to security and privacy.
-- [Deployment Architecture](deployment.html) provides guidance on system deployment options.
 - [Conformance Expectations](conformance.html) defines use of Must Support elements and also describes conventions for situations where information is not available.
+- [Mappings to Related Standards](mappings.html) describes how FHIR content relates to other standards use in the larger PDMP ecosystem.
 - [Applicable US Core Profiles](us-core-profiles.html) defines expectations for the use of US Core profiles in the guide's searches.
 - [Profiles, Terminology and Examples](artifacts.html) lists the FHIR profiles and other artifacts defined in this IG.
-- [Mappings to Related Standards](mappings.html) describes how FHIR content relates to other standards use in the larger PDMP ecosystem.
 
 ### FHIR Basics 
 

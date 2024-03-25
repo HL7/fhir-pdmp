@@ -19,16 +19,30 @@ publisher:
 dependencies:
   hl7.fhir.us.core: 6.1.0
 
-#
-# pages:
-#   index.md:
-#     title: Example Home
-#   implementation.xml:
-#   examples.xml:
-#     title: Examples Overview
-#     simpleExamples.xml:
-#     complexExamples.xml:
-#
+pages:
+  index.md:
+    title: PDMP IG Home Page
+  use-case.md:
+    title: Use Cases
+  submission-options.md:
+    title: Operation Submission Options
+  cds-smart.md:
+    title: CDS Hooks and SMART App Options
+  conformance.md:
+    title: Conformance Expectations
+  security.md:
+    title: Security
+  mappings.md:
+    title: Mappings to Related Standards
+  us-core-profiles.md:
+    title: Applicable US Core Profiles
+  capability-statements.md:
+    title: Capability Statements
+  downloads.xml:
+    title: Downloads
+  changes.md:
+    title: Change Log
+
 # menu:
 #   Home: index.html
 #   Artifacts: artifacts.html
@@ -50,6 +64,7 @@ contact:
 extension:
   - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-wg
     valueCode: phx
+auto-oid-root: 2.16.840.1.113883.4.642.40.35
 #
 #
 # The instanceOptions property is used to configure certain aspects of how SUSHI processes instances.

@@ -139,7 +139,7 @@ All scenarios described below communicate processing information using the opera
 * an `OperationOutcome.issue.details.coding.code` value to further define the processing condition
 * a human-readable version of the condition's details in the `OperationOutcome.issue.details.coding.display` field.
 
-PDMP Responders are expected to utilize codes and descriptive text in the `.diagnostics`' `.issue.details` elements that meet their existing conventions and/or jurisdictional requirements.
+PDMP Responders are expected to utilize codes and descriptive text in the `.diagnostics.issue.details` element that meet their existing conventions and/or jurisdictional requirements. One iteration of this element **SHOULD** contain a code from the [PDMP Response Status Codes](ValueSet-pdmp-response-status.html) value set.
 
 <p></p>
 <p></p>

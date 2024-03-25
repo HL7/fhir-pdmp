@@ -1,5 +1,3 @@
-_placeholder content to be revised_
-
 ### Handling Missing Data
 
 #### In Must Support Elements
@@ -47,5 +45,5 @@ If the source system does not have data for a *required* data element (in other 
 
 Resources returned by the PDMP Responder that are not profiled in this IG SHOULD conform to the associated US Core profiles as outlined in [US Core Profiles](us-core-profiles.html) when applicable profiles exist.
 
-<br />
-
+<p></p>
+<p></p>
