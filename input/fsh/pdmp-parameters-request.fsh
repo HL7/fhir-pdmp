@@ -183,3 +183,83 @@ Description: "Example of the minimal Parameters resource population to request a
 * parameter[authorized-practitioner-organization].resource.name = "Highview Clinic"
 * parameter[pre-stage-only].name = "pre-stage-only"
 * parameter[pre-stage-only].valueBoolean = false
+
+
+Instance: pdmp-history-input-parameters-3-veterinary
+InstanceOf: pdmp-parameters-request
+Usage: #example
+Description: "Example of a PDMP operation request for an animal patient"
+* parameter[patient].name = "patient"
+* parameter[patient].resource.id = "patient-req-3"
+* parameter[patient].resource.resourceType = "Patient"
+* parameter[patient].resource.meta.profile = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-patient"
+* parameter[patient].resource.text.status = #generated
+* parameter[patient].resource.text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Animal patient: Fido Samuels</div>"
+* parameter[patient].resource.extension[0].url = $patient-animal-extension
+* parameter[patient].resource.extension[=].extension[0].url = "species"
+* parameter[patient].resource.extension[=].extension[0].valueCodeableConcept.coding = temporary-pmix-species-type-code#02 "Veterinary Patient"
+* parameter[patient].resource.identifier.type.coding.system = "http://terminology.hl7.org/CodeSystem/v2-0203"
+* parameter[patient].resource.identifier.type.coding.code = #MR
+* parameter[patient].resource.identifier.type.coding.display = "Medical record number"
+* parameter[patient].resource.identifier.system = "http://vet-medical.example.org/mrn"
+* parameter[patient].resource.identifier.value = "10035406"
+* parameter[patient].resource.name.family = "Samuels"
+* parameter[patient].resource.name.given = "Fido"
+* parameter[patient].resource.gender = #male
+* parameter[patient].resource.birthDate.extension.url = "http://hl7.org/fhir/StructureDefinition/data-absent-reason"
+* parameter[patient].resource.birthDate.extension.valueCode = #unknown
+* parameter[patient].resource.address.line[0] = "10023 Oakways Ln"
+* parameter[patient].resource.address.state = "Concord"
+* parameter[patient].resource.address.state = "MA"
+* parameter[patient].resource.address.postalCode = "01742"
+* parameter[animal-owner].name = "animal-owner"
+* parameter[animal-owner].resource.id = "patient-req-3"
+* parameter[animal-owner].resource.resourceType = "RelatedPerson"
+* parameter[animal-owner].resource.meta.profile = $us-core-relatedperson
+* parameter[animal-owner].resource.text.status = #generated
+* parameter[animal-owner].resource.text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Animal's owner: August Samuels</div>"
+* parameter[animal-owner].resource.identifier.type.coding.system = "http://terminology.hl7.org/CodeSystem/v2-0203"
+* parameter[animal-owner].resource.identifier.type.coding.code = #DL
+* parameter[animal-owner].resource.identifier.type.coding.display = "Driver's license number"
+* parameter[animal-owner].resource.identifier.value = "M231-64600-565-55"
+* parameter[animal-owner].resource.active = true
+* parameter[animal-owner].resource.name.family = "Samuels"
+* parameter[animal-owner].resource.name.given = "August"
+* parameter[animal-owner].resource.gender = #male
+* parameter[animal-owner].resource.birthDate = "1989-03-12"
+* parameter[animal-owner].resource.address.line[0] = "10023 Oakways Ln"
+* parameter[animal-owner].resource.address.state = "Concord"
+* parameter[animal-owner].resource.address.state = "MA"
+* parameter[animal-owner].resource.address.postalCode = "01742"
+* parameter[animal-owner].resource.patient.reference = "Patient/patient-req-3"
+* parameter[authorized-practitioner].name = "authorized-practitioner"
+* parameter[authorized-practitioner].resource.id = "practitioner-req-3"
+* parameter[authorized-practitioner].resource.resourceType = "Practitioner"
+* parameter[authorized-practitioner].resource.meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner|6.1.0"
+* parameter[authorized-practitioner].resource.text.status = #generated
+* parameter[authorized-practitioner].resource.text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Susan Patel, Veterinarian</div>"
+* parameter[authorized-practitioner].resource.identifier[0].system = "http://hl7.org/fhir/sid/us-npi"
+* parameter[authorized-practitioner].resource.identifier[=].value = "1928340565"
+* parameter[authorized-practitioner].resource.name.family = "Patel"
+* parameter[authorized-practitioner-role].name = "authorized-practitioner-role"
+* parameter[authorized-practitioner-role].resource.resourceType = "PractitionerRole"
+* parameter[authorized-practitioner-role].resource.id = "practitionerrole-req-3"
+* parameter[authorized-practitioner-role].resource.meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole|6.1.0"
+* parameter[authorized-practitioner-role].resource.text.status = #generated
+* parameter[authorized-practitioner-role].resource.text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Susan Patel, Veterinary Medicine, Highview Veterinary</div>"
+* parameter[authorized-practitioner-role].resource.practitioner.reference = "Practitioner/practitioner-req-3"
+* parameter[authorized-practitioner-role].resource.practitioner.display = "Susan Patel"
+* parameter[authorized-practitioner-role].resource.organization.reference = "Organization/organization-req-3"
+* parameter[authorized-practitioner-role].resource.organization.display = "Highview Veterinary"
+* parameter[authorized-practitioner-role].resource.telecom[0].system = #phone
+* parameter[authorized-practitioner-role].resource.telecom[=].value = "951-555-5555"
+* parameter[authorized-practitioner-organization].name = "authorized-practitioner-organization"
+* parameter[authorized-practitioner-organization].resource.resourceType = "Organization"
+* parameter[authorized-practitioner-organization].resource.id = "organization-req-3"
+* parameter[authorized-practitioner-organization].resource.meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization|6.1.0"
+* parameter[authorized-practitioner-organization].resource.text.status = #generated
+* parameter[authorized-practitioner-organization].resource.text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Highview Veterinary</div>"
+* parameter[authorized-practitioner-organization].resource.active = true
+* parameter[authorized-practitioner-organization].resource.name = "Highview Veterinary"
+* parameter[pre-stage-only].name = "pre-stage-only"
+* parameter[pre-stage-only].valueBoolean = false

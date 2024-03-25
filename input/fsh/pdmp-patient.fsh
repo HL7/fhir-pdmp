@@ -105,11 +105,6 @@ Description: "Example of a PDMP patient - as submitted in a request or returned 
 * address.postalCode = "01742"
 
 
-
-
-
-
-
 Instance: pdmp-patient-2-veterinary
 InstanceOf: pdmp-patient
 Usage: #example
@@ -153,4 +148,3 @@ Description: "Example of the owner of an animal patient"
 * address.state = "MA"
 * address.postalCode = "01742"
 * patient.reference = "Patient/pdmp-patient-2-veterinary"
-* relationship.coding = http://hl7.org/fhir/us/pdmp/CodeSystem/temporary-pdmp-patient-relationship#animal-owner "Animal Owner"
