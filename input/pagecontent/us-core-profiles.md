@@ -79,7 +79,7 @@ When other resources not profiled in this implementation guide or listed above a
 
 <p></p>
 
-*See the [full list of US Core profiles](https://www.hl7.org/fhir/us/core/profiles.html)*
+*See the [full list of US Core profiles](https://www.hl7.org/fhir/us/core/profiles-and-extensions.html)*
 
 <p></p>
 <p></p>
