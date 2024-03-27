@@ -53,7 +53,7 @@ InstanceOf: pdmp-parameters-response
 Usage: #example
 Description: "Example of a Parameters resource used to respond to a request a patient's PDMP history"
 * parameter[pdmp-history-data].name = "pdmp-history-data"
-* parameter[pdmp-history-data].resource.id = "bundle-res-1"
+* parameter[pdmp-history-data].resource.id = "bundle-history-data-1"
 * parameter[pdmp-history-data].resource.resourceType = "Bundle"
 * parameter[pdmp-history-data].resource.meta.profile = $pdmp-bundle-history-result
 * parameter[pdmp-history-data].resource.type = #collection
@@ -143,7 +143,7 @@ InstanceOf: pdmp-parameters-response
 Usage: #example
 Description: "Example of minimal population of a Parameters resource used to respond when a patient has PDMP history"
 * parameter[pdmp-history-data].name = "pdmp-history-data"
-* parameter[pdmp-history-data].resource.id = "bundle-res-2"
+* parameter[pdmp-history-data].resource.id = "bundle-history-data-2-minimal"
 * parameter[pdmp-history-data].resource.resourceType = "Bundle"
 * parameter[pdmp-history-data].resource.meta.profile = $pdmp-bundle-history-result
 * parameter[pdmp-history-data].resource.type = #collection

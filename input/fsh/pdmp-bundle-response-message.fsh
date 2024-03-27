@@ -78,7 +78,7 @@ Description: "Example of a Parameters resource returning a patient's PDMP histor
 * parameter[pdmp-history-data].extension[+].url = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-activity-period-extension"
 * parameter[pdmp-history-data].extension[=].valuePeriod.start = "2021-12-02"
 * parameter[pdmp-history-data].extension[=].valuePeriod.end = "2023-12-01"
-* parameter[pdmp-history-data].resource.id = "bundle-res-1"
+* parameter[pdmp-history-data].resource.id = "bundle-history-data-in-msg-1"
 * parameter[pdmp-history-data].resource.resourceType = "Bundle"
 * parameter[pdmp-history-data].resource.meta.profile = $pdmp-bundle-history-result
 * parameter[pdmp-history-data].resource.type = #collection

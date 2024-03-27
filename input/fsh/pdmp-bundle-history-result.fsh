@@ -67,7 +67,6 @@ Instance: pdmp-bundle-history-result-1
 InstanceOf: pdmp-bundle-history-result
 Usage: #example
 Description: "Example of a Bundle resource used to transmit a patient's PDMP history"
-* id = "bundle-res-1"
 * meta.profile = $pdmp-bundle-history-result
 * type = #collection
 
