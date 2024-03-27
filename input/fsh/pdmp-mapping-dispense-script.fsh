@@ -11,22 +11,17 @@ Title: "NCPDP SCRIPT 2017071 RxHistory Response"
 * quantity ->  "MedicationDispensed/Quantity/Value"
 * daysSupply ->  "MedicationDispensed/DaysSupply"
 * extension[rx-fill-number] ->  "MedicationDispensed/HistorySource/FillNumber"
-* type -> "not supported in RxHistoryResponse" "Partial fill indicator"
-* note  ->  "MedicationDispensed/HistorySource/PaymentType"  "{are we including this in our response?}"
+* type -> "(not supported in RxHistoryResponse)" "Partial fill indicator"
+* note  ->  "MedicationDispensed/HistorySource/PaymentType"  
 * medicationCodeableConcept.coding.system -> "MedicationDispensed/DrugCoded/ProductCode/Qualifier"
 * medicationCodeableConcept.coding.code -> "MedicationDispensed/DrugCoded/ProductCode/Code"
-*  -> "missing"
-
+* extension[rx-method-of-payment] -> "Message/Body/RxHistoryResponse/MedicationDispensed/HistorySource/PaymentType"
+// * authorizingPrescription.dispenseRequest.numberOfRepeatsAllowed -> "(not directly represented in RxHistoryResponse)"
+// * authorizingPrescription.authoredOn ->  "MedicationDispensed/WrittenDate"
 
 /* to resolve from the table-based mapping table
-Prescription Written Date	Message/Body/RxHistoryResponse/MedicationDispensed/WrittenDate	MedicationDispense.authorizingPrescription.authoredOn
-    * authorizingPrescription.authoredOn ->  "MedicationDispensed/WrittenDate"
-Prescription Number	Message/Body/RxHistoryResponse/MedicationDispensed/HistorySource/SourceReference	MedicationDispense.Identifier
 Drug Strength[1]	Message/Body/RxHistoryResponse/MedicationDispensed/DrugCoded/Strength	MedicationDispense.medicationReference.ingredient.strength
     * ingredient.strength ->  "MedicationDispensed/DrugCoded/Strength"
 Dosage Form[2]	Message/Body/RxHistoryResponse/MedicationDispensed/Quantity/QuantityUnitOfMeasure	MedicationDispense.medicationReference.form
     * medicationReference.form ->  "MedicationDispensed/Quantity/QuantityUnitOfMeasure"
-Refills Authorized	not directly represented in RxHistoryResponse	MedicationDispense.authorizingPrescription.dispenseRequest.numberOfRepeatsAllowed
-    * authorizingPrescription.dispenseRequest.numberOfRepeatsAllowed -> "" "{not directly represented in RxHistoryResponse}"
-Method of Payment	Message/Body/RxHistoryResponse/MedicationDispensed/HistorySource/PaymentType
 */

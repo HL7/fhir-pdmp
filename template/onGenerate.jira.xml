@@ -18,7 +18,7 @@
    <artifact name="pdmp-server"
              key="CapabilityStatement-pdmp-server"
              id="CapabilityStatement/pdmp-server"/>
-   <artifact name="PDMP Operation Get PDMP History"
+   <artifact name="PDMP Operation PDMP History"
              key="OperationDefinition-get-pdmp-history"
              id="OperationDefinition/pdmp-history"/>
    <artifact name="PDMP Message Definition - Request"
@@ -90,9 +90,9 @@
    <artifact name="PDMP Value Set - Opioid Treatment Code"
              key="ValueSet-pdmp-opioid-treatment-code"
              id="ValueSet/pdmp-opioid-treatment-code"/>
-   <artifact name="PDMP Value Set - Patient Relationship"
-             key="ValueSet-pdmp-patient-relationship"
-             id="ValueSet/pdmp-patient-relationship"/>
+   <artifact name="PDMP Value Set - Patient Alert Category Code"
+             key="ValueSet-pdmp-patient-alert-category-code"
+             id="ValueSet/pdmp-patient-alert-category-code"/>
    <artifact name="PDMP Value Set - Prescription Transmission Method"
              key="ValueSet-pdmp-rx-transmission-method"
              id="ValueSet/pdmp-rx-transmission-method"/>
@@ -102,9 +102,6 @@
    <artifact name="PDMP Value Set - Species Type"
              key="ValueSet-pdmp-species-type"
              id="ValueSet/pdmp-species-type"/>
-   <artifact name="PDMP CodeSystem - Patient Relationship (Temporary)"
-             key="CodeSystem-temporary-pdmp-patient-relationship"
-             id="CodeSystem/temporary-pdmp-patient-relationship"/>
    <artifact name="PDMP Response Status Codes (Temporary)"
              key="CodeSystem-temporary-pdmp-response-status"
              id="CodeSystem/temporary-pdmp-response-status"/>
@@ -114,6 +111,9 @@
    <artifact name="PMIX Opioid Treatment Code (Temporary)"
              key="CodeSystem-temporary-pmix-opioid-treatment-code"
              id="CodeSystem/temporary-pmix-opioid-treatment-code"/>
+   <artifact name="PMIX Patient Alert Category Code (Temporary)"
+             key="CodeSystem-temporary-pmix-patient-alert-category-code"
+             id="CodeSystem/temporary-pmix-patient-alert-category-code"/>
    <artifact name="PMIX Response Status Codes (Temporary)"
              key="CodeSystem-temporary-pmix-response-status"
              id="CodeSystem/temporary-pmix-response-status"/>
@@ -126,6 +126,9 @@
    <artifact name="pdmp-bundle-history-result-1"
              key="Bundle-bundle-res-1"
              id="Bundle/bundle-res-1"/>
+   <artifact name="pdmp-bundle-history-result-2"
+             key="Bundle-bundle-res-2"
+             id="Bundle/bundle-res-2"/>
    <artifact name="pdmp-bundle-request-message-1"
              key="Bundle-pdmp-bundle-request-message-1"
              id="Bundle/pdmp-bundle-request-message-1"/>
@@ -138,6 +141,9 @@
    <artifact name="pdmp-history-input-parameters-2-minimum"
              key="Parameters-pdmp-history-input-parameters-2-minimum"
              id="Parameters/pdmp-history-input-parameters-2-minimum"/>
+   <artifact name="pdmp-history-input-parameters-3-veterinary"
+             key="Parameters-pdmp-history-input-parameters-3-veterinary"
+             id="Parameters/pdmp-history-input-parameters-3-veterinary"/>
    <artifact name="pdmp-history-output-parameters-1"
              key="Parameters-pdmp-history-output-parameters-1"
              id="Parameters/pdmp-history-output-parameters-1"/>
@@ -174,6 +180,9 @@
    <artifact name="pdmp-patient-2-veterinary"
              key="Patient-pdmp-patient-2-veterinary"
              id="Patient/pdmp-patient-2-veterinary"/>
+   <artifact name="pdmp-patient-3"
+             key="Patient-pdmp-patient-3"
+             id="Patient/pdmp-patient-3"/>
    <artifact name="pdmp-pharmacy-1"
              key="Organization-pdmp-pharmacy-1"
              id="Organization/pdmp-pharmacy-1"/>
@@ -184,6 +193,10 @@
              id="CodeSystem/pdmp-event-type"
              key="CodeSystem-pdmp-event-type"
              name="PDMP Code System - Event Type"/>
+   <artifact id="CodeSystem/temporary-pdmp-patient-relationship"
+             key="CodeSystem-temporary-pdmp-patient-relationship"
+             name="PDMP Code System - Patient Relationship (Temporary)"
+             deprecated="true"/>
    <artifact deprecated="true"
              id="StructureDefinition/pdmp-extension-rx-refill-number"
              key="StructureDefinition-pdmp-extension-rx-refill-number"
@@ -208,6 +221,10 @@
              id="ValueSet/pdmp-event-type"
              key="ValueSet-pdmp-event-type"
              name="PDMP Value Set - Event Type"/>
+   <artifact id="ValueSet/pdmp-patient-relationship"
+             key="ValueSet-pdmp-patient-relationship"
+             name="PDMP Value Set - Patient Relationship"
+             deprecated="true"/>
    <artifact deprecated="true"
              id="StructureDefinition/pdmp-refill-number-extension"
              key="StructureDefinition-pdmp-refill-number-extension"
@@ -223,22 +240,22 @@
    <page name="(NA)" key="NA"/>
    <page name="(many)" key="many"/>
    <page name="Table of Contents" key="toc"/>
-   <page name="Home" key="index"/>
-   <page name="Capability Statements" key="capability-statements"/>
-   <page name="Cds Smart" key="cds-smart"/>
-   <page name="Changes" key="changes"/>
-   <page name="Conformance" key="conformance"/>
-   <page name="Deployment" key="deployment"/>
-   <page name="Downloads" key="downloads"/>
-   <page name="Mappings" key="mappings"/>
-   <page name="Profiles" key="profiles"/>
+   <page name="PDMP IG Home Page" key="index"/>
+   <page name="Use Cases" key="use-case"/>
+   <page name="Operation Submission Options" key="submission-options"/>
+   <page name="CDS Hooks and SMART App Options" key="cds-smart"/>
+   <page name="Conformance Expectations" key="conformance"/>
    <page name="Security" key="security"/>
-   <page name="Submission Options" key="submission-options"/>
-   <page name="Us Core Profiles" key="us-core-profiles"/>
-   <page name="Use Case" key="use-case"/>
+   <page name="Mappings to Related Standards" key="mappings"/>
+   <page name="Applicable US Core Profiles" key="us-core-profiles"/>
+   <page name="Capability Statements" key="capability-statements"/>
+   <page name="Downloads" key="downloads"/>
+   <page name="Change Log" key="changes"/>
    <page name="Artifacts Summary" key="artifacts"/>
+   <page key="deployment" name="Deployment" deprecated="true"/>
    <page deprecated="true"
          key="fhir-medication-background"
          name="Fhir Medication Background"/>
+   <page key="profiles" name="Profiles" deprecated="true"/>
    <page deprecated="true" key="search" name="Search"/>
 </specification>

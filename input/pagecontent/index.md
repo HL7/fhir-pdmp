@@ -59,7 +59,7 @@ This Implementation Guide is intended to be used in the United States.  It refle
 
 ### Actors and Definitions
 
-- **PDMP Requester:** A system that sends `PDMP request`s to `PDMP Responder`s and receives `PDMP response`s in return. The system may include both a local system (e.g., EHR, Pharmacy System) and associated intermediaries (e.g., eRx switch). This system can be thought of as the client in a client-server interaction.  
+- **PDMP Requester:** A system that sends `PDMP request`s to `PDMP Responder`s and receives `PDMP response`s in return. The system may include both a local system (e.g., EHR, Pharmacy System) and associated intermediaries (e.g., message routing and other value-added service providers). This system can be thought of as the client in a client-server interaction.  
 
 - **PDMP Responder:** A system that receives `PDMP request`s from `PDMP Requester`s and responds with `PDMP response`s. The system may include, in addition to the state PDMP, other partner systems (e.g., hubs).  This system can be thought of as the server in a client-server interaction.
 
@@ -119,6 +119,24 @@ For those new to FHIR, the material below describes basic FHIR principles and gi
 	</tbody>
   </table>
 
+### Stakeholders
+The authors acknowledge and thank our stakeholders for their essential contribution.  A limited number of those stakeholders are listed here:
+<table class="grid">
+    <tbody>
+		<tr><td> Carly Crownover </td><td> Database Administrator </td><td> CSMD </td></tr>
+		<tr><td> Dara Zarley, PharmD </td><td> Grant & Project Analyst </td><td> Nevada State Board of Pharmacy </td></tr>
+		<tr><td> Fan Xiong, MPH </td><td> Senior Epidemiologist </td><td> Washington State Department of Health </td></tr>
+		<tr><td> Fred Aabedi </td><td> CTO </td><td> LogiCoy Inc </td></tr>
+		<tr><td> Joseph Fibich, PharmD </td><td> Director, Pharmacy Services Program </td><td> CyncHealth </td></tr>
+		<tr><td> Mitchell Barnett, PharmD, MS </td><td> Associate PMP Director </td><td> Iowa PDMP </td></tr>
+		<tr><td> Rachel Buelow </td><td> </td><td>Surescripts </td></tr>
+		<tr><td> Reshmi Ravindranath </td><td> PMP Administrator </td><td> Louisiana Board of Pharmacy </td></tr>
+		<tr><td> Robert May </td><td> Program Director </td><td> IJIS Institute</td></tr>
+		<tr><td> Ronald Larsen </td><td> PDMP Consultant </td><td> IJIS Institute - RxCheck </td></tr>
+		<tr><td> Siri Chadalavada </td><td> </td><td> Biztek Innovations </td></tr>
+		<tr><td> Wanda Govan-Jenkins, DNP, MBA, MS, RN </td><td> ONC Project Officer Lead </td><td> Office of the National Coordinator for Health Information Technology </td></tr>
+	</tbody>
+  </table>
 
 ### Dependencies
 {% include dependency-table.xhtml %}
@@ -130,4 +148,10 @@ For those new to FHIR, the material below describes basic FHIR principles and gi
 {% include globals-table.xhtml %}
 
 ### IP Statements
+**NOTE TO BALLOTERS**
+*Formal IP statements are pending for*
+- PIMX materials are freely available at https://www.pdmpassist.org/PMIX/Standards. 
+- NCPDP references are (c) NCPDP
+
 {% include ip-statements.xhtml %}
+
