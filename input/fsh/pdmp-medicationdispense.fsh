@@ -62,6 +62,11 @@ Description: "Defines constraints and extensions on the MedicationDispense resou
 * performer.actor.display ^comment = "Performer's name"
 * authorizingPrescription 0..1 MS
 * authorizingPrescription.identifier 0..1 MS
+//* authorizingPrescription.authoredOn 0..1 MS
+//* authorizingPrescription.dispenseRequest 0..1 MS
+//* authorizingPrescription.dispenseRequest.numberOfRepeatsAllowed 0..1 MS
+
+
 /*
 * authorizingPrescription.identifier ^slicing.discriminator.type = #value
 * authorizingPrescription.identifier ^slicing.discriminator.path = "type.coding.code"

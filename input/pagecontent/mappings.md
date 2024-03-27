@@ -31,6 +31,8 @@ Links to the mappings
 - [PDMP MedicationDispense Mapping](StructureDefinition-pdmp-medicationdispense-mappings.html)
 - [PDMP MedicationDispense map to NCPDP SCRIPT RxHistory](StructureDefinition-pdmp-medicationdispense-mappings.html#mappings-for-ncpdp-script-2017071-rxhistory-response-http-ncpdp-orgscript2017071rxhistoryresponse)
 
+- [PDMP MedicationDispense map to PMIX/NIEM 4.0 Response](StructureDefinition-pdmp-medicationdispense-mappings.html#mappings-for-pmixniem-4-0-prescription-report-http-pmixpmp-orgniem4-0extension)
+
 
 The following tables consolidate the mappings for request and response scenarios.
 
@@ -550,7 +552,7 @@ This section includes the minimal mapping for the  response from a state  to an 
       <tr style='height:20px;'>
         <td class="maptable16" rowspan="4"></td>
         <td class="maptable17">Response Date/Timestamp</td>
-        <td class="maptable17">pmp:ReportExecutionDate&gt;pmp:ReportExecutionTime</td>
+        <td class="maptable17">pmp:ReportExecutionDate <p></p> pmp:ReportExecutionTime</td>
         <td class="maptable17">MessageHeader.extension (StructureDefinition-header-timestamp-extension)</td>
       </tr>
       <tr style='height:20px;'>
@@ -620,7 +622,7 @@ This section includes the minimal mapping for the  response from a state  to an 
       <tr style='height:20px;'>
         <td class="maptable16" rowspan="12">Prescription</td>
         <td class="maptable17">Prescription Filled Date</td>
-        <td class="maptable17">pmp:ReportDateRangeBegin&gt;pmp:ReportDateRangeEnd</td>
+        <td class="maptable17">pmp:PrescriptionFilledDate</td>
         <td class="maptable17">MedicationDispense.whenPrepared</td>
       </tr>
       <tr style='height:20px;'>
@@ -681,7 +683,7 @@ This section includes the minimal mapping for the  response from a state  to an 
       <tr style='height:20px;'>
         <td class="maptable16" rowspan="2">Drug</td>
         <td class="maptable17">Product ID Qualifier</td>
-        <td class="maptable17">pmp:DrugCPDProductIdentifier&gt;pmp:DrugDINProductIdentifier&gt;</br>pmp:DrugHRIProductIdentifier&gt;pmp:pmp:DrugNDCProductIdentifier&gt;</br>pmp:DrugUPCProductIdentifier&gt;pmp:DrugUPNProductIdentifier</td>
+        <td class="maptable17">pmp:DrugNDCProductIdentifier</td>
         <td class="maptable17">MedicationDispense.medicationReference.code.coding.system</td>
       </tr>
       <tr style='height:32px;'>

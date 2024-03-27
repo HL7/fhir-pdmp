@@ -59,3 +59,4 @@ Alias: $pmix-transmission-cs = http://hl7.org/fhir/us/pdmp/CodeSystem/temporary-
 Alias: $pmix-species-type-cs = http://hl7.org/fhir/us/pdmp/CodeSystem/temporary-pmix-species-type-code
 Alias: $pmix-opioid-treatment-code-cs = http://hl7.org/fhir/us/pdmp/CodeSystem/temporary-pmix-opioid-treatment-code
 Alias: $pmix-method-of-payment-cs = http://hl7.org/fhir/us/pdmp/CodeSystem/temporary-pmix-method-of-payment
+Alias: $pmix-patient-alert-category-code-cs = http://hl7.org/fhir/us/pdmp/CodeSystem/temporary-pmix-patient-alert-category-code

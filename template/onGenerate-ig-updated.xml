@@ -19,7 +19,7 @@
    <name value="PDMP"/>
    <title value="US Prescription Drug Monitoring Program (PDMP)"/>
    <status value="draft"/>
-   <date value="2024-03-22T16:58:55-07:00"/>
+   <date value="2024-03-27T12:05:21-07:00"/>
    <publisher value="HL7 International / Pharmacy"/>
    <contact>
       <name value="HL7 International / Pharmacy"/>
@@ -96,7 +96,7 @@
             <valueString value="releaselabel"/>
          </extension>
          <extension url="value">
-            <valueString value="STU1"/>
+            <valueString value="STU1-ballot"/>
          </extension>
       </extension>
       <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-parameter">
@@ -435,6 +435,9 @@
       
       
       
+      
+      
+      
       <resource>
          <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-sort">
             <valueInteger value="999999999"/>
@@ -484,7 +487,7 @@
          <reference>
             <reference value="OperationDefinition/pdmp-history"/>
          </reference>
-         <name value="PDMP Operation Get PDMP History"/>
+         <name value="PDMP Operation PDMP History"/>
          <description value="Operation returning an individual patient's PDMP history"/>
          <exampleBoolean value="false"/>
          <groupingId value="-dyn-operationdefinition"/>
@@ -911,13 +914,13 @@
             <valueString value="ValueSet"/>
          </extension>
          <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
-            <valueUri value="ValueSet-pdmp-patient-relationship.html"/>
+            <valueUri value="ValueSet-pdmp-patient-alert-category-code.html"/>
          </extension>
          <reference>
-            <reference value="ValueSet/pdmp-patient-relationship"/>
+            <reference value="ValueSet/pdmp-patient-alert-category-code"/>
          </reference>
-         <name value="PDMP Value Set - Patient Relationship"/>
-         <description value="This value set contains codes defining a relationship between a RelatedPerson and the patient"/>
+         <name value="PDMP Value Set - Patient Alert Category Code"/>
+         <description value="A code identifying a kind of patient alert."/>
          <exampleBoolean value="false"/>
          <groupingId value="-term-valueset"/>
       </resource>
@@ -983,24 +986,6 @@
             <valueString value="CodeSystem"/>
          </extension>
          <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
-            <valueUri value="CodeSystem-temporary-pdmp-patient-relationship.html"/>
-         </extension>
-         <reference>
-            <reference value="CodeSystem/temporary-pdmp-patient-relationship"/>
-         </reference>
-         <name value="PDMP CodeSystem - Patient Relationship (Temporary)"/>
-         <description value="This code system defines a relationship between a RelatedPerson and the patient"/>
-         <exampleBoolean value="false"/>
-         <groupingId value="-term-codesystem"/>
-      </resource>
-      <resource>
-         <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-sort">
-            <valueInteger value="999999999"/>
-         </extension>
-         <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-            <valueString value="CodeSystem"/>
-         </extension>
-         <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
             <valueUri value="CodeSystem-temporary-pdmp-response-status.html"/>
          </extension>
          <reference>
@@ -1044,6 +1029,24 @@
          </reference>
          <name value="PMIX Opioid Treatment Code (Temporary)"/>
          <description value="A code identifying the reason for an opioid prescription"/>
+         <exampleBoolean value="false"/>
+         <groupingId value="-term-codesystem"/>
+      </resource>
+      <resource>
+         <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-sort">
+            <valueInteger value="999999999"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+            <valueString value="CodeSystem"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+            <valueUri value="CodeSystem-temporary-pmix-patient-alert-category-code.html"/>
+         </extension>
+         <reference>
+            <reference value="CodeSystem/temporary-pmix-patient-alert-category-code"/>
+         </reference>
+         <name value="PMIX Patient Alert Category Code (Temporary)"/>
+         <description value="A code identifying a kind of patient alert."/>
          <exampleBoolean value="false"/>
          <groupingId value="-term-codesystem"/>
       </resource>
@@ -1127,6 +1130,24 @@
             <valueString value="Bundle"/>
          </extension>
          <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+            <valueUri value="Bundle-bundle-res-2.html"/>
+         </extension>
+         <reference>
+            <reference value="Bundle/bundle-res-2"/>
+         </reference>
+         <name value="pdmp-bundle-history-result-2"/>
+         <description value="Example of a Bundle resource used to transmit a patient's PDMP history, 2 dispenses, 2 patients, 2 pharmacies, 1 alert"/>
+         <exampleCanonical value="http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-bundle-history-result"/>
+         <groupingId value="-ex-example"/>
+      </resource>
+      <resource>
+         <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-sort">
+            <valueInteger value="999999999"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+            <valueString value="Bundle"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
             <valueUri value="Bundle-pdmp-bundle-request-message-1.html"/>
          </extension>
          <reference>
@@ -1188,6 +1209,24 @@
          </reference>
          <name value="pdmp-history-input-parameters-2-minimum"/>
          <description value="Example of the minimal Parameters resource population to request a patient's PDMP history"/>
+         <exampleCanonical value="http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-parameters-request"/>
+         <groupingId value="-ex-example"/>
+      </resource>
+      <resource>
+         <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-sort">
+            <valueInteger value="999999999"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+            <valueString value="Parameters"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+            <valueUri value="Parameters-pdmp-history-input-parameters-3-veterinary.html"/>
+         </extension>
+         <reference>
+            <reference value="Parameters/pdmp-history-input-parameters-3-veterinary"/>
+         </reference>
+         <name value="pdmp-history-input-parameters-3-veterinary"/>
+         <description value="Example of a PDMP operation request for an animal patient"/>
          <exampleCanonical value="http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-parameters-request"/>
          <groupingId value="-ex-example"/>
       </resource>
@@ -1412,6 +1451,24 @@
             <valueInteger value="999999999"/>
          </extension>
          <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+            <valueString value="Patient"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
+            <valueUri value="Patient-pdmp-patient-3.html"/>
+         </extension>
+         <reference>
+            <reference value="Patient/pdmp-patient-3"/>
+         </reference>
+         <name value="pdmp-patient-3"/>
+         <description value="Example of a PDMP patient - similar to pdmp-patient-1, but may or may not be the same person"/>
+         <exampleCanonical value="http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-patient"/>
+         <groupingId value="-ex-example"/>
+      </resource>
+      <resource>
+         <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-sort">
+            <valueInteger value="999999999"/>
+         </extension>
+         <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
             <valueString value="Organization"/>
          </extension>
          <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
@@ -1455,15 +1512,23 @@
                <valueUrl value="index.html"/>
             </extension>
             <nameUrl value="index.html"/>
-            <title value="Home"/>
+            <title value="PDMP IG Home Page"/>
             <generation value="markdown"/>
          </page>
          <page>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
-               <valueUrl value="capability-statements.html"/>
+               <valueUrl value="use-case.html"/>
             </extension>
-            <nameUrl value="capability-statements.html"/>
-            <title value="Capability Statements"/>
+            <nameUrl value="use-case.html"/>
+            <title value="Use Cases"/>
+            <generation value="markdown"/>
+         </page>
+         <page>
+            <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+               <valueUrl value="submission-options.html"/>
+            </extension>
+            <nameUrl value="submission-options.html"/>
+            <title value="Operation Submission Options"/>
             <generation value="markdown"/>
          </page>
          <page>
@@ -1471,15 +1536,7 @@
                <valueUrl value="cds-smart.html"/>
             </extension>
             <nameUrl value="cds-smart.html"/>
-            <title value="Cds Smart"/>
-            <generation value="markdown"/>
-         </page>
-         <page>
-            <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
-               <valueUrl value="changes.html"/>
-            </extension>
-            <nameUrl value="changes.html"/>
-            <title value="Changes"/>
+            <title value="CDS Hooks and SMART App Options"/>
             <generation value="markdown"/>
          </page>
          <page>
@@ -1487,39 +1544,7 @@
                <valueUrl value="conformance.html"/>
             </extension>
             <nameUrl value="conformance.html"/>
-            <title value="Conformance"/>
-            <generation value="markdown"/>
-         </page>
-         <page>
-            <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
-               <valueUrl value="deployment.html"/>
-            </extension>
-            <nameUrl value="deployment.html"/>
-            <title value="Deployment"/>
-            <generation value="markdown"/>
-         </page>
-         <page>
-            <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
-               <valueUrl value="downloads.html"/>
-            </extension>
-            <nameUrl value="downloads.html"/>
-            <title value="Downloads"/>
-            <generation value="html"/>
-         </page>
-         <page>
-            <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
-               <valueUrl value="mappings.html"/>
-            </extension>
-            <nameUrl value="mappings.html"/>
-            <title value="Mappings"/>
-            <generation value="markdown"/>
-         </page>
-         <page>
-            <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
-               <valueUrl value="profiles.html"/>
-            </extension>
-            <nameUrl value="profiles.html"/>
-            <title value="Profiles"/>
+            <title value="Conformance Expectations"/>
             <generation value="markdown"/>
          </page>
          <page>
@@ -1532,10 +1557,10 @@
          </page>
          <page>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
-               <valueUrl value="submission-options.html"/>
+               <valueUrl value="mappings.html"/>
             </extension>
-            <nameUrl value="submission-options.html"/>
-            <title value="Submission Options"/>
+            <nameUrl value="mappings.html"/>
+            <title value="Mappings to Related Standards"/>
             <generation value="markdown"/>
          </page>
          <page>
@@ -1543,15 +1568,31 @@
                <valueUrl value="us-core-profiles.html"/>
             </extension>
             <nameUrl value="us-core-profiles.html"/>
-            <title value="Us Core Profiles"/>
+            <title value="Applicable US Core Profiles"/>
             <generation value="markdown"/>
          </page>
          <page>
             <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
-               <valueUrl value="use-case.html"/>
+               <valueUrl value="capability-statements.html"/>
             </extension>
-            <nameUrl value="use-case.html"/>
-            <title value="Use Case"/>
+            <nameUrl value="capability-statements.html"/>
+            <title value="Capability Statements"/>
+            <generation value="markdown"/>
+         </page>
+         <page>
+            <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+               <valueUrl value="downloads.html"/>
+            </extension>
+            <nameUrl value="downloads.html"/>
+            <title value="Downloads"/>
+            <generation value="html"/>
+         </page>
+         <page>
+            <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-page-name">
+               <valueUrl value="changes.html"/>
+            </extension>
+            <nameUrl value="changes.html"/>
+            <title value="Change Log"/>
             <generation value="markdown"/>
          </page>
          <page>
@@ -1570,7 +1611,7 @@
             </page>
             <page>
                <nameUrl value="OperationDefinition-pdmp-history.html"/>
-               <title value="PDMP Operation Get PDMP History"/>
+               <title value="PDMP Operation PDMP History"/>
                <generation value="generated"/>
             </page>
             <page>
@@ -1689,8 +1730,8 @@
                <generation value="generated"/>
             </page>
             <page>
-               <nameUrl value="ValueSet-pdmp-patient-relationship.html"/>
-               <title value="PDMP Value Set - Patient Relationship"/>
+               <nameUrl value="ValueSet-pdmp-patient-alert-category-code.html"/>
+               <title value="PDMP Value Set - Patient Alert Category Code"/>
                <generation value="generated"/>
             </page>
             <page>
@@ -1709,11 +1750,6 @@
                <generation value="generated"/>
             </page>
             <page>
-               <nameUrl value="CodeSystem-temporary-pdmp-patient-relationship.html"/>
-               <title value="PDMP CodeSystem - Patient Relationship (Temporary)"/>
-               <generation value="generated"/>
-            </page>
-            <page>
                <nameUrl value="CodeSystem-temporary-pdmp-response-status.html"/>
                <title value="PDMP Response Status Codes (Temporary)"/>
                <generation value="generated"/>
@@ -1726,6 +1762,11 @@
             <page>
                <nameUrl value="CodeSystem-temporary-pmix-opioid-treatment-code.html"/>
                <title value="PMIX Opioid Treatment Code (Temporary)"/>
+               <generation value="generated"/>
+            </page>
+            <page>
+               <nameUrl value="CodeSystem-temporary-pmix-patient-alert-category-code.html"/>
+               <title value="PMIX Patient Alert Category Code (Temporary)"/>
                <generation value="generated"/>
             </page>
             <page>
@@ -1749,6 +1790,11 @@
                <generation value="generated"/>
             </page>
             <page>
+               <nameUrl value="Bundle-bundle-res-2.html"/>
+               <title value="pdmp-bundle-history-result-2"/>
+               <generation value="generated"/>
+            </page>
+            <page>
                <nameUrl value="Bundle-pdmp-bundle-request-message-1.html"/>
                <title value="pdmp-bundle-request-message-1"/>
                <generation value="generated"/>
@@ -1766,6 +1812,11 @@
             <page>
                <nameUrl value="Parameters-pdmp-history-input-parameters-2-minimum.html"/>
                <title value="pdmp-history-input-parameters-2-minimum"/>
+               <generation value="generated"/>
+            </page>
+            <page>
+               <nameUrl value="Parameters-pdmp-history-input-parameters-3-veterinary.html"/>
+               <title value="pdmp-history-input-parameters-3-veterinary"/>
                <generation value="generated"/>
             </page>
             <page>
@@ -1826,6 +1877,11 @@
             <page>
                <nameUrl value="Patient-pdmp-patient-2-veterinary.html"/>
                <title value="pdmp-patient-2-veterinary"/>
+               <generation value="generated"/>
+            </page>
+            <page>
+               <nameUrl value="Patient-pdmp-patient-3.html"/>
+               <title value="pdmp-patient-3"/>
                <generation value="generated"/>
             </page>
             <page>
@@ -1906,7 +1962,7 @@
       </parameter>
       <parameter>
          <code value="releaselabel"/>
-         <value value="STU1"/>
+         <value value="STU1-ballot"/>
       </parameter>
       <parameter>
          <code value="path-history"/>

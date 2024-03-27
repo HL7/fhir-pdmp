@@ -148,3 +148,23 @@ Description: "Example of the owner of an animal patient"
 * address.state = "MA"
 * address.postalCode = "01742"
 * patient.reference = "Patient/pdmp-patient-2-veterinary"
+
+Instance: pdmp-patient-3
+InstanceOf: pdmp-patient
+Usage: #example
+Description: "Example of a PDMP patient - similar to pdmp-patient-1, but may or may not be the same person"
+* meta.profile = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-patient"
+* identifier.type.coding.system = "http://terminology.hl7.org/CodeSystem/v2-0203"
+* identifier.type.coding.code = #MR
+* identifier.type.coding.display = "Medical Record Number"
+* identifier.system = "http://Highview.org/EHR/patient/mrn"
+* identifier.value = "28-145-2249"
+* name.family = "Samuels"
+* name.given = "August"
+* name.given = "Thomas"
+* gender = #male
+* birthDate = "1989-03-12"
+* address.line[0] = "10023 Oakways Ln #23"
+* address.state = "Concord"
+* address.state = "MA"
+* address.postalCode = "01742"
