@@ -55,7 +55,6 @@ Alias: $pdmp-pharmacy = http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-org
 Alias: $pdmp-response-status-cs = http://hl7.org/fhir/us/pdmp/CodeSystem/temporary-pdmp-response-status
 Alias: $pmix-response-status-cs = http://hl7.org/fhir/us/pdmp/CodeSystem/temporary-pmix-response-status
 Alias: $pmix-transmission-cs = http://hl7.org/fhir/us/pdmp/CodeSystem/temporary-pmix-transmission-form-of-rx-origin
-// Alias: $pdmp-patient-relationship-cs = http://hl7.org/fhir/us/pdmp/CodeSystem/temporary-pdmp-patient-relationship
 Alias: $pmix-species-type-cs = http://hl7.org/fhir/us/pdmp/CodeSystem/temporary-pmix-species-type-code
 Alias: $pmix-opioid-treatment-code-cs = http://hl7.org/fhir/us/pdmp/CodeSystem/temporary-pmix-opioid-treatment-code
 Alias: $pmix-method-of-payment-cs = http://hl7.org/fhir/us/pdmp/CodeSystem/temporary-pmix-method-of-payment
