@@ -62,6 +62,10 @@ Implementers SHALL conform to the following US Core profiles in PDMP interaction
              <td><a href="https://hl7.org/fhir/us/core/StructureDefinition-us-core-relatedperson.html">US Core RelatedPerson</a></td>
             <td>Represents the owner of an animal, if that animal is submitted as the patient in a PDMP request</td>
        </tr>   
+         <tr>
+             <td><a href="https://hl7.org/fhir/us/core/StructureDefinition-us-core-medicationrequest.html">US Core MedicationRequest</a></td>
+            <td>Represents a prescription, which may be referenced from a MedicationDispense or MedicationAdministration.</td>
+       </tr>   
         <tr>
              <td><a href="https://hl7.org/fhir/us/core/StructureDefinition-us-core-medication.html">US Core Medication</a></td>
             <td>May be used to represent a dispensed or administered drug in a PDMP response as an alternative to the coded <code>medicationCodeableConcept</code> representation in a MedicationDispense or MedicationAdministration, for example when communicating compounded drugs.</td>
