@@ -52,8 +52,8 @@
 <artifact deprecated="true" id="StructureDefinition/pdmp-refill-number-extension" key="StructureDefinition-pdmp-refill-number-extension" name="Refill_Number_Extensionn"/>
 <artifact deprecated="true" id="Parameters/get-pdmp-history-input-parameters-1" key="Parameters-get-pdmp-history-input-parameters-1" name="get-pdmp-history-input-parameters-1"/>
 <artifact deprecated="true" id="Parameters/get-pdmp-history-output-parameters-1" key="Parameters-get-pdmp-history-output-parameters-1" name="get-pdmp-history-output-parameters-1"/>
-<artifact id="Bundle/bundle-res-1" key="Bundle-bundle-res-1" name="pdmp-bundle-history-result-1"/>
-<artifact id="Bundle/bundle-res-2" key="Bundle-bundle-res-2" name="pdmp-bundle-history-result-2"/>
+<artifact id="Bundle/pdmp-bundle-history-result-1" key="Bundle-bundle-res-1" name="pdmp-bundle-history-result-1"/>
+<artifact id="Bundle/pdmp-bundle-history-result-2" key="Bundle-pdmp-bundle-history-result-2" name="pdmp-bundle-history-result-2"/>
 <artifact id="Bundle/pdmp-bundle-request-message-1" key="Bundle-pdmp-bundle-request-message-1" name="pdmp-bundle-request-message-1"/>
 <artifact id="Bundle/pdmp-bundle-response-message-1" key="Bundle-pdmp-bundle-response-message-1" name="pdmp-bundle-response-message-1"/>
 <artifact id="CapabilityStatement/pdmp-client" key="CapabilityStatement-pdmp-client" name="pdmp-client"/>

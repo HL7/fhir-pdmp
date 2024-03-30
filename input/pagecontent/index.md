@@ -124,17 +124,26 @@ The authors acknowledge and thank our stakeholders for their essential contribut
 <table class="grid">
     <tbody>
 		<tr><td> Carly Crownover </td><td> Database Administrator </td><td> CSMD </td></tr>
+		<tr><td> Craig Wetzelberger </td><td> Director of Software Engineering </td><td> Bamboo Health </td></tr>
 		<tr><td> Dara Zarley, PharmD </td><td> Grant & Project Analyst </td><td> Nevada State Board of Pharmacy </td></tr>
+		<tr><td> Don Vogt </td><td>  </td><td> Prescription Drug Monitoring Program Training and Technical Assistance Center (PDMP TTAC) </td></tr>
 		<tr><td> Fan Xiong, MPH </td><td> Senior Epidemiologist </td><td> Washington State Department of Health </td></tr>
 		<tr><td> Fred Aabedi </td><td> CTO </td><td> LogiCoy Inc </td></tr>
+		<tr><td> Jean Hall </td><td> Program Director, PDMP Solutions </td><td> LogiCoy Inc. </td></tr>
+		<tr><td> Jim Giglio </td><td>  </td><td> Prescription Drug Monitoring Program Training and Technical Assistance Center (PDMP TTAC) </td></tr>
 		<tr><td> Joseph Fibich, PharmD </td><td> Director, Pharmacy Services Program </td><td> CyncHealth </td></tr>
+		<tr><td> Keller Martin </td><td> Staff Solutions Architect </td><td> Bamboo Health </td></tr>
+		<tr><td> Kevin Borcher </td><td>  </td><td> Prescription Drug Monitoring Program Training and Technical Assistance Center (PDMP TTAC) </td></tr>
 		<tr><td> Mitchell Barnett, PharmD, MS </td><td> Associate PMP Director </td><td> Iowa PDMP </td></tr>
+		<tr><td> Nerissa Montgomery </td><td>  </td><td> Louisiana Board of Pharmacy </td></tr>
+		<tr><td> Pat Knue </td><td>  </td><td> Prescription Drug Monitoring Program Training and Technical Assistance Center (PDMP TTAC) </td></tr>
 		<tr><td> Rachel Buelow </td><td> </td><td>Surescripts </td></tr>
 		<tr><td> Reshmi Ravindranath </td><td> PMP Administrator </td><td> Louisiana Board of Pharmacy </td></tr>
 		<tr><td> Robert May </td><td> Program Director </td><td> IJIS Institute</td></tr>
 		<tr><td> Ronald Larsen </td><td> PDMP Consultant </td><td> IJIS Institute - RxCheck </td></tr>
 		<tr><td> Siri Chadalavada </td><td> </td><td> Biztek Innovations </td></tr>
 		<tr><td> Wanda Govan-Jenkins, DNP, MBA, MS, RN </td><td> ONC Project Officer Lead </td><td> Office of the National Coordinator for Health Information Technology </td></tr>
+		<tr><td> Zohaib Salim </td><td> Senior Product Manager </td><td> Bamboo Health </td></tr>
 	</tbody>
   </table>
 

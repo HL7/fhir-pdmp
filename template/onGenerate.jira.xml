@@ -125,10 +125,10 @@
              id="CodeSystem/temporary-pmix-transmission-form-of-rx-origin"/>
    <artifact name="pdmp-bundle-history-result-1"
              key="Bundle-bundle-res-1"
-             id="Bundle/bundle-res-1"/>
+             id="Bundle/pdmp-bundle-history-result-1"/>
    <artifact name="pdmp-bundle-history-result-2"
-             key="Bundle-bundle-res-2"
-             id="Bundle/bundle-res-2"/>
+             key="Bundle-pdmp-bundle-history-result-2"
+             id="Bundle/pdmp-bundle-history-result-2"/>
    <artifact name="pdmp-bundle-request-message-1"
              key="Bundle-pdmp-bundle-request-message-1"
              id="Bundle/pdmp-bundle-request-message-1"/>
