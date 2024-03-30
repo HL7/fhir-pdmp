@@ -19,7 +19,7 @@
    <name value="PDMP"/>
    <title value="US Prescription Drug Monitoring Program (PDMP)"/>
    <status value="draft"/>
-   <date value="2024-03-27T12:05:21-07:00"/>
+   <date value="2024-03-29T22:22:28-07:00"/>
    <publisher value="HL7 International / Pharmacy"/>
    <contact>
       <name value="HL7 International / Pharmacy"/>
@@ -1112,10 +1112,10 @@
             <valueString value="Bundle"/>
          </extension>
          <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
-            <valueUri value="Bundle-bundle-res-1.html"/>
+            <valueUri value="Bundle-pdmp-bundle-history-result-1.html"/>
          </extension>
          <reference>
-            <reference value="Bundle/bundle-res-1"/>
+            <reference value="Bundle/pdmp-bundle-history-result-1"/>
          </reference>
          <name value="pdmp-bundle-history-result-1"/>
          <description value="Example of a Bundle resource used to transmit a patient's PDMP history"/>
@@ -1130,13 +1130,13 @@
             <valueString value="Bundle"/>
          </extension>
          <extension url="http://hl7.org/fhir/StructureDefinition/implementationguide-page">
-            <valueUri value="Bundle-bundle-res-2.html"/>
+            <valueUri value="Bundle-pdmp-bundle-history-result-2.html"/>
          </extension>
          <reference>
-            <reference value="Bundle/bundle-res-2"/>
+            <reference value="Bundle/pdmp-bundle-history-result-2"/>
          </reference>
          <name value="pdmp-bundle-history-result-2"/>
-         <description value="Example of a Bundle resource used to transmit a patient's PDMP history, 2 dispenses, 2 patients, 2 pharmacies, 1 alert"/>
+         <description value="Example of a Bundle resource used to transmit a patient's PDMP history, 2 dispenses, 2 patients, 2 pharmacies, 1 alert and from 2 different PDMPs"/>
          <exampleCanonical value="http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-bundle-history-result"/>
          <groupingId value="-ex-example"/>
       </resource>
@@ -1785,12 +1785,12 @@
                <generation value="generated"/>
             </page>
             <page>
-               <nameUrl value="Bundle-bundle-res-1.html"/>
+               <nameUrl value="Bundle-pdmp-bundle-history-result-1.html"/>
                <title value="pdmp-bundle-history-result-1"/>
                <generation value="generated"/>
             </page>
             <page>
-               <nameUrl value="Bundle-bundle-res-2.html"/>
+               <nameUrl value="Bundle-pdmp-bundle-history-result-2.html"/>
                <title value="pdmp-bundle-history-result-2"/>
                <generation value="generated"/>
             </page>
