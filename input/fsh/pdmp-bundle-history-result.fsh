@@ -2,12 +2,12 @@ Profile: PdmpBundleHistoryResult
 Parent: Bundle
 Id: pdmp-bundle-history-result
 Title: "PDMP Bundle - History Result"
-Description: "This profile constrains a Bundle resource to carry the history details and/or processing outcome for a PDMP request"
+Description: "This profile constrains a Bundle resource to carry the history details and/or processing outcome in a Prescription Drug Monitoring Program (PDMP) response"
 * ^extension.url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg"
 * ^extension.valueCode = #phx
 * ^version = "1.0.0"
 * ^experimental = false
-* ^date = "2023-12-03T00:00:00-05:00"
+* ^date = "2024-04-01T00:00:00-05:00"
 * ^publisher = "HL7 International - Pharmacy"
 * ^contact[0].name = "HL7 International - Pharmacy"
 * ^contact[=].telecom.system = #url
@@ -71,9 +71,10 @@ Description: "Example of a Bundle resource used to transmit a patient's PDMP his
 * type = #collection
 
 * entry[0].fullUrl = "urn:uuid:9ce2a97b-5cab-4986-814f-4734016e6084"
-* entry[=].id = "meddispense-res-1"
+* entry[=].resource.id = "meddispense-res-1"
 * entry[=].resource.resourceType = "MedicationDispense"
 * entry[=].resource.meta.profile = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-medicationdispense"
+* entry[=].resource.meta.source = "http://example.org/ma-pdmp"
 * entry[=].resource.text.status = #generated
 * entry[=].resource.text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">A record of a medication that was dispensed to the patient identified in the PDMP request: August Samuels</div>"
 * entry[=].resource.extension.url = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-extension-rx-fill-number"
@@ -99,15 +100,15 @@ Description: "Example of a Bundle resource used to transmit a patient's PDMP his
 * entry[=].resource.quantity.unit = "each"
 * entry[=].resource.daysSupply.value = 5
 * entry[=].resource.whenPrepared = "2023-06-05"
-* entry[=].resource.whenHandedOver.extension.url = "http://hl7.org/fhir/StructureDefinition/data-absent-reason"
-* entry[=].resource.whenHandedOver.extension.valueCode = #unknown
+* entry[=].resource.whenHandedOver = "2023-06-05"
 * entry[=].resource.dosageInstruction.sequence = 1
 * entry[=].resource.dosageInstruction.text = "1 tab tid prn pain"
 
 * entry[+].fullUrl = "urn:uuid:53a1e123-5b56-44ae-b7e8-36e0b9800f57"
-* entry[=].id = "patient-res-1-1"
+* entry[=].resource.id = "patient-res-1-1"
 * entry[=].resource.resourceType = "Patient"
 * entry[=].resource.meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient|6.1.0"
+* entry[=].resource.meta.source = "http://example.org/ma-pdmp"
 * entry[=].resource.text.status = #generated
 * entry[=].resource.text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">The PDMP Responder's patient record for the patient identified in the PDMP request: August Samuels</div>"
 * entry[=].resource.identifier.type = $v2-0203#SS
@@ -121,9 +122,10 @@ Description: "Example of a Bundle resource used to transmit a patient's PDMP his
 * entry[=].resource.address.postalCode = "01059"
 
 * entry[+].fullUrl = "urn:uuid:82ae67e4-f23a-4c17-b80a-9076a37f5d6e"
-* entry[=].id = "pharmacy-res-1-1"
+* entry[=].resource.id = "pharmacy-res-1-1"
 * entry[=].resource.resourceType = "Organization"
 * entry[=].resource.meta.profile = $pdmp-pharmacy
+* entry[=].resource.meta.source = "http://example.org/ma-pdmp"
 * entry[=].resource.text.status = #generated
 * entry[=].resource.text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">The pharmacy that dispensed the reported medication: Our Pharmacy</div>"
 * entry[=].resource.identifier[0].system = "http://hl7.org/fhir/sid/us-npi"
@@ -151,7 +153,7 @@ Description: "Example of a Bundle resource used to transmit a patient's PDMP his
 * type = #collection
 
 * entry[0].fullUrl = "urn:uuid:9ce2a97b-5cab-4986-814f-4734016e6084"
-* entry[=].id = "meddispense-res-1"
+* entry[=].resource.id = "meddispense-res-1"
 * entry[=].resource.resourceType = "MedicationDispense"
 * entry[=].resource.meta.profile = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-medicationdispense"
 * entry[=].resource.meta.source = "http://example.org/ma-pdmp"
@@ -186,7 +188,7 @@ Description: "Example of a Bundle resource used to transmit a patient's PDMP his
 * entry[=].resource.dosageInstruction.text = "1 tab tid prn pain"
 
 * entry[+].fullUrl = "urn:uuid:2706c68c-fb00-4f01-acb9-2547a20c5f63"
-* entry[=].id = "meddispense-res-2"
+* entry[=].resource.id = "meddispense-res-2"
 * entry[=].resource.resourceType = "MedicationDispense"
 * entry[=].resource.meta.profile = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-medicationdispense"
 * entry[=].resource.meta.source = "http://example.org/ri-pdmp"
@@ -226,7 +228,7 @@ Description: "Example of a Bundle resource used to transmit a patient's PDMP his
 
 
 * entry[+].fullUrl = "urn:uuid:53a1e123-5b56-44ae-b7e8-36e0b9800f57"
-* entry[=].id = "patient-res-1"
+* entry[=].resource.id = "patient-res-1"
 * entry[=].resource.resourceType = "Patient"
 * entry[=].resource.meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient|6.1.0"
 * entry[=].resource.meta.source = "http://example.org/ma-pdmp"
@@ -243,7 +245,7 @@ Description: "Example of a Bundle resource used to transmit a patient's PDMP his
 * entry[=].resource.address.postalCode = "01059"
 
 * entry[+].fullUrl = "urn:uuid:8b0fcac7-eeb8-4558-a1f6-46f2f4293190"
-* entry[=].id = "patient-res-2"
+* entry[=].resource.id = "patient-res-2"
 * entry[=].resource.resourceType = "Patient"
 * entry[=].resource.meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient|6.1.0"
 * entry[=].resource.meta.source = "http://example.org/ri-pdmp"
@@ -261,7 +263,7 @@ Description: "Example of a Bundle resource used to transmit a patient's PDMP his
 * entry[=].resource.address.postalCode = "01059"
 
 * entry[+].fullUrl = "urn:uuid:82ae67e4-f23a-4c17-b80a-9076a37f5d6e"
-* entry[=].id = "pharmacy-res-1"
+* entry[=].resource.id = "pharmacy-res-1-1"
 * entry[=].resource.resourceType = "Organization"
 * entry[=].resource.meta.profile = $pdmp-pharmacy
 * entry[=].resource.meta.source = "http://example.org/ma-pdmp"
@@ -285,7 +287,7 @@ Description: "Example of a Bundle resource used to transmit a patient's PDMP his
 
 
 * entry[+].fullUrl = "urn:uuid:d0890c3e-45dc-489c-8498-31ffb6254003"
-* entry[=].id = "pharmacy-res-2"
+* entry[=].resource.id = "pharmacy-res-2"
 * entry[=].resource.resourceType = "Organization"
 * entry[=].resource.meta.profile = $pdmp-pharmacy
 * entry[=].resource.meta.source = "http://example.org/ri-pdmp"
@@ -308,7 +310,7 @@ Description: "Example of a Bundle resource used to transmit a patient's PDMP his
 * entry[=].resource.address.country = "USA"
 
 * entry[+].fullUrl = "urn:uuid:1ae374d2-7bb9-4298-8c54-2179410c549e"
-* entry[=].id = "alert-1"
+* entry[=].resource.id = "alert-1"
 * entry[=].resource.resourceType = "DetectedIssue"
 * entry[=].resource.meta.source = "http://example.org/ma-pdmp"
 * entry[=].resource.text.status = #generated
@@ -320,7 +322,7 @@ Description: "Example of a Bundle resource used to transmit a patient's PDMP his
 * entry[=].resource.patient.display = "August Thomas Samuels"
 
 * entry[+].fullUrl = "urn:uuid:47a9b899-1bee-4490-bd41-b3ca12eb441a"
-* entry[=].id = "authorizing-prescription-2"
+* entry[=].resource.id = "authorizing-prescription-2"
 * entry[=].resource.resourceType = "MedicationRequest"
 * entry[=].resource.meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest|6.1.0"
 * entry[=].resource.meta.source = "http://example.org/ri-pdmp"
@@ -347,7 +349,7 @@ Description: "Example of a Bundle resource used to transmit a patient's PDMP his
 * entry[=].resource.dispenseRequest.expectedSupplyDuration.code = #"d"
 
 * entry[+].fullUrl = "urn:uuid:77ee025a-59fc-4d1e-a189-2133a9a56c26"
-* entry[=].id = "practitioner-2"
+* entry[=].resource.id = "practitioner-2"
 * entry[=].resource.resourceType = "Practitioner"
 * entry[=].resource.meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner|6.1.0"
 * entry[=].resource.meta.source = "http://example.org/ri-pdmp"
@@ -371,7 +373,7 @@ Description: "Example of a Bundle resource used to transmit a patient's PDMP his
 
 
 * entry[+].fullUrl = "urn:uuid:151b9dd1-ca84-48a4-b132-67b1bbed0194"
-* entry[=].id = "authorizing-prescription-1"
+* entry[=].resource.id = "authorizing-prescription-1"
 * entry[=].resource.resourceType = "MedicationRequest"
 * entry[=].resource.meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest|6.1.0"
 * entry[=].resource.meta.source = "http://example.org/ma-pdmp"
@@ -398,7 +400,7 @@ Description: "Example of a Bundle resource used to transmit a patient's PDMP his
 * entry[=].resource.dispenseRequest.expectedSupplyDuration.code = #"d"
 
 * entry[+].fullUrl = "urn:uuid:23c69153-03c7-470d-9cc8-08265491d095"
-* entry[=].id = "practitioner-1"
+* entry[=].resource.id = "practitioner-1"
 * entry[=].resource.resourceType = "Practitioner"
 * entry[=].resource.meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner|6.1.0"
 * entry[=].resource.meta.source = "http://example.org/ma-pdmp"

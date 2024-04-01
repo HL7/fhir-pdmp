@@ -6,8 +6,8 @@ Usage: #definition
 * url = "http://hl7.org/fhir/us/pdmp/CapabilityStatement/pdmp-server"
 * version = "1.0.0"
 * name = "PDMP_Server"
-* status = #draft
-* date = "2023-12-13"
+* status = #active
+* date = "2024-04-01T00:00:00-05:00"
 * publisher = "HL7 International / Pharmacy"
 * contact[0].name = "HL7 International / Pharmacy"
 * contact[=].telecom.system = #url

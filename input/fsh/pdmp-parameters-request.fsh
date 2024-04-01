@@ -5,11 +5,11 @@ Title: "PDMP Parameters - Request"
 Description: "This profile tailors the Parameters resource to convey PDMP History operation inputs."
 * ^extension.url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg"
 * ^extension.valueCode = #phx
-* ^meta.lastUpdated = "2023-10-05T00:00:00-05:00"
+* ^meta.lastUpdated = "2024-04-01T00:00:00-05:00"
 * ^version = "1.0.0"
 * ^status = #active
 * ^experimental = false
-* ^date = "2023-10-05T00:00:00-05:00"
+* ^date = "2024-04-01T00:00:00-05:00"
 * ^publisher = "HL7 International / Pharmacy"
 * ^contact[0].name = "HL7 International / Pharmacy"
 * ^contact[=].telecom.system = #url
@@ -261,5 +261,103 @@ Description: "Example of a PDMP operation request for an animal patient"
 * parameter[authorized-practitioner-organization].resource.text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Highview Veterinary</div>"
 * parameter[authorized-practitioner-organization].resource.active = true
 * parameter[authorized-practitioner-organization].resource.name = "Highview Veterinary"
+* parameter[pre-stage-only].name = "pre-stage-only"
+* parameter[pre-stage-only].valueBoolean = false
+Instance: pdmp-history-input-parameters-4-delegate
+InstanceOf: pdmp-parameters-request
+Usage: #example
+Description: "Example of a PDMP operation request submitted by a delegate"
+* parameter[patient].name = "patient"
+* parameter[patient].resource.id = "patient-req-4"
+* parameter[patient].resource.resourceType = "Patient"
+* parameter[patient].resource.meta.profile = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-patient"
+* parameter[patient].resource.text.status = #generated
+* parameter[patient].resource.text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Patient: Jules Julien</div>"
+* parameter[patient].resource.identifier.type.coding.system = "http://terminology.hl7.org/CodeSystem/v2-0203"
+* parameter[patient].resource.identifier.type.coding.code = #MR
+* parameter[patient].resource.identifier.type.coding.display = "Medical record number"
+* parameter[patient].resource.identifier.system = "http://highview-va.example.org/mrn"
+* parameter[patient].resource.identifier.value = "10035666601"
+* parameter[patient].resource.active = true
+* parameter[patient].resource.name.family = "Julien"
+* parameter[patient].resource.name.given = "Jules"
+* parameter[patient].resource.gender = #female
+* parameter[patient].resource.birthDate = "1980-05-20"
+* parameter[patient].resource.address.line[0] = "10023 Santa Clara Blvd"
+* parameter[patient].resource.address.state = "Concord"
+* parameter[patient].resource.address.state = "MA"
+* parameter[patient].resource.address.postalCode = "01742"
+* parameter[authorized-practitioner].name = "authorized-practitioner"
+* parameter[authorized-practitioner].resource.id = "practitioner-req-4"
+* parameter[authorized-practitioner].resource.resourceType = "Practitioner"
+* parameter[authorized-practitioner].resource.meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner|6.1.0"
+* parameter[authorized-practitioner].resource.text.status = #generated
+* parameter[authorized-practitioner].resource.text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Mari Kimble MD</div>"
+* parameter[authorized-practitioner].resource.identifier[0].system = "http://hl7.org/fhir/sid/us-npi"
+* parameter[authorized-practitioner].resource.identifier[=].value = "1665015602"
+* parameter[authorized-practitioner].resource.name.family = "Kimble"
+* parameter[authorized-practitioner-role].name = "authorized-practitioner-role"
+* parameter[authorized-practitioner-role].resource.resourceType = "PractitionerRole"
+* parameter[authorized-practitioner-role].resource.id = "practitionerrole-req-4"
+* parameter[authorized-practitioner-role].resource.meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole|6.1.0"
+* parameter[authorized-practitioner-role].resource.text.status = #generated
+* parameter[authorized-practitioner-role].resource.text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Mari Kimble, Internal Medicine, Highview VA Clinic</div>"
+* parameter[authorized-practitioner-role].resource.practitioner.reference = "Practitioner/practitioner-req-4"
+* parameter[authorized-practitioner-role].resource.practitioner.display = "Mari Kimble"
+* parameter[authorized-practitioner-role].resource.organization.reference = "Organization/organization-req-4"
+* parameter[authorized-practitioner-role].resource.organization.display = "Highview VA Clinic"
+* parameter[authorized-practitioner-role].resource.specialty = $taxonomy#207R00000X "Internal Medicine Physician"
+* parameter[authorized-practitioner-role].resource.telecom[0].system = #phone
+* parameter[authorized-practitioner-role].resource.telecom[=].value = "508-856-1234"
+* parameter[authorized-practitioner-organization].name = "authorized-practitioner-organization"
+* parameter[authorized-practitioner-organization].resource.resourceType = "Organization"
+* parameter[authorized-practitioner-organization].resource.id = "organization-req-4"
+* parameter[authorized-practitioner-organization].resource.meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization|6.1.0"
+* parameter[authorized-practitioner-organization].resource.text.status = #generated
+* parameter[authorized-practitioner-organization].resource.text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Highview VA Clinic</div>"
+* parameter[authorized-practitioner-organization].resource.active = true
+* parameter[authorized-practitioner-organization].resource.name = "Highview VA Clinic"
+* parameter[authorized-practitioner-organization].resource.telecom.system = #phone
+* parameter[authorized-practitioner-organization].resource.telecom.value = "508-856-5555"
+* parameter[authorized-practitioner-organization].resource.address.line = "2002 Highview Ln"
+* parameter[authorized-practitioner-organization].resource.address.city = "Worcester"
+* parameter[authorized-practitioner-organization].resource.address.state = "MA"
+* parameter[authorized-practitioner-organization].resource.address.postalCode = "01604"
+* parameter[delegate-practitioner].name = "delegate-practitioner"
+* parameter[delegate-practitioner].resource.id = "practitioner-req-4-del"
+* parameter[delegate-practitioner].resource.resourceType = "Practitioner"
+* parameter[delegate-practitioner].resource.meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner|6.1.0"
+* parameter[delegate-practitioner].resource.text.status = #generated
+* parameter[delegate-practitioner].resource.text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Boris Bartok</div>"
+* parameter[delegate-practitioner].resource.identifier[0].system = "http://hl7.org/fhir/sid/us-npi"
+* parameter[delegate-practitioner].resource.identifier[=].value = "1554505606"
+* parameter[delegate-practitioner].resource.name.family = "Bartok"
+* parameter[delegate-practitioner-role].name = "delegate-practitioner-role"
+* parameter[delegate-practitioner-role].resource.resourceType = "PractitionerRole"
+* parameter[delegate-practitioner-role].resource.id = "practitionerrole-req-4-del"
+* parameter[delegate-practitioner-role].resource.meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole|6.1.0"
+* parameter[delegate-practitioner-role].resource.text.status = #generated
+* parameter[delegate-practitioner-role].resource.text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Boris Bartok RN, Highview VA Clinic</div>"
+* parameter[delegate-practitioner-role].resource.practitioner.reference = "Practitioner/practitioner-req-4-del"
+* parameter[delegate-practitioner-role].resource.practitioner.display = "Mari Kimble"
+* parameter[delegate-practitioner-role].resource.organization.reference = "Organization/organization-req-4-del"
+* parameter[delegate-practitioner-role].resource.organization.display = "Highview VA Clinic"
+* parameter[delegate-practitioner-role].resource.specialty = $taxonomy#163W00000X "Registered Nurse"
+* parameter[delegate-practitioner-role].resource.telecom[0].system = #phone
+* parameter[delegate-practitioner-role].resource.telecom[=].value = "508-856-9999"
+* parameter[delegate-organization].name = "delegate-organization"
+* parameter[delegate-organization].resource.resourceType = "Organization"
+* parameter[delegate-organization].resource.id = "organization-req-4-del"
+* parameter[delegate-organization].resource.meta.profile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization|6.1.0"
+* parameter[delegate-organization].resource.text.status = #generated
+* parameter[delegate-organization].resource.text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Highview VA Clinic</div>"
+* parameter[delegate-organization].resource.active = true
+* parameter[delegate-organization].resource.name = "Highview VA Clinic"
+* parameter[delegate-organization].resource.telecom.system = #phone
+* parameter[delegate-organization].resource.telecom.value = "508-856-5555"
+* parameter[delegate-organization].resource.address.line = "2002 Highview Ln"
+* parameter[delegate-organization].resource.address.city = "Worcester"
+* parameter[delegate-organization].resource.address.state = "MA"
+* parameter[delegate-organization].resource.address.postalCode = "01604"
 * parameter[pre-stage-only].name = "pre-stage-only"
 * parameter[pre-stage-only].valueBoolean = false

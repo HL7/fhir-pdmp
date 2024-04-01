@@ -5,9 +5,9 @@ Description: "The date the request was sent to the PDMP Responder."
 * ^extension.url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg"
 * ^extension.valueCode = #phx
 * ^meta.versionId = "1"
-* ^meta.lastUpdated = "2023-06-20T00:00:00.000-05:00"
-* ^version = "2.2.0"
-* ^date = "2023-06-22T13:57:40-05:00"
+* ^meta.lastUpdated = "2024-04-01T00:00:00.000-05:00"
+* ^version = "1.0.0"
+* ^date = "2024-04-01T00:00:00-05:00"
 * ^publisher = "HL7 International / Pharmacy"
 * ^contact[0].name = "HL7 International / Pharmacy"
 * ^contact[=].telecom.system = #url

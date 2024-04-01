@@ -5,11 +5,11 @@ Title: "PDMP Parameters - Response"
 Description: "This profile tailors the Parameters resource to convey PDMP History operation outputs."
 * ^extension.url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg"
 * ^extension.valueCode = #phx
-* ^meta.lastUpdated = "2023-10-05T00:00:00-05:00"
+* ^meta.lastUpdated = "2024-04-01T00:00:00-05:00"
 * ^version = "1.0.0"
 * ^status = #active
 * ^experimental = false
-* ^date = "2023-11-29T00:00:00-05:00"
+* ^date = "2024-04-01T00:00:00-05:00"
 * ^publisher = "HL7 International / Pharmacy"
 * ^contact[0].name = "HL7 International / Pharmacy"
 * ^contact[=].telecom.system = #url

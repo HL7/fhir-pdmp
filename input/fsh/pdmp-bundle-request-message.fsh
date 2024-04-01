@@ -7,7 +7,7 @@ Description: "This profile constrains a Bundle resource for use as the request m
 * ^extension.valueCode = #phx
 * ^version = "1.0.0"
 * ^experimental = false
-* ^date = "2023-10-08T00:00:00-05:00"
+* ^date = "2024-04-01T00:00:00-05:00"
 * ^publisher = "HL7 International / Pharmacy"
 * ^contact[0].name = "HL7 International / Pharmacy"
 * ^contact[=].telecom.system = #url
