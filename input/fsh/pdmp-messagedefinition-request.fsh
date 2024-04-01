@@ -9,7 +9,7 @@ Usage: #definition
 * title = "PDMP Message Definition - Request"
 * status = #active
 * experimental = false
-* date = "2023-10-08T00:00:00-00:00"
+* date = "2024-04-01T00:00:00-05:00"
 * publisher = "HL7 International / Pharmacy"
 * contact[0].name = "HL7 International / Pharmacy"
 * contact[=].telecom.system = #url

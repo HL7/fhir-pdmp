@@ -10,9 +10,9 @@ Title: "PDMP MedicationDispense"
 Description: "Defines constraints and extensions on the MedicationDispense resource when used by a Prescription Drug Monitoring Program (PDMP) to return an individual's medication dispense history."
 * ^extension.url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg"
 * ^extension.valueCode = #phx
-* ^version = "2.2.0"
+* ^version = "1.0.0"
 * ^status = #active
-* ^date = "2023-06-20"
+* ^date = "2024-04-01"
 * ^publisher = "HL7 International / Pharmacy"
 * ^contact[0].name = "HL7 International / Pharmacy"
 * ^contact[=].telecom.system = #url

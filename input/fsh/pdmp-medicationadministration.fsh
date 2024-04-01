@@ -11,9 +11,9 @@ Title: "PDMP MedicationAdministration"
 Description: "Defines constraints and extensions on the MedicationAdministration resource when used by a Prescription Drug Monitoring Program (PDMP) to return an individual's medication administration history."
 * ^extension.url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg"
 * ^extension.valueCode = #phx
-* ^version = "2.2.0"
+* ^version = "1.0.0"
 * ^status = #active
-* ^date = "2024-03-13"
+* ^date = "2024-04-01"
 * ^publisher = "HL7 International / Pharmacy"
 * ^contact[0].name = "HL7 International / Pharmacy"
 * ^contact[=].telecom.system = #url
@@ -77,6 +77,7 @@ InstanceOf: pdmp-medicationadministration
 Usage: #example
 Description: "Example of a PDMP medication administration"
 * meta.profile = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-medicationadministration"
+* meta.source = "http://example.org/md-pdmp"
 * extension[0].url = $pdmp-extension-rx-transmission-method
 * extension[=].valueCoding = $pmix-transmission-cs#"02" "Telephone Prescription"
 * status = #completed

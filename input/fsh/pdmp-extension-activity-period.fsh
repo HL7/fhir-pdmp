@@ -1,13 +1,13 @@
-Extension: PDMP_Activity_Period_Extension
+Extension: PDMPActivityPeriodExtension
 Id: pdmp-activity-period-extension
 Title: "PDMP Extension - Activity Period"
-Description: "The date period (start/end) of the responses returned by the PDMP."
+Description: "The date period (start/end) of the response returned by a Prescription Drug Monitoring Program (PDMP)."
 * ^extension.url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg"
 * ^extension.valueCode = #phx
 * ^meta.versionId = "1"
-* ^meta.lastUpdated = "2023-06-20T00:00:00.000-05:00"
-* ^version = "2.2.0"
-* ^date = "2023-06-22T13:57:40-05:00"
+* ^meta.lastUpdated = "2024-04-01T00:00:00.000-05:00"
+* ^version = "1.0.0"
+* ^date = "2024-04-01T00:00:00-05:00"
 * ^publisher = "HL7 International / Pharmacy"
 * ^contact[0].name = "HL7 International / Pharmacy"
 * ^contact[=].telecom.system = #url
