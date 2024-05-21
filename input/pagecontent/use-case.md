@@ -28,9 +28,7 @@ Sam August comes to the Highview Clinic complaining about right hand and wrist p
 1. The PDMP processes the request and 
 1. responds with a `pdmp-bundle-response` to the EHR.  
 1. The EHR presents the PDMP response, which
-1. Dr Amster reviews and acknowledges,
-1. subsequently finalizing the prescription,
-1. which the EHR sends to the pharmacy as an `NCPDP SCRIPT NewRx`
+1. Dr Amster reviews and acknowledges.
 
 <div>
 <figure class="figure">
@@ -66,9 +64,7 @@ Mr August is subsequently seen by Dr Amster.  Dr Amster's assessment is one or m
 1. The PDMP uses the `pre-stage-retrieval-key` to retrieve the previously generated PDMP history and 
 1. responds with a `pdmp-bundle-response` to the EHR.  
 1. The EHR presents the PDMP response, which
-1. Dr Amster reviews and acknowledges,
-1. subsequently finalizing the prescription,
-1. which the EHR sends to the pharmacy as an `NCPDP SCRIPT NewRx`
+1. Dr Amster reviews and acknowledges.
 
 
 <div>
