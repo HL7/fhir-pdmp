@@ -17,7 +17,7 @@ Usage: #definition
 * contact[=].telecom[=].value = "frank.mckinney@pocp.com"
 * contact[=].telecom[+].system = #email
 * contact[=].telecom[=].value = "fm@frankmckinney.com"
-* description = "This resource defines the expected capabilities of the PDMP Server actor when conforming to the PDMP IG and It is expected that it will be used in conjunction with the US Core CapabilityStatement. Together they describe the complete list of specific profiles, RESTful operations, and messaging capabilities supported by PDMP Servers. PDMP Server requirements may also be impacted by the rules of local jurisdictions or other contextual requirements."
+* description = "This resource defines the expected capabilities of the PDMP Server actor when conforming to the PDMP IG and it is expected that it will be used in conjunction with the US Core CapabilityStatement. Together they describe the complete list of specific profiles, RESTful operations, and messaging capabilities supported by PDMP Servers. PDMP Server requirements may also be impacted by the rules of local jurisdictions or other contextual requirements."
 * jurisdiction = urn:iso:std:iso:3166#US "United States of America"
 * kind = #requirements
 * fhirVersion = #4.0.1
