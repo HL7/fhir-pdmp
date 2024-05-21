@@ -56,6 +56,7 @@ This Implementation Guide is intended to be used in the United States.  It refle
 
 **Patient Matching:** This Implementation Guide does not specify patient matching requirements.  States may require requesters to include certain patient information to enable or facilitate patient matching.  This guide supports that patient information, however, the specific patient matching criteria requirements for each PDMP are ***out of scope***.
 
+**PDMP Logging Requirements:**  This Implementation Guide does not address PDMP logging requirements since the requirements vary between jurisdictions and are not typically not messaged (i.e., not communicated back to the PDMP).  
 
 ### Actors and Definitions
 
