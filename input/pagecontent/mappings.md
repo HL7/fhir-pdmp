@@ -11,7 +11,7 @@ The broad PDMP ecosystem - from writing a prescription to reporting PDMP history
 </figure>
 </div>
 
-In Figure 8.1, above, 
+In Figure 1, above, 
 * prescribers write a prescription and forward it electronically to the pharmacy using NCPDP SCRIPT.
 * upon dispensing or sale of the prescription, the pharmacy reports the dispensation to the appropriate PDMP system(s) using ASAP
 * PDMP systems exchange information between each other using PMIX/NIEM
