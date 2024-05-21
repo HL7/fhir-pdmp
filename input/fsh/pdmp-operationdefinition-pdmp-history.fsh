@@ -97,7 +97,7 @@ Usage: #definition
 * parameter[=].use = #out
 * parameter[=].min = 0
 * parameter[=].max = "1"
-* parameter[=].documentation = "A url to access an external report containing a PDMP history for the requested patient"
+* parameter[=].documentation = "A URL to access an external report containing a PDMP history for the requested patient"
 * parameter[=].type = #url
 * parameter[+].name = #pre-stage-retrieval-key
 * parameter[=].use = #out
