@@ -84,7 +84,7 @@ Mr August is subsequently seen by Dr Amster.  Dr Amster's assessment is one or m
 
 ### Use Case 3 - *Illustrating a PDMP response including a URL*
 
-The `pdmp-bundle-response` can include the PDMP history as discrete FHIR-formatted data, a URL link to a fully formatted PDMP history report, or both the discrete data and the link.  The data can support additional Clinical Decision Support services in the EHR, but does not necessarily support any visual formatting the PDMP may be required to follow (e.g., regulatory presentation requirements).
+The `pdmp-bundle-response` can include the PDMP history as discrete FHIR-formatted data, a URL link to a fully formatted PDMP history report, or both the discrete data and the link.  The data can support additional Clinical Decision Support services in the EHR but does not necessarily support any visual formatting the PDMP may be required to follow (e.g., regulatory presentation requirements).
 
 The use case sequence is the same as above, except for Use Case 1 step 9 and Use Case 2 step 13.  Instead of presenting the discrete data received in the `pdmp-bundle-response`, the EHR redirects the Dr Amster via the URL link to the formatted PDMP History on the `State PDMP (PDMP Responder)`'s web server.  This alternate flow is shown in the follow diagram.
 
