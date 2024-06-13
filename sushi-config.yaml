@@ -64,7 +64,8 @@ contact:
 extension:
   - url: http://hl7.org/fhir/StructureDefinition/structuredefinition-wg
     valueCode: phx
-auto-oid-root: 2.16.840.1.113883.4.642.40.35
+parameters:
+  auto-oid-root: 2.16.840.1.113883.4.642.40.35
 #
 #
 # The instanceOptions property is used to configure certain aspects of how SUSHI processes instances.

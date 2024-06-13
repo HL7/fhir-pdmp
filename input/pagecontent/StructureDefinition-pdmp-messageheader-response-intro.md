@@ -2,7 +2,7 @@
 **Important elements in this profile:**
 
 - **MessageHeader.eventCoding.code**
-  - The code system, `pdmp-event-type` and value, `pdmp-patient-response` identify the message as a PDMP response
+  - The code system, pdmp-event-type and value, pdmp-patient-response identify the message as a PDMP response
 - **MessageHeader.focus**
   - This element references a Bundle resource containing medication dispenses administrations associated with the patient identified in the request 
 <p></p>
