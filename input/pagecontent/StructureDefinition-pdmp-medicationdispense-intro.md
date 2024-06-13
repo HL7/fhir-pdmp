@@ -11,7 +11,7 @@
   - A reference to the authorizing MedicationRequest SHOULD be populated
 - **MedicationDispense.quantity**
   - Quantity, including numeric value and units SHALL be populated
-  - When the dispense quantity is stated in terms of "eaches" (e.g., tablets, capsules, etc.), populate only the `quantity.unit` value with the text "each". Do not populate the `quantity.system` or `quantity.code` values
+  - When the dispense quantity is stated in terms of "eaches" (e.g., tablets, capsules, etc.), populate only the quantity.unit value with the text "each". Do not populate the quantity.system or quantity.code values
 - **MedicationDispense.daysSupply**
   - Dispensed days supply SHALL be populated
 - **MedicationDispense.whenPrepared**

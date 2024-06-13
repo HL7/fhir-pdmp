@@ -18,7 +18,7 @@
 
 If the source system does not have data for a *required* data element (in other words, where the minimum cardinality is greater than 0), participants must follow the rules below.
 
-**Non-Coded Data Elements**. Use the FHIR [DataAbsentReason Extension](http://hl7.org/fhir/R4/extension-data-absent-reason.html) with the code, `unknown`, which means *the value is expected to exist but is not known*.
+**Non-Coded Data Elements**. Use the FHIR [DataAbsentReason Extension](http://hl7.org/fhir/R4/extension-data-absent-reason.html) with the code, unknown, which means *the value is expected to exist but is not known*.
 
 **Coded Data Elements** 
 

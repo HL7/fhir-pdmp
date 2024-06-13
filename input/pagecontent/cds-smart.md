@@ -34,14 +34,14 @@ This guide defers to the CDS Hooks and SMART App Launch implementation guides fo
 Implementers:
 - **MAY** use CDS Hooks for decision support alerts associated with non-drug orders, to inform the provider of a situation where opioid use might be an issue and checking PDMP is recommended.
 - **SHOULD NOT** use CDS Hooks as a mechanism to support a provider requirement to always check PDMP
-- **SHALL NOT** return discrete patient PDMP history detail in a CDS Hooks response (instead, the CDS Server **SHOULD** return a URL or SMART app `link` card to access the information)
+- **SHALL NOT** return discrete patient PDMP history detail in a CDS Hooks response (instead, the CDS Server **SHOULD** return a URL or SMART app link card to access the information)
 - **SHOULD** use  SMART App Launch alone (not triggered by CDS Hooks) for situations where the EHR, hospital organization, or the state or other jurisdiction has the responsibility of determining when the provider must view a patient's PDMP history.
 
 **CDS Hooks workflow event options**
 
 - The CDS Hooks specification defines event triggers, called "hooks", reflecting workflow points where a request to a CDS Server can be called. In order to provide early notification that PDMP information may be useful to the provider, hooks that occur earlier in the decision-making process, such as...
-  - `order-select` which fires at the start of the ordering process 
-  - `patient-view` which occurs when the provider first views the patient's chart in an encounter
+  - order-select which fires at the start of the ordering process 
+  - patient-view which occurs when the provider first views the patient's chart in an encounter
 
 ... are preferable to those that happen after the provider has made determinations.
 
@@ -49,11 +49,11 @@ Implementers:
 
 **Providing context information to a PDMP Responder's CDS Server or SMART App**
 
-The PDMP Responder must receive the same patient and authorized provider information when called using CDS Hooks or SMART App Launch as when the provider system submits a request using the `pdmp-history` operation--to support its authorization and processing requirements.
+The PDMP Responder must receive the same patient and authorized provider information when called using CDS Hooks or SMART App Launch as when the provider system submits a request using the pdmp-history operation--to support its authorization and processing requirements.
 
 When submitting a CDS Hooks request or launching an SMART app, the provider system **SHALL** include the [request Parameters resource](StructureDefinition-pdmp-parameters-request.html) to provide needed context:
-- as `prefetch` data in a CDS Hooks request
-- in the `appContext` launch parameter in a SMART app launch.
+- as prefetch data in a CDS Hooks request
+- in the appContext launch parameter in a SMART app launch.
 
 
 
