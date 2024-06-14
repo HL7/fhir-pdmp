@@ -2,7 +2,7 @@
 
 **Resource entry cardinality.** The only required resource in the Bundle is Patient, and all others are optional. This reflects that PDMP history can include information about dispensations and/or administrations--with each type of event represented by different sets of FHIR resources. 
 
-In addition, profiles for the resources used to represent each kind of event allow for variability in representing the participants and related information; for example, the prescription for a dispensed drug can be represented with identifier in the `MedicationDispense.authorizingPrescription` element or by a reference to a MedicationRequest resource.
+In addition, profiles for the resources used to represent each kind of event allow for variability in representing the participants and related information; for example, the prescription for a dispensed drug can be represented with identifier in the MedicationDispense.authorizingPrescription element or by a reference to a MedicationRequest resource.
 
 <p></p>
 
@@ -12,17 +12,17 @@ In this situation, MedicationDispense, MedicationAdministration and other return
 
 <p></p>
 
-**Noting the PDMP data source in returned resources.** All resources returned in this Bundle **SHALL** reference their source (e.g., the state PDMP from which the data was obtained) in the `.meta.source` element.
+**Noting the PDMP data source in returned resources.** All resources returned in this Bundle **SHALL** reference their source (e.g., the state PDMP from which the data was obtained) in the .meta.source element.
 
 <p></p>
 
-**History Result Bundle not created if history is not found.** If the PDMP Responder is unable to locate information for the requested patient it **SHALL NOT** create this Bundle or populate the `pdmp-history-data` output parameter.
+**History Result Bundle not created if history is not found.** If the PDMP Responder is unable to locate information for the requested patient it **SHALL NOT** create this Bundle or populate the pdmp-history-data output parameter.
 
-Instead, the PDMP Responder indicates that history was not found using the response's `outcome` parameter. See [this section](submission-options.html#successful-processing-that-does-not-locate-pdmp-history-for-the-requested-patient) for additional response specifics and an example.
+Instead, the PDMP Responder indicates that history was not found using the response's outcome parameter. See [this section](submission-options.html#successful-processing-that-does-not-locate-pdmp-history-for-the-requested-patient) for additional response specifics and an example.
 
 <p></p>
 
-**Request information is not echoed in the History Result Bundle.** This Bundle is intended to contain only information from the PDMP Responder's information sources. It **SHALL NOT** be used to echo back patient or other information submitted in the `pdmp-history` request.
+**Request information is not echoed in the History Result Bundle.** This Bundle is intended to contain only information from the PDMP Responder's information sources. It **SHALL NOT** be used to echo back patient or other information submitted in the pdmp-history request.
 
 <p></p>
 

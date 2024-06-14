@@ -4,22 +4,23 @@ Prescription Drug Monitoring Programs (PDMPs) are state-based databases that pro
 
 To reduce opioid misuse, reduce drug diversion, and for other purposes, states have implemented policies mandating providers to reference PDMPs to obtain a patient's PDMP history before prescribing or dispensing certain medications. The Prescription Drug Monitoring Program (PDMP) FHIR Implementation Guide defines a method for providers to request and retrieve patient PDMP information using the HL7 FHIR standard. 
 
-For general background on state PDMP programs, see the Centers for Disease Control and Prevention [PDMP - What States Need to Know](https://www.cdc.gov/drugoverdose/pdmp/index.html).
+For general background on state PDMP programs, see the Centers for Disease Control and Prevention [PDMP - What States Need to Know](https://www.cdc.gov/overdose-prevention/php/interventions/prescription-drug-monitoring-programs.html).
  
 #### PDMP Ecosystem
 
-The following figure, provided by Prescription Drug Monitoring Program Training and Technical Assistance Center ([PDMP TTAC](https://www.pdmpassist.org)) shows an overview of the PDMP reporting ecosystem.  
+The Figure 1, below, shows an overview of the PDMP reporting ecosystem.  This diagram was adapted from Prescription Drug Monitoring Program Training and Technical Assistance Center [PDMP TTAC(https://www.pdmpassist.org)].  PDMP TTAC is an organization of PDMPs, federal partners and other stakeholders which has establish technical standards and provides other services, support, resources, & strategies to further the efforts and effectiveness of PDMPs.
 
 In this figure, 
-* a `user` can interact with a `State PDMP System` directly (i.e., a web portal) or through a `Health care or pharmacy entity`
-* `Health care or pharmacy entity` can interact with a `State PDMP System` directly or via `RxCheck Hub`, `PMPi Hub` or `Integration Facilitator`
-* `State PDMP System`s exchange information with each other through `RxCheck Hub` or `PMPi Hub`
+* a user can interact with a State PDMP System directly (i.e., a web portal) or through a Health care or pharmacy entity (e.g., EHR, pharmacy system)
+* Health care or pharmacy entity can interact with a State PDMP System directly or via an Integration Facilitator
+* State PDMP Systems exchange information with each other through an inter-PDMP Hub
+* ovals have been added to the diagram to identify PDMP Requestors (yellow) and PDMP Responders (green)
 
-Outside of a `user` accessing a `State PDMP System` via a web portal, the interactions in Figure 1 can support discrete data exchange. 
+Outside of a user accessing a State PDMP System via a web portal, the interactions in Figure 1 can support discrete data exchange. 
 
 <div>
 <figure class="figure">
-<figcaption class="figure-caption"><strong>Figure 1: An overview of the PDMP ecosystem</strong></figcaption>
+<figcaption class="figure-caption"><strong>Figure 1: An overview of the PDMP ecosystem</strong> adapted from PDMP TTAC</figcaption>
   <p>
   <img src="pdmp-ecosystem-small.png" style="float:none">  
   </p>
@@ -27,9 +28,13 @@ Outside of a `user` accessing a `State PDMP System` via a web portal, the intera
 </div>
 <p></p>
 
+#### Adding FHIR to the PDMP Ecosystem
+
+This Implementation Guide provides another method for Users (or Users + Health care or Pharmacy entities) to request and receive PDMP history reports.  Systems may elect to follow the method in this Implementation Guide to leverage existing FHIR Infrastructure, particularly when discrete PDMP data is allowed to be stored or incorporated locally.
+
 ### Scope
 
-For this Implementation Guide, we limit and abstract the ecosystem in Figure 1 to focus on `PDMP request` and `PDMP response` messages exchanged between the `PDMP Requester` and the `PDMP Responder` as depicted in Figure 2.
+For this Implementation Guide, we limit and abstract the ecosystem in Figure 1 to focus on PDMP request and PDMP response messages exchanged between the PDMP Requester and the PDMP Responder as depicted in Figure 2. 
 
 <div>
 <figure class="figure">
@@ -41,13 +46,16 @@ For this Implementation Guide, we limit and abstract the ecosystem in Figure 1 t
 </div>
 <p></p>
 
-To support regulatory requirements in various states, `PDMP response` supports both the PDMP history as discrete data and a URL pointing to the PDMP history rendered (fully-formatted) to regulatory requirements.
+To support varying regulatory requirements, PDMP response supports both the PDMP history as discrete data and a URL pointing to the PDMP history rendered (fully-formatted) to regulatory requirements.
 
 This guide provides both RESTful operation and messaging submission methods to match implementers' particular environments as described [here](submission-options.html).
 
 This Implementation Guide is intended to be used in the United States.  It reflects US pharmacy processes and conventions.
 
 ### Out of Scope
+**Hubs and Integration Facilitators**
+The inter-PDMP hubs and Integration Facilitators in Figure 1 may be associated with either the PDMP Requestor or the PDMP Responder in Figure 2, depending upon the implementation.  They are not specifically addressed as separate entities in this Implementation Guide.
+
 **Other interactions** between PDMP ecosystem parties, including parties not depicted in Figure 1, are ***out of scope*** for this Implementation Guide.  These exchanges include, but are not limited to:
 - data exchange between PDMPs
 - prescription dispensations reported by the pharmacy to the PDMP
@@ -56,19 +64,19 @@ This Implementation Guide is intended to be used in the United States.  It refle
 
 **Patient Matching:** This Implementation Guide does not specify patient matching requirements.  States may require requesters to include certain patient information to enable or facilitate patient matching.  This guide supports that patient information, however, the specific patient matching criteria requirements for each PDMP are ***out of scope***.
 
-**PDMP Logging Requirements:**  This Implementation Guide does not address PDMP logging requirements since the requirements vary between jurisdictions and are not typically not messaged (i.e., not communicated back to the PDMP).  
+**PDMP Logging Requirements:**  This Implementation Guide does not address PDMP logging requirements since the requirements vary between jurisdictions and are not typically messaged (i.e., not communicated back to the PDMP).  
 
 ### Actors and Definitions
 
-- **PDMP Requester:** A system that sends `PDMP request`s to `PDMP Responder`s and receives `PDMP response`s in return. The system may include both a local system (e.g., EHR, Pharmacy System) and associated intermediaries (e.g., message routing and other value-added service providers). This system can be thought of as the client in a client-server interaction.  
+- **PDMP Requester:** A system that sends PDMP requests to PDMP Responders and receives PDMP responses in return. The system may include both a local system (e.g., EHR, Pharmacy System) and associated intermediaries (e.g., message routing and other value-added service providers). This system can be thought of as the client in a client-server interaction.  
 
-- **PDMP Responder:** A system that receives `PDMP request`s from `PDMP Requester`s and responds with `PDMP response`s. The system may include, in addition to the state PDMP, other partner systems (e.g., hubs).  This system can be thought of as the server in a client-server interaction.
+- **PDMP Responder:** A system that receives PDMP requests from PDMP Requesters and responds with PDMP responses. The system may include, in addition to the state PDMP, other partner systems (e.g., hubs).  This system can be thought of as the server in a client-server interaction.
 
-- **PDMP request:** A message, sent by a `PDMP requester` on behalf of a user, which contains all necessary and required information such that a `PDMP Responder` can, if appropriate, respond with a `PDMP response`.  This includes, but is not limited to, user identification and authorization and patient identification.
+- **PDMP request:** A message, sent by a PDMP requester on behalf of a user, which contains all necessary and required information such that a PDMP Responder can, if appropriate, respond with a PDMP response.  This includes, but is not limited to, user identification and authorization and patient identification.
 
-- **PDMP response:** A message, sent by a `PDMP Responder` that particular `PDMP Requester` that submitted a specific  `PDMP request`.  The message may include any combination of: the PDMP history in discrete data, a URL to a formatted PDMP history report, additional alerts and message, error messages, and other relevant information.
+- **PDMP response:** A message, sent by a PDMP Responder that particular PDMP Requester that submitted a specific  PDMP request.  The message may include any combination of: the PDMP history in discrete data, a URL to a formatted PDMP history report, additional alerts and message, error messages, and other relevant information.
 
-- **PDMP history:** The content of a `PDMP response` including pertinent patient, pharmacy, prescriber, and dispensation records. The `PDMP Responder` may also include alerts, administration records, and other information as appropriate or as required by policy or regulation. 
+- **PDMP history:** The content of a PDMP response including pertinent patient, pharmacy, prescriber, and dispensation records. The PDMP Responder may also include alerts, administration records, and other information as appropriate or as required by policy or regulation.==
 
 
 ### Content and Organization
@@ -160,8 +168,9 @@ The authors acknowledge and thank our stakeholders for their essential contribut
 ### IP Statements
 **NOTE TO BALLOTERS**
 *Formal IP statements are pending for*
-- PIMX materials are freely available at https://www.pdmpassist.org/PMIX/Standards. 
-- NCPDP references are (c) NCPDP
+- PIMX references are available through Prescription Drug Monitoring Program Training and Technical Assistance Center (PDMP TTAC) [https://www.pdmpassist.org/PMIX/Standards](https://www.pdmpassist.org/PMIX/Standards). 
+- NCPDP references are copyright National Council for Prescription Drug Programs (NCPDP) [https://standards.ncpdp.org](https://standards.ncpdp.org/)
+- ASAP references are copyright American Society for Automation in Pharmacy (ASAP) [https://asapnet.org/publications/](https://asapnet.org/publications/)
 
 {% include ip-statements.xhtml %}
 
