@@ -1,7 +1,7 @@
 Extension: PrescriptionFillNumberExtension
 Id: pdmp-extension-rx-fill-number
 Title: "PDMP Extension - Prescription Fill Number"
-Description: "The fill number of the prescription dispensed. The value representing a prescription's initial fill is 0. The first refill is 1, etc. Fill numbers are integers, each fill increments by 1 regardless of the quantity dispensed."
+Description: "Represents the specific fill number for the prescription dispensed, with 0 representing the initial fill, 1 representing the first refill, etc.  Each fill number represents one dispensation, even if that dispensation is not for the full quantity.  Partial fills are not represented by decimal quantities.  For example, an initial fill of 100 tablets would have rx-fill-number = 0.  A subsequent refill, per patient request, 40 tablets (full quantity is 100 tablets) would have rx-fill-number = 1 (not 0.4).  The next subsequent refill, for any quantity, would have rx-fill-number = 2."
 * ^extension.url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg"
 * ^extension.valueCode = #phx
 * ^meta.versionId = "1"
