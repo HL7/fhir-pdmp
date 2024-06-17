@@ -3,7 +3,8 @@
 - **MedicationAdministration.subject**
   - A reference to the patient receiving the medication SHALL be populated
 - **MedicationAdministration.medicationCodeableConcept (or Medication reference)**
-  - The administered medication SHALL be populated, including the associated RxNorm code and NDC11 reflecting the medication name, strength and dose form
+  - The administered medication SHALL be populated, including the associated RxNorm code and NDC11, as available, reflecting the medication name, strength and dose form
+  - For information concerning mapping between NDC and RxNorm, see   [Mapping NDC, RXCUI, and Drug Names in the RxNorm Files](https://www.nlm.nih.gov/research/umls/user_education/quick_tours/RxNorm/ndc_rxcui/NDC_RXCUI_DrugName.html)
 - **MedicationAdministration.performer**
   - The party that administered the medication SHALL be populated using either a reference to the performer (US Core Practitioner resource) or an identifier specifying both the provider's identifier value and system
 - **MedicationAdministration.request**

@@ -39,7 +39,7 @@ Description: "Defines constraints and extensions on the Organization resource wh
 * identifier[NCPDP] ^mustSupport = true
 * identifier[DEA] ^short = "DEA Number"
 * identifier[DEA] ^comment = "Drug Enforcement Administration registration number"
-* identifier[DEA] ^patternIdentifier.system = "urn:oid:2.16.840.1.113883.4.814"
+* identifier[DEA] ^patternIdentifier.system = "http://terminology.hl7.org/NamingSystem/usdeanumber"
 * identifier[DEA] ^mustSupport = true
 * address MS
 
@@ -53,7 +53,7 @@ Description: "Example of a PDMP dispensing pharmacy"
 * identifier[0].type.coding.system = "http://terminology.hl7.org/CodeSystem/v2-0203"
 * identifier[=].type.coding.code = #DEA
 * identifier[=].type.coding.display = "Drug Enforcement Administration registration number"
-* identifier[=].system = "urn:oid:2.16.840.1.113883.4.814"
+* identifier[=].system = "http://terminology.hl7.org/NamingSystem/usdeanumber"
 * identifier[=].value = "CS4861378"
 * identifier[+].system = "http://hl7.org/fhir/sid/us-npi"
 * identifier[=].value = "1669512349"

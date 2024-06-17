@@ -22,7 +22,7 @@ The PDMP Responder **SHALL**:
 		* (Status 401/4xx): unauthorized request
 		* (Status 403): insufficient scope
 		* (Status 404): unknown resource
-		* (Status 410): deleted resource.
+		* (Status 410): deleted resource
 * Support JSON resource formats for all  interactions.
 * Declare a CapabilityStatement identifying the list of profiles, operations, and search parameters supported.
 

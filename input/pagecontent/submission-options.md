@@ -114,7 +114,7 @@ The MessageHeader.event of the request message references the [pdmp-history oper
 
 **Submission endpoint and parameters**
 
-The request message is POSTed to the PDMP Responder using the standard FHIR $process-message operation...
+The request message is submitted using using HTTP POST to the PDMP Responder using the standard FHIR $process-message operation...
   - URL: [base]/$process-message
   - Details from the base FHIR specification are [here](https://www.hl7.org/fhir/operation-messageheader-process-message.html).
 
