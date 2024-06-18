@@ -24,17 +24,22 @@
 
 <p></p>
 
+ - **FHIR resource references.** Resources conveyed in the operation's input and output parameters will 
+
+<p></p>
+
  - **FHIR resource references.** Resources conveyed in the operation's input and output parameters will typically contain references to other FHIR resources. Certain of these references are expected to resolve to other resources in the respective submission or response. Others, however, may refer to resources that are not present in the operation because they are not pertinent to the PDMP use case. Below are this guide's expectations:
 
 <p></p>
 
    - **Operation request:**
-     - _Authorized Practitioner Relationships._ The PractitionerRole resource submitted in the authorized-practitioner-role parameter... 
+     - _Authorized Practitioner Relationships._ The PractitionerRole resource submitted in the authorized-practitioner-role parameter: 
        - **SHOULD** contain a reference to the Practitioner resource submitted in the corresponding authorized-practitioner parameter in its .practitioner element.
        - **SHOULD** contain a reference to the Organization resource submitted in the corresponding authorized-practitioner-organization parameter in its .organization element.
-     - _Delegate Relationships._ The PractitionerRole resource submitted in the delegate-practitioner-role parameter... 
+     - _Delegate Relationships._ The PractitionerRole resource submitted in the delegate-practitioner-role parameter: 
        - **SHOULD** contain a reference to the Practitioner resource submitted in the corresponding delegate-practitioner parameter in its .practitioner element.
        - **SHOULD** contain a reference to the Organization resource submitted in the corresponding delegate-organization parameter in its .organization element.
+       - _Note:_ a delegate is an individual authorized by a provider or pharmacist who is requesting the PDMP information on their behalf.  For example, an intake or triage person in an emergency department may be a delegate for a physician in that department
      - _Other references_ may be present in submitted resources but are not required to resolve to other resources in the request.
 
    <p></p>

@@ -35,7 +35,9 @@ Also contained in the response are:
 Use of an operation enables the process to support current PDMP processing requirements including:
 
 - submission of requesting provider and delegate details and facility information which are used for authorization and record-keeping 
-- support for a "pre-stage-only" request processing option which instructs the PDMP Responder to tee up results to be returned in response to a subsequent request from the PDMP Requester
+  - a delegate is an individual authorized by a provider or pharmacist who is requesting the PDMP information on their behalf.  For example, an intake or triage person in an emergency department may be a delegate for a physician in that department
+- support for a "pre-stage-only" request processing option
+  - A pre-stage request (pre-stage-only = true) directs the PDMP Responder to gather information for the requested patient and stage it for retrieval via a subsequent pdmp-history call
 - support for the return of PDMP history in the form of discrete FHIR data
 - support for the return of a URL for accessing a PDMP history.
 
@@ -164,6 +166,7 @@ The PDMP Requester populates the pre-stage-only input parameter with true to req
 
 In this scenario, one iteration of issue.details.code **SHOULD** be populated with the pre-stage-accepted code from the [response status value set](ValueSet-pdmp-response-status.html)
 
+There is no requirement for PDMP Responders to accept pre-stage-only requests.  Support for pre-stage requests is determined when the integration is being built between the PDMP Requestor (e.g., an EHR) and the PDMP Responder. 
 <p></p>
 
 #### Non-fatal processing exception
