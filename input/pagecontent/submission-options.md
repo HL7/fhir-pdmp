@@ -166,7 +166,7 @@ The PDMP Requester populates the pre-stage-only input parameter with true to req
 
 In this scenario, one iteration of issue.details.code **SHOULD** be populated with the pre-stage-accepted code from the [response status value set](ValueSet-pdmp-response-status.html)
 
-There is no requirement for PDMP Responders to accept pre-stage-only requests.  Support for pre-stage requests is determined when the integration is being build between the PDMP Requestor (e.g., an EHR) and the PDMP Responder. 
+There is no requirement for PDMP Responders to accept pre-stage-only requests.  Support for pre-stage requests is determined when the integration is being built between the PDMP Requestor (e.g., an EHR) and the PDMP Responder. 
 <p></p>
 
 #### Non-fatal processing exception
