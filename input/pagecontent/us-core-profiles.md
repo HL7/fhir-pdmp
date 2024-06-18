@@ -79,7 +79,7 @@ Implementers SHALL conform to the following US Core profiles in PDMP interaction
 
 This guide does not prohibit PDMP participants from exchanging additional information beyond what it details, for example to meet jurisdictional requirements or to support additional use cases. 
 
-When other resources not profiled in this implementation guide or listed above are exchanged between a PDMP Requester and PDMP Responder, they **SHOULD** conform to US Core profiles where applicable profiles exist.
+When other resources not profiled in this implementation guide or listed above are exchanged between a PDMP Requester and PDMP Responder, they **SHALL** conform to US Core profiles where applicable profiles exist.
 
 <p></p>
 
