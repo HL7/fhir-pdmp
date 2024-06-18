@@ -43,7 +43,9 @@ Implementers:
   - order-select which fires at the start of the ordering process 
   - patient-view which occurs when the provider first views the patient's chart in an encounter
 
-... are preferable to those that happen after the provider has made determinations.
+... may be preferable to those that happen after the provider has made determinations.
+
+However, if receiving finalized order details in the CDS request would better enable the PDMP's CDS service to respond, use of the order-sign hook may be more appropriate.
 
 <p></p>
 
