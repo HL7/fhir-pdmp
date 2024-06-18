@@ -41,9 +41,3 @@ If the source system does not have data for a *required* data element (in other 
 
 <p></p>
 
-### Conformance to US Core Profiles
-
-Resources returned by the PDMP Responder that are not profiled in this IG SHOULD conform to the associated US Core profiles as outlined in [US Core Profiles](us-core-profiles.html) when applicable profiles exist.
-
-<p></p>
-<p></p>
