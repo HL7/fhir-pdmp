@@ -1,3 +1,9 @@
+
+- <mark>Changes are highlighted in the text on this page when possible
+- <mark>Changes that can't be highlighted on this page are:
+    - <mark>Mappings to NCPDP SCRIPT, PMIX, and ASAP Reporting have been added (click on the Mappings tab)
+
+
 **Required elements in this profile**
 
 - **name** The patient's family name and a given name

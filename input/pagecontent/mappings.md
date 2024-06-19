@@ -1,3 +1,9 @@
+
+- <mark>Changes are highlighted in the text on this page when possible
+- <mark>Changes that can't be highlighted on this page are:
+    - <mark>The PMIX and NCPDP mappings have been extensively updated and field orders have been aligned
+    - <mark>ASAP Report mapping has been added with field order aligned with PMIX and NCPDP mappings
+    
 ### Other Data Standards Supporting the PDMP Ecosystem
 
 The broad PDMP ecosystem - from writing a prescription to reporting PDMP history - employs a combination of NCPDP, ASAP and PMIX/NIEM standards, as illustrated below:
@@ -11,9 +17,9 @@ The broad PDMP ecosystem - from writing a prescription to reporting PDMP history
 </figure>
 </div>
 
-In Figure 1, above, 
+In Figure <mark>1</mark>, above, 
 * prescribers write a prescription and forward it electronically to the pharmacy using NCPDP SCRIPT.
-* upon dispensation or sale of the prescription, the pharmacy reports the dispensation to the appropriate PDMP system(s) using ASAP Standard for Prescription Drug Monitoring Programs (ASAP Reporting)
+* upon <mark>dispensation</mark> or sale of the prescription, the pharmacy reports the <mark>dispensation</mark> to the appropriate PDMP system(s) using ASAP Standard for Prescription Drug Monitoring Programs (ASAP Reporting)
 * PDMP systems exchange information between each other using PMIX/NIEM
 * in contrast, getting the PDMP information to providers (prescribers and pharmacists) does not utilize a single, consistent, methodology.  Current implementations include
   * all PDMP provide a web portal for provider access
@@ -21,20 +27,20 @@ In Figure 1, above,
   * some PDMPs support ASAP Web Services for PDMP data transmission
   * some PDMPs have other proprietary integration options for PDMP data transmission
 
-In introducing FHIR as a methodology in connecting providers (prescribers and pharmacists) to the PDMPs, the Implementation Guide stakeholders agreed that mappings between FHIR, PMIX/NIEM, NCPDP SCRIPT RxHistory, and ASAP Reporting may be beneficial for users of this Implementation Guide.
+<mark>In introducing FHIR as a methodology in connecting providers (prescribers and pharmacists) to the PDMPs, the Implementation Guide stakeholders</mark> agreed that mappings between FHIR, PMIX/NIEM, NCPDP SCRIPT RxHistory, <mark>and ASAP Reporting</mark> may be beneficial for users of this Implementation Guide.
 
 ### Mapping
 
-Mapping from each FHIR resource in this Implementation Guide to PMIX/NIEM, NCPDP SCRIPT RxHistory, and ASAP Reporting is included in the resource profile page. On the resource page (e.g., [PDMP MedicationDispense](StructureDefinition-pdmp-medicationdispense.html)), click on the 'Mappings' tab and scroll to find the mapping of interest.  The following tables consolidate the mappings for request and response scenarios by standard.
+Mapping from each FHIR resource in this Implementation Guide to PMIX/NIEM, NCPDP SCRIPT RxHistory, <mark>and ASAP Reporting</mark> is included in the resource <mark> profile page </mark>. On the resource page (e.g., [PDMP MedicationDispense](StructureDefinition-pdmp-medicationdispense.html)), click on the 'Mappings' tab and <mark>scroll to find the mapping of interest</mark>.  The following tables consolidate the mappings for request and response scenarios by standard.
 
-Resources which are not profiled in this Implementation Guide (e.g, US Core Prescriber) do not include mappings to PMIX/NIEM, NCPDP SCRIPT RxHistory, or ASAP Reporting. Mapping to these resources is included below, but is not included in the resource definitions (e.g., the mapping tab for US Core Prescriber does not include mapping to PMIX/NIEM)
+<mark> Resources which are not profiled in this Implementation Guide (e.g, US Core Prescriber) do not include mappings to PMIX/NIEM, NCPDP SCRIPT RxHistory, or ASAP Reporting. Mapping to these resources is included below, but is not included in the resource definitions (e.g., the mapping tab for US Core Prescriber does not include mapping to PMIX/NIEM)
 
-Fully qualified element names in each standard can be very long.  To reduce the text in each cell, the tables below provide "context" and "XPath" or "FHIRPath" for the mapped data elements.  The context is a simplified representation of the XPath/FHIRPath referring to the major nodes in the XML Schema, or PDMP FHIR Bundles defined in this Implementation Guide.  The XPath/FHIRPath are prefixes to the XPath or FHIRPath for each element.
+<mark> Fully qualified element names in each standard can be very long.  To reduce the text in each cell, the tables below provide "context" and "XPath" or "FHIRPath" for the mapped data elements.  The context is a simplified representation of the XPath/FHIRPath referring to the major nodes in the XML Schema, or PDMP FHIR Bundles defined in this Implementation Guide.  The XPath/FHIRPath are prefixes to the XPath or FHIRPath for each element.
 
 
 #### NCPDP to FHIR Mapping for Request
 
-This section includes a representative field mapping from NCPDP SCRIPT 2017071 RxHistoryRequest to the FHIR elements in this Implementation Guide.
+<mark>This section includes a representative field mapping from NCPDP SCRIPT 2017071 RxHistoryRequest to the FHIR elements in this Implementation Guide.
 
 <style type="text/css">.ritz .waffle a { color: inherit; }.ritz .waffle .maptable17{border-bottom:1px SOLID #000000;border-right:1px SOLID #000000;background-color:#ffffff;text-align:left;color:#000000;font-family:'Calibri',Arial;font-size:11pt;vertical-align:middle;white-space:normal;overflow:hidden;word-wrap:break-word;direction:ltr;padding:0px 3px 0px 3px;}.ritz .waffle .maptable11{border-bottom:1px SOLID #000000;border-right:1px SOLID #000000;background-color:#4f81bd;text-align:center;font-weight:bold;color:#ffffff;font-family:'Calibri',Arial;font-size:12pt;vertical-align:middle;white-space:normal;overflow:hidden;word-wrap:break-word;direction:ltr;padding:0px 3px 0px 3px;}.ritz .waffle .maptable10{border-bottom:1px SOLID #000000;border-right:1px SOLID #000000;background-color:#4f81bd;text-align:left;color:#000000;font-family:'Calibri',Arial;font-size:12pt;vertical-align:bottom;white-space:nowrap;direction:ltr;padding:0px 3px 0px 3px;}.ritz .waffle .maptable16{border-bottom:1px SOLID #000000;border-right:1px SOLID #000000;background-color:#c6d9f0;text-align:center;color:#000000;font-family:'Calibri',Arial;font-size:12pt;vertical-align:middle;white-space:normal;overflow:hidden;word-wrap:break-word;direction:ltr;padding:0px 3px 0px 3px;}</style>
 <div class="ritz grid-container" dir="ltr">
@@ -152,7 +158,7 @@ This section includes a representative field mapping from NCPDP SCRIPT 2017071 R
 
 #### NCPDP to FHIR Mappings for Response
 
-This section includes a representative field mapping from NCPDP SCRIPT 2017071 RxHistoryResponse to the FHIR elements in this Implementation Guide.
+<mark> This section includes a representative field mapping from NCPDP SCRIPT 2017071 RxHistoryResponse to the FHIR elements in this Implementation Guide.
 
 <div class="ritz grid-container" dir="ltr">
   <table class="waffle" cellspacing="0" cellpadding="0">
@@ -453,7 +459,7 @@ This section includes a representative field mapping from NCPDP SCRIPT 2017071 R
 
 #### PMIX to FHIR Mapping for Request
 
-This section includes a representative field mapping from PMIX/NIEM 4.0 Request to the FHIR elements in this Implementation Guide.
+<mark> This section includes a representative field mapping from PMIX/NIEM 4.0 Request to the FHIR elements in this Implementation Guide.
 
 <div class="ritz grid-container" dir="ltr">
   <table class="waffle" cellspacing="0" cellpadding="0">
@@ -508,7 +514,7 @@ This section includes a representative field mapping from PMIX/NIEM 4.0 Request 
 
 #### PMIX to FHIR Mapping for Response
 
-This section includes a representative field mapping from PMIX/NIEM 4.0 Prescription Report to the FHIR elements in this Implementation Guide.
+<mark>This section includes a representative field mapping from PMIX/NIEM 4.0 Prescription Report to the FHIR elements in this Implementation Guide.
 
 <div class="ritz grid-container" dir="ltr">
   <table class="waffle" cellspacing="0" cellpadding="0">
@@ -783,13 +789,13 @@ This section includes a representative field mapping from PMIX/NIEM 4.0 Prescrip
   </table>
 </div>
 
-#### ASAP to FHIR Mappings for Dispensation Data
+#### <mark>ASAP to FHIR Mappings for dispensation Data
 
-This section includes a representative field mapping from ASAP Version 5.0 (& 4.2B) Standard for Prescription Drug Monitoring Programs (ASAP Reporting) to the FHIR elements in this Implementation Guide.
+<mark> This section includes a representative field mapping from ASAP Version 5.0 (& 4.2B) Standard for Prescription Drug Monitoring Programs (ASAP Reporting) to the FHIR elements in this Implementation Guide.
 
-While this Implementation Guide does not address the dispensation reporting from the Dispenser to the PDMP(s).  However, the PDMP Stakeholders who participated in the development of this Implementation Guide asked to include this mapping to relate the information they receive (i.e., via ASAP Reporting) to the information they would report under this Implementation Guide.  The PDMP Stakeholders opted to not include mapping to ASAP Web Service Standard.
+<mark> While this Implementation Guide does not address the dispensation reporting from the Dispenser to the PDMP(s).  However, the PDMP Stakeholders who participated in the development of this Implementation Guide asked to include this mapping to relate the information they receive (i.e., via ASAP Reporting) to the information they would report under this Implementation Guide.  The PDMP Stakeholders opted to not include mapping to ASAP Web Service Standard.
 
-At the time of development, ASAP Reporting 4.2B was transitioning to 5.0.  The fields pertinent to this mapping have the same designation and name in both 4.2B and 5.0.
+<mark> At the time of development, ASAP Reporting 4.2B was transitioning to 5.0.  The fields pertinent to this mapping have the same designation and name in both 4.2B and 5.0.
 
 <div class="ritz grid-container" dir="ltr">
   <table class="waffle" cellspacing="0" cellpadding="0">

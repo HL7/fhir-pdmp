@@ -1,9 +1,16 @@
+
+- <mark>Changes are highlighted in the text on this page when possible
+- <mark>Changes that can't be highlighted on this page are:
+    - <mark>all code formatting (</mark> ```for example```<mark> ) has been removed
+    - <mark>Mappings to NCPDP SCRIPT and PMIX have been updated
+    - <mark>Mapping to ASAP Reporting have been added (click on the Mapping tab)
+    
 **Important elements in this profile:**
 
 - **MedicationDispense.subject**
   - A reference to the patient receiving the medication SHALL be populated
 - **MedicationDispense.medicationCodeableConcept (or Medication reference)**
-  - The dispensed medication SHALL be populated, including the associated RxNorm code and NDC11, as available, reflecting the medication name, strength and dose form
+  - The dispensed medication SHALL be populated, including the associated RxNorm code and NDC11<mark>, as available,</mark> reflecting the medication name, strength and dose form
   - For information concerning mapping between NDC and RxNorm, see   [Mapping NDC, RXCUI, and Drug Names in the RxNorm Files](https://www.nlm.nih.gov/research/umls/user_education/quick_tours/RxNorm/ndc_rxcui/NDC_RXCUI_DrugName.html)
 - **MedicationDispense.performer**
   - The party that dispensed the medication SHALL be populated using either a reference to the performer (PDMP Organization-Pharmacy or US Core Practitioner resource) or an identifier specifying both the identifier value and system

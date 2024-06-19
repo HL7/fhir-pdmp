@@ -1,4 +1,8 @@
 
+- <mark>Changes are highlighted in the text on this page when possible
+- <mark>Changes that can't be highlighted on this page are:
+    - <mark>all code formatting (</mark> ```for example```<mark> ) has been removed
+    
 **Important elements in this profile:**
 
 - **MessageHeader.eventCoding.code**

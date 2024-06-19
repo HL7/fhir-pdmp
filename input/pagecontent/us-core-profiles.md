@@ -1,3 +1,9 @@
+
+- <mark>Changes are highlighted in the text on this page when possible
+- <mark>Changes that can't be highlighted on this page are:
+    - <mark>none
+    
+
 ### US Core Profiles Used With This Guide
 
 #### Base profiles for PDMP-specific content
@@ -79,7 +85,7 @@ Implementers SHALL conform to the following US Core profiles in PDMP interaction
 
 This guide does not prohibit PDMP participants from exchanging additional information beyond what it details, for example to meet jurisdictional requirements or to support additional use cases. 
 
-When other resources not profiled in this implementation guide or listed above are exchanged between a PDMP Requester and PDMP Responder, they **SHALL** conform to US Core profiles where applicable profiles exist.
+When other resources not profiled in this implementation guide or listed above are exchanged between a PDMP Requester and PDMP Responder, they <mark> **SHALL** </mark> conform to US Core profiles where applicable profiles exist.
 
 <p></p>
 

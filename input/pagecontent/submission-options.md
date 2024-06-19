@@ -1,3 +1,8 @@
+
+- <mark>Changes are highlighted in the text on this page when possible
+- <mark>Changes that can't be highlighted on this page are:
+    - <mark>all code formatting (</mark> ```for example```<mark>) has been removed
+
 This section describes how a PDMP Requester can retrieve a patient's information from a PDMP Responder by calling the pdmp-history operation directly or by submitting that operation request using FHIR messaging.
 
 <p></p>
@@ -35,9 +40,9 @@ Also contained in the response are:
 Use of an operation enables the process to support current PDMP processing requirements including:
 
 - submission of requesting provider and delegate details and facility information which are used for authorization and record-keeping 
-  - a delegate is an individual authorized by a provider or pharmacist who is requesting the PDMP information on their behalf.  For example, an intake or triage person in an emergency department may be a delegate for a physician in that department
-- support for a "pre-stage-only" request processing option
-  - A pre-stage request (pre-stage-only = true) directs the PDMP Responder to gather information for the requested patient and stage it for retrieval via a subsequent pdmp-history call
+  - <mark>a delegate is an individual authorized by a provider or pharmacist who is requesting the PDMP information on their behalf.  For example, an intake or triage person in an emergency department may be a delegate for a physician in that department
+- support for a pre-stage-only request processing option
+  - <mark> A pre-stage request (pre-stage-only = true) directs the PDMP Responder to gather information for the requested patient and stage it for retrieval via a subsequent pdmp-history call
 - support for the return of PDMP history in the form of discrete FHIR data
 - support for the return of a URL for accessing a PDMP history.
 
@@ -116,7 +121,7 @@ The MessageHeader.event of the request message references the [pdmp-history oper
 
 **Submission endpoint and parameters**
 
-The request message is submitted using  HTTP POST to the PDMP Responder using the standard FHIR $process-message operation...
+The request message is <mark> submitted using HTTP POST </mark> to the PDMP Responder using the standard FHIR $process-message operation...
   - URL: [base]/$process-message
   - Details from the base FHIR specification are [here](https://www.hl7.org/fhir/operation-messageheader-process-message.html).
 
@@ -166,7 +171,7 @@ The PDMP Requester populates the pre-stage-only input parameter with true to req
 
 In this scenario, one iteration of issue.details.code **SHOULD** be populated with the pre-stage-accepted code from the [response status value set](ValueSet-pdmp-response-status.html)
 
-There is no requirement for PDMP Responders to accept pre-stage-only requests.  Support for pre-stage requests is determined when the integration is being built between the PDMP Requestor (e.g., an EHR) and the PDMP Responder. 
+<mark>There is no requirement for PDMP Responders to accept pre-stage-only requests.  Support for pre-stage requests is determined when the integration is being built between the PDMP Requestor (e.g., an EHR) and the PDMP Responder. 
 <p></p>
 
 #### Non-fatal processing exception

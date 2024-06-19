@@ -1,20 +1,27 @@
+
+- <mark>Changes are highlighted in the text on this page when possible
+- <mark>Changes that can't be highlighted on this page are:
+    - <mark>all code formatting (</mark>  ```for example``` <mark>) has been removed
+    - <mark>In figure 1 the hub names have changed to "inter-PDMP hub"
+    - <mark>In figure 1 the green ovals identify PDMP Responders and yellow oval identify PDMP Requestors
+
 ### Introduction
 
 Prescription Drug Monitoring Programs (PDMPs) are state-based databases that provide prescribers and pharmacists with timely information about controlled substance, and in some states non-controlled substance, dispensing, administration and patient behaviors. Use of information stored in PDMPs during care delivery helps avoid drug misuse and diversion and can provide improved patient care and safety.
 
 To reduce opioid misuse, reduce drug diversion, and for other purposes, states have implemented policies mandating providers to reference PDMPs to obtain a patient's PDMP history before prescribing or dispensing certain medications. The Prescription Drug Monitoring Program (PDMP) FHIR Implementation Guide defines a method for providers to request and retrieve patient PDMP information using the HL7 FHIR standard. 
 
-For general background on state PDMP programs, see the Centers for Disease Control and Prevention [PDMP - What States Need to Know](https://www.cdc.gov/overdose-prevention/php/interventions/prescription-drug-monitoring-programs.html).
+<mark> For general background on state PDMP programs, see the Centers for Disease Control and Prevention </mark>  [PDMP - What States Need to Know](https://www.cdc.gov/overdose-prevention/php/interventions/prescription-drug-monitoring-programs.html).
  
 #### PDMP Ecosystem
 
-The Figure 1, below, shows an overview of the PDMP reporting ecosystem.  This diagram was adapted from Prescription Drug Monitoring Program Training and Technical Assistance Center [PDMP TTAC(https://www.pdmpassist.org)].  PDMP TTAC is an organization of PDMPs, federal partners and other stakeholders which has establish technical standards and provides other services, support, resources, & strategies to further the efforts and effectiveness of PDMPs.
+<mark>The Figure 1, below, shows an overview of the PDMP reporting ecosystem. This diagram was adapted from Prescription Drug Monitoring Program Training and Technical Assistance Center</mark>  [PDMP TTAC](https://www.pdmpassist.org). <mark> PDMP TTAC is an organization of PDMPs, federal partners and other stakeholders which has establish technical standards and provides other services, support, resources, & strategies to further the efforts and effectiveness of PDMPs.
 
 In this figure, 
 * a user can interact with a State PDMP System directly (i.e., a web portal) or through a Health care or pharmacy entity (e.g., EHR, pharmacy system)
 * Health care or pharmacy entity can interact with a State PDMP System directly or via an Integration Facilitator
-* State PDMP Systems exchange information with each other through an inter-PDMP Hub
-* ovals have been added to the diagram to identify PDMP Requestors (yellow) and PDMP Responders (green)
+* State PDMP Systems exchange information with each other through an <mark> inter-PDMP Hub
+* <mark> ovals have been added to the diagram to identify PDMP Requestors (yellow) and PDMP Responders (green)
 
 Outside of a user accessing a State PDMP System via a web portal, the interactions in Figure 1 can support discrete data exchange. 
 
@@ -28,9 +35,9 @@ Outside of a user accessing a State PDMP System via a web portal, the interactio
 </div>
 <p></p>
 
-#### Adding FHIR to the PDMP Ecosystem
+#### <mark> Adding FHIR to the PDMP Ecosystem
 
-This Implementation Guide provides another method for Users (or Users + Health care or Pharmacy entities) to request and receive PDMP history reports.  Systems may elect to follow the method in this Implementation Guide to leverage existing FHIR Infrastructure, particularly when discrete PDMP data is allowed to be stored or incorporated locally.
+<mark> This Implementation Guide provides another method for Users (or Users + Health care or Pharmacy entities) to request and receive PDMP history reports.  Systems may elect to follow the method in this Implementation Guide to leverage existing FHIR Infrastructure, particularly when discrete PDMP data is allowed to be stored or incorporated locally.
 
 ### Scope
 
@@ -46,15 +53,15 @@ For this Implementation Guide, we limit and abstract the ecosystem in Figure 1 t
 </div>
 <p></p>
 
-To support varying regulatory requirements, PDMP response supports both the PDMP history as discrete data and a URL pointing to the PDMP history rendered (fully-formatted) to regulatory requirements.
+<mark>To support varying regulatory requirements,</mark> PDMP response supports both the PDMP history as discrete data and a URL pointing to the PDMP history rendered (fully-formatted) to regulatory requirements.
 
 This guide provides both RESTful operation and messaging submission methods to match implementers' particular environments as described [here](submission-options.html).
 
 This Implementation Guide is intended to be used in the United States.  It reflects US pharmacy processes and conventions.
 
 ### Out of Scope
-**Hubs and Integration Facilitators**
-The inter-PDMP hubs and Integration Facilitators in Figure 1 may be associated with either the PDMP Requestor or the PDMP Responder in Figure 2, depending upon the implementation.  They are not specifically addressed as separate entities in this Implementation Guide.
+**<mark>Hubs and Integration Facilitators</mark>**
+<mark>The inter-PDMP hubs and Integration Facilitators in Figure 1 may be associated with either the PDMP Requestor or the PDMP Responder in Figure 2, depending upon the implementation.  They are not specifically addressed as separate entities in this Implementation Guide.
 
 **Other interactions** between PDMP ecosystem parties, including parties not depicted in Figure 1, are ***out of scope*** for this Implementation Guide.  These exchanges include, but are not limited to:
 - data exchange between PDMPs
@@ -168,9 +175,9 @@ The authors acknowledge and thank our stakeholders for their essential contribut
 ### IP Statements
 **NOTE TO BALLOTERS**
 *Formal IP statements are pending for*
-- PIMX references are available through Prescription Drug Monitoring Program Training and Technical Assistance Center (PDMP TTAC) [https://www.pdmpassist.org/PMIX/Standards](https://www.pdmpassist.org/PMIX/Standards). 
-- NCPDP references are copyright National Council for Prescription Drug Programs (NCPDP) [https://standards.ncpdp.org](https://standards.ncpdp.org/)
-- ASAP references are copyright American Society for Automation in Pharmacy (ASAP) [https://asapnet.org/publications/](https://asapnet.org/publications/)
+- <mark> PIMX references are available through Prescription Drug Monitoring Program Training and Technical Assistance Center (PDMP TTAC)</mark>  [https://www.pdmpassist.org/PMIX/Standards](https://www.pdmpassist.org/PMIX/Standards). 
+- <mark> NCPDP references are copyright National Council for Prescription Drug Programs (NCPDP)</mark>  [https://standards.ncpdp.org](https://standards.ncpdp.org/)
+- <mark> ASAP references are copyright American Society for Automation in Pharmacy (ASAP)</mark>  [https://asapnet.org/publications/](https://asapnet.org/publications/)
 
 {% include ip-statements.xhtml %}
 

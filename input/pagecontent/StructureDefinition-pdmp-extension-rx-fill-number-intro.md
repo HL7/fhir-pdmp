@@ -1,0 +1,4 @@
+
+- <mark>Changes are highlighted in the text on this page when possible
+- <mark>Changes that can't be highlighted on this page are:
+    - <mark>all descriptions of rx-fill-number have been changed to _"Represents the specific fill number for the prescription dispensed, with 0 representing the initial fill, 1 representing the first refill, etc. Each fill number represents one dispensation, even if that dispensation is not for the full quantity. Partial fills are not represented by decimal quantities. For example, an initial fill of 100 tablets would have rx-fill-number = 0. A subsequent refill, per patient request, 40 tablets (full quantity is 100 tablets) would have rx-fill-number = 1 (not 0.4). The next subsequent refill, for any quantity, would have rx-fill-number = 2."_

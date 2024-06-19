@@ -1,3 +1,9 @@
+
+- <mark>Changes are highlighted in the text on this page when possible
+- <mark>Changes that can't be highlighted on this page are:
+    - <mark>all code formatting (</mark> ```for example```<mark>) has been removed
+    - <mark>note the one word change ("...if needed if..." changed to "...if needed by...")
+    
 **Notes:**
 
 **Resource entry cardinality.** The only required resource in the Bundle is Patient, and all others are optional. This reflects that PDMP history can include information about dispensations and/or administrations--with each type of event represented by different sets of FHIR resources. 
@@ -28,6 +34,6 @@ Instead, the PDMP Responder indicates that history was not found using the respo
 
 **Use of PDMP and US Core profiles.** Resources returned in this Bundle **SHALL** conform to the profiles identified below for the resource types noted here. 
 
-Additional resource types **MAY** be returned if needed by the PDMP Responder to include aspects of PDMP history that cannot be represented by those listed below. When returning an additional resource type for which there is a US Core profile, the US Core profile **SHOULD** be used.
+Additional resource types **MAY** be returned if needed <mark>by</mark> the PDMP Responder to include aspects of PDMP history that cannot be represented by those listed below. When returning an additional resource type for which there is a US Core profile, the US Core profile **SHOULD** be used.
 
 <p></p>

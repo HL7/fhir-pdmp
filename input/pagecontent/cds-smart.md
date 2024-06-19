@@ -1,3 +1,8 @@
+
+- <mark>Changes are highlighted in the text on this page when possible
+- <mark>Changes that can't be highlighted on this page are:
+    - <mark>all code formatting (</mark> ```for example```<mark>) has been removed
+    
 This section describes approaches for using FHIR's CDS Hooks and SMART App Launch standards to retrieve a patient's information from a PDMP Responder from within the provider's system, as an alternative to the operation-based approached described [here](submission-options.html).
 
 
@@ -34,7 +39,7 @@ This guide defers to the CDS Hooks and SMART App Launch implementation guides fo
 Implementers:
 - **MAY** use CDS Hooks for decision support alerts associated with non-drug orders, to inform the provider of a situation where opioid use might be an issue and checking PDMP is recommended.
 - **SHOULD NOT** use CDS Hooks as a mechanism to support a provider requirement to always check PDMP
-- **SHALL NOT** return discrete patient PDMP history detail in a CDS Hooks response (instead, the CDS Server **SHOULD** return a URL or SMART app link card to access the information)
+- **SHALL NOT** return discrete patient PDMP history detail in a CDS Hooks response (instead, the CDS Server **SHOULD** return a <mark>URL</mark> or SMART app link card to access the information)
 - **SHOULD** use  SMART App Launch alone (not triggered by CDS Hooks) for situations where the provider must view a patient's PDMP history.
 
 **CDS Hooks workflow event options**
@@ -43,9 +48,9 @@ Implementers:
   - order-select which fires at the start of the ordering process 
   - patient-view which occurs when the provider first views the patient's chart in an encounter
 
-... may be preferable to those that happen after the provider has made determinations.
+... <mark> may be </mark> preferable to those that happen after the provider has made determinations.
 
-However, if receiving finalized order details in the CDS request would better enable the PDMP's CDS service to respond, use of the order-sign hook may be more appropriate.
+<mark>However, if receiving finalized order details in the CDS request would better enable the PDMP's CDS service to respond, use of the order-sign hook may be more appropriate.
 
 <p></p>
 
@@ -53,7 +58,7 @@ However, if receiving finalized order details in the CDS request would better en
 
 The PDMP Responder must receive the same patient and authorized provider information when called using CDS Hooks or SMART App Launch as when the provider system submits a request using the pdmp-history operation--to support its authorization and processing requirements.
 
-When submitting a CDS Hooks request or launching an SMART app, the provider system **MAY** include the [request Parameters resource](StructureDefinition-pdmp-parameters-request.html) to provide needed context:
+When submitting a CDS Hooks request or launching an SMART app, the provider system <mark> **MAY**</mark> include the [request Parameters resource](StructureDefinition-pdmp-parameters-request.html) to provide needed context:
 - as prefetch data in a CDS Hooks request
 - in the appContext launch parameter in a SMART app launch.
 

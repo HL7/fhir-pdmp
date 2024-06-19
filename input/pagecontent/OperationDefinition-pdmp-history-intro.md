@@ -1,3 +1,8 @@
+
+- <mark>Changes are highlighted in the text on this page when possible
+- <mark>Changes that can't be highlighted on this page are:
+    - <mark> all code formatting (```for example```) has been removed
+
 **Notes:**
 
 - **Detailed parameter definitions.** The table below describes the input and output parameters, including their uses and base FHIR resource types.The content conveyed in those parameters is further constrained by the [PDMP Parameters - Request](StructureDefinition-pdmp-parameters-request.html) and [PDMP Parameters - Response](StructureDefinition-pdmp-parameters-response.html) profiles referenced below. 
