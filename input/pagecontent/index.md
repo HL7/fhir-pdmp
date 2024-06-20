@@ -76,7 +76,7 @@ The inter-PDMP hubs and Integration Facilitators in Figure 1 may be associated w
 
 - **PDMP response:** A message, sent by a PDMP Responder that particular PDMP Requester that submitted a specific  PDMP request.  The message may include any combination of: the PDMP history in discrete data, a URL to a formatted PDMP history report, additional alerts and message, error messages, and other relevant information.
 
-- **PDMP history:** The content of a PDMP response including pertinent patient, pharmacy, prescriber, and dispensation records. The PDMP Responder may also include alerts, administration records, and other information as appropriate or as required by policy or regulation.==
+- **PDMP history:** The content of a PDMP response including pertinent patient, pharmacy, prescriber, and dispensation records. The PDMP Responder may also include alerts, administration records, and other information as appropriate or as required by policy or regulation.
 
 
 ### Content and Organization
@@ -166,9 +166,7 @@ The authors acknowledge and thank our stakeholders for their essential contribut
 {% include globals-table.xhtml %}
 
 ### IP Statements
-**NOTE TO BALLOTERS**
-*Formal IP statements are pending for*
-- PIMX references are available through Prescription Drug Monitoring Program Training and Technical Assistance Center (PDMP TTAC) [https://www.pdmpassist.org/PMIX/Standards](https://www.pdmpassist.org/PMIX/Standards). 
+- PIMX references are available through the Prescription Drug Monitoring Program Training and Technical Assistance Center (PDMP TTAC) [https://www.pdmpassist.org/PMIX/Standards](https://www.pdmpassist.org/PMIX/Standards). 
 - NCPDP references are copyright National Council for Prescription Drug Programs (NCPDP) [https://standards.ncpdp.org](https://standards.ncpdp.org/)
 - ASAP references are copyright American Society for Automation in Pharmacy (ASAP) [https://asapnet.org/publications/](https://asapnet.org/publications/)
 

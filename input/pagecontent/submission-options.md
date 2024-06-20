@@ -36,8 +36,8 @@ Use of an operation enables the process to support current PDMP processing requi
 
 - submission of requesting provider and delegate details and facility information which are used for authorization and record-keeping 
   - a delegate is an individual authorized by a provider or pharmacist who is requesting the PDMP information on their behalf.  For example, an intake or triage person in an emergency department may be a delegate for a physician in that department
-- support for a "pre-stage-only" request processing option
-  - A pre-stage request (pre-stage-only = true) directs the PDMP Responder to gather information for the requested patient and stage it for retrieval via a subsequent pdmp-history call
+- support for a pre-stage-only request processing option
+  - A pre-stage-only request (pre-stage-only = true) directs the PDMP Responder to gather information for the requested patient and stage it for retrieval via a subsequent pdmp-history call
 - support for the return of PDMP history in the form of discrete FHIR data
 - support for the return of a URL for accessing a PDMP history.
 
