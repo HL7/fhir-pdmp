@@ -5,8 +5,6 @@ The string value contains text that looks like embedded HTML tags. If this conte
 
 # A base MedicationDispense invariant causes an error when a Data Absent Reason extension is used for whenHandedOver. Discussed in CGP WG on 3/7/24 and a jira to address this was created: https://jira.hl7.org/browse/FHIR-44999
 Constraint failed: mdd-1: 'whenHandedOver cannot be before whenPrepared' (defined in http://hl7.org/fhir/StructureDefinition/MedicationDispense)java.lang.NullPointerException: null (log: java.lang.NullPointerException: null)
-Constraint failed: mdd-1: 'whenHandedOver cannot be before whenPrepared'java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" because the return value of "org.hl7.fhir.r5.model.BaseDateTimeType.getYear()" is null (log: java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" because the return value of "org.hl7.fhir.r5.model.BaseDateTimeType.getYear()" is null)
-Constraint failed: mdd-1: 'whenHandedOver cannot be before whenPrepared' (defined in http://hl7.org/fhir/StructureDefinition/MedicationDispense)java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" because the return value of "org.hl7.fhir.r5.model.BaseDateTimeType.getYear()" is null (log: java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" because the return value of "org.hl7.fhir.r5.model.BaseDateTimeType.getYear()" is null)
 Constraint failed: mdd-1: 'whenHandedOver cannot be before whenPrepared'java.lang.NullPointerException: null (log: java.lang.NullPointerException: null)
 
 # MessageHeader profiles do not have separate examples b/c they aren't used indepenently. Instead, profile pages contain links to full message examples for pdmp-messageheader-request, pdmp-messageheader-response, pdmp-parameters-request
@@ -17,17 +15,30 @@ INFORMATION: StructureDefinition.where(url = 'http://hl7.org/fhir/us/pdmp/Struct
 Details for urn:uuid:aecbb129-9a73-4b59-9d66-ff5cdb3f3164 matching against profile http://hl7.org/fhir/StructureDefinition/Parameters|4.0.1
 
 # The US Core Organization profile sets identifier patterns in repeating slices for NPI, CLIA and NAIC. The pattern is expected to hold for all repetitions of that slice.  (It's fixing the 'system' for the identifier.)
-INFORMATION: StructureDefinition/pdmp-organization-pharmacy: StructureDefinition.snapshot.element[10].pattern.ofType(Identifier): The repeating element has a pattern. The pattern will apply to all the repeats (this has not been clear to all users)
-INFORMATION: StructureDefinition/pdmp-organization-pharmacy: StructureDefinition.snapshot.element[11].pattern.ofType(Identifier): The repeating element has a pattern. The pattern will apply to all the repeats (this has not been clear to all users)
-INFORMATION: StructureDefinition/pdmp-organization-pharmacy: StructureDefinition.snapshot.element[12].pattern.ofType(Identifier): The repeating element has a pattern. The pattern will apply to all the repeats (this has not been clear to all users)
+INFORMATION: StructureDefinition/pdmp-organization-pharmacy: StructureDefinition.snapshot.element[18].pattern.ofType(Identifier): The repeating element has a pattern. The pattern will apply to all the repeats (this has not been clear to all users)
+INFORMATION: StructureDefinition/pdmp-organization-pharmacy: StructureDefinition.snapshot.element[19].pattern.ofType(Identifier): The repeating element has a pattern. The pattern will apply to all the repeats (this has not been clear to all users)
+INFORMATION: StructureDefinition/pdmp-organization-pharmacy: StructureDefinition.snapshot.element[20].pattern.ofType(Identifier): The repeating element has a pattern. The pattern will apply to all the repeats (this has not been clear to all users)
 
-# The PMIX code systems are open source and freely available to be used by implementers. Steps underway to add to HTA
-INFORMATION: CodeSystem/temporary-pmix-method-of-payment: CodeSystem: Most code systems defined in HL7 IGs will need to move to THO later during the process. Consider giving this code system a THO URL now (See https://confluence.hl7.org/display/TSMG/Terminology+Play+Book, and/or talk to TSMG)
-INFORMATION: CodeSystem/temporary-pmix-opioid-treatment-code: CodeSystem: Most code systems defined in HL7 IGs will need to move to THO later during the process. Consider giving this code system a THO URL now (See https://confluence.hl7.org/display/TSMG/Terminology+Play+Book, and/or talk to TSMG)
-INFORMATION: CodeSystem/temporary-pmix-response-status: CodeSystem: Most code systems defined in HL7 IGs will need to move to THO later during the process. Consider giving this code system a THO URL now (See https://confluence.hl7.org/display/TSMG/Terminology+Play+Book, and/or talk to TSMG)
-INFORMATION: CodeSystem/temporary-pmix-species-type-code: CodeSystem: Most code systems defined in HL7 IGs will need to move to THO later during the process. Consider giving this code system a THO URL now (See https://confluence.hl7.org/display/TSMG/Terminology+Play+Book, and/or talk to TSMG)
-INFORMATION: CodeSystem/temporary-pmix-transmission-form-of-rx-origin: CodeSystem: Most code systems defined in HL7 IGs will need to move to THO later during the process. Consider giving this code system a THO URL now (See https://confluence.hl7.org/display/TSMG/Terminology+Play+Book, and/or talk to TSMG)
-INFORMATION: CodeSystem/temporary-pmix-patient-alert-category-code: CodeSystem: Most code systems defined in HL7 IGs will need to move to THO later during the process. Consider giving this code system a THO URL now (See https://confluence.hl7.org/display/TSMG/Terminology+Play+Book, and/or talk to TSMG)
+# The PMIX code systems are open source and freely available to be used by implementers. These code systems are included in THO without values. 
+The definition for the Code System with URI 'http://terminology.hl7.org/CodeSystem/PMIXTransmissionFormRxOriginCodeType' doesn't provide any codes so the code cannot be validated
+The definition for the Code System with URI 'http://terminology.hl7.org/CodeSystem/PMIXMethodofPayment' doesn't provide any codes so the code cannot be validated
+The definition for the Code System with URI 'http://terminology.hl7.org/CodeSystem/PMIXOpioidTreatmentCode' doesn't provide any codes so the code cannot be validated
+Resolved system http://terminology.hl7.org/CodeSystem/PMIXTransmissionFormRxOriginCodeType (v1.0.0), but the definition doesn't include any codes, so the code has not been validated
+Resolved system http://terminology.hl7.org/CodeSystem/PMIXMethodofPayment (v1.0.0), but the definition doesn't include any codes, so the code has not been validated
+Resolved system http://terminology.hl7.org/CodeSystem/PMIXOpioidTreatmentCode (v1.0.0), but the definition doesn't include any codes, so the code has not been validated
+
+# Certain PMIX code systems added to HTA/THO in late July 2024 do not appear to be on the FHIR terminiology server yet
+A definition for CodeSystem 'http://terminology.hl7.org/CodeSystem/PMIXPatientAlertCatCode' could not be found, so the code cannot be validated
+A definition for CodeSystem 'http://terminology.hl7.org/CodeSystem/PMIXSpeciesTypeCode' could not be found, so the code cannot be validated
+A definition for CodeSystem 'http://terminology.hl7.org/CodeSystem/PMIXStatusCode' could not be found, so the code cannot be validated
+
+Error from http://tx.fhir.org/r4: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/PMIXOpioidTreatmentCode
+Error from http://tx.fhir.org/r4: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/PMIXPatientAlertCatCode
+Error from http://tx.fhir.org/r4: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/PMIXStatusCode
+Error from http://tx.fhir.org/r4: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/PMIXTransmissionFormRxOriginCodeType
+Error from http://tx.fhir.org/r4: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/PMIXSpeciesTypeCode
+Error from http://tx.fhir.org/r4: Unable to provide support for code system http://terminology.hl7.org/CodeSystem/PMIXMethodofPayment
+
 
 # We believe the single value of this code system is unique to the PDMP use case. It may be added to a related PMIX code system or kept within the IG
 INFORMATION: CodeSystem/temporary-pdmp-response-status: CodeSystem: Most code systems defined in HL7 IGs will need to move to THO later during the process. Consider giving this code system a THO URL now (See https://confluence.hl7.org/display/TSMG/Terminology+Play+Book, and/or talk to TSMG)
@@ -35,3 +46,6 @@ INFORMATION: CodeSystem/temporary-pdmp-response-status: CodeSystem: Most code sy
 # Identifier types in the example instances below are intentionally of a type that does not have a slice definition in the US Core Practitioner identifier element
 INFORMATION: Bundle/pdmp-bundle-history-result-2: Bundle.entry[8].resource/*Practitioner/practitioner-2*/.identifier[1]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner|6.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)
 INFORMATION: Bundle/pdmp-bundle-history-result-2: Bundle.entry[10].resource/*Practitioner/practitioner-1*/.identifier[1]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner|6.1.0 (this may not be a problem, but you should check that it's not intended to match a slice)
+
+# Duplicate anchor warning related to anchors created by the publisher (this Zulip thread indicates these can be ignored: https://chat.fhir.org/#narrow/stream/179252-IG-creation/topic/Publisher.20v1.2E6.2E12)
+The html source has duplicate anchor Ids: full-guide

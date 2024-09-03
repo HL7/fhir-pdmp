@@ -1,6 +1,8 @@
 Instance: pdmp-client
 InstanceOf: CapabilityStatement
 Usage: #definition
+* text.status = #additional
+* text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p> See <a href=\"capability-statements.html\">Capability Statements</a> for additional details.</p></div>"
 * extension.url = "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg"
 * extension.valueCode = #phx
 * url = "http://hl7.org/fhir/us/pdmp/CapabilityStatement/pdmp-client"

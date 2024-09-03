@@ -53,9 +53,9 @@ Alias: $pdmp-pharmacy = http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-org
 
 // PDMP terminology
 Alias: $pdmp-response-status-cs = http://hl7.org/fhir/us/pdmp/CodeSystem/temporary-pdmp-response-status
-Alias: $pmix-response-status-cs = http://hl7.org/fhir/us/pdmp/CodeSystem/temporary-pmix-response-status
-Alias: $pmix-transmission-cs = http://hl7.org/fhir/us/pdmp/CodeSystem/temporary-pmix-transmission-form-of-rx-origin
-Alias: $pmix-species-type-cs = http://hl7.org/fhir/us/pdmp/CodeSystem/temporary-pmix-species-type-code
-Alias: $pmix-opioid-treatment-code-cs = http://hl7.org/fhir/us/pdmp/CodeSystem/temporary-pmix-opioid-treatment-code
-Alias: $pmix-method-of-payment-cs = http://hl7.org/fhir/us/pdmp/CodeSystem/temporary-pmix-method-of-payment
-Alias: $pmix-patient-alert-category-code-cs = http://hl7.org/fhir/us/pdmp/CodeSystem/temporary-pmix-patient-alert-category-code
+Alias: $pmix-response-status-cs = http://terminology.hl7.org/CodeSystem/PMIXStatusCode
+Alias: $pmix-transmission-cs = http://terminology.hl7.org/CodeSystem/PMIXTransmissionFormRxOriginCodeType
+Alias: $pmix-species-type-cs = http://terminology.hl7.org/CodeSystem/PMIXSpeciesTypeCode
+Alias: $pmix-opioid-treatment-code-cs = http://terminology.hl7.org/CodeSystem/PMIXOpioidTreatmentCode
+Alias: $pmix-method-of-payment-cs = http://terminology.hl7.org/CodeSystem/PMIXMethodofPayment
+Alias: $pmix-patient-alert-category-code-cs = http://terminology.hl7.org/CodeSystem/PMIXPatientAlertCatCode
