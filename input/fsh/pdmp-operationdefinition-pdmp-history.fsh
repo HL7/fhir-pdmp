@@ -14,10 +14,15 @@ Usage: #definition
 * contact[=].telecom.system = #url
 * contact[=].telecom.value = "http://www.hl7.org/Special/committees/medication"
 * contact[+].name = "Frank McKinney"
-* contact[=].telecom[0].system = #url
+* contact[=].telecom[0].system = #email
 * contact[=].telecom[=].value = "frank.mckinney@pocp.com"
 * contact[=].telecom[+].system = #email
 * contact[=].telecom[=].value = "fm@frankmckinney.com"
+* contact[+].name = "Scott Robertson"
+* contact[=].telecom[0].system = #email
+* contact[=].telecom[=].value = "scott.robertson@pocp.com"
+* contact[=].telecom[+].system = #email
+* contact[=].telecom[=].value = "scott@BearHealthTech.consulting"
 * description = "Operation returning an individual patient's PDMP history"
 * jurisdiction = urn:iso:std:iso:3166#US "United States of America"
 * affectsState = false
@@ -33,48 +38,56 @@ Usage: #definition
 * parameter[=].max = "1"
 * parameter[=].documentation = "The patient whose PDMP history is desired"
 * parameter[=].type = #Patient
+* parameter[=].targetProfile = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-patient"
 * parameter[+].name = #animal-owner
 * parameter[=].use = #in
 * parameter[=].min = 0
 * parameter[=].max = "1"
 * parameter[=].documentation = "If the patient is an animal, this parameter reflects its owner's information"
 * parameter[=].type = #RelatedPerson
+* parameter[=].targetProfile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-relatedperson"
 * parameter[+].name = #authorized-practitioner
 * parameter[=].use = #in
 * parameter[=].min = 1
 * parameter[=].max = "1"
 * parameter[=].documentation = "The Practitioner resource reflecting the provider who is authorized to view the returned PDMP information"
 * parameter[=].type = #Practitioner
+* parameter[=].targetProfile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner"
 * parameter[+].name = #authorized-practitioner-role
 * parameter[=].use = #in
 * parameter[=].min = 1
 * parameter[=].max = "1"
 * parameter[=].documentation = "The PractitionerRole resource reflecting the authorized provider's practice information"
 * parameter[=].type = #PractitionerRole
+* parameter[=].targetProfile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole"
 * parameter[+].name = #authorized-practitioner-organization
 * parameter[=].use = #in
 * parameter[=].min = 0
 * parameter[=].max = "1"
 * parameter[=].documentation = "An Organization resource reflecting the authorized provider's organization"
 * parameter[=].type = #Organization
+* parameter[=].targetProfile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization"
 * parameter[+].name = #delegate-practitioner
 * parameter[=].use = #in
 * parameter[=].min = 0
 * parameter[=].max = "1"
 * parameter[=].documentation = "A Practitioner resource reflecting a provider who is requesting the PDMP information on behalf of another party"
 * parameter[=].type = #Practitioner
+* parameter[=].targetProfile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner"
 * parameter[+].name = #delegate-practitioner-role
 * parameter[=].use = #in
 * parameter[=].min = 0
 * parameter[=].max = "1"
 * parameter[=].documentation = "A PractitionerRole resource reflecting the delegate's practice information"
 * parameter[=].type = #PractitionerRole
+* parameter[=].targetProfile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole"
 * parameter[+].name = #delegate-organization
 * parameter[=].use = #in
 * parameter[=].min = 0
 * parameter[=].max = "1"
 * parameter[=].documentation = "An Organization resource reflecting the delegate's organization"
 * parameter[=].type = #Organization
+* parameter[=].targetProfile = "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization"
 * parameter[+].name = #pre-stage-only
 * parameter[=].use = #in
 * parameter[=].min = 0
@@ -93,6 +106,7 @@ Usage: #definition
 * parameter[=].max = "1"
 * parameter[=].documentation = "A Bundle of type 'collection' that contains medication dispensation and administration information for the requested patient (if found)"
 * parameter[=].type = #Bundle
+* parameter[=].targetProfile = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-bundle-history-result"
 * parameter[+].name = #pdmp-history-link
 * parameter[=].use = #out
 * parameter[=].min = 0

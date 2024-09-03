@@ -58,7 +58,7 @@ Description: "This profile tailors the Parameters resource to convey PDMP Histor
 * parameter[authorized-practitioner-organization].value[x] MS
 * parameter[delegate-practitioner].name = "delegate-practitioner" (exactly)
 * parameter[delegate-practitioner].name MS
-* parameter[delegate-practitioner].value[x] only Reference($us-core-practitionerrole)
+* parameter[delegate-practitioner].value[x] only Reference($us-core-practitioner)
 * parameter[delegate-practitioner].value[x] MS
 * parameter[delegate-practitioner-role].name = "delegate-practitioner-role" (exactly)
 * parameter[delegate-practitioner-role].name MS
@@ -197,7 +197,7 @@ Description: "Example of a PDMP operation request for an animal patient"
 * parameter[patient].resource.text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Animal patient: Fido Samuels</div>"
 * parameter[patient].resource.extension[0].url = $patient-animal-extension
 * parameter[patient].resource.extension[=].extension[0].url = "species"
-* parameter[patient].resource.extension[=].extension[0].valueCodeableConcept.coding = temporary-pmix-species-type-code#02 "Veterinary Patient"
+* parameter[patient].resource.extension[=].extension[0].valueCodeableConcept.coding = $pmix-species-type-cs#02 "Veterinary Patient"
 * parameter[patient].resource.identifier.type.coding.system = "http://terminology.hl7.org/CodeSystem/v2-0203"
 * parameter[patient].resource.identifier.type.coding.code = #MR
 * parameter[patient].resource.identifier.type.coding.display = "Medical record number"

@@ -1,15 +1,11 @@
  {
     "package-id": "hl7.fhir.us.pdmp",
-    "version": "1.0.0-ballot",
-    "path": "http://hl7.org/fhir/us/pdmp/2024May",
-    "mode": "working",
-    "status": "ballot",
+    "version": "1.0.0",
+    "path": "http://hl7.org/fhir/us/pdmp/STU1",
+    "mode": "milestone",
+    "status": "trial-use",
     "sequence": "STU1",
-    "desc": "This is the proposed STU1 version of the US Prescription Drug Monitoring Program (PDMP) FHIR IG for ballot in May 2024. It is sponsored by the HL7 Pharmacy Work Group",
+    "desc": "This is the STU1 version of the US Prescription Drug Monitoring Program (PDMP) FHIR IG. It is sponsored by the HL7 Pharmacy Work Group",
     "changes":"changes.html",
-    "first":true,
-    "title" : "US Prescription Drug Monitoring Program (PDMP)",
-    "ci-build" : "https://build.fhir.org/ig/HL7/fhir-pdmp",
-    "category" : "Medications / Immunizations",
-    "introduction" : "Prescription Drug Monitoring Programs (PDMPs) are state-based databases that provide prescribers, pharmacists, and health authorities timely information about controlled substance, and in some states non-controlled substance dispensing and patient behaviors. Use of information stored in PDMPs during care delivery helps avoid drug misuse and diversion and can provide improved patient care and safety. To reduce opioid misuse and for other purposes, states have implemented policies mandating providers to reference PDMPs to obtain patients history before prescribing or dispensing certain medications. The Prescription Drug Monitoring Program (PDMP) FHIR Implementation Guide defines a method for providers to access patient PDMP information using the HL7 FHIR standard."
+    "first":false
 }

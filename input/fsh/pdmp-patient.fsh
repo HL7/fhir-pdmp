@@ -77,7 +77,7 @@ Description: "Example of a PDMP patient representing an animal"
 * meta.profile = "http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-patient"
 * extension[0].url = $patient-animal-extension
 * extension[=].extension[0].url = "species"
-* extension[=].extension[0].valueCodeableConcept.coding = temporary-pmix-species-type-code#02 "Veterinary Patient"
+* extension[=].extension[0].valueCodeableConcept.coding = $pmix-species-type-cs#02 "Veterinary Patient"
 * identifier.type.coding.system = "http://terminology.hl7.org/CodeSystem/v2-0203"
 * identifier.type.coding.code = #MR
 * identifier.type.coding.display = "Medical record number"
