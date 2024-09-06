@@ -20,6 +20,20 @@
         border-color: grey;
         border-collapse: collapse;
     }
+
+.fm_ex-alert {
+border:0px solid lightgrey;
+border-left-width:5px;
+border-radius:8px;
+box-shadow:0 1px 2px 0 rgba(0,0,0,.1);
+padding:16px 16px 16px 16px
+}
+
+.fm_ex-alert--info {
+background-color:whitesmoke;
+border-color:lightgrey;
+}
+
 .fm_ex #expandNote {
     display:block;
     font-family:verdana, sans-serif;
