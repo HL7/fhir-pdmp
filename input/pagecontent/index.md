@@ -8,7 +8,7 @@ For general background on state PDMP programs, see the Centers for Disease Contr
  
 #### PDMP Ecosystem
 
-The Figure 1, below, shows an overview of the PDMP reporting ecosystem.  This diagram was adapted from Prescription Drug Monitoring Program Training and Technical Assistance Center [PDMP TTAC(https://www.pdmpassist.org)].  PDMP TTAC is an organization of PDMPs, federal partners and other stakeholders which has establish technical standards and provides other services, support, resources, & strategies to further the efforts and effectiveness of PDMPs.
+The Figure 1, below, shows an overview of the PDMP reporting ecosystem.  This diagram was adapted from Prescription Drug Monitoring Program Training and Technical Assistance Center ([PDMP TTAC](https://www.pdmpassist.org)).  PDMP TTAC is an organization of PDMPs, federal partners and other stakeholders which has establish technical standards and provides other services, support, resources, & strategies to further the efforts and effectiveness of PDMPs.
 
 In this figure, 
 * a user can interact with a State PDMP System directly (i.e., a web portal) or through a Health care or pharmacy entity (e.g., EHR, pharmacy system)
