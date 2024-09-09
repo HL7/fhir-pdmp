@@ -1,7 +1,8 @@
+<p></p>
 
 <blockquote class="fm_ex-alert fm_ex-alert--info">
 <p>
- <b>Code system values.</b> This value set contains codes from a code system maintained by the Prescription Monitoring Information eXchange (PMIX) Standards Organization. To assist implementers, below are the codes at the time of publishing.
+ <b>Note regarding code values.</b> This value set contains codes from a code system maintained by the Prescription Monitoring Information eXchange (PMIX) Standards Organization. To assist implementers, below are the codes at the time of publishing.
 </p>
 </blockquote>
 

@@ -1,7 +1,7 @@
  {
     "package-id": "hl7.fhir.us.pdmp",
     "version": "1.0.0",
-    "path": "http://hl7.org/fhir/us/pdmp/STU1",
+    "path": "http://hl7.org/fhir/us/pdmp",
     "mode": "milestone",
     "status": "trial-use",
     "sequence": "STU1",
