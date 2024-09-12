@@ -9,7 +9,7 @@ Constraint failed: mdd-1: 'whenHandedOver cannot be before whenPrepared' (define
 Constraint failed: mdd-1: 'whenHandedOver cannot be before whenPrepared'java.lang.NullPointerException: null (log: java.lang.NullPointerException: null)
 Constraint failed: mdd-1: 'whenHandedOver cannot be before whenPrepared'java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" because the return value of "org.hl7.fhir.r5.model.BaseDateTimeType.getYear()" is null (log: java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" because the return value of "org.hl7.fhir.r5.model.BaseDateTimeType.getYear()" is null)
 
-# MessageHeader profiles do not have separate examples b/c they aren't used indepenently. Instead, profile pages contain links to full message examples for pdmp-messageheader-request, pdmp-messageheader-response, pdmp-parameters-request
+# MessageHeader profiles do not have separate examples b/c they aren't used independently. Instead, profile pages contain links to full message examples for pdmp-messageheader-request, pdmp-messageheader-response, pdmp-parameters-request
 INFORMATION: StructureDefinition.where(url = 'http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-messageheader-request'): The Implementation Guide contains no explicitly linked examples for this profile
 INFORMATION: StructureDefinition.where(url = 'http://hl7.org/fhir/us/pdmp/StructureDefinition/pdmp-messageheader-response'): The Implementation Guide contains no explicitly linked examples for this profile
 
